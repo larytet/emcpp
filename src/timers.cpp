@@ -210,7 +210,7 @@ typedef struct /* emTimerT */
   return zero if success
   return em_TIMER_ERROR_NO_FREE_TIMER if no free timer available
 */
-emTimerErrorT emTimerStart(emTimerListHandle ListHandle, emTimerT *Timer);
+EmTimerError emTimerStart(emTimerListHandle ListHandle, emTimerT *Timer);
 
 /*
   this fuction will remove the timer from the list of the running timers
@@ -226,7 +226,7 @@ emTimerErrorT emTimerStart(emTimerListHandle ListHandle, emTimerT *Timer);
     can use the same handle for the new timer (the Id of course IS still unique)
     - application tries to stop it
 */
-emTimerErrorT emTimerStop(unsigned int TimerHandle, unsigned int TimerId);
+EmTimerError emTimerStop(unsigned int TimerHandle, unsigned int TimerId);
 
 
 typedef enum
