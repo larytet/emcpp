@@ -1,0 +1,2 @@
+Command 'make' shall build the code 
+For ARM try 'make CROSS=arm-linux-gnueabi-'
