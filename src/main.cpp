@@ -600,7 +600,7 @@ public:
     }
 };// class Lock
 
-class CyclicBufferApi {
+class Container {
 
 public:
     bool isEmpty() {
@@ -615,7 +615,7 @@ public:
     }
 
 protected:
-    CyclicBufferApi(size_t size) {
+    Container(size_t size) {
         this->size = size;
         this->head = 0;
         this->tail = 0;
@@ -639,13 +639,13 @@ protected:
     size_t tail;
     size_t size;
 
-};// CyclicBufferApi
+};// Container
 
-template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: CyclicBufferApi {
+template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: Container {
 public:
 
     CyclicBuffer() :
-            CyclicBufferApi(Size) {
+        Container(Size) {
         static_assert(std::numeric_limits<ObjectType>::is_integer, "CyclicBuffer is intended to work only with integer types");
     }
 
