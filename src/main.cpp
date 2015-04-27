@@ -20,7 +20,7 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 8
+#define EXAMPLE 9
 
 #if EXAMPLE != 6
 #include "Lock.h"
@@ -470,7 +470,7 @@ constexpr size_t calculateStackSize() {
 
 typedef uint8_t DataBlock[64];
 
-static Stack<const DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
+static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 
 int main() {
     DataBlock dummyDataBlock[10];
@@ -484,7 +484,7 @@ int main() {
     }
 
     while (!myMemoryPool.isEmpty()) {
-        const DataBlock* dummyDataBlockRes;
+        DataBlock* dummyDataBlockRes;
         myMemoryPool.pop(&dummyDataBlockRes);
         cout << (int) (*dummyDataBlockRes)[0] << endl;
     }
@@ -498,11 +498,9 @@ int main() {
 
 
 static uint8_t dmaMemoryDummy[512];
-
 static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
 
-
-static_assert((sizeof(DmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 7)), "DmaMemoryDummy region is not large enough");
+static_assert((sizeof(dmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 7)), "DmaMemoryDummy region is not large enough");
 static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 10, 2);
 
 static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
@@ -510,7 +508,18 @@ static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
 int main() {
 
     uint8_t* block;
-    dmaPool.allocate(&block);
+    cout << "base=" << reinterpret_cast<uintptr_t>(dmaMemoryDummy) << endl;
+    bool res;
+    do
+    {
+        res = dmaPool.allocate(&block);
+        if (res)
+        {
+            cout << "\tblock=" << reinterpret_cast<uintptr_t>(block) << endl;
+        }
+
+    }
+    while (res);
 
     return 0;
 }
