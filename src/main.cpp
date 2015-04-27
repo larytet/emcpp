@@ -558,26 +558,40 @@ int main() {
 class MemoryAllocatorRaw {
 
 public:
-    MemoryAllocatorRaw(int alignment, uint8_t *startAddress, size_t blockSize, size_t count) :
+    MemoryAllocatorRaw(unsigned int alignment, uint8_t *startAddress, size_t blockSize, size_t count) :
         alignment(alignment), blockSize(blockSize), count(count) {  // initialize internal data
 
+        alignedBlockSize = alignValue(blockSize);
+
+        sizeTotalBytes = alignedBlockSize * count;
         if (startAddress == nullptr) {
-            this->startAddress = (uint8_t*)new uint8_t[sizeTotalBytes];
+            this->startAddress = (uintptr_t)new uint8_t[sizeTotalBytes];
         }
         else {
-            this->startAddress = startAddress;
+            this->startAddress = (uintptr_t)startAddress;
         }
     }
 
     uint8_t* getBlock() {
+        uintptr_t block;
+        block = alignValue(startAddress);
+        startAddress += alignedBlockSize;
+        return (uint8_t*) block;
     }
 
 protected:
     int alignment;
-    uint8_t *startAddress;
+    uintptr_t startAddress;
     size_t blockSize;
     size_t count;
     size_t sizeTotalBytes;
+    size_t alignedBlockSize;
+
+    inline uintptr_t alignValue(uintptr_t address) {
+        unsigned int alignmentMask = ~(alignment - 1);
+        uintptr_t res = (address + this->alignment) & alignmentMask;
+        return res;
+    }
 };
 
 template<typename Lock, size_t Size> class MemoryPoolRaw {
