@@ -23,7 +23,7 @@ using namespace std;
 
 #define PERFORMANCE 1
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 2
+#define EXAMPLE 3
 
 
 #if EXAMPLE == 1
@@ -124,23 +124,23 @@ public:
     }
 };// class SynchroObject
 
-template<typename Mutex> class Lock {
+template<typename Mutex> class LockM {
 
     // A private member of the class
     const Mutex* mutex;
 
 public:
-    inline Lock(const Mutex& mutex) {
+    inline LockM(const Mutex& mutex) {
         this->mutex = &mutex;
         this->mutex->get();
     }
 
-    inline ~Lock() {
+    inline ~LockM() {
         this->mutex->release();
     }
 };// class Lock
 
-static SynchroObject myInterruptDisable;
+static SynchroObjectInterrupt myInterruptDisable;
 
 /*
  * Output of this code is going to be
@@ -150,7 +150,7 @@ static SynchroObject myInterruptDisable;
  */
 int main() {
     {
-        auto myInterruptLock = Lock<SynchroObject>(
+        auto myInterruptLock = LockM<SynchroObjectInterrupt>(
                 myInterruptDisable);
 
     }
