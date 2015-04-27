@@ -3,12 +3,12 @@
 class CyclicBufferBase {
 
 public:
-    bool isEmpty() {
+    inline bool isEmpty() {
         bool res = (this->head == this->tail);
         return res;
     }
 
-    bool isFull() {
+    inline bool isFull() {
         size_t tail = increment(this->tail);
         bool res = (this->head == tail);
         return res;

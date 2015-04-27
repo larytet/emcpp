@@ -4,12 +4,12 @@
 class StackBase {
 
 public:
-    bool isEmpty() {
+    inline bool isEmpty() {
         bool res = (this->top == 0);
         return res;
     }
 
-    bool isFull() {
+    inline bool isFull() {
         bool res = (this->top == size);
         return res;
     }
