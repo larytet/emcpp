@@ -524,41 +524,73 @@ int main() {
 
 #if EXAMPLE == 9
 
+class MemoryRegion {
+
+public:
+    MemoryRegion(const char *name, uintptr_t address, size_t size) :
+        name(name), address(address), size(size) {
+    }
+
+    size_t getSize() {
+        return size;
+    }
+    const char* getName() {
+        return name;
+    }
+    uintptr_t getAddress() {
+        return address;
+    }
+protected:
+    const char* name;
+    uintptr_t address;
+    size_t size;
+};
+
 class MemoryAllocatorRaw {
 
 public:
-    MemoryAllocatorRaw(unsigned int alignment, uint8_t *startAddress, size_t blockSize, size_t count) :
-        alignment(alignment), blockSize(blockSize), count(count) {  // initialize internal data
+    MemoryAllocatorRaw(unsigned int alignment, MemoryRegion memoryRegion, size_t blockSize, size_t count) :
+        alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
 
-        alignedBlockSize = alignValue(blockSize);
+        alignedBlockSize = alignValue(blockSize, alignment);
 
         sizeTotalBytes = alignedBlockSize * count;
-        if (startAddress == nullptr) {
-            this->startAddress = (uintptr_t)new uint8_t[sizeTotalBytes];
+        if (sizeTotalBytes > memoryRegion.getSize()) {
+            // handle error
         }
-        else {
-            this->startAddress = (uintptr_t)startAddress;
-        }
+        firstNotAllocatedAddress = memoryRegion.getAddress();
     }
 
     uint8_t* getBlock() {
         uintptr_t block;
-        block = alignValue(startAddress);
-        startAddress += alignedBlockSize;
+        block = alignValue(firstNotAllocatedAddress, alignment);
+        firstNotAllocatedAddress += alignedBlockSize;
         return (uint8_t*) block;
+    }
+
+    const MemoryRegion& getRegion() {
+        return memoryRegion;
+    }
+
+    static size_t predictRequiredSize(unsigned int alignment, size_t blockSize, size_t count) {
+        size_t alignedBlockSize = alignValue(blockSize, alignment);
+        size_t sizeTotalBytes = alignedBlockSize * count;
+
+        return sizeTotalBytes;
     }
 
 protected:
     int alignment;
-    uintptr_t startAddress;
     size_t blockSize;
+    const MemoryRegion& memoryRegion;
     size_t count;
     size_t sizeTotalBytes;
     size_t alignedBlockSize;
+    uintptr_t firstNotAllocatedAddress;
 
-    inline uintptr_t alignValue(uintptr_t address) {
+    inline static uintptr_t alignValue(uintptr_t address, unsigned int alignment) {
         unsigned int alignmentMask = ~(alignment - 1);
-        uintptr_t res = (address + this->alignment) & alignmentMask;
+        uintptr_t res = (address + alignment) & alignmentMask;
         return res;
     }
 };
@@ -597,6 +629,9 @@ protected:
     Stack<uint8_t, Lock,  Size> pool;
     MemoryAllocatorRaw& allocator;
 };
+
+static uint8_t dmaMemoryDummy[4*1024];
+static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
 
 int main() {
     return 0;
