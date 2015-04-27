@@ -118,6 +118,7 @@ public:
 
     inline bool allocate(uint8_t** block) {
         bool res;
+        Lock();
         res = pool.pop(block);
         if (res) {
             statictics.inUse++;
@@ -129,6 +130,7 @@ public:
 
     inline bool free(uint8_t* block) {
         bool res;
+        Lock();
         res = memoryAllocator->blockBelongs(block);
         if (res) {
             res = pool.push(block);
@@ -143,6 +145,6 @@ public:
 protected:
     Statistics statictics;
     const char* name;
-    Stack<uint8_t, Lock,  Size> pool;
+    Stack<uint8_t, LockDummy,  Size> pool;
     MemoryAllocatorRaw* memoryAllocator;
 };
