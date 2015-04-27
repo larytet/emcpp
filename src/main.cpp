@@ -503,7 +503,7 @@ static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(
 static_assert((sizeof(dmaMemoryDummy) >= MemoryAllocatorRaw::predictMemorySize(63, 8, 2)), "DmaMemoryDummy region is not large enough");
 static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 8, 2);
 
-static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
+static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", &dmaAllocator);
 
 int main() {
 
@@ -514,7 +514,7 @@ int main() {
     {
         res = dmaPool.allocate(&block);
         if (res) {
-            cout << "\tblock=" << reinterpret_cast<uintptr_t>(block) << endl;
+            cout << "\t" << i << " block=" << reinterpret_cast<uintptr_t>(block) << endl;
             dmaPool.free(block);
         }
     }

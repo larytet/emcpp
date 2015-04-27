@@ -19,7 +19,7 @@ OBJDUMP         := $(CROSS)objdump
 SIZE            := $(CROSS)size
 
 
-$(TARGET):	$(OBJS) Makefile
+$(TARGET):	$(OBJS) Makefile src/Memory.h
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 	
 $(TARGET).s:	$(TARGET)
