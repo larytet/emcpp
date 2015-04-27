@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <string>
+#include <cstring>
 #include <iterator>
 #include <iostream>
 #include <algorithm>
@@ -554,59 +555,51 @@ int main() {
 
 #if EXAMPLE == 9
 
-constexpr size_t calculateStackSize() {
-    return 10;
-}
+class MemoryAllocatorRaw {
 
-typedef uint8_t DataBlock[64];
+public:
+    MemoryAllocatorRaw(int alignment, uint8_t *startAddress, size_t blockSize, size_t count) :
+        alignment(alignment), startAddress(startAddress), blockSize(blockSize), count(count) {  // initialize internal data
+    }
 
-static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
+
+protected:
+    int alignment;
+    uint8_t *startAddress;
+    size_t blockSize;
+    size_t count;
+};
+
+template<typename Lock, size_t Size> class MemoryPoolRaw {
+
+public:
+
+    MemoryPoolRaw(const char* name) {
+        memset(&this->statictics, 0, sizeof(this->statictics));
+        this->name = name;
+        // Register this pool in the data base of all created objects/memory pools
+    }
+
+    ~MemoryPoolRaw() {
+        // remove myself from the list of created memory pools
+    }
+
+    inline void resetMaxInUse() {
+        statictics.maxInUse = 0;
+    }
+
+    typedef struct {
+        uint32_t inUse;
+        uint32_t maxInUse;
+    } Statistics;
+
+protected:
+    Statistics statictics;
+    const char* name;
+    Stack<uint8_t, Lock,  Size> pool;
+};
 
 int main() {
-#if (PERFORMANCE > 0)
-    DataBlock dummyDataBlock;
-    const DataBlock* dummyDataBlockRes;
-    unsigned int count = PERFORMANCE_LOOPS;
-    while (--count)
-    {
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-    }
-#else
-    DataBlock dummyDataBlock[10];
-
-    myMemoryPool.push(&dummyDataBlock[0]);
-    (dummyDataBlock[0])[0] = 0;
-
-    for (int i = 1;i < 10;i++) {
-        myMemoryPool.push(&dummyDataBlock[i]);
-        (dummyDataBlock[i])[0] = i;
-    }
-
-    while (!myMemoryPool.isEmpty()) {
-        const DataBlock* dummyDataBlockRes;
-        myMemoryPool.pop(&dummyDataBlockRes);
-        cout << (int) (*dummyDataBlockRes)[0] << endl;
-    }
-#endif
     return 0;
 }
 
