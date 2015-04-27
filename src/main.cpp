@@ -13,12 +13,17 @@
 #include <array>
 #include <limits>
 
+
+#include "Lock.h"
+#include "Container.h"
+#include "CyclicBuffer.h"
+
 using namespace std;
 
 
-#define PERFORMANCE 0
+#define PERFORMANCE 1
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 8
+#define EXAMPLE 9
 
 
 #if EXAMPLE == 1
@@ -108,7 +113,7 @@ static inline void interruptEnable(void) {
     cout << "Enable" << endl;
 }
 
-class SynchroObject {
+class SynchroObjectInterrupt {
 public:
     void inline get() const {
         interruptDisable();
@@ -119,16 +124,13 @@ public:
     }
 };// class SynchroObject
 
-
-
-
-template<typename _TMutex> class Lock {
+template<typename Mutex> class Lock {
 
     // A private member of the class
-    const _TMutex* mutex;
+    const Mutex* mutex;
 
 public:
-    inline Lock(const _TMutex& mutex) {
+    inline Lock(const Mutex& mutex) {
         this->mutex = &mutex;
         this->mutex->get();
     }
@@ -186,18 +188,6 @@ public:
 
 };// class SynchroObject
 
-template<typename Mutex> class Lock {
-
-public:
-    inline Lock() {
-        Mutex::get();
-    }
-
-    inline ~Lock() {
-        Mutex::release();
-    }
-};// class Lock
-
 /**
  * Declare a new type Lock which uses SynchroObject to
  * disable/enable interrupts
@@ -224,120 +214,8 @@ int main() {
 
 #if EXAMPLE == 5
 
-class SynchroObjectDummy {
 
-    SynchroObjectDummy() {};
 
-public:
-
-    static inline void get() {
-    }
-
-    static inline void release() {
-    }
-
-};// class SynchroObjectDummy
-
-template<typename Mutex> class Lock {
-
-public:
-    inline Lock() {
-        Mutex::get();
-    }
-
-    inline ~Lock() {
-        Mutex::release();
-    }
-};// class Lock
-
-template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer {
-public:
-
-    CyclicBuffer() {
-
-        /**
-         * I want to fail compilation if the ObjectType not an integer
-         * I check the type traits
-         * In C++11 I have 'static_assert'
-         */
-#if (__cplusplus >= 201103)
-        static_assert(std::numeric_limits<ObjectType>::is_integer, "CyclicBuffer is intended to work only with integer types");
-#elif defined(__GNUC____)
-        __attribute__((unused)) ObjectType val1 = 1;
-#else
-        volatile ObjectType val1;
-        *(&val1) = 1;
-#endif
-        this->head = 0;
-        this->tail = 0;
-    }
-
-    ~CyclicBuffer() {
-    }
-
-    /**
-     * add element to the tail of the buffer
-     */
-    inline void add(const ObjectType object) {
-        Lock();
-        if (!isFull()) {
-            data[this->tail] = object;
-            this->tail = increment(this->tail);
-        } else {
-            errorOverflow();
-        }
-
-    }
-
-    /**
-     * Remove element from the head of the buffer
-     */
-    inline void remove(ObjectType &object) {
-        Lock();
-        if (!isEmpty()) {
-            object = data[this->head];
-            this->head = this->increment(this->head);
-        } else {
-            errorUnderflow();
-        }
-    }
-
-    inline bool isEmpty() {
-        bool res = (this->head == this->tail);
-        return res;
-    }
-
-    inline bool isFull() {
-        size_t tail = increment(this->tail);
-        bool res = (this->head == tail);
-        return res;
-    }
-
-private:
-
-    inline size_t increment(size_t index) {
-        if (index < Size) {
-            return (index + 1);
-        } else {
-            return 0;
-        }
-
-    }
-
-    inline void errorOverflow() {
-    }
-    inline void errorUnderflow() {
-    }
-
-    ObjectType data[Size + 1];
-    size_t head;
-    size_t tail;
-};// class CyclicBuffer
-
-/**
- * Instantiate a new type - lock which does nothing
- */
-typedef Lock<SynchroObjectDummy> LockDummy_t;
 
 /**
  * Function returns number of elements in the cyclic buffer.
@@ -574,72 +452,6 @@ static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFF
 
 #if EXAMPLE == 7
 
-class SynchroObjectDummy {
-
-    SynchroObjectDummy() {};
-
-public:
-
-    static inline void get() {
-    }
-
-    static inline void release() {
-    }
-
-};// class SynchroObjectDummy
-
-template<typename Mutex> class Lock {
-
-public:
-    inline Lock() {
-        Mutex::get();
-    }
-
-    inline ~Lock() {
-        Mutex::release();
-    }
-};// class Lock
-
-class Container {
-
-public:
-    bool isEmpty() {
-        bool res = (this->head == this->tail);
-        return res;
-    }
-
-    bool isFull() {
-        size_t tail = increment(this->tail);
-        bool res = (this->head == tail);
-        return res;
-    }
-
-protected:
-    Container(size_t size) {
-        this->size = size;
-        this->head = 0;
-        this->tail = 0;
-    }
-
-    void errorOverflow() {
-    }
-
-    void errorUnderflow() {
-    }
-
-    size_t increment(size_t index) {
-        if (index < this->size) {
-            return (index + 1);
-        } else {
-            return 0;
-        }
-    }
-
-    size_t head;
-    size_t tail;
-    size_t size;
-
-};// Container
 
 template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: public Container {
 public:
@@ -743,73 +555,6 @@ int main() {
 
 #if EXAMPLE == 8
 
-class SynchroObjectDummy {
-
-    SynchroObjectDummy() {};
-
-public:
-
-    static inline void get() {
-    }
-
-    static inline void release() {
-    }
-
-};// class SynchroObjectDummy
-
-template<typename Mutex> class Lock {
-
-public:
-    inline Lock() {
-        Mutex::get();
-    }
-
-    inline ~Lock() {
-        Mutex::release();
-    }
-};// class Lock
-
-class Container {
-
-public:
-    bool isEmpty() {
-        bool res = (this->head == this->tail);
-        return res;
-    }
-
-    bool isFull() {
-        size_t tail = increment(this->tail);
-        bool res = (this->head == tail);
-        return res;
-    }
-
-protected:
-    Container(size_t size) {
-        this->size = size;
-        this->head = 0;
-        this->tail = 0;
-    }
-
-    void errorOverflow() {
-    }
-
-    void errorUnderflow() {
-    }
-
-    size_t increment(size_t index) {
-        if (index < this->size) {
-            return (index + 1);
-        } else {
-            return 0;
-        }
-    }
-
-    size_t head;
-    size_t tail;
-    size_t size;
-
-};// Container
-
 template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public Container {
 public:
 
@@ -905,3 +650,103 @@ int main() {
 }
 
 #endif // EXAMPLE == 8
+
+
+#if EXAMPLE == 9
+
+
+template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public Container {
+public:
+
+    Stack() :
+        Container(Size) {
+    }
+
+    ~Stack() {
+    }
+
+    void push(const ObjectType* object) {
+        Lock();
+        if (!isFull()) {
+            data[this->tail] = object;
+            this->tail = increment(this->tail);
+        } else {
+            errorOverflow();
+        }
+
+    }
+
+    void pop(const ObjectType** object) {
+        Lock();
+        if (!isEmpty()) {
+            *object = data[this->head];
+            this->head = this->increment(this->head);
+        } else {
+            errorUnderflow();
+        }
+    }
+
+private:
+
+    const ObjectType* data[Size + 1];
+};// class Stack
+
+typedef Lock<SynchroObjectDummy> LockDummy_t;
+
+constexpr size_t calculateStackSize() {
+    return 10;
+}
+
+typedef uint8_t DataBlock[64];
+
+static Stack<DataBlock, LockDummy_t, calculateStackSize()> myMemoryPool;
+
+int main() {
+#if (PERFORMANCE > 0)
+    DataBlock dummyDataBlock;
+    const DataBlock* dummyDataBlockRes;
+    unsigned int count = PERFORMANCE_LOOPS;
+    while (--count)
+    {
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+        myMemoryPool.push(&dummyDataBlock);
+        myMemoryPool.pop(&dummyDataBlockRes);
+    }
+#else
+    DataBlock dummyDataBlock[10];
+
+    myMemoryPool.push(&dummyDataBlock[0]);
+    (dummyDataBlock[0])[0] = 0;
+
+    for (int i = 1;i < 10;i++) {
+        myMemoryPool.push(&dummyDataBlock[i]);
+        (dummyDataBlock[i])[0] = i;
+    }
+
+    while (!myMemoryPool.isEmpty()) {
+        const DataBlock* dummyDataBlockRes;
+        myMemoryPool.pop(&dummyDataBlockRes);
+        cout << (int) (*dummyDataBlockRes)[0] << endl;
+    }
+#endif
+    return 0;
+}
+
+#endif // EXAMPLE == 9
