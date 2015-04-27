@@ -531,13 +531,13 @@ public:
         name(name), address(address), size(size) {
     }
 
-    size_t getSize() {
+    size_t getSize() const {
         return size;
     }
-    const char* getName() {
+    const char* getName() const {
         return name;
     }
-    uintptr_t getAddress() {
+    uintptr_t getAddress() const {
         return address;
     }
 protected:
@@ -565,7 +565,16 @@ public:
         uintptr_t block;
         block = alignAddress(firstNotAllocatedAddress, alignment);
         firstNotAllocatedAddress += alignedBlockSize;
-        return (uint8_t*) block;
+        return (uint8_t*)block;
+    }
+
+    bool blockBelongs(const void* block) {
+        uintptr_t blockPtr = (uintptr_t)block;
+        bool res = true;
+        res = res && blockPtr >= memoryRegion.getAddress();
+        res = res && (blockPtr <= (memoryRegion.getAddress()+sizeTotalBytes));
+        res = res && (blockPtr == alignAddress(blockPtr, alignment));
+        return res;
     }
 
     const MemoryRegion& getRegion() {
@@ -622,7 +631,31 @@ public:
     typedef struct {
         uint32_t inUse;
         uint32_t maxInUse;
+        uint32_t errBadBlock;
     } Statistics;
+
+    inline bool allocate(uint8_t** const block) {
+        bool res;
+        res = pool.pop(block);
+        if (res) {
+            statictics.inUse++;
+            if (statictics.inUse > statictics.maxInUse)
+                statictics.maxInUse = statictics.inUse;
+        }
+        return res;
+    }
+
+    inline bool free(const uint8_t* block) {
+        bool res;
+        if (allocator.blockBelongs(block)) {
+            res = pool.push(block);
+            statictics.inUse--;
+        }
+        else {
+            statictics.errBadBlock++;
+        }
+        return res;
+    }
 
 protected:
     Statistics statictics;
@@ -642,6 +675,10 @@ static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 10, 2);
 static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
 
 int main() {
+
+    uint8_t* block;
+    dmaPool.allocate(&block);
+
     return 0;
 }
 
