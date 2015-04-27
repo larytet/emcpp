@@ -14,17 +14,18 @@
 #include <limits>
 
 
-#include "Lock.h"
-#include "Container.h"
-#include "CyclicBuffer.h"
-
 using namespace std;
 
 
 #define PERFORMANCE 1
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 3
+#define EXAMPLE 6
 
+#if EXAMPLE != 6
+#include "Lock.h"
+#include "Container.h"
+#include "CyclicBuffer.h"
+#endif
 
 #if EXAMPLE == 1
 
