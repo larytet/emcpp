@@ -225,7 +225,7 @@ constexpr size_t calculateCyclicBufferSize() {
     return 10;
 }
 
-static CyclicBuffer<uint8_t, LockDummy_t, calculateCyclicBufferSize()> myCyclicBuffer;
+static CyclicBuffer<uint8_t, LockDummy, calculateCyclicBufferSize()> myCyclicBuffer;
 
 int main() {
 #if (PERFORMANCE > 0)
@@ -297,68 +297,7 @@ mov %r8,0x2009a0(%rip)
 
 #if EXAMPLE == 6
 
-#undef CYCLIC_BUFFRE_SIZE
-#define CYCLIC_BUFFRE_SIZE 10
-
-#undef CYCLIC_BUFFER_OBJECT_TYPE
-#define CYCLIC_BUFFER_OBJECT_TYPE uint8_t
-
-#define CYCLIC_BUFFRE_DECLARE(ObjectType, Size) \
-    typedef struct { \
-        ObjectType data[Size+1]; \
-        size_t head; \
-        size_t tail; \
-    } CyclicBuffer;\
-
-CYCLIC_BUFFRE_DECLARE(CYCLIC_BUFFER_OBJECT_TYPE, CYCLIC_BUFFRE_SIZE);
-CyclicBuffer myCyclicBuffer;
-
-static inline size_t CyclicBufferIncrement(size_t index, size_t size) {
-    if (index < size) {
-        return (index + 1);
-    }
-    else {
-        return 0;
-    }
-}
-
-
-static inline bool CyclicBufferIsEmpty(CyclicBuffer* cyclicBuffer) {
-    bool res = (cyclicBuffer->head == cyclicBuffer->tail);
-    return res;
-}
-
-static inline bool CyclicBufferIsFull(CyclicBuffer* cyclicBuffer) {
-    size_t tail = CyclicBufferIncrement(cyclicBuffer->tail, CYCLIC_BUFFRE_SIZE);
-    bool res = (cyclicBuffer->head == tail);
-    return res;
-}
-
-
-static inline void errorOverflow() {
-}
-
-static inline void errorUnderflow() {
-}
-
-static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
-    if (!CyclicBufferIsFull(cyclicBuffer)) {
-        cyclicBuffer->data[cyclicBuffer->tail] = object;
-        cyclicBuffer->tail = CyclicBufferIncrement(cyclicBuffer->tail, CYCLIC_BUFFRE_SIZE);
-    } else {
-        errorOverflow();
-    }
-
-}
-
-static inline void CyclicBufferRemove(CyclicBuffer* cyclicBuffer, CYCLIC_BUFFER_OBJECT_TYPE* object) {
-    if (!CyclicBufferIsEmpty(cyclicBuffer)) {
-        *object = cyclicBuffer->data[cyclicBuffer->head];
-        cyclicBuffer->head = CyclicBufferIncrement(cyclicBuffer->head, CYCLIC_BUFFRE_SIZE);
-    } else {
-        errorUnderflow();
-    }
-}
+#include "CyclicBufferC.h"
 
 int main() {
 #if (PERFORMANCE > 0)
@@ -453,47 +392,6 @@ static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFF
 #if EXAMPLE == 7
 
 
-template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: public Container {
-public:
-
-    CyclicBuffer() :
-        Container(Size) {
-        static_assert(std::numeric_limits<ObjectType>::is_integer, "CyclicBuffer is intended to work only with integer types");
-    }
-
-    ~CyclicBuffer() {
-    }
-
-    void add(const ObjectType object) {
-        Lock();
-        if (!isFull()) {
-            data[this->tail] = object;
-            this->tail = increment(this->tail);
-        } else {
-            errorOverflow();
-        }
-
-    }
-
-    void remove(ObjectType &object) {
-        Lock();
-        if (!isEmpty()) {
-            object = data[this->head];
-            this->head = this->increment(this->head);
-        } else {
-            errorUnderflow();
-        }
-    }
-
-private:
-
-    ObjectType data[Size + 1];
-};// class CyclicBuffer
-
-/**
- * Instantiate a new type - lock which does nothing
- */
-typedef Lock<SynchroObjectDummy> LockDummy_t;
 
 /**
  * Function returns number of elements in the cyclic buffer.
@@ -503,7 +401,7 @@ constexpr size_t calculateCyclicBufferSize() {
     return 10;
 }
 
-static CyclicBuffer<uint8_t, LockDummy_t, calculateCyclicBufferSize()> myCyclicBuffer;
+static CyclicBuffer<uint8_t, LockDummy, calculateCyclicBufferSize()> myCyclicBuffer;
 
 int main() {
 #if (PERFORMANCE > 0)
@@ -591,7 +489,7 @@ private:
     const ObjectType* data[Size + 1];
 };// class Stack
 
-typedef Lock<SynchroObjectDummy> LockDummy_t;
+typedef Lock<SynchroObjectDummy> LockDummy;
 
 constexpr size_t calculateStackSize() {
     return 10;
@@ -599,7 +497,7 @@ constexpr size_t calculateStackSize() {
 
 typedef uint8_t DataBlock[64];
 
-static Stack<DataBlock, LockDummy_t, calculateStackSize()> myMemoryPool;
+static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 
 int main() {
 #if (PERFORMANCE > 0)
@@ -691,7 +589,7 @@ private:
     const ObjectType* data[Size + 1];
 };// class Stack
 
-typedef Lock<SynchroObjectDummy> LockDummy_t;
+typedef Lock<SynchroObjectDummy> LockDummy;
 
 constexpr size_t calculateStackSize() {
     return 10;
@@ -699,7 +597,7 @@ constexpr size_t calculateStackSize() {
 
 typedef uint8_t DataBlock[64];
 
-static Stack<DataBlock, LockDummy_t, calculateStackSize()> myMemoryPool;
+static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 
 int main() {
 #if (PERFORMANCE > 0)
