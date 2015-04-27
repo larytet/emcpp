@@ -52,7 +52,7 @@ public:
     ~CyclicBuffer() {
     }
 
-    bool add(const ObjectType object) {
+    inline bool add(const ObjectType object) {
         Lock();
         if (!isFull()) {
             data[this->tail] = object;
@@ -65,7 +65,7 @@ public:
 
     }
 
-    bool remove(ObjectType &object) {
+    inline bool remove(ObjectType &object) {
         Lock();
         if (!isEmpty()) {
             object = data[this->head];

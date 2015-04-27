@@ -41,7 +41,7 @@ public:
     ~Stack() {
     }
 
-    bool push(ObjectType* object) {
+    inline bool push(ObjectType* object) {
         Lock();
         if (!isFull()) {
             data[this->top] = object;
@@ -54,7 +54,7 @@ public:
 
     }
 
-    bool pop(ObjectType** object) {
+    inline bool pop(ObjectType** object) {
         Lock();
         if (!isEmpty()) {
             this->top--;
