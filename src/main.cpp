@@ -470,7 +470,7 @@ constexpr size_t calculateStackSize() {
 
 typedef uint8_t DataBlock[64];
 
-static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
+static Stack<const DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 
 int main() {
     DataBlock dummyDataBlock[10];
@@ -484,7 +484,7 @@ int main() {
     }
 
     while (!myMemoryPool.isEmpty()) {
-        DataBlock* dummyDataBlockRes;
+        const DataBlock* dummyDataBlockRes;
         myMemoryPool.pop(&dummyDataBlockRes);
         cout << (int) (*dummyDataBlockRes)[0] << endl;
     }
