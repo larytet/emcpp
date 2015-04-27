@@ -20,13 +20,14 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 9
+#define EXAMPLE 8
 
 #if EXAMPLE != 6
 #include "Lock.h"
 #include "Container.h"
 #include "CyclicBuffer.h"
 #include "Stack.h"
+#include "Memory.h"
 #endif
 
 #if EXAMPLE == 1
@@ -472,34 +473,6 @@ typedef uint8_t DataBlock[64];
 static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 
 int main() {
-#if (PERFORMANCE > 0)
-    DataBlock dummyDataBlock;
-    const DataBlock* dummyDataBlockRes;
-    unsigned int count = PERFORMANCE_LOOPS;
-    while (--count)
-    {
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-        myMemoryPool.push(&dummyDataBlock);
-        myMemoryPool.pop(&dummyDataBlockRes);
-    }
-#else
     DataBlock dummyDataBlock[10];
 
     myMemoryPool.push(&dummyDataBlock[0]);
@@ -515,7 +488,6 @@ int main() {
         myMemoryPool.pop(&dummyDataBlockRes);
         cout << (int) (*dummyDataBlockRes)[0] << endl;
     }
-#endif
     return 0;
 }
 
@@ -524,145 +496,6 @@ int main() {
 
 #if EXAMPLE == 9
 
-class MemoryRegion {
-
-public:
-    MemoryRegion(const char *name, uintptr_t address, size_t size) :
-        name(name), address(address), size(size) {
-    }
-
-    size_t getSize() const {
-        return size;
-    }
-    const char* getName() const {
-        return name;
-    }
-    uintptr_t getAddress() const {
-        return address;
-    }
-protected:
-    const char* name;
-    uintptr_t address;
-    size_t size;
-};
-
-
-class MemoryAllocatorRaw {
-
-public:
-    MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment) :
-        alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
-
-        alignedBlockSize = alignAddress(blockSize, alignment);
-        sizeTotalBytes = alignedBlockSize * count;
-        if (sizeTotalBytes > memoryRegion.getSize()) {
-            // handle error
-        }
-        firstNotAllocatedAddress = memoryRegion.getAddress();
-    }
-
-    uint8_t* getBlock() {
-        uintptr_t block;
-        block = alignAddress(firstNotAllocatedAddress, alignment);
-        firstNotAllocatedAddress += alignedBlockSize;
-        return (uint8_t*)block;
-    }
-
-    bool blockBelongs(const void* block) {
-        uintptr_t blockPtr = (uintptr_t)block;
-        bool res = true;
-        res = res && blockPtr >= memoryRegion.getAddress();
-        res = res && (blockPtr <= (memoryRegion.getAddress()+sizeTotalBytes));
-        res = res && (blockPtr == alignAddress(blockPtr, alignment));
-        return res;
-    }
-
-    const MemoryRegion& getRegion() {
-        return memoryRegion;
-    }
-
-    constexpr static size_t predictMemorySize(size_t blockSize, size_t count, unsigned int alignment) {
-        return count * alignConst(blockSize, alignment);
-    }
-
-protected:
-    int alignment;
-    size_t blockSize;
-    const MemoryRegion& memoryRegion;
-    size_t count;
-    size_t sizeTotalBytes;
-    size_t alignedBlockSize;
-    uintptr_t firstNotAllocatedAddress;
-
-    static constexpr size_t alignConst(size_t value, unsigned int alignment) {
-        return (value + alignment) & (~(alignment - 1));
-    }
-
-    inline static uintptr_t alignAddress(uintptr_t address, unsigned int alignment) {
-        unsigned int alignmentMask = ~(alignment - 1);
-        uintptr_t res = (address + alignment) & alignmentMask;
-        return res;
-    }
-};
-
-template<typename Lock, size_t Size> class MemoryPoolRaw {
-
-public:
-
-    MemoryPoolRaw(const char* name, MemoryAllocatorRaw& allocator) :
-        name(name), allocator(allocator) {
-        memset(&this->statictics, 0, sizeof(this->statictics));
-        this->name = name;
-        // Register this pool in the data base of all created objects/memory pools
-        for (int i = 0;i < Size;i++) {
-            const uint8_t *block = allocator.getBlock();
-            pool.push(block);
-        }
-    }
-
-    ~MemoryPoolRaw() {
-        // remove myself from the list of created memory pools
-    }
-
-    inline void resetMaxInUse() {
-        statictics.maxInUse = 0;
-    }
-
-    typedef struct {
-        uint32_t inUse;
-        uint32_t maxInUse;
-        uint32_t errBadBlock;
-    } Statistics;
-
-    inline bool allocate(uint8_t** const block) {
-        bool res;
-        res = pool.pop(block);
-        if (res) {
-            statictics.inUse++;
-            if (statictics.inUse > statictics.maxInUse)
-                statictics.maxInUse = statictics.inUse;
-        }
-        return res;
-    }
-
-    inline bool free(const uint8_t* block) {
-        bool res;
-        if (allocator.blockBelongs(block)) {
-            res = pool.push(block);
-            statictics.inUse--;
-        }
-        else {
-            statictics.errBadBlock++;
-        }
-        return res;
-    }
-
-protected:
-    Statistics statictics;
-    const char* name;
-    Stack<uint8_t, Lock,  Size> pool;
-    MemoryAllocatorRaw& allocator;
-};
 
 typedef uint8_t DmaMemoryDummy[512];
 static DmaMemoryDummy dmaMemoryDummy;
