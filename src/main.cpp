@@ -559,25 +559,40 @@ class MemoryAllocatorRaw {
 
 public:
     MemoryAllocatorRaw(int alignment, uint8_t *startAddress, size_t blockSize, size_t count) :
-        alignment(alignment), startAddress(startAddress), blockSize(blockSize), count(count) {  // initialize internal data
+        alignment(alignment), blockSize(blockSize), count(count) {  // initialize internal data
+
+        if (startAddress == nullptr) {
+            this->startAddress = (uint8_t*)new uint8_t[sizeTotalBytes];
+        }
+        else {
+            this->startAddress = startAddress;
+        }
     }
 
+    uint8_t* getBlock() {
+    }
 
 protected:
     int alignment;
     uint8_t *startAddress;
     size_t blockSize;
     size_t count;
+    size_t sizeTotalBytes;
 };
 
 template<typename Lock, size_t Size> class MemoryPoolRaw {
 
 public:
 
-    MemoryPoolRaw(const char* name) {
+    MemoryPoolRaw(const char* name, MemoryAllocatorRaw& allocator) :
+        name(name), allocator(allocator) {
         memset(&this->statictics, 0, sizeof(this->statictics));
         this->name = name;
         // Register this pool in the data base of all created objects/memory pools
+        for (int i = 0;i < Size;i++) {
+            const char *block = allocator.getBlock();
+            pool.push(block);
+        }
     }
 
     ~MemoryPoolRaw() {
@@ -597,6 +612,7 @@ protected:
     Statistics statictics;
     const char* name;
     Stack<uint8_t, Lock,  Size> pool;
+    MemoryAllocatorRaw& allocator;
 };
 
 int main() {
