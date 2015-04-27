@@ -475,16 +475,16 @@ static Stack<DataBlock, LockDummy, calculateStackSize()> myMemoryPool;
 int main() {
     DataBlock dummyDataBlock[10];
 
-    myMemoryPool.push(&dummyDataBlock[0]);
+    myMemoryPool.push(&(dummyDataBlock[0]));
     (dummyDataBlock[0])[0] = 0;
 
     for (int i = 1;i < 10;i++) {
-        myMemoryPool.push(&dummyDataBlock[i]);
+        myMemoryPool.push(&(dummyDataBlock[i]));
         (dummyDataBlock[i])[0] = i;
     }
 
     while (!myMemoryPool.isEmpty()) {
-        const DataBlock* dummyDataBlockRes;
+        DataBlock* dummyDataBlockRes;
         myMemoryPool.pop(&dummyDataBlockRes);
         cout << (int) (*dummyDataBlockRes)[0] << endl;
     }
@@ -497,8 +497,8 @@ int main() {
 #if EXAMPLE == 9
 
 
-typedef uint8_t DmaMemoryDummy[512];
-static DmaMemoryDummy dmaMemoryDummy;
+static uint8_t dmaMemoryDummy[512];
+
 static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
 
 

@@ -11,7 +11,7 @@ public:
     ~Stack() {
     }
 
-    bool push(const ObjectType* object) {
+    bool push(ObjectType* object) {
         Lock();
         if (!isFull()) {
             data[this->tail] = object;
@@ -24,10 +24,10 @@ public:
 
     }
 
-    bool pop(const ObjectType** object) {
+    bool pop(ObjectType** object) {
         Lock();
         if (!isEmpty()) {
-            *object = data[this->head];
+            *object = (data[this->head]);
             this->head = this->increment(this->head);
             return true;
         } else {
@@ -38,5 +38,5 @@ public:
 
 private:
 
-    const ObjectType* data[Size + 1];
+    ObjectType* data[Size + 1];
 };// class Stack
