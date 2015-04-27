@@ -546,14 +546,14 @@ protected:
     size_t size;
 };
 
+
 class MemoryAllocatorRaw {
 
 public:
-    MemoryAllocatorRaw(unsigned int alignment, MemoryRegion memoryRegion, size_t blockSize, size_t count) :
+    MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment) :
         alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
 
-        alignedBlockSize = alignValue(blockSize, alignment);
-
+        alignedBlockSize = alignAddress(blockSize, alignment);
         sizeTotalBytes = alignedBlockSize * count;
         if (sizeTotalBytes > memoryRegion.getSize()) {
             // handle error
@@ -563,7 +563,7 @@ public:
 
     uint8_t* getBlock() {
         uintptr_t block;
-        block = alignValue(firstNotAllocatedAddress, alignment);
+        block = alignAddress(firstNotAllocatedAddress, alignment);
         firstNotAllocatedAddress += alignedBlockSize;
         return (uint8_t*) block;
     }
@@ -572,11 +572,8 @@ public:
         return memoryRegion;
     }
 
-    static size_t predictRequiredSize(unsigned int alignment, size_t blockSize, size_t count) {
-        size_t alignedBlockSize = alignValue(blockSize, alignment);
-        size_t sizeTotalBytes = alignedBlockSize * count;
-
-        return sizeTotalBytes;
+    constexpr static size_t predictMemorySize(size_t blockSize, size_t count, unsigned int alignment) {
+        return count * alignConst(blockSize, alignment);
     }
 
 protected:
@@ -588,7 +585,11 @@ protected:
     size_t alignedBlockSize;
     uintptr_t firstNotAllocatedAddress;
 
-    inline static uintptr_t alignValue(uintptr_t address, unsigned int alignment) {
+    static constexpr size_t alignConst(size_t value, unsigned int alignment) {
+        return (value + alignment) & (~(alignment - 1));
+    }
+
+    inline static uintptr_t alignAddress(uintptr_t address, unsigned int alignment) {
         unsigned int alignmentMask = ~(alignment - 1);
         uintptr_t res = (address + alignment) & alignmentMask;
         return res;
@@ -630,8 +631,17 @@ protected:
     MemoryAllocatorRaw& allocator;
 };
 
-static uint8_t dmaMemoryDummy[4*1024];
+typedef uint8_t DmaMemoryDummy[512];
+static DmaMemoryDummy dmaMemoryDummy;
 static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
+
+
+static MemoryAllocatorRaw allocator(dmaMemoryRegion, 63, 10, 2);
+
+
+#if (sizeof(DmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 10))
+#error "Region is not large enough"
+#endif
 
 int main() {
     return 0;
