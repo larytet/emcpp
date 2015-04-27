@@ -1,11 +1,41 @@
 #pragma once
 
 
-template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public Container {
+class StackBase {
+
+public:
+    bool isEmpty() {
+        bool res = (this->top == 0);
+        return res;
+    }
+
+    bool isFull() {
+        bool res = (this->top == size);
+        return res;
+    }
+
+protected:
+    StackBase(size_t size) {
+        this->size = size;
+        this->top = 0;
+    }
+
+    void errorOverflow() {
+    }
+
+    void errorUnderflow() {
+    }
+
+    size_t top;
+    size_t size;
+
+};// StackBase
+
+template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public StackBase {
 public:
 
     Stack() :
-        Container(Size) {
+        StackBase(Size) {
     }
 
     ~Stack() {
@@ -14,8 +44,8 @@ public:
     bool push(ObjectType* object) {
         Lock();
         if (!isFull()) {
-            data[this->tail] = object;
-            this->tail = increment(this->tail);
+            data[this->top] = object;
+            this->top++;
             return true;
         } else {
             errorOverflow();
@@ -27,8 +57,8 @@ public:
     bool pop(ObjectType** object) {
         Lock();
         if (!isEmpty()) {
-            *object = (data[this->head]);
-            this->head = this->increment(this->head);
+            this->top--;
+            *object = (data[this->top]);
             return true;
         } else {
             errorUnderflow();

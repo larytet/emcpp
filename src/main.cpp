@@ -24,7 +24,6 @@ using namespace std;
 
 #if EXAMPLE != 6
 #include "Lock.h"
-#include "Container.h"
 #include "CyclicBuffer.h"
 #include "Stack.h"
 #include "Memory.h"
