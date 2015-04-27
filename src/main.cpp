@@ -23,7 +23,7 @@ using namespace std;
 
 #define PERFORMANCE 1
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 9
+#define EXAMPLE 2
 
 
 #if EXAMPLE == 1
@@ -31,14 +31,14 @@ using namespace std;
 /**
  * Dummy lock
  */
-class LockDummy {
+class LockDummySimple {
 public:
 
-    LockDummy() {
+    LockDummySimple() {
         cout << "Locked context" << endl;
     }
 
-    ~LockDummy() {
+    ~LockDummySimple() {
         cout << "Lock is freed" << endl;
     }
 
@@ -55,9 +55,9 @@ private:
  */
 int main() {
 #if (__cplusplus >= 201103) // use "auto" if C++11 or better
-    auto myDummyLock = LockDummy();
+    auto myDummyLock = LockDummySimple();
 #else
-    LockDummy myDummyLock = LockDummy();
+    LockDummySimple myDummyLock = LockDummySimple();
 #endif
     return 0;
 }
@@ -69,14 +69,14 @@ int main() {
 /**
  * Dummy lock
  */
-class LockDummy {
+class LockDummySimple {
 public:
 
-    LockDummy() {
+    LockDummySimple() {
         cout << "Locked context" << endl;
     }
 
-    ~LockDummy() {
+    ~LockDummySimple() {
         cout << "Lock is freed" << endl;
     }
 
@@ -84,7 +84,7 @@ protected:
 
 private:
 
-};// class LockDummy
+};// class LockDummySimple
 
 /*
  * Output of this code is going to be
@@ -94,7 +94,7 @@ private:
  */
 int main() {
     {
-        auto myDummyLock = LockDummy();
+        auto myDummyLock = LockDummySimple();
     }
 
     cout << "End of main" << endl;
