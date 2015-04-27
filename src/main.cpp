@@ -18,7 +18,7 @@
 using namespace std;
 
 
-#define PERFORMANCE 1
+#define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
 #define EXAMPLE 9
 
@@ -265,11 +265,15 @@ int main() {
         myCyclicBuffer.add(i);
     }
 
-    while (!myCyclicBuffer.isEmpty()) {
+    bool res;
+    do {
         uint8_t val;
-        myCyclicBuffer.remove(val);
+        res = myCyclicBuffer.remove(val);
+        if (!res)
+            break;
         cout << (int) val << endl;
     }
+    while (res);
 #endif
     return 0;
 }
@@ -336,11 +340,14 @@ int main() {
         CyclicBufferAdd(&myCyclicBuffer, i);
     }
 
-    while (!CyclicBufferIsEmpty(&myCyclicBuffer)) {
+    bool res;
+    do {
         uint8_t val;
-        CyclicBufferRemove(&myCyclicBuffer, &val);
+        res = CyclicBufferRemove(&myCyclicBuffer, &val);
+        if (!res)
+            break;
         cout << (int) val << endl;
-    }
+    } while (res);
 #endif
     return 0;
 }
@@ -348,7 +355,7 @@ int main() {
 #if 0
         return (index + 1);
   xor %esi,%esi
-static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
+static inline bool CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
   mov 0x2009be(%rip),%rax        # 0x6011b0 <myCyclicBuffer+16>
         return (index + 1);
   mov %rsi,%r8
@@ -357,7 +364,7 @@ int main() {
         return (index + 1);
   lea 0x1(%rcx),%rdi
 ...............................................
-static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
+static inline bool CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
   mov %rcx,%rdx
   push %rbx
         return (index + 1);
@@ -455,44 +462,6 @@ int main() {
 
 
 #if EXAMPLE == 8
-
-template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public Container {
-public:
-
-    Stack() :
-        Container(Size) {
-    }
-
-    ~Stack() {
-    }
-
-    void push(const ObjectType* object) {
-        Lock();
-        if (!isFull()) {
-            data[this->tail] = object;
-            this->tail = increment(this->tail);
-        } else {
-            errorOverflow();
-        }
-
-    }
-
-    void pop(const ObjectType** object) {
-        Lock();
-        if (!isEmpty()) {
-            *object = data[this->head];
-            this->head = this->increment(this->head);
-        } else {
-            errorUnderflow();
-        }
-    }
-
-private:
-
-    const ObjectType* data[Size + 1];
-};// class Stack
-
-typedef Lock<SynchroObjectDummy> LockDummy;
 
 constexpr size_t calculateStackSize() {
     return 10;

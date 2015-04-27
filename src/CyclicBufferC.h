@@ -45,21 +45,25 @@ static inline void errorOverflow() {
 static inline void errorUnderflow() {
 }
 
-static inline void CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
+static inline bool CyclicBufferAdd(CyclicBuffer* cyclicBuffer, const CYCLIC_BUFFER_OBJECT_TYPE object) {
     if (!CyclicBufferIsFull(cyclicBuffer)) {
         cyclicBuffer->data[cyclicBuffer->tail] = object;
         cyclicBuffer->tail = CyclicBufferIncrement(cyclicBuffer->tail, CYCLIC_BUFFRE_SIZE);
+        return true;
     } else {
         errorOverflow();
+        return false;
     }
 
 }
 
-static inline void CyclicBufferRemove(CyclicBuffer* cyclicBuffer, CYCLIC_BUFFER_OBJECT_TYPE* object) {
+static inline bool CyclicBufferRemove(CyclicBuffer* cyclicBuffer, CYCLIC_BUFFER_OBJECT_TYPE* object) {
     if (!CyclicBufferIsEmpty(cyclicBuffer)) {
         *object = cyclicBuffer->data[cyclicBuffer->head];
         cyclicBuffer->head = CyclicBufferIncrement(cyclicBuffer->head, CYCLIC_BUFFRE_SIZE);
+        return true;
     } else {
         errorUnderflow();
+        return false;
     }
 }

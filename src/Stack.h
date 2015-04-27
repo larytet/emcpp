@@ -11,24 +11,28 @@ public:
     ~Stack() {
     }
 
-    void push(const ObjectType* object) {
+    bool push(const ObjectType* object) {
         Lock();
         if (!isFull()) {
             data[this->tail] = object;
             this->tail = increment(this->tail);
+            return true;
         } else {
             errorOverflow();
+            return false;
         }
 
     }
 
-    void pop(const ObjectType** object) {
+    bool pop(const ObjectType** object) {
         Lock();
         if (!isEmpty()) {
             *object = data[this->head];
             this->head = this->increment(this->head);
+            return true;
         } else {
             errorUnderflow();
+            return false;
         }
     }
 
