@@ -510,14 +510,11 @@ int main() {
     uint8_t* block;
     cout << "base=" << reinterpret_cast<uintptr_t>(dmaMemoryDummy) << endl;
     bool res;
-    do
+    res = dmaPool.allocate(&block);
+    if (res)
     {
-        res = dmaPool.allocate(&block);
-        if (res)
-        {
-            cout << "\tblock=" << reinterpret_cast<uintptr_t>(block) << endl;
-        }
-
+        cout << "\tblock=" << reinterpret_cast<uintptr_t>(block) << endl;
+        dmaPool.free(block);
     }
     while (res);
 
