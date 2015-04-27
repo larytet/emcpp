@@ -606,7 +606,7 @@ public:
         this->name = name;
         // Register this pool in the data base of all created objects/memory pools
         for (int i = 0;i < Size;i++) {
-            const char *block = allocator.getBlock();
+            const uint8_t *block = allocator.getBlock();
             pool.push(block);
         }
     }
@@ -637,9 +637,9 @@ static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(
 
 
 static_assert((sizeof(DmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 7)), "DmaMemoryDummy region is not large enough");
-static MemoryAllocatorRaw allocator(dmaMemoryRegion, 63, 10, 2);
+static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 10, 2);
 
-
+static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
 
 int main() {
     return 0;
