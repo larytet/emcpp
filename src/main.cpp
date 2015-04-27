@@ -636,12 +636,10 @@ static DmaMemoryDummy dmaMemoryDummy;
 static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
 
 
+static_assert((sizeof(DmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 7)), "DmaMemoryDummy region is not large enough");
 static MemoryAllocatorRaw allocator(dmaMemoryRegion, 63, 10, 2);
 
 
-#if (sizeof(DmaMemoryDummy) < MemoryAllocatorRaw::predictMemorySize(2, 63, 10))
-#error "Region is not large enough"
-#endif
 
 int main() {
     return 0;
