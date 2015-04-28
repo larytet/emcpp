@@ -433,7 +433,7 @@ static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(
 static_assert((sizeof(dmaMemoryDummy) >= MemoryAllocatorRaw::predictMemorySize(63, 3, 2)), "DmaMemoryDummy region is not large enough");
 static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 3, 2);
 
-static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", &dmaAllocator);
+static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", dmaAllocator);
 
 int main() {
 

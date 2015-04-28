@@ -100,10 +100,10 @@ template<typename Lock, size_t Size> class MemoryPoolRaw {
 
 public:
 
-    MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator);
+    MemoryPoolRaw(const char* name, MemoryAllocatorRaw& memoryAllocator);
 
     ~MemoryPoolRaw() {
-        // remove myself from the list of created memory pools
+        memoryAllocator.reset();
     }
 
     inline void resetMaxInUse() {
@@ -124,15 +124,15 @@ protected:
     Statistics statictics;
     const char* name;
     Stack<uint8_t, LockDummy,  Size> pool;
-    MemoryAllocatorRaw* memoryAllocator;
+    MemoryAllocatorRaw& memoryAllocator;
 };
 
-template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator) :
+template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw& memoryAllocator) :
     name(name), memoryAllocator(memoryAllocator) {
     memset(&this->statictics, 0, sizeof(this->statictics));
     this->name = name;
     for (int i = 0;i < Size;i++) {
-        uint8_t *block = memoryAllocator->getBlock();
+        uint8_t *block = memoryAllocator.getBlock();
         pool.push(block);
     }
     // Register this pool in the data base of all created objects/memory pools
@@ -156,7 +156,7 @@ template<typename Lock, size_t Size>
 inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     bool res;
     Lock();
-    res = memoryAllocator->blockBelongs(block);
+    res = memoryAllocator.blockBelongs(block);
     if (res) {
         res = pool.push(block);
         statictics.inUse--;
