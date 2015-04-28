@@ -52,32 +52,37 @@ public:
     ~CyclicBuffer() {
     }
 
-    inline bool add(const ObjectType object) {
-        Lock();
-        if (!isFull()) {
-            data[this->tail] = object;
-            this->tail = increment(this->tail);
-            return true;
-        } else {
-            errorOverflow();
-            return false;
-        }
-
-    }
-
-    inline bool remove(ObjectType &object) {
-        Lock();
-        if (!isEmpty()) {
-            object = data[this->head];
-            this->head = this->increment(this->head);
-            return true;
-        } else {
-            errorUnderflow();
-            return false;
-        }
-    }
+    inline bool add(const ObjectType object);
+    inline bool remove(ObjectType &object);
 
 private:
 
     ObjectType data[Size + 1];
 };// class CyclicBuffer
+
+template<typename ObjectType, typename Lock, std::size_t Size>inline bool
+CyclicBuffer<ObjectType, Lock, Size>::add(const ObjectType object) {
+    Lock();
+    if (!isFull()) {
+        data[this->tail] = object;
+        this->tail = increment(this->tail);
+        return true;
+    } else {
+        errorOverflow();
+        return false;
+    }
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>inline bool
+CyclicBuffer<ObjectType, Lock, Size>::remove(ObjectType &object) {
+    Lock();
+    if (!isEmpty()) {
+        object = data[this->head];
+        this->head = this->increment(this->head);
+        return true;
+    } else {
+        errorUnderflow();
+        return false;
+    }
+}

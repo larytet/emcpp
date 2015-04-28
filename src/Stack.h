@@ -41,32 +41,35 @@ public:
     ~Stack() {
     }
 
-    inline bool push(ObjectType* object) {
-        Lock();
-        if (!isFull()) {
-            data[this->top] = object;
-            this->top++;
-            return true;
-        } else {
-            errorOverflow();
-            return false;
-        }
-
-    }
-
-    inline bool pop(ObjectType** object) {
-        Lock();
-        if (!isEmpty()) {
-            this->top--;
-            *object = (data[this->top]);
-            return true;
-        } else {
-            errorUnderflow();
-            return false;
-        }
-    }
+    inline bool push(ObjectType* object);
+    inline bool pop(ObjectType** object);
 
 private:
 
     ObjectType* data[Size + 1];
 };// class Stack
+
+template<typename ObjectType, typename Lock, std::size_t Size>inline bool Stack<ObjectType, Lock, Size>::push(ObjectType* object) {
+    Lock();
+    if (!isFull()) {
+        data[this->top] = object;
+        this->top++;
+        return true;
+    } else {
+        errorOverflow();
+        return false;
+    }
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>inline bool Stack<ObjectType, Lock, Size>::pop(ObjectType** object) {
+    Lock();
+    if (!isEmpty()) {
+        this->top--;
+        *object = (data[this->top]);
+        return true;
+    } else {
+        errorUnderflow();
+        return false;
+    }
+}
