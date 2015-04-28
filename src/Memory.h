@@ -123,7 +123,20 @@ protected:
     MemoryAllocatorRaw* memoryAllocator;
 };
 
-template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
+template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator) :
+    name(name), memoryAllocator(memoryAllocator) {
+    memset(&this->statictics, 0, sizeof(this->statictics));
+    this->name = name;
+    for (int i = 0;i < Size;i++) {
+        uint8_t *block = memoryAllocator->getBlock();
+        pool.push(block);
+    }
+    // Register this pool in the data base of all created objects/memory pools
+    // ...
+}
+
+template<typename Lock, size_t Size>
+inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
     bool res;
     Lock();
     res = pool.pop(block);
@@ -135,7 +148,8 @@ template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::allo
     return res;
 }
 
-template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
+template<typename Lock, size_t Size>
+inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     bool res;
     Lock();
     res = memoryAllocator->blockBelongs(block);
@@ -149,14 +163,3 @@ template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::free
     return res;
 }
 
-template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator) :
-    name(name), memoryAllocator(memoryAllocator) {
-    memset(&this->statictics, 0, sizeof(this->statictics));
-    this->name = name;
-    for (int i = 0;i < Size;i++) {
-        uint8_t *block = memoryAllocator->getBlock();
-        pool.push(block);
-    }
-    // Register this pool in the data base of all created objects/memory pools
-    // ...
-}
