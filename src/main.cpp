@@ -20,7 +20,7 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 5
+#define EXAMPLE 6
 
 #if EXAMPLE != 6
 #include "Lock.h"
@@ -272,48 +272,14 @@ mov %r8,0x2009a0(%rip)
 #include "CyclicBufferC.h"
 
 int main() {
-#if (PERFORMANCE > 0)
-    unsigned int count = PERFORMANCE_LOOPS;
-    while (--count)
-    {
-        uint8_t val;
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-        CyclicBufferAdd(&myCyclicBuffer, (uint8_t)count);
-        CyclicBufferRemove(&myCyclicBuffer, &val);
-    }
-#else
-    CyclicBufferAdd(&myCyclicBuffer, 0);
-
-    for (int i = 1;i < 4;i++) {
+    for (int i = 0;i < 4;i++) {
         CyclicBufferAdd(&myCyclicBuffer, i);
     }
 
-    bool res;
-    do {
-        uint8_t val;
-        res = CyclicBufferRemove(&myCyclicBuffer, &val);
-        if (!res)
-            break;
+    uint8_t val;
+    while (CyclicBufferRemove(&myCyclicBuffer, &val)) {
         cout << (int) val << endl;
-    } while (res);
-#endif
+    };
     return 0;
 }
 
