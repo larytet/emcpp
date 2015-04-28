@@ -20,7 +20,7 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 6
+#define EXAMPLE 9
 
 #if EXAMPLE != 6
 #include "Lock.h"

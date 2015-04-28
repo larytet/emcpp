@@ -40,6 +40,10 @@ public:
         return memoryRegion;
     }
 
+    void reset() {
+        firstNotAllocatedAddress = memoryRegion.getAddress();
+    }
+
     constexpr static size_t predictMemorySize(size_t blockSize, size_t count, unsigned int alignment) {
         return count * alignConst(blockSize, alignment);
     }
@@ -71,7 +75,7 @@ MemoryAllocatorRaw::MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSi
     if (sizeTotalBytes > memoryRegion.getSize()) {
         // handle error
     }
-    firstNotAllocatedAddress = memoryRegion.getAddress();
+    reset();
 }
 
 uint8_t* MemoryAllocatorRaw::getBlock() {
