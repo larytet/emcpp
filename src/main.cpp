@@ -20,11 +20,12 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 9
+#define EXAMPLE 5
 
 #if EXAMPLE != 6
 #include "Lock.h"
 #include "CyclicBuffer.h"
+#include "CyclicBufferSimple.h"
 #include "Stack.h"
 #include "Memory.h"
 #endif
@@ -228,7 +229,7 @@ constexpr size_t calculateCyclicBufferSize() {
     return 10;
 }
 
-static CyclicBuffer<uint8_t, LockDummy, calculateCyclicBufferSize()> myCyclicBuffer;
+static CyclicBufferSimple<uint8_t, LockDummy, calculateCyclicBufferSize()> myCyclicBuffer;
 
 int main() {
 #if (PERFORMANCE > 0)
