@@ -31,7 +31,8 @@ protected:
 
 };// StackBase
 
-template<typename ObjectType, typename Lock, std::size_t Size> class Stack: public StackBase {
+template<typename ObjectType, typename Lock, std::size_t Size>
+class Stack: public StackBase {
 public:
 
     Stack() :
@@ -49,7 +50,8 @@ private:
     ObjectType* data[Size + 1];
 };// class Stack
 
-template<typename ObjectType, typename Lock, std::size_t Size>inline bool Stack<ObjectType, Lock, Size>::push(ObjectType* object) {
+template<typename ObjectType, typename Lock, std::size_t Size>
+inline bool Stack<ObjectType, Lock, Size>::push(ObjectType* object) {
     Lock();
     if (!isFull()) {
         data[this->top] = object;
@@ -62,7 +64,8 @@ template<typename ObjectType, typename Lock, std::size_t Size>inline bool Stack<
 
 }
 
-template<typename ObjectType, typename Lock, std::size_t Size>inline bool Stack<ObjectType, Lock, Size>::pop(ObjectType** object) {
+template<typename ObjectType, typename Lock, std::size_t Size>
+inline bool Stack<ObjectType, Lock, Size>::pop(ObjectType** object) {
     Lock();
     if (!isEmpty()) {
         this->top--;
