@@ -135,8 +135,6 @@ template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(co
         uint8_t *block = memoryAllocator.getBlock();
         pool.push(block);
     }
-    // Register this pool in the data base of all created objects/memory pools
-    // ...
 }
 
 template<typename Lock, size_t Size>
