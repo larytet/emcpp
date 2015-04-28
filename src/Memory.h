@@ -30,34 +30,11 @@ protected:
 class MemoryAllocatorRaw {
 
 public:
-    MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment) :
-        alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
+    MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment);
 
-        alignedBlockSize = alignAddress(blockSize, alignment);
-        sizeTotalBytes = alignedBlockSize * count;
-        if (sizeTotalBytes > memoryRegion.getSize()) {
-            // handle error
-        }
-        firstNotAllocatedAddress = memoryRegion.getAddress();
-    }
+    uint8_t* getBlock();
 
-    uint8_t* getBlock() {
-        uintptr_t block;
-        block = alignAddress(firstNotAllocatedAddress, alignment);
-        firstNotAllocatedAddress += alignedBlockSize;
-        return (uint8_t*)block;
-    }
-
-    bool blockBelongs(const void* block) const {
-        uintptr_t blockPtr = (uintptr_t)block;
-        bool res = true;
-        res = res && blockPtr >= memoryRegion.getAddress();
-        size_t maxAddress = memoryRegion.getAddress()+sizeTotalBytes;
-        res = res && (blockPtr <= maxAddress);
-        uintptr_t alignedAddress = alignAddress(blockPtr, alignment);
-        res = res && (blockPtr == alignedAddress);
-        return res;
-    }
+    bool blockBelongs(const void* block) const;
 
     const MemoryRegion& getRegion() const {
         return memoryRegion;
@@ -86,21 +63,40 @@ protected:
     }
 };
 
+MemoryAllocatorRaw::MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment) :
+    alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
+
+    alignedBlockSize = alignAddress(blockSize, alignment);
+    sizeTotalBytes = alignedBlockSize * count;
+    if (sizeTotalBytes > memoryRegion.getSize()) {
+        // handle error
+    }
+    firstNotAllocatedAddress = memoryRegion.getAddress();
+}
+
+uint8_t* MemoryAllocatorRaw::getBlock() {
+    uintptr_t block;
+    block = alignAddress(firstNotAllocatedAddress, alignment);
+    firstNotAllocatedAddress += alignedBlockSize;
+    return (uint8_t*)block;
+}
+
+bool MemoryAllocatorRaw::blockBelongs(const void* block) const {
+    uintptr_t blockPtr = (uintptr_t)block;
+    bool res = true;
+    res = res && blockPtr >= memoryRegion.getAddress();
+    size_t maxAddress = memoryRegion.getAddress()+sizeTotalBytes;
+    res = res && (blockPtr <= maxAddress);
+    uintptr_t alignedAddress = alignAddress(blockPtr, alignment);
+    res = res && (blockPtr == alignedAddress);
+    return res;
+}
+
 template<typename Lock, size_t Size> class MemoryPoolRaw {
 
 public:
 
-    MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator) :
-        name(name), memoryAllocator(memoryAllocator) {
-        memset(&this->statictics, 0, sizeof(this->statictics));
-        this->name = name;
-        for (int i = 0;i < Size;i++) {
-            uint8_t *block = memoryAllocator->getBlock();
-            pool.push(block);
-        }
-        // Register this pool in the data base of all created objects/memory pools
-        // ...
-    }
+    MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator);
 
     ~MemoryPoolRaw() {
         // remove myself from the list of created memory pools
@@ -116,31 +112,9 @@ public:
         uint32_t errBadBlock;
     } Statistics;
 
-    inline bool allocate(uint8_t** block) {
-        bool res;
-        Lock();
-        res = pool.pop(block);
-        if (res) {
-            statictics.inUse++;
-            if (statictics.inUse > statictics.maxInUse)
-                statictics.maxInUse = statictics.inUse;
-        }
-        return res;
-    }
+    inline bool allocate(uint8_t** block);
 
-    inline bool free(uint8_t* block) {
-        bool res;
-        Lock();
-        res = memoryAllocator->blockBelongs(block);
-        if (res) {
-            res = pool.push(block);
-            statictics.inUse--;
-        }
-        else {
-            statictics.errBadBlock++;
-        }
-        return res;
-    }
+    inline bool free(uint8_t* block);
 
 protected:
     Statistics statictics;
@@ -148,3 +122,41 @@ protected:
     Stack<uint8_t, LockDummy,  Size> pool;
     MemoryAllocatorRaw* memoryAllocator;
 };
+
+template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
+    bool res;
+    Lock();
+    res = pool.pop(block);
+    if (res) {
+        statictics.inUse++;
+        if (statictics.inUse > statictics.maxInUse)
+            statictics.maxInUse = statictics.inUse;
+    }
+    return res;
+}
+
+template<typename Lock, size_t Size> inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
+    bool res;
+    Lock();
+    res = memoryAllocator->blockBelongs(block);
+    if (res) {
+        res = pool.push(block);
+        statictics.inUse--;
+    }
+    else {
+        statictics.errBadBlock++;
+    }
+    return res;
+}
+
+template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw* memoryAllocator) :
+    name(name), memoryAllocator(memoryAllocator) {
+    memset(&this->statictics, 0, sizeof(this->statictics));
+    this->name = name;
+    for (int i = 0;i < Size;i++) {
+        uint8_t *block = memoryAllocator->getBlock();
+        pool.push(block);
+    }
+    // Register this pool in the data base of all created objects/memory pools
+    // ...
+}

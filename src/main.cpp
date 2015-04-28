@@ -499,8 +499,8 @@ int main() {
 static uint8_t dmaMemoryDummy[512];
 static MemoryRegion dmaMemoryRegion("dmaMem", (uintptr_t)dmaMemoryDummy, sizeof(dmaMemoryDummy));
 
-static_assert((sizeof(dmaMemoryDummy) >= MemoryAllocatorRaw::predictMemorySize(63, 8, 2)), "DmaMemoryDummy region is not large enough");
-static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 8, 2);
+static_assert((sizeof(dmaMemoryDummy) >= MemoryAllocatorRaw::predictMemorySize(63, 3, 2)), "DmaMemoryDummy region is not large enough");
+static MemoryAllocatorRaw dmaAllocator(dmaMemoryRegion, 63, 3, 2);
 
 static MemoryPoolRaw<LockDummy, 7> dmaPool("dmaPool", &dmaAllocator);
 
@@ -509,7 +509,7 @@ int main() {
     uint8_t* block;
     cout << "base=" << reinterpret_cast<uintptr_t>(dmaMemoryDummy) << endl;
     bool res;
-    for (int i = 0;i < 30;i++)
+    for (int i = 0;i < 5;i++)
     {
         res = dmaPool.allocate(&block);
         if (res) {
