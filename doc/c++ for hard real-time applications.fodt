@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-28T13:12:30.106892924</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P2DT6H36M48S</meta:editing-duration><meta:editing-cycles>732</meta:editing-cycles><meta:generator>LibreOffice/4.2.7.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="631" meta:word-count="4311" meta:character-count="30825" meta:non-whitespace-character-count="25054"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-28T13:13:08.011586740</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P2DT6H37M25S</meta:editing-duration><meta:editing-cycles>733</meta:editing-cycles><meta:generator>LibreOffice/4.2.7.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="18" meta:paragraph-count="628" meta:word-count="4299" meta:character-count="30784" meta:non-whitespace-character-count="25022"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">660</config:config-item>
-   <config:config-item config:name="ViewAreaLeft" config:type="long">501</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">501</config:config-item>
+   <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">66677</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">32546</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="InBrowseMode" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">11904</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">14300</config:config-item>
-     <config:config-item config:name="VisibleLeft" config:type="long">501</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">660</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">67176</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">33203</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">21966</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">14392</config:config-item>
+     <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">501</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">66675</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">33045</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -415,6 +415,20 @@
   <style:style style:name="P38" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
    <style:text-properties officeooo:paragraph-rsid="00036e21"/>
   </style:style>
+  <style:style style:name="P39" style:family="paragraph" style:parent-style-name="Contents_20_1">
+   <style:paragraph-properties>
+    <style:tab-stops>
+     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="P40" style:family="paragraph" style:parent-style-name="Contents_20_2">
+   <style:paragraph-properties>
+    <style:tab-stops>
+     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties fo:color="#3f7f5f"/>
   </style:style>
@@ -576,7 +590,7 @@
   <style:master-page style:name="Standard" style:page-layout-name="pm1"/>
  </office:master-styles>
  <office:body>
-  <office:text>
+  <office:text text:use-soft-page-breaks="true">
    <text:sequence-decls>
     <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
@@ -678,21 +692,18 @@
      <text:index-title text:style-name="Sect2" text:name="Table of Contents1_Head">
       <text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
      </text:index-title>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2531_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Simple lock<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2533_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Template based lock.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Use of C++ templates in the embedded systems.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Allocation.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2950_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Stack and memory pool.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2319_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Timers.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2321_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>1</text:a></text:p>
-     <text:p text:style-name="P20"><text:a xlink:type="simple" xlink:href="#__RefHeading__2758_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM and RAM.<text:tab/>2</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2648_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Data in ROM<text:tab/>2</text:a></text:p>
-     <text:p text:style-name="P19"><text:a xlink:type="simple" xlink:href="#__RefHeading__2650_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code in ROM<text:tab/>2</text:a></text:p>
+     <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>1</text:a></text:p>
+     <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>1</text:a></text:p>
+     <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>2</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2531_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Simple lock<text:tab/>2</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2533_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Template based lock.<text:tab/>3</text:a></text:p>
+     <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>5</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>5</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>8</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Use of C++ templates in the embedded systems.<text:tab/>11</text:a></text:p>
+     <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Allocation.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__2950_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Stack.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P40"><text:a xlink:type="simple" xlink:href="#__RefHeading__13921_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Pool.<text:tab/>14</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2313_977618933"/>Introduction.<text:bookmark-end text:name="__RefHeading__2313_977618933"/></text:h>
@@ -700,8 +711,8 @@
    <text:p text:style-name="Text_20_body">Any problem can be solved in multiple ways. Where it is possible and makes sense I to provide an alternative implementation in C and compare performance of C and C++ solutions.</text:p>
    <text:p text:style-name="Quotations">I want to end the introduction with <text:span text:style-name="T44">a </text:span>famous quote from one of <text:span text:style-name="T44">the </text:span>Linus Torvalds e-mails. <text:span text:style-name="T44">I am not sure if the original intention of the e-mail was a joke, but I am putting it here tongue-in-cheek</text:span>: “... I&apos;ve come to the conclusion that any programmer that would prefer the project to be in C++ over C is likely a programmer that I really would prefer to piss off, so that he doesn&apos;t come and screw up any project I&apos;m involved with .... the only way to do good, efficient, and system-level and portable C++ ends up to limit yourself to all the things that are basically available in C. And limiting your project to C means that people don&apos;t screw that up, and also means that you get a lot of programmers that do actually understand low-level issues and don&apos;t screw things up with any idiotic &apos;object model&apos; crap”. </text:p>
    <text:p text:style-name="Quotations"/>
-   <text:h text:style-name="P32" text:outline-level="1"><text:span text:style-name="T44">C++ code style</text:span>.</text:h>
-   <text:p text:style-name="First_20_line_20_indent"><text:span text:style-name="T44">I am doing my best to follow consistent C/C++ code style in all source code examples. </text:span>In <text:span text:style-name="T44">this book I am not placing curly brackets on a separate line. Please, do not send me hate mail. The only reason is to make the code snippets shorter. Shorter code has better chance to fit the smaller e-readers displays. There is no comments in the code itself for the same reason. I am using camelcase name convention. Types and classes names start from uppercase, variables start with lower case, constants are all upper case with underscore delimiter. Through the book I demonstrate some of the less known C++11 features like type traits, static assertion, constant expressions. </text:span></text:p>
+   <text:h text:style-name="P32" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__13919_1660174531"/><text:span text:style-name="T44">C++ code style</text:span>.<text:bookmark-end text:name="__RefHeading__13919_1660174531"/></text:h>
+   <text:p text:style-name="First_20_line_20_indent"><text:span text:style-name="T44">I am doing my best to follow consistent C/C++ code style in all source code examples. </text:span>In <text:span text:style-name="T44">this book I am not placing curly brackets on a separate line. Please, do not send me hate mail. The only reason is to make the code snippets shorter. Shorter code has better chance to fit the smaller e-readers displays. </text:span><text:soft-page-break/><text:span text:style-name="T44">There is no comments in the code itself for the same reason. I am using camelcase name convention. Types and classes names start from uppercase, variables start with lower case, constants are all upper case with underscore delimiter. Through the book I demonstrate some of the less known C++11 features like type traits, static assertion, constant expressions. </text:span></text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2315_977618933"/>Mutual exclusion.<text:bookmark-end text:name="__RefHeading__2315_977618933"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2531_977618933"/>Simple lock<text:bookmark-end text:name="__RefHeading__2531_977618933"/></text:h>
    <text:p text:style-name="Quotations">The great thing about Object Oriented code is that it can make small, simple problems look like large, complex ones.</text:p>
@@ -728,7 +739,7 @@
    <text:p text:style-name="P28"><text:s/>* Lock is freed</text:p>
    <text:p text:style-name="P28"><text:s/>*/</text:p>
    <text:p text:style-name="P26"><text:span text:style-name="T5">int</text:span><text:span text:style-name="T11"> main() {</text:span></text:p>
-   <text:p text:style-name="P1"><text:span text:style-name="T5">#if</text:span><text:span text:style-name="T11"> (__cplusplus &gt;= 201103) </text:span><text:span text:style-name="T2">// use &quot;auto&quot; if C++11 or better</text:span></text:p>
+   <text:p text:style-name="P1"><text:soft-page-break/><text:span text:style-name="T5">#if</text:span><text:span text:style-name="T11"> (__cplusplus &gt;= 201103) </text:span><text:span text:style-name="T2">// use &quot;auto&quot; if C++11 or better</text:span></text:p>
    <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">auto</text:span><text:span text:style-name="T11"> myDummyLock = LockDummy();</text:span></text:p>
    <text:p text:style-name="P7">#else</text:p>
    <text:p text:style-name="P5"><text:s text:c="4"/>LockDummy myDummyLock = LockDummy();</text:p>
@@ -763,7 +774,7 @@
    <text:p text:style-name="P1"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">interruptEnable</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11">) {</text:span></text:p>
    <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/>cout &lt;&lt; </text:span><text:span text:style-name="T30">&quot;Enable&quot;</text:span><text:span text:style-name="T11"> &lt;&lt; </text:span><text:span text:style-name="T32">endl</text:span><text:span text:style-name="T11">;</text:span></text:p>
    <text:p text:style-name="P5">}</text:p>
-   <text:p text:style-name="Text_20_body"><text:span text:style-name="T44">I am </text:span>describing <text:span text:style-name="T44">a </text:span>synchronization object. The class implements two methods “get” and “release”. Both methods are “inline” which helps the optimizer to decide if the calls to the methods should be substituted by the methods code. The end effect is going to be similar to using a macro definition in C. Default constructor <text:span text:style-name="T44">if the class SynchroObject </text:span>is private - I do not want any objects of this type <text:span text:style-name="T44">in the application</text:span>. <text:span text:style-name="T44">My C++ compiler so far did not add any object code.</text:span></text:p>
+   <text:p text:style-name="Text_20_body"><text:span text:style-name="T44">I am </text:span>describing <text:span text:style-name="T44">a </text:span>synchronization object. The class implements two methods “get” and “release”. Both methods are “inline” which helps the optimizer to decide if the calls to the methods should be substituted by the methods code. The end effect is going to be similar to using a macro definition in C. <text:soft-page-break/>Default constructor <text:span text:style-name="T44">if the class SynchroObject </text:span>is private - I do not want any objects of this type <text:span text:style-name="T44">in the application</text:span>. <text:span text:style-name="T44">My C++ compiler so far did not add any object code.</text:span></text:p>
    <text:p text:style-name="P1"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T24">SynchroObject</text:span><text:span text:style-name="T11"> {</text:span></text:p>
    <text:p text:style-name="P3"/>
    <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T12">SynchroObject</text:span><text:span text:style-name="T11">() {};</text:span></text:p>
@@ -808,7 +819,7 @@
    <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> 0;</text:span></text:p>
    <text:p text:style-name="P5">}</text:p>
    <text:p text:style-name="P1"/>
-   <text:p text:style-name="P31">Overhead of the wrapper <text:span text:style-name="T44">around the </text:span>functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembler I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? <text:span text:style-name="T44">What is an added value? </text:span></text:p>
+   <text:p text:style-name="P31"><text:soft-page-break/>Overhead of the wrapper <text:span text:style-name="T44">around the </text:span>functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembler I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? <text:span text:style-name="T44">What is an added value? </text:span></text:p>
    <text:p text:style-name="P31"><text:span text:style-name="T44">The code does not allow me to</text:span> leave out calling enable interrupts after I called disable <text:span text:style-name="T44">interrupt</text:span>. No matter how many return points or breaks out of loop my function has C++ compiler ensures that <text:span text:style-name="T44">the </text:span>function interruptEnable is called exactly once. I will return to <text:span text:style-name="T44">the </text:span>synchronization objects later in this book. </text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2317_977618933"/>Containers.<text:bookmark-end text:name="__RefHeading__2317_977618933"/></text:h>
    <text:p text:style-name="Quotations">When your hammer is C++, everything begins to look like a thumb.</text:p>
@@ -830,7 +841,7 @@
    <text:p text:style-name="P3"/>
    <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">isEmpty</text:span><text:span text:style-name="T11">();</text:span></text:p>
    <text:p text:style-name="P3"/>
-   <text:p text:style-name="P1"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">isFull</text:span><text:span text:style-name="T11">();</text:span></text:p>
+   <text:p text:style-name="P1"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">isFull</text:span><text:span text:style-name="T11">();</text:span></text:p>
    <text:p text:style-name="P3"/>
    <text:p text:style-name="P1"><text:span text:style-name="T5">private</text:span><text:span text:style-name="T11">:</text:span></text:p>
    <text:p text:style-name="P3"/>
@@ -879,7 +890,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T11"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> 0;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11">}</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11">}</text:span></text:p>
    <text:p text:style-name="Text_20_body">Add/remove API of the cyclic buffer:</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T11">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T11">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T34">Lock</text:span><text:span text:style-name="T11">, std::</text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T34">Size</text:span><text:span text:style-name="T11">&gt;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">CyclicBufferSimple&lt;ObjectType, Lock, Size&gt;::add</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T11"> object) {</text:span></text:p>
@@ -924,7 +935,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/>myCyclicBuffer.add(i);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">uint8_t</text:span><text:span text:style-name="T11"> val;</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">uint8_t</text:span><text:span text:style-name="T11"> val;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">while</text:span><text:span text:style-name="T11"> (myCyclicBuffer.remove(val)) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/>cout &lt;&lt; (</text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T11">) val &lt;&lt; </text:span><text:span text:style-name="T32">endl</text:span><text:span text:style-name="T11">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
@@ -965,7 +976,7 @@
    <text:p text:style-name="P34">The C implementation of the cyclic buffer suggested below is type safe. C implementation contains approximately the same number of <text:span text:style-name="T44">source code</text:span> lines – ~80 lines <text:span text:style-name="T44">in C </text:span>vs ~90 lines in C++.</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T9">#undef</text:span><text:span text:style-name="T45"> CYCLIC_BUFFRE_SIZE</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T11"> CYCLIC_BUFFRE_SIZE 10</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"/>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#undef</text:span><text:span text:style-name="T11"> CYCLIC_BUFFER_OBJECT_TYPE</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T11"> CYCLIC_BUFFER_OBJECT_TYPE uint8_t</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1018,7 +1029,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11">}</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"/>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">CyclicBufferRemove</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T24">CyclicBuffer</text:span><text:span text:style-name="T11">* cyclicBuffer, CYCLIC_BUFFER_OBJECT_TYPE* object) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T11"> (!CyclicBufferIsEmpty(cyclicBuffer)) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/>*object = cyclicBuffer-&gt;</text:span><text:span text:style-name="T40">data</text:span><text:span text:style-name="T11">[cyclicBuffer-&gt;</text:span><text:span text:style-name="T40">head</text:span><text:span text:style-name="T11">];</text:span></text:p>
@@ -1067,7 +1078,7 @@
    <text:p text:style-name="P12"><text:s text:c="8"/>cyclicBuffer-&gt;data[cyclicBuffer-&gt;tail] = object;</text:p>
    <text:p text:style-name="P12"><text:s text:c="2"/>movb $0x0,0x6011a0(%rcx)</text:p>
    <text:p text:style-name="Text_20_body">GNUC for ARM produces essentially the same assembler for C and C++ code</text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">xor</text:span><text:span text:style-name="T11"> <text:s text:c="3"/>%esi,%esi</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T5">xor</text:span><text:span text:style-name="T11"> <text:s text:c="3"/>%esi,%esi</text:span></text:p>
    <text:p text:style-name="P12">mov <text:s text:c="3"/>0x2009be(%rip),%rax</text:p>
    <text:p text:style-name="P12">mov <text:s text:c="3"/>%rsi,%r8</text:p>
    <text:p text:style-name="P12">push <text:s text:c="2"/>%rbp</text:p>
@@ -1109,7 +1120,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">errorOverflow</text:span><text:span text:style-name="T11">() {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">errorUnderflow</text:span><text:span text:style-name="T11">() {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">errorUnderflow</text:span><text:span text:style-name="T11">() {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">increment</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> index) {</text:span></text:p>
@@ -1160,7 +1171,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="12"/>errorUnderflow();</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="12"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">false</text:span><text:span text:style-name="T11">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/>}</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">private</text:span><text:span text:style-name="T11">:</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1199,7 +1210,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> res;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">isFull</text:span><text:span text:style-name="T11">() {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">isFull</text:span><text:span text:style-name="T11">() {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> res = (</text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T11">-&gt;</text:span><text:span text:style-name="T40">top</text:span><text:span text:style-name="T11"> == </text:span><text:span text:style-name="T40">size</text:span><text:span text:style-name="T11">);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> res;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
@@ -1248,8 +1259,8 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11">}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2">Memory Pool.</text:h>
-   <text:p text:style-name="First_20_line_20_indent">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be places at specific memory address. One popular application for such memory blocks are data buffers for the DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. <text:span text:style-name="T43">First I define a memory region. I use operator “new” <text:s/>- a placement new operator - to “place” the data at the specified address. Memory region has a name for debug purposes. </text:span></text:p>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__13921_1660174531"/>Memory Pool.<text:bookmark-end text:name="__RefHeading__13921_1660174531"/></text:h>
+   <text:p text:style-name="First_20_line_20_indent">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be places at specific memory address. One popular application for <text:soft-page-break/>such memory blocks are data buffers for the DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. <text:span text:style-name="T43">First I define a memory region. I use operator “new” <text:s/>- a placement new operator - to “place” the data at the specified address. Memory region has a name for debug purposes. </text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T24">MemoryRegion</text:span><text:span text:style-name="T11"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">public</text:span><text:span text:style-name="T11">:</text:span></text:p>
@@ -1292,7 +1303,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T40">memoryRegion</text:span><text:span text:style-name="T11">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">constexpr</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">static</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">predictMemorySize</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> blockSize, </text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> count, </text:span><text:span text:style-name="T5">unsigned</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T11"> alignment) {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">constexpr</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">static</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">predictMemorySize</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> blockSize, </text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> count, </text:span><text:span text:style-name="T5">unsigned</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T11"> alignment) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T11"> count * </text:span><text:span text:style-name="T21">alignConst</text:span><text:span text:style-name="T11">(blockSize, alignment);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1337,7 +1348,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T12">MemoryAllocatorRaw::blockBelongs</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T11">* block) </text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T11"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">uintptr_t</text:span><text:span text:style-name="T11"> blockPtr = (</text:span><text:span text:style-name="T24">uintptr_t</text:span><text:span text:style-name="T11">)block;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T11"> res = </text:span><text:span text:style-name="T5">true</text:span><text:span text:style-name="T11">;</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>res = res &amp;&amp; blockPtr &gt;= </text:span><text:span text:style-name="T40">memoryRegion</text:span><text:span text:style-name="T11">.getAddress();</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="4"/>res = res &amp;&amp; blockPtr &gt;= </text:span><text:span text:style-name="T40">memoryRegion</text:span><text:span text:style-name="T11">.getAddress();</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">size_t</text:span><text:span text:style-name="T11"> maxAddress = </text:span><text:span text:style-name="T40">memoryRegion</text:span><text:span text:style-name="T11">.getAddress()+</text:span><text:span text:style-name="T40">sizeTotalBytes</text:span><text:span text:style-name="T11">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>res = res &amp;&amp; (blockPtr &lt;= maxAddress);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T24">uintptr_t</text:span><text:span text:style-name="T11"> alignedAddress = </text:span><text:span text:style-name="T21">alignAddress</text:span><text:span text:style-name="T11">(blockPtr, </text:span><text:span text:style-name="T40">alignment</text:span><text:span text:style-name="T11">);</text:span></text:p>
@@ -1384,7 +1395,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T32">memset</text:span><text:span text:style-name="T11">(&amp;</text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T11">-&gt;</text:span><text:span text:style-name="T40">statictics</text:span><text:span text:style-name="T11">, 0, </text:span><text:span text:style-name="T5">sizeof</text:span><text:span text:style-name="T11">(</text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T11">-&gt;</text:span><text:span text:style-name="T40">statictics</text:span><text:span text:style-name="T11">));</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T11">-&gt;</text:span><text:span text:style-name="T40">name</text:span><text:span text:style-name="T11"> = name;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T5">for</text:span><text:span text:style-name="T11"> (</text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T11"> i = 0;i &lt; </text:span><text:span text:style-name="T34">Size</text:span><text:span text:style-name="T11">;i++) {</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T24">uint8_t</text:span><text:span text:style-name="T11"> *block = memoryAllocator-&gt;getBlock();</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T24">uint8_t</text:span><text:span text:style-name="T11"> *block = memoryAllocator-&gt;getBlock();</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="8"/></text:span><text:span text:style-name="T40">pool</text:span><text:span text:style-name="T11">.push(block);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/>}</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T11"><text:s text:c="4"/></text:span><text:span text:style-name="T2">// Register this pool in the data base of all created objects/memory pools</text:span></text:p>
