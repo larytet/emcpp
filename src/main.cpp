@@ -236,26 +236,33 @@ static int mainExample9() {
 0x0034 Clear Output Data Register PIO_CODR Write-only
 */
 
-typedef struct  __attribute__ ((__packed__)) {
+#define TOKEN_CAT(x, y) x ## y
+#define TOKEN_CAT2(x, y) TOKEN_CAT(x, y)
+#define RESERVED TOKEN_CAT2(reserved, __COUNTER__)
+
+
+struct __attribute__ ((__packed__)) PIO {
     volatile uint32_t PIO_PER  ;
     volatile uint32_t PIO_PDR  ;
     volatile uint32_t PIO_PSR  ;
-    volatile uint32_t Reserved1 ;
+    volatile uint32_t RESERVED ;
     volatile uint32_t PIO_OER  ;
     volatile uint32_t PIO_ODR  ;
     volatile uint32_t PIO_OSR  ;
-    volatile uint32_t Reserved ;
-    volatile uint32_t NU[3] ;
-    volatile uint32_t Reserved2 ;
+    volatile uint32_t RESERVED ;
+    volatile uint32_t RESERVED ;
+    volatile uint32_t RESERVED ;
+    volatile uint32_t RESERVED ;
+    volatile uint32_t RESERVED ;
     volatile uint32_t PIO_SODR ;
     volatile uint32_t PIO_CODR ;
-} PIO;
+};
 
-#if REAL_HARDWARE
-static PIO *pios = (PIO*)0xFFFFF200;
+#ifdef REAL_HARDWARE
+static struct PIO *pios = (PIO*)0xFFFFF200;
 #else
-static PIO pioDummy[5];
-static PIO *pios = pioDummy;
+static struct PIO pioDummy[5];
+static struct PIO *pios = pioDummy;
 #endif
 
 typedef enum {
@@ -269,7 +276,7 @@ typedef enum {
 
 
 static void enableOutput(PIO_NAME name, int pin, int value) {
-    PIO *pio = &pios[name];
+    struct PIO *pio = &pios[name];
     uint32_t mask = 1 << pin;
     if (value) {
         pio->PIO_SODR = mask;
@@ -281,6 +288,60 @@ static void enableOutput(PIO_NAME name, int pin, int value) {
     pio->PIO_OER = mask;
 }
 
+class HardwareModule {
+
+};
+
+class HardwareRegister32 {
+protected:
+    volatile uint32_t value;
+};
+
+static_assert((sizeof(HardwareRegister32) == sizeof(uint32_t)), "HardwareRegister32 is not 32 bits");
+
+class HardwareRegister32RO : HardwareRegister32{
+
+};
+static_assert((sizeof(HardwareRegister32RO) == sizeof(uint32_t)), "HardwareRegister32RO is not 32 bits");
+
+class HardwareRegister32WO : HardwareRegister32{
+
+};
+static_assert((sizeof(HardwareRegister32WO) == sizeof(uint32_t)), "HardwareRegister32WO is not 32 bits");
+
+class HardwareRegister32RW : HardwareRegister32 {
+};
+static_assert((sizeof(HardwareRegister32RW) == sizeof(uint32_t)), "HardwareRegister32RW is not 32 bits");
+
+class HardwareRegister32NotUsed : HardwareRegister32 {
+public:
+    HardwareRegister32NotUsed() {}
+private:
+    ~HardwareRegister32NotUsed() {}
+};
+static_assert((sizeof(HardwareRegister32NotUsed) == sizeof(uint32_t)), "HardwareRegister32NotUsed is not 32 bits");
+
+
+class HardwarePIO : HardwareModule {
+public:
+    struct interface {
+        HardwareRegister32WO PIO_PER  ;
+        HardwareRegister32WO PIO_PDR  ;
+        HardwareRegister32RO PIO_PSR  ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32WO PIO_OER  ;
+        HardwareRegister32WO PIO_ODR  ;
+        HardwareRegister32RO PIO_OSR  ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32NotUsed RESERVED ;
+        HardwareRegister32WO PIO_SODR ;
+        HardwareRegister32WO PIO_CODR ;
+    };
+    static_assert((sizeof(struct interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
+};
 
 static void mainExample10() {
     enableOutput(PIO_A, 2, 1);
