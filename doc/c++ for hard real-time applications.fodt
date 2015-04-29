@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-29T15:08:08.271466069</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P3DT4H5M14S</meta:editing-duration><meta:editing-cycles>904</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="779" meta:word-count="5177" meta:character-count="36479" meta:non-whitespace-character-count="29660"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-29T15:28:07.826365816</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P3DT4H25M9S</meta:editing-duration><meta:editing-cycles>912</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="779" meta:word-count="5189" meta:character-count="36552" meta:non-whitespace-character-count="29721"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">380866</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">460347</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">501</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">33339</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">15759</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">8438</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">391458</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">19921</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">474567</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">501</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">380866</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">460347</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">33838</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">396623</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">476104</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -1799,7 +1799,7 @@
    <text:p text:style-name="P38"/>
    <text:p text:style-name="P38">There are 5 32 bits I/Os like this called A, B, C, D, E, F in the microcontroller. The registers are mapped starting at address 0xFFFFF200. User shall write 1 to the bit she wishes to modify in a write-only registers. For example, user will write 0x04 to PIO_SODR – set the output value first, PIO_PER, PIO_OER to drive pin 2 (zero based) of the PIO high. Write to the PIO registers is an atomic operation. The hardware interface allows to change the configuration of a single bit in the multi thread environment. Hardware provides convenient status registers which keep the current value of the register, also called a shadow.</text:p>
    <text:h text:style-name="P49" text:outline-level="2">I/O access in C.</text:h>
-   <text:p text:style-name="Text_20_body">Declare the PIO structure first:</text:p>
+   <text:p text:style-name="Text_20_body"><text:span text:style-name="T53">I am providing quick and dirty C implementation. </text:span>Declare the PIO structure first:</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">#define</text:span><text:span text:style-name="T13"> TOKEN_CAT(x, y) x </text:span><text:span text:style-name="T4">##</text:span><text:span text:style-name="T13"> y</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">#define</text:span><text:span text:style-name="T13"> TOKEN_CAT2(x, y) TOKEN_CAT(x, y)</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">#define</text:span><text:span text:style-name="T13"> RESERVED TOKEN_CAT2(reserved, __COUNTER__)</text:span></text:p>
@@ -1891,7 +1891,7 @@
    <text:p text:style-name="P14"><text:s text:c="4"/>pio-&gt;PIO_OER = mask;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T4">8664:</text:span><text:span text:style-name="T13"><text:tab/>e5832070 <text:tab/>str<text:tab/>r2, [r3, #112]</text:span></text:p>
    <text:h text:style-name="P59" text:outline-level="2">I/O access in C<text:span text:style-name="T53">++</text:span>.</text:h>
-   <text:p text:style-name="Text_20_body">This is not easy to compete with C when accessing the I/O. Compiler C translates every line of C code into single machine opcode. There is no need to manually specify an address for every register. <text:span text:style-name="T53">I need C++ implementation with similar performance and convenience of usage which adds some value, for example type safety.</text:span></text:p>
+   <text:p text:style-name="Text_20_body">This is not easy to compete with C when accessing the I/O. Compiler C translates every line of C code into single machine opcode. There is no need to manually specify an address for every register. <text:span text:style-name="T53">I need C++ implementation with the same perfect performance score, similar convenience of usage AND which adds some value, for example type safety.</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
   </office:text>
  </office:body>
