@@ -3,9 +3,8 @@
 
 class HardwareModule {
 protected:
-    HardwareModule(const uintptr_t address): address(address) {}
+    HardwareModule() {}
     ~HardwareModule() {}
-    const uintptr_t address;
 };
 
 class HardwareRegister32 {

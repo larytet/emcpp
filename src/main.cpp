@@ -250,10 +250,12 @@ static void mainExample10() {
 
 class HardwarePIO : HardwareModule {
 public:
-    HardwarePIO(const uintptr_t address): HardwareModule(address) {}
+    HardwarePIO(const uintptr_t address) {
+        interface = (struct Interface*)address;
+    }
     ~HardwarePIO() {}
 
-    struct interface {
+    struct Interface {
         HardwareRegister32WO PIO_PER  ;
         HardwareRegister32WO PIO_PDR  ;
         HardwareRegister32RO PIO_PSR  ;
@@ -268,15 +270,20 @@ public:
         HardwareRegister32NotUsed RESERVED ;
         HardwareRegister32WO PIO_SODR ;
         HardwareRegister32WO PIO_CODR ;
-    } interface;
-    enum Name {A, B, C, D, E, F};
-    static_assert((sizeof(struct interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
+    };
+    static_assert((sizeof(struct Interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
+    enum Name {A, B, C, D, E, F, LAST};
+
+    inline Interface& getInterface(Name name) {return interface[name];};
 
     inline void enableOutput(Name name, int pin, int value);
+protected:
+    struct Interface* interface;
 };
 
 inline void HardwarePIO::enableOutput(Name name, int pin, int value)
 {
+    struct Interface& interface = getInterface(name);
     uint32_t mask = 1 << pin;
     if (value) {
         interface.PIO_SODR = mask;
@@ -290,13 +297,9 @@ inline void HardwarePIO::enableOutput(Name name, int pin, int value)
 
 static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
 
-
 static void mainExample11() {
     hardwarePIO.enableOutput(HardwarePIO::A, 2, 1);
-    cout << "SODR" << pioDummy[0].PIO_SODR << endl;
-    cout << "CODR" << pioDummy[0].PIO_CODR << endl;
-    cout << "PER" << pioDummy[0].PIO_PER << endl;
-    cout << "OER" << pioDummy[0].PIO_OER << endl;
+    uint32_t per = hardwarePIO.getInterface(HardwarePIO::A).PIO_PER;
 }
 
 int main()
