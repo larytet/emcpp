@@ -1,2 +1,4 @@
 Command 'make' shall build the code 
 For ARM try 'make CROSS=arm-linux-gnueabi-'
+
+You will want to read manual "C++ for hard real-time applications" from the /doc folder
