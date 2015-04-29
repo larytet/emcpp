@@ -219,8 +219,77 @@ static int mainExample9() {
     return 0;
 }
 
+/*
+0x0000 PIO Enable Register PIO_PER Write-only
+0x0004 PIO Disable Register PIO_PDR Write-only
+0x0008 PIO Status Register PIO_PSR Read-only
+0x000C Reserved
+0x0010 Output Enable Register PIO_OER Write-only
+0x0014 Output Disable Register PIO_ODR Write-only
+0x0018 Output Status Register PIO_OSR Read-only
+0x001C Reserved
+0x0020 Not used
+0x0024 Not used
+0x0028 Not used
+0x002C Reserved
+0x0030 Set Output Data Register PIO_SODR Write-only
+0x0034 Clear Output Data Register PIO_CODR Write-only
+*/
+
+typedef struct  __attribute__ ((__packed__)) {
+    volatile uint32_t PIO_PER  ;
+    volatile uint32_t PIO_PDR  ;
+    volatile uint32_t PIO_PSR  ;
+    volatile uint32_t Reserved1 ;
+    volatile uint32_t PIO_OER  ;
+    volatile uint32_t PIO_ODR  ;
+    volatile uint32_t PIO_OSR  ;
+    volatile uint32_t Reserved ;
+    volatile uint32_t NU[3] ;
+    volatile uint32_t Reserved2 ;
+    volatile uint32_t PIO_SODR ;
+    volatile uint32_t PIO_CODR ;
+} PIO;
+
+typedef PIO PIOS[5];
+
+
+#if REAL_HARDWARE
+static PIOS pios = (PIO**)0xFFFFF200;
+#else
+static PIO pioDummy[5];
+static PIOS *pios = &(pioDummy[0]);
+#endif
+
+typedef enum {
+    PIO_A,
+    PIO_B,
+    PIO_C,
+    PIO_D,
+    PIO_E,
+    PIO_F,
+} PIO_NAME;
+
+
+static void enableOutput(PIO_NAME name, int pin, int value) {
+    PIO *pio = pios[name];
+    uint32_t mask = 1 << pin;
+    if (value) {
+        pio->PIO_SODR = mask;
+    }
+    else {
+        pio->PIO_CODR = mask;
+    }
+    pio->PIO_PER = mask;
+    pio->PIO_OER = mask;
+}
+
+static void mainExample10() {
+    enableOutput(PIO_A, 2, 1);
+}
+
 int main()
 {
-    mainExample9();
+    mainExample10();
     return 0;
 }
