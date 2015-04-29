@@ -342,13 +342,9 @@ public:
 };
 static_assert((sizeof(HardwareRegister32RW) == sizeof(uint32_t)), "HardwareRegister32RW is not 32 bits");
 
-
-
-
 class HardwareRegister32NotUsed : HardwareRegister32 {
 public:
     HardwareRegister32NotUsed() {}
-private:
     ~HardwareRegister32NotUsed() {}
 };
 static_assert((sizeof(HardwareRegister32NotUsed) == sizeof(uint32_t)), "HardwareRegister32NotUsed is not 32 bits");
@@ -374,7 +370,7 @@ public:
         HardwareRegister32NotUsed RESERVED ;
         HardwareRegister32WO PIO_SODR ;
         HardwareRegister32WO PIO_CODR ;
-    };
+    } interface;
     enum Name {A, B, C, D, E, F};
     static_assert((sizeof(struct interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
 
@@ -384,16 +380,15 @@ public:
 
 inline void HardwarePIO::enableOutput(Name name, int pin, int value)
 {
-    struct PIO *pio = &pios[name];
     uint32_t mask = 1 << pin;
     if (value) {
-        pio->PIO_SODR = mask;
+        interface.PIO_SODR = mask;
     }
     else {
-        pio->PIO_CODR = mask;
+        interface.PIO_CODR = mask;
     }
-    pio->PIO_PER = mask;
-    pio->PIO_OER = mask;
+    interface.PIO_PER = mask;
+    interface.PIO_OER = mask;
 }
 
 static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
