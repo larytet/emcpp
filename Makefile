@@ -1,4 +1,4 @@
-CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 
+CXXFLAGS = -O3 -g -Wall -fmessage-length=0 -std=c++11 
 
 OBJS =		src/main.o src/timers.o
 

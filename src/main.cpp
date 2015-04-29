@@ -281,6 +281,7 @@ static void enableOutput(PIO_NAME name, int pin, int value) {
     pio->PIO_OER = mask;
 }
 
+
 static void mainExample10() {
     enableOutput(PIO_A, 2, 1);
 }
