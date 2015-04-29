@@ -107,7 +107,7 @@ public:
     }
 
     inline void resetMaxInUse() const {
-        statictics.maxInUse = 0;
+        statistics.maxInUse = 0;
     }
 
     typedef struct {
@@ -120,10 +120,10 @@ public:
 
     inline bool free(uint8_t* block);
 
-    inline const Statistics &getStatistics(void) const {return statictics;}
+    inline const Statistics &getStatistics(void) const {return statistics;}
 
 protected:
-    mutable Statistics statictics;
+    mutable Statistics statistics;
     const char* name;
     Stack<uint8_t, LockDummy,  Size> pool;
     MemoryAllocatorRaw& memoryAllocator;
@@ -131,7 +131,7 @@ protected:
 
 template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw& memoryAllocator) :
     name(name), memoryAllocator(memoryAllocator) {
-    memset(&this->statictics, 0, sizeof(this->statictics));
+    memset(&this->statistics, 0, sizeof(this->statistics));
     this->name = name;
     for (size_t i = 0;i < Size;i++) {
         uint8_t *block = memoryAllocator.getBlock();
@@ -145,9 +145,9 @@ inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
     Lock();
     res = pool.pop(block);
     if (res) {
-        statictics.inUse++;
-        if (statictics.inUse > statictics.maxInUse)
-            statictics.maxInUse = statictics.inUse;
+        statistics.inUse++;
+        if (statistics.inUse > statistics.maxInUse)
+            statistics.maxInUse = statistics.inUse;
     }
     return res;
 }
@@ -159,10 +159,10 @@ inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     res = memoryAllocator.blockBelongs(block);
     if (res) {
         res = pool.push(block);
-        statictics.inUse--;
+        statistics.inUse--;
     }
     else {
-        statictics.errBadBlock++;
+        statistics.errBadBlock++;
     }
     return res;
 }
