@@ -274,7 +274,7 @@ public:
     static_assert((sizeof(struct Interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
     enum Name {A, B, C, D, E, F, LAST};
 
-    inline Interface& getInterface(Name name) {return interface[name];};
+    inline Interface& getInterface(Name name) const {return interface[name];};
 
     inline void enableOutput(Name name, int pin, int value);
 protected:
