@@ -299,11 +299,38 @@ static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
 
 static void mainExample11() {
     hardwarePIO.enableOutput(HardwarePIO::A, 2, 1);
-    uint32_t per = hardwarePIO.getInterface(HardwarePIO::A).PIO_PER;
+    //uint32_t per = hardwarePIO.getInterface(HardwarePIO::A).PIO_PER;
 }
+
+static const char *helloWorldStr = 0;
+
+#if 0
+class HelloWorld {
+public:
+    HelloWorld() {
+        if (helloWorldStr == 0)
+            cout << "Hello, world!" << endl;
+        else
+            cout << helloWorldStr << endl;
+    }
+};
+#endif
+
+class HelloWorld {
+public:
+    HelloWorld() {
+        printHello();
+    }
+protected:
+    void printHello() {
+        cout << "Hello, world!" << endl;
+    }
+};
+
+static HelloWorld helloWorld;
 
 int main()
 {
-    mainExample11();
+    cout << "Hello from main()!" << endl;
     return 0;
 }
