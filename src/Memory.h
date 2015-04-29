@@ -121,7 +121,7 @@ public:
     inline bool free(uint8_t* block);
 
 protected:
-    Statistics statictics;
+    mutable Statistics statictics;
     const char* name;
     Stack<uint8_t, LockDummy,  Size> pool;
     MemoryAllocatorRaw& memoryAllocator;
