@@ -289,7 +289,10 @@ static void enableOutput(PIO_NAME name, int pin, int value) {
 }
 
 class HardwareModule {
-
+protected:
+    HardwareModule(const uintptr_t address): address(address) {}
+    ~HardwareModule() {}
+    const uintptr_t address;
 };
 
 class HardwareRegister32 {
@@ -324,6 +327,8 @@ static_assert((sizeof(HardwareRegister32NotUsed) == sizeof(uint32_t)), "Hardware
 
 class HardwarePIO : HardwareModule {
 public:
+    HardwarePIO(const uintptr_t address): HardwareModule(address) {}
+    ~HardwarePIO() {}
     struct interface {
         HardwareRegister32WO PIO_PER  ;
         HardwareRegister32WO PIO_PDR  ;
@@ -341,6 +346,20 @@ public:
         HardwareRegister32WO PIO_CODR ;
     };
     static_assert((sizeof(struct interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
+
+    static void enableOutput(PIO_NAME name, int pin, int value) {
+        struct PIO *pio = &pios[name];
+        uint32_t mask = 1 << pin;
+        if (value) {
+            pio->PIO_SODR = mask;
+        }
+        else {
+            pio->PIO_CODR = mask;
+        }
+        pio->PIO_PER = mask;
+        pio->PIO_OER = mask;
+    }
+
 };
 
 static void mainExample10() {
