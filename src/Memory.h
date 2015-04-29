@@ -106,7 +106,7 @@ public:
         memoryAllocator.reset();
     }
 
-    inline void resetMaxInUse() {
+    inline void resetMaxInUse() const {
         statictics.maxInUse = 0;
     }
 
@@ -119,6 +119,8 @@ public:
     inline bool allocate(uint8_t** block);
 
     inline bool free(uint8_t* block);
+
+    inline const Statistics &getStatistics(void) const {return statictics;}
 
 protected:
     mutable Statistics statictics;
