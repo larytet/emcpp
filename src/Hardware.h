@@ -26,8 +26,6 @@ public:
 };
 static_assert((sizeof(HardwareRegister32RO) == sizeof(uint32_t)), "HardwareRegister32RO is not 32 bits");
 
-
-
 class HardwareRegister32WO : public HardwareRegister32{
 public:
     uint32_t operator=(uint32_t value) {
@@ -36,8 +34,6 @@ public:
     }
 };
 static_assert((sizeof(HardwareRegister32WO) == sizeof(uint32_t)), "HardwareRegister32WO is not 32 bits");
-
-
 
 class HardwareRegister32RW : public HardwareRegister32 {
 public:

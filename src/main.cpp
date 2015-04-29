@@ -273,7 +273,6 @@ public:
     static_assert((sizeof(struct interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
 
     inline void enableOutput(Name name, int pin, int value);
-
 };
 
 inline void HardwarePIO::enableOutput(Name name, int pin, int value)
@@ -294,6 +293,10 @@ static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
 
 static void mainExample11() {
     hardwarePIO.enableOutput(HardwarePIO::A, 2, 1);
+    cout << "SODR" << pioDummy[0].PIO_SODR << endl;
+    cout << "CODR" << pioDummy[0].PIO_CODR << endl;
+    cout << "PER" << pioDummy[0].PIO_PER << endl;
+    cout << "OER" << pioDummy[0].PIO_OER << endl;
 }
 
 int main()
