@@ -251,14 +251,11 @@ typedef struct  __attribute__ ((__packed__)) {
     volatile uint32_t PIO_CODR ;
 } PIO;
 
-typedef PIO PIOS[5];
-
-
 #if REAL_HARDWARE
-static PIOS pios = (PIO**)0xFFFFF200;
+static PIO *pios = (PIO*)0xFFFFF200;
 #else
 static PIO pioDummy[5];
-static PIOS *pios = &(pioDummy[0]);
+static PIO *pios = pioDummy;
 #endif
 
 typedef enum {
@@ -272,7 +269,7 @@ typedef enum {
 
 
 static void enableOutput(PIO_NAME name, int pin, int value) {
-    PIO *pio = pios[name];
+    PIO *pio = &pios[name];
     uint32_t mask = 1 << pin;
     if (value) {
         pio->PIO_SODR = mask;
