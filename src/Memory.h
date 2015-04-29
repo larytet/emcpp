@@ -133,7 +133,7 @@ template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(co
     name(name), memoryAllocator(memoryAllocator) {
     memset(&this->statictics, 0, sizeof(this->statictics));
     this->name = name;
-    for (int i = 0;i < Size;i++) {
+    for (size_t i = 0;i < Size;i++) {
         uint8_t *block = memoryAllocator.getBlock();
         pool.push(block);
     }

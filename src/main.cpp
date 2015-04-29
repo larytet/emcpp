@@ -288,6 +288,10 @@ static void enableOutput(PIO_NAME name, int pin, int value) {
     pio->PIO_OER = mask;
 }
 
+static void mainExample10() {
+    enableOutput(PIO_A, 2, 1);
+}
+
 class HardwareModule {
 protected:
     HardwareModule(const uintptr_t address): address(address) {}
@@ -298,23 +302,48 @@ protected:
 class HardwareRegister32 {
 protected:
     volatile uint32_t value;
+    inline uint32_t get() const {return value;}
+    inline void set(uint32_t value) {this->value = value;}
 };
-
 static_assert((sizeof(HardwareRegister32) == sizeof(uint32_t)), "HardwareRegister32 is not 32 bits");
 
-class HardwareRegister32RO : HardwareRegister32{
 
+
+class HardwareRegister32RO : public HardwareRegister32{
+public:
+    uint32_t operator=(const HardwareRegister32RO& r) const {
+        return get();
+    }
 };
 static_assert((sizeof(HardwareRegister32RO) == sizeof(uint32_t)), "HardwareRegister32RO is not 32 bits");
 
-class HardwareRegister32WO : HardwareRegister32{
 
+
+class HardwareRegister32WO : public HardwareRegister32{
+public:
+    uint32_t operator=(uint32_t value) {
+        set(value);
+        return value;
+    }
 };
 static_assert((sizeof(HardwareRegister32WO) == sizeof(uint32_t)), "HardwareRegister32WO is not 32 bits");
 
-class HardwareRegister32RW : HardwareRegister32 {
+
+
+class HardwareRegister32RW : public HardwareRegister32 {
+public:
+    uint32_t operator=(const HardwareRegister32RO& r) const {
+        return get();
+    }
+    uint32_t operator=(uint32_t value) {
+        set(value);
+        return value;
+    }
 };
 static_assert((sizeof(HardwareRegister32RW) == sizeof(uint32_t)), "HardwareRegister32RW is not 32 bits");
+
+
+
 
 class HardwareRegister32NotUsed : HardwareRegister32 {
 public:
@@ -367,17 +396,15 @@ inline void HardwarePIO::enableOutput(Name name, int pin, int value)
     pio->PIO_OER = mask;
 }
 
-static const HardwarePIO(pioDummy);
-static void mainExample10() {
-    enableOutput(PIO_A, 2, 1);
-}
+static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
+
 
 static void mainExample11() {
-    enableOutput(PIO_A, 2, 1);
+    hardwarePIO.enableOutput(HardwarePIO::A, 2, 1);
 }
 
 int main()
 {
-    mainExample10();
+    mainExample11();
     return 0;
 }
