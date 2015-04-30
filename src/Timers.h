@@ -1,12 +1,19 @@
 #pragma once
 
+namespace Timer {
 typedef uint32_t TimerID;
 
 /**
- * SystemTime can be any type which supports operations <,>,-
+ * SystemTime can be any type which supports operations <,>,-,+
  * For example, system tick
  */
-typedef uint32_t SystemTime;
+typedef uint32_t TimerSystemTime;
+
+/**
+ * Timeout can be any type which supports Timeout operator+(SystemTime& rhs)
+ *
+ */
+typedef uint32_t Timeout;
 
 enum TimerError {
     Ok, Expired, Stppped, Illegal, NoFreeTimer, ILLEGAL_ID,

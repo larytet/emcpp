@@ -99,3 +99,5 @@ CyclicBuffer<ObjectType, Lock, Size>::getHead(ObjectType &object) {
         return false;
     }
 }
+
+}
