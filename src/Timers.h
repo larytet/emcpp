@@ -1,13 +1,13 @@
 #pragma once
 
-namespace Timer {
-typedef uint32_t TimerID;
+
+typedef uint32_t ID;
 
 /**
  * SystemTime can be any type which supports operations <,>,-,+
  * For example, system tick
  */
-typedef uint32_t TimerSystemTime;
+typedef uint32_t SystemTime;
 
 /**
  * Timeout can be any type which supports Timeout operator+(SystemTime& rhs)
@@ -83,7 +83,7 @@ typedef void (*TimerExpirationHandler)(uintptr_t);
 
 class TimerListBase {
 
-    TimerListBase(SystemTime timeout, TimerExpirationHandler expirationHandler,
+    TimerListBase(Timeout timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
                     callExpiredForStoppedTimers), noRunningTimers(true) {
@@ -120,7 +120,7 @@ protected:
      * All timers in the list have the same timeout
      * The expiration time of a timer depends on the start timer
      */
-    SystemTime timeout;
+    Timeout timeout;
     TimerExpirationHandler expirationHandler;
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
@@ -138,7 +138,7 @@ protected:
  */
 template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
 
-    inline TimerList(SystemTime timeout,
+    inline TimerList(Timeout timeout,
             TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) :
             TimerListBase(timeout, expirationHandler,
@@ -212,11 +212,9 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             if (timer.expirationTime >= currentTime) {
                 (getExpirationHandler())(timer.applicationData);
                 runningTimers->remove();
-            }
-            else if (!timer.isRunning) {
+            } else if (!timer.isRunning) {
                 runningTimers->remove();
-            }
-            else {
+            } else {
                 setNearestExpirationTime(timer.expirationTime);
                 break;
             }
@@ -227,7 +225,6 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
     }
 
 protected:
-
 
     /**
      * Generates unique ID for the timer
@@ -285,7 +282,8 @@ template<size_t Size> class TimerSet {
      * @param currentTime is current value of the system tick
      * @result true if new expiration time is available, false if no timers are running
      */
-    bool processExpiredTimers(SystemTime currentTime, SystemTime& expirationTime) {
+    bool processExpiredTimers(SystemTime currentTime,
+            SystemTime& expirationTime) {
         TimerListBase* timerList;
         size_t i;
         SystemTime nearestExpirationTime;
@@ -296,11 +294,11 @@ template<size_t Size> class TimerSet {
             bool timerRes = timerList->processExpiredTimers();
             if (timerRes) {
                 res = true;
-                SystemTime listExpirationTime = timerList->getNearestExpirationTime();
+                SystemTime listExpirationTime =
+                        timerList->getNearestExpirationTime();
                 if (!res) {
                     nearestExpirationTime = listExpirationTime;
-                }
-                else {
+                } else {
                     if (nearestExpirationTime > listExpirationTime) {
                         nearestExpirationTime = listExpirationTime;
                     }
@@ -317,8 +315,7 @@ template<size_t Size> class TimerSet {
             timerLists[listCount] = list;
             listCount++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
 
@@ -329,3 +326,4 @@ protected:
     array<TimerListBase*, Size> timerLists;
     size_t listCount;
 };
+
