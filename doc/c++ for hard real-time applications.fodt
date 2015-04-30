@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-30T07:57:07.561157624</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P3DT13H33M18S</meta:editing-duration><meta:editing-cycles>1278</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="36" meta:paragraph-count="917" meta:word-count="7082" meta:character-count="48789" meta:non-whitespace-character-count="39786"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-04-30T17:33:29.660109012</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P3DT23H9M39S</meta:editing-duration><meta:editing-cycles>1280</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="35" meta:paragraph-count="913" meta:word-count="6994" meta:character-count="48273" meta:non-whitespace-character-count="39356"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">87101</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">29104</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">33339</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">15759</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">9483</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">93144</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">7874</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">32145</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">87101</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">29104</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">33338</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">102858</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">44861</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -536,44 +536,41 @@
    <style:text-properties officeooo:rsid="00036e21" officeooo:paragraph-rsid="0004fc0d"/>
   </style:style>
   <style:style style:name="P65" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties officeooo:rsid="000a5da0" officeooo:paragraph-rsid="000a5da0"/>
-  </style:style>
-  <style:style style:name="P66" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties officeooo:paragraph-rsid="000a5da0"/>
   </style:style>
-  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Text_20_body">
+  <style:style style:name="P66" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties officeooo:rsid="00060882" officeooo:paragraph-rsid="000ad5a4"/>
   </style:style>
-  <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
-  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
+  <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:paragraph-rsid="00036e21"/>
   </style:style>
-  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
-  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Heading_20_2">
+  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
+  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:text-properties officeooo:rsid="0004fc0d" officeooo:paragraph-rsid="0004fc0d"/>
   </style:style>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name="">
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name="">
    <style:text-properties officeooo:rsid="0004fc0d" officeooo:paragraph-rsid="00060882"/>
+  </style:style>
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:paragraph-properties fo:break-before="page"/>
   </style:style>
   <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
-  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:rsid="0004fc0d" officeooo:paragraph-rsid="00060882"/>
   </style:style>
-  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Contents_20_1">
+  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Contents_20_1">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P77" style:family="paragraph" style:parent-style-name="Contents_20_2">
+  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Contents_20_2">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
@@ -884,34 +881,33 @@
      <text:index-title text:style-name="Sect2" text:name="Table of Contents1_Head">
       <text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
      </text:index-title>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2531_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Simple lock<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2533_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Template based lock.<text:tab/>6</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>8</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>9</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>13</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Use of C++ templates in the embedded systems.<text:tab/>16</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>18</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__2950_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Stack.<text:tab/>18</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__13921_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Pool.<text:tab/>21</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__7959_348900681" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Timers.<text:tab/>27</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__6684_1272265156" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>28</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>29</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>31</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>34</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>35</text:a></text:p>
-     <text:p text:style-name="P77"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>36</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2531_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Simple lock<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2533_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Template based lock.<text:tab/>6</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>8</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>9</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Use of C++ templates in the embedded systems.<text:tab/>16</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>18</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__2950_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Stack.<text:tab/>18</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__13921_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Pool.<text:tab/>21</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__6684_1272265156" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>27</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>28</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>30</text:a></text:p>
+     <text:p text:style-name="P75"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>34</text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>35</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:h text:style-name="P68" text:outline-level="1"/>
+   <text:h text:style-name="P67" text:outline-level="1"/>
    <text:h text:style-name="P54" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2313_977618933"/>Introduction.<text:bookmark-end text:name="__RefHeading__2313_977618933"/></text:h>
    <text:p text:style-name="Quotations">I&apos;ve come to the conclusion that any programmer that would prefer the project to be in C++ over C is likely a programmer that I really would prefer to piss off, so that he doesn&apos;t come and screw up any project I&apos;m involved with.</text:p>
    <text:p text:style-name="P30">Linus Torvalds</text:p>
    <text:p text:style-name="Quotations"/>
-   <text:p text:style-name="P66">This book is intended for firmware developers who <text:span text:style-name="T51">mainly </text:span>use C language. I assume that <text:span text:style-name="T51">the</text:span> reader is comfortable with ARM or Intel assembly language <text:span text:style-name="T53">and has working knowledge of the C++ syntax</text:span>. In this book I am trying to give examples of C++ code in situations where, arguably, C is not a perfect <text:span text:style-name="T51">tool </text:span>for the task. Many C++ code examples come with snippets of <text:span text:style-name="T54">the </text:span>resulting assembly. The examples of code are constructed in a way that allows immediate reuse in a real world application. Examples cover topics like memory and speed optimization, organizing arrays, FIFOs, mutual exclusion in <text:span text:style-name="T58">a</text:span> multi-task environment, direct access to the hardware. <text:span text:style-name="T58">The book addresses issues like code bloat and hidden performance costs of C++. </text:span></text:p>
-   <text:p text:style-name="P66">In all examples I assume that <text:span text:style-name="T54">the </text:span>C++ compiler supports version 11 of the language. One example of such compiler is GNUC 4.8. Availability of <text:span text:style-name="T54">the </text:span>C++ compiler supporting version 11 for a specific hardware is not required and most code examples can be rewritten for older C++ compilers. <text:span text:style-name="T48">Through the book I demonstrate some of the less known features of the C++11 standard like type traits, static assertion, constant expressions.</text:span></text:p>
+   <text:p text:style-name="P65">This book is intended for firmware developers who <text:span text:style-name="T51">mainly </text:span>use C language. I assume that <text:span text:style-name="T51">the</text:span> reader is comfortable with ARM or Intel assembly language <text:span text:style-name="T53">and has working knowledge of the C++ syntax</text:span>. In this book I am trying to give examples of C++ code in situations where, arguably, C is not a perfect <text:span text:style-name="T51">tool </text:span>for the task. Many C++ code examples come with snippets of <text:span text:style-name="T54">the </text:span>resulting assembly. The examples of code are constructed in a way that allows immediate reuse in a real world application. Examples cover topics like memory and speed optimization, organizing arrays, FIFOs, mutual exclusion in <text:span text:style-name="T58">a</text:span> multi-task environment, direct access to the hardware. <text:span text:style-name="T58">The book addresses issues like code bloat and hidden performance costs of C++. </text:span></text:p>
+   <text:p text:style-name="P65">In all examples I assume that <text:span text:style-name="T54">the </text:span>C++ compiler supports version 11 of the language. One example of such compiler is GNUC 4.8. Availability of <text:span text:style-name="T54">the </text:span>C++ compiler supporting version 11 for a specific hardware is not required and most code examples can be rewritten for older C++ compilers. <text:span text:style-name="T48">Through the book I demonstrate some of the less known features of the C++11 standard like type traits, static assertion, constant expressions.</text:span></text:p>
    <text:p text:style-name="Text_20_body">Any problem can be solved in multiple ways. Where it is possible and makes sense I provide an alternative implementation in C and compare performance of C and C++ solutions.</text:p>
    <text:p text:style-name="P41"/>
    <text:h text:style-name="P55" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__13919_1660174531"/><text:span text:style-name="T48">C++ code style</text:span>.<text:bookmark-end text:name="__RefHeading__13919_1660174531"/></text:h>
@@ -959,7 +955,7 @@
    <text:p text:style-name="P1"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T4">return</text:span><text:span text:style-name="T12"> 0;</text:span></text:p>
    <text:p text:style-name="P8">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2533_977618933"/>Template based lock.<text:bookmark-end text:name="__RefHeading__2533_977618933"/></text:h>
    <text:p text:style-name="Quotations">C++: Hard to learn and built to stay that way.</text:p>
    <text:p text:style-name="P27"/>
@@ -1015,12 +1011,12 @@
    <text:p text:style-name="P1"/>
    <text:p text:style-name="P40">Overhead of the wrapper <text:span text:style-name="T48">around the </text:span>functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembly I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? <text:span text:style-name="T48">What is an added value? </text:span></text:p>
    <text:p text:style-name="P40"><text:span text:style-name="T48">The code does not allow me to</text:span> leave out calling enable interrupts after I called disable <text:span text:style-name="T48">interrupt</text:span>. No matter how many return points or breaks out of <text:span text:style-name="T54">a </text:span>loop my function has C++ compiler ensures that <text:span text:style-name="T48">the </text:span>function interruptEnable is called exactly once. I will return to <text:span text:style-name="T48">the </text:span>synchronization objects later in this book. </text:p>
-   <text:h text:style-name="P68" text:outline-level="1"/>
+   <text:h text:style-name="P67" text:outline-level="1"/>
    <text:h text:style-name="P54" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2317_977618933"/>Containers.<text:bookmark-end text:name="__RefHeading__2317_977618933"/></text:h>
    <text:p text:style-name="Quotations">When your hammer is C++, everything begins to look like a thumb.</text:p>
    <text:p text:style-name="P27"/>
    <text:p text:style-name="Text_20_body">C++ is all about containers. Standard template library (STL) contains <text:span text:style-name="T54">a </text:span>lot of very smart and convenient code dealing with vectors, stacks, queues, hash tables, <text:span text:style-name="T48">trees</text:span> and many other types of <text:span text:style-name="T48">dynamic and static </text:span>data storage. Unfortunately a firmware developer frequently needs something <text:span text:style-name="T48">very different</text:span>. <text:span text:style-name="T48">In some cases high performance and small code/data footprint should coexist in one application. </text:span>In this chapter I will demonstrate a container which makes sense in a <text:span text:style-name="T59">an embedded</text:span> environment with limited resources. <text:span text:style-name="T48">The API should </text:span>be reentrant and allow safe concurrent access. <text:span text:style-name="T48">The </text:span>performance of <text:span text:style-name="T48">the </text:span>container <text:span text:style-name="T59">is going </text:span>to be at least not worse than a C alternative. <text:span text:style-name="T48">A</text:span>ll my allocations <text:span text:style-name="T48">are going </text:span>to be static <text:span text:style-name="T48">and done at build time </text:span>– I will deal with <text:span text:style-name="T48">the </text:span>dynamic allocation later in this book. </text:p>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2535_977618933"/>Cyclic buffer.<text:bookmark-end text:name="__RefHeading__2535_977618933"/></text:h>
    <text:p text:style-name="Text_20_body">My first example is going to be a cyclic buffer. A “producer” adds objects to the “tail” of the cyclic buffer and <text:span text:style-name="T59">a </text:span>“consumer” pulls the objects from the “head” of the cyclic buffer. Example of a producer can be an interrupt routine which gets characters from <text:span text:style-name="T59">an</text:span> UART <text:span text:style-name="T59">device </text:span>(serial port). <text:span text:style-name="T54">A c</text:span>onsumer can be a function called from <text:span text:style-name="T54">the</text:span> main loop which handles commands arriving from the UART. My CyclicBuffer class is a template class which should help the optimizer to generate the most efficient code possible for <text:span text:style-name="T54">the </text:span>given integer type and CPU architecture.</text:p>
    <text:p text:style-name="P22"><text:span text:style-name="T7">template</text:span><text:span text:style-name="T10">&lt;</text:span><text:span text:style-name="T7">typename</text:span><text:span text:style-name="T10"> </text:span><text:span text:style-name="T38">ObjectType</text:span><text:span text:style-name="T10">, </text:span><text:span text:style-name="T7">typename</text:span><text:span text:style-name="T10"> </text:span><text:span text:style-name="T38">Lock</text:span><text:span text:style-name="T10">, std::</text:span><text:span text:style-name="T26">size_t</text:span><text:span text:style-name="T10"> </text:span><text:span text:style-name="T38">Size</text:span><text:span text:style-name="T10">&gt;</text:span></text:p>
@@ -1163,7 +1159,7 @@
    <text:p text:style-name="P15"/>
    <text:p text:style-name="Text_20_body">I see a couple of move instructions – update of the tail and update of the data in the cyclic buffer, <text:span text:style-name="T54">a </text:span>compare when the tail is incremented. There are 9 opcodes total. There is no unexpected overhead in this code. </text:p>
    <text:p text:style-name="Text_20_body">I coded one cyclic buffer implementation, but I gained four different cyclic buffers optimized for four different integer types and equally efficient when working with 8, 16, 32, 64 bits integers on different CPUs. Class CyclicBuffer encapsulates the data in the private region making it accessible only via the class methods and this is <text:span text:style-name="T54">a</text:span> good thing. </text:p>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2537_977618933"/>Cyclic buffer – C alternative.<text:bookmark-end text:name="__RefHeading__2537_977618933"/></text:h>
    <text:p text:style-name="Quotations">/**</text:p>
    <text:p text:style-name="Quotations"><text:s/>* Returns true</text:p>
@@ -1295,7 +1291,7 @@
    <text:p text:style-name="P15">mov <text:s text:c="3"/>%r8,0x20099c(%rip)</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">xor</text:span><text:span text:style-name="T12"> <text:s text:c="3"/>%r12d,%r12d</text:span></text:p>
    <text:p text:style-name="Text_20_body">Performance of C and C++ versions measured on Intel is the same. </text:p>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2646_977618933"/>Use of C++ templates in the embedded systems.<text:bookmark-end text:name="__RefHeading__2646_977618933"/></text:h>
    <text:p text:style-name="Text_20_body">At this point a patient reader would ask about “code bloat” caused by C++ templates and object code duplication. Typically an implementation in C should have a smaller memory footprint, should <text:span text:style-name="T54">no</text:span>t it? </text:p>
    <text:p text:style-name="Text_20_body">In case of the cyclic buffer all methods are inline and there is no any specific “template code”. In general case for every unique combination ObjectsType/Size used in the code the C++ compiler is going to instantiate a class and add a full set of methods to the application code. A careful C++ programmer shall move the methods which do not require template arguments to a base class and derive the CyclicBuffer template from the new class. Moving type-invariant code into a base class sometimes is called “code hoisting”. Code hoisting does not necessary cause a performance hit. I will call the base class <text:span text:style-name="T47">CyclicBufferBase</text:span>. Constructor of the base class <text:span text:style-name="T47">CyclicBufferBase</text:span> is protected and no objects of the base class can be created by an application. </text:p>
@@ -1465,7 +1461,7 @@
    <text:p text:style-name="P15"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P15">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__13921_1660174531"/>Memory Pool.<text:bookmark-end text:name="__RefHeading__13921_1660174531"/></text:h>
    <text:p text:style-name="Text_20_body">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be place<text:span text:style-name="T54">d</text:span> at <text:span text:style-name="T54">a </text:span>specific memory address. One popular application for such memory blocks are data buffers for DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. <text:span text:style-name="T47">First I define a memory region. I use operator “new” <text:s/>- a placement new operator - to “place” the data at the specified address. My memory region has a name for debug purposes. </text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">class</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T28">MemoryRegion</text:span><text:span text:style-name="T12"> {</text:span></text:p>
@@ -1646,10 +1642,6 @@
    <text:p text:style-name="P1"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T4">return</text:span><text:span text:style-name="T12"> res;</text:span></text:p>
    <text:p text:style-name="P15">}</text:p>
    <text:p text:style-name="P39">It is going to be fairly easy to prevent release of the same block more than once. If the data blocks are part of the continuous <text:s/>memory the allocator can provide a method generating a unique index based on the address of the block. Memory pool can contain an array where blocks are marked as allocated or free and method free() can check the block against this array. If the memory region is not continuous the allocator can implement a hash function which translates <text:span text:style-name="T54">the </text:span>address of a data block to a unique data block index.</text:p>
-   <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7959_348900681"/>Timers.<text:bookmark-end text:name="__RefHeading__7959_348900681"/></text:h>
-   <text:p text:style-name="P65">I will use memory allocation in the implementation of software timers. Software timers API shall have O(1) complexity. API is going to be reentrant, <text:s/>will not assume and not dictate any specific application design, is not going to contain operating system specific system calls. </text:p>
-   <text:p text:style-name="P65">At this point you know the object-oriented routine. Let&apos;s declare a timer object. My timer is a plain C structure for a reason. I want to know exactly the size of the data the C compiler allocates for every timer object.</text:p>
-   <text:p text:style-name="P65"/>
    <text:h text:style-name="P54" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__6684_1272265156"/>Hardware.<text:bookmark-end text:name="__RefHeading__6684_1272265156"/></text:h>
    <text:p text:style-name="P28">How many programmers does it take to change a light bulb? None - it&apos;s a hardware problem.</text:p>
    <text:p text:style-name="P32"/>
@@ -1966,7 +1958,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T4">8660:</text:span><text:span text:style-name="T12"><text:tab/>e5832060 <text:tab/>str<text:tab/>r2, [r3, #96]</text:span></text:p>
    <text:p text:style-name="P15"><text:s text:c="4"/>pio-&gt;PIO_OER = mask;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T4">8664:</text:span><text:span text:style-name="T12"><text:tab/>e5832070 <text:tab/>str<text:tab/>r2, [r3, #112]</text:span></text:p>
-   <text:h text:style-name="P73" text:outline-level="2"/>
+   <text:h text:style-name="P72" text:outline-level="2"/>
    <text:h text:style-name="P57" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8082_1329019087"/>I/O access in C<text:span text:style-name="T54">++</text:span>.<text:bookmark-end text:name="__RefHeading__8082_1329019087"/></text:h>
    <text:p text:style-name="P44">This is not easy to compete with C when accessing the I/O. Compiler C translates every line of C code into <text:span text:style-name="T54">a </text:span>single machine opcode. There is no need to manually specify an address for every register. <text:span text:style-name="T54">I need C++ implementation with the same perfect performance score, similar convenience of usage AND adding some value, for example type safety. </text:span></text:p>
    <text:p text:style-name="P46">First class is an abstraction of a hardware module. The class constructor is protected – application can create objects only from derived classes.</text:p>
@@ -2009,7 +2001,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T14">~HardwareRegister32NotUsed</text:span><text:span text:style-name="T12">() {}</text:span></text:p>
    <text:p text:style-name="P15">};</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">static_assert</text:span><text:span text:style-name="T12">((</text:span><text:span text:style-name="T4">sizeof</text:span><text:span text:style-name="T12">(</text:span><text:span text:style-name="T28">HardwareRegister32NotUsed</text:span><text:span text:style-name="T12">) == </text:span><text:span text:style-name="T4">sizeof</text:span><text:span text:style-name="T12">(</text:span><text:span text:style-name="T28">uint32_t</text:span><text:span text:style-name="T12">)), </text:span><text:span text:style-name="T33">&quot;HardwareRegister32NotUsed is not 32 bits&quot;</text:span><text:span text:style-name="T12">);</text:span></text:p>
-   <text:p text:style-name="P66">The framework is in place and can serve any 32 bits register. Declare the PIO hardware module. <text:span text:style-name="T54">There is nothing unexpected but just a repetition of all the same tricks including compilation time check of the size of the structure. An object of type HardwarePIO requires about the same amount data as the competing C version. Depending on the optimization level and complexity of the class there is going to be one additional pointer in the RAM – pointer “this”. In the specific implementation below all methods of the class are “inline” and the object data is optimized out completely. </text:span></text:p>
+   <text:p text:style-name="P65">The framework is in place and can serve any 32 bits register. Declare the PIO hardware module. <text:span text:style-name="T54">There is nothing unexpected but just a repetition of all the same tricks including compilation time check of the size of the structure. An object of type HardwarePIO requires about the same amount data as the competing C version. Depending on the optimization level and complexity of the class there is going to be one additional pointer in the RAM – pointer “this”. In the specific implementation below all methods of the class are “inline” and the object data is optimized out completely. </text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">class</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T28">HardwarePIO</text:span><text:span text:style-name="T12"> : </text:span><text:span text:style-name="T28">HardwareModule</text:span><text:span text:style-name="T12"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">public</text:span><text:span text:style-name="T12">:</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T14">HardwarePIO</text:span><text:span text:style-name="T12">(</text:span><text:span text:style-name="T4">const</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T28">uintptr_t</text:span><text:span text:style-name="T12"> address) {</text:span></text:p>
@@ -2065,9 +2057,9 @@
    <text:p text:style-name="P15">}</text:p>
    <text:p text:style-name="Text_20_body">This C++ implementation produces the same assembly as the <text:span text:style-name="T54">old </text:span>trusty C one. <text:span text:style-name="T58">There is no more “code bloat” than in the C implementation. </text:span>C++ framework comes with some worthy benefits. If a user attempts to <text:span text:style-name="T54">read</text:span> <text:span text:style-name="T54">a write</text:span> only register build will fail. Th<text:span text:style-name="T54">e following</text:span> statement will break the compilation:</text:p>
    <text:p text:style-name="P21"><text:span text:style-name="T28">uint32_t</text:span><text:span text:style-name="T12"> per = hardwarePIO.getInterface(</text:span><text:span text:style-name="T28">HardwarePIO</text:span><text:span text:style-name="T12">::</text:span><text:span text:style-name="T45">A</text:span><text:span text:style-name="T12">).</text:span><text:span text:style-name="T42">PIO_PER</text:span><text:span text:style-name="T12">;</text:span></text:p>
-   <text:p text:style-name="P67">Access to the PIO registers is encapsulated in the class methods of the hardware module. The methods in the HardwarePIO class are the only way to modify a register. <text:span text:style-name="T59">C++ implementation allows to catch other wrong doings at compilation time, for example reading or writing reserved registers. </text:span></text:p>
-   <text:p text:style-name="P67">It is easy to cache all written values in the hardware module. One way to <text:span text:style-name="T58">cache or log the read and write tran</text:span>s<text:span text:style-name="T58">actions</text:span> <text:span text:style-name="T58">is </text:span>to add a “shadow” interface field to the hardware module class.</text:p>
-   <text:h text:style-name="P68" text:outline-level="1"/>
+   <text:p text:style-name="P66">Access to the PIO registers is encapsulated in the class methods of the hardware module. The methods in the HardwarePIO class are the only way to modify a register. <text:span text:style-name="T59">C++ implementation allows to catch other wrong doings at compilation time, for example reading or writing reserved registers. </text:span></text:p>
+   <text:p text:style-name="P66">It is easy to cache all written values in the hardware module. One way to <text:span text:style-name="T58">cache or log the read and write tran</text:span>s<text:span text:style-name="T58">actions</text:span> <text:span text:style-name="T58">is </text:span>to add a “shadow” interface field to the hardware module class.</text:p>
+   <text:h text:style-name="P67" text:outline-level="1"/>
    <text:h text:style-name="P54" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__7726_2007975351"/><text:span text:style-name="T55">Code ROM</text:span> <text:span text:style-name="T55">and data RAM</text:span>.<text:bookmark-end text:name="__RefHeading__7726_2007975351"/></text:h>
    <text:p text:style-name="Quotations">If at first you don&apos;t succeed; call it version 1.0. </text:p>
    <text:p text:style-name="Quotations"/>
@@ -2075,7 +2067,7 @@
    <text:p text:style-name="P47">There are two types of ROM – erasable and not erasable. In the Atmega MCUs different areas of the ROM can be programmed by the firmware assuming that the firmware runs from another area. In case of ASICs ROM is often not erasable. ROM programming is a part of the ASIC production process. The ROM can not be modified after the chip leaves the factory (FAB). </text:p>
    <text:p text:style-name="P47">If there is not enough RAM to load the firmware then parts of the firmware code should be located in the chip ROM. In case of an ASIC it means that the ROM based parts of the firmware can be changed only in the future versions of the chip. High complexity of the modern ASIC firmware makes it very hard to reach 100% code coverage in the ASIC verification process. Even if the ROM based firmware is verified and tested completely still there is a chance that this or that protocol has been misunderstood by the development team or product requirements has changed. The development team prepares the firmware and the hardware for the not unlikely event that need to patch the ROM will arise.</text:p>
    <text:p text:style-name="P47">This chapter covers some of the ROM related problems.</text:p>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7728_2007975351"/><text:span text:style-name="T55">C++ Initialized data</text:span>.<text:bookmark-end text:name="__RefHeading__7728_2007975351"/></text:h>
    <text:p text:style-name="P47">At least one code section – boot, constants and initialized data are parts of the ROM. Initialized non-zero data is going to consume memory two times. Initialization values of the initialized data are part of the ROM. Usually boot process copies the values from the ROM to the RAM. If I inspect an object file generated by a compiler I can easily find initialization data for the strings. There are utilities which help to inspect the object files, dump different section into separate files and prepare the images for ROM programming. Example of such utility is GNU objdump. Let&apos;s see some C++ initialized data in action. Following code produces two line of output - “Hello, world!” and “Hello from main()!”</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">class</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T28">HelloWorld</text:span><text:span text:style-name="T12"> {</text:span></text:p>
@@ -2093,7 +2085,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T12"><text:s text:c="4"/></text:span><text:span text:style-name="T4">return</text:span><text:span text:style-name="T12"> 0;</text:span></text:p>
    <text:p text:style-name="P15">}</text:p>
    <text:p text:style-name="P47">Function main() contains only one output. Entity responsible for initializing of the C++ object helloWorld and printing the first line is an object loader running in my operating system. In case of the embedded systems this code is usually part of the boot process. Constructor of the HelloWorld class is text and appears only once in the ROM. Arguments of the cout – the strings can exist in two places in the memory. Original or master copy is in the ROM and a second copy created by the loader is in the RAM. Pointer “this” which contains address of the statically allocated object helloWorld has two copies too. There is an initialization value for “this” pointer in the ROM and “this” pointer in the RAM. <text:s/>Size allocated by helloWorld object in the ROM of 32 bits CPU is at least 4 bytes of “this” and 14 bytes of zero terminated string. Linker script are responsible for correct placement of different sections of the code and data. If the CPU can not access data stored in the code memory linker script should should contain relevant allocation instructions. Specifically place for the initialized data section will be allocated two time – in the ROM address space and in the RAM. See your linker documentation for details. </text:p>
-   <text:h text:style-name="P71" text:outline-level="2"/>
+   <text:h text:style-name="P70" text:outline-level="2"/>
    <text:h text:style-name="P56" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7954_2007975351"/>ROM patching.<text:bookmark-end text:name="__RefHeading__7954_2007975351"/></text:h>
    <text:p text:style-name="Text_20_body">I want to prepare the constructor code for a patch in the future. I will check some well known address in the RAM. If there is a non-zero entry I will use the string from there, if not I will print the default value – the ROMed one.</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T4">static</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T4">const</text:span><text:span text:style-name="T12"> </text:span><text:span text:style-name="T4">char</text:span><text:span text:style-name="T12"> *helloWorldStr = 0;</text:span></text:p>

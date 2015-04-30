@@ -72,7 +72,7 @@ protected:
     SystemTime expirationTime;
 };
 
-typedef void (*TimerExpirationHandler)(void *);
+typedef void (*TimerExpirationHandler)(uintptr_t);
 
 class TimerListBase {
 
@@ -87,10 +87,26 @@ class TimerListBase {
         return noRunningTimers;
     }
 
+    /**
+     * Remove stopped timers from the list, call application callback
+     * for expired timers
+     *
+     * @result returns true if there is still running timers on the list
+     */
+    virtual bool processExpiredTimers() = 0;
+
 protected:
 
     SystemTime getNearestExpirationTime() {
         return nearestExpirationTime;
+    }
+
+    void setNearestExpirationTime(SystemTime time) {
+        nearestExpirationTime = time;
+    }
+
+    TimerExpirationHandler& getExpirationHandler() {
+        return expirationHandler;
     }
 
     /**
@@ -121,7 +137,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             TimerListBase(timeout, expirationHandler,
                     callExpiredForStoppedTimers) {
 
-        // fill the list of free timers
+        // fill up the list of free timers
         for (size_t i = 0; i < Size; i++) {
             freeTimers.add(timers[i]);
         }
@@ -168,6 +184,40 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return TimerError::Ok;
     }
 
+    bool getHead(Timer& timer) {
+        bool res = runningTimers.getHead(timer);
+        return res;
+    }
+
+    bool removeHead(Timer& timer) {
+        bool res = runningTimers.remove(timer);
+        return res;
+    }
+
+    bool processExpiredTimers(SystemTime currentTime) {
+        Lock();
+
+        while (!isEmpty()) {
+            Timer& timer;
+            bool res = runningTimers->getHead(timer);
+            if (!res)
+                break;
+            if (timer.expirationTime >= currentTime) {
+                (getExpirationHandler())(timer.applicationData);
+                runningTimers->remove();
+            }
+            else if (!timer.isRunning) {
+                runningTimers->remove();
+            }
+            else {
+                setNearestExpirationTime(timer.expirationTime);
+                break;
+            }
+        }
+
+        bool res = !isEmpty();
+        return res;
+    }
 
 protected:
 
@@ -234,20 +284,21 @@ template<size_t Size> class TimerSet {
         SystemTime nearestExpirationTime;
         bool res = false;
         for (i = 0; i < listCount; i++) {
-
             timerList = timerLists[i];
-            if (timerList->isEmpty()) continue;
 
-            SystemTime listExpirationTime = timerList->getNearestExpirationTime();
-            if (!res) {
-                nearestExpirationTime = listExpirationTime;
-            }
-            else {
-                if (nearestExpirationTime > listExpirationTime) {
+            bool timerRes = timerList->processExpiredTimers();
+            if (timerRes) {
+                res = true;
+                SystemTime listExpirationTime = timerList->getNearestExpirationTime();
+                if (!res) {
                     nearestExpirationTime = listExpirationTime;
                 }
+                else {
+                    if (nearestExpirationTime > listExpirationTime) {
+                        nearestExpirationTime = listExpirationTime;
+                    }
+                }
             }
-            res = true;
         }
 
         expirationTime = nearestExpirationTime;
