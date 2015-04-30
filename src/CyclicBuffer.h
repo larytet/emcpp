@@ -54,6 +54,7 @@ public:
 
     inline bool add(const ObjectType object);
     inline bool remove(ObjectType &object);
+    inline bool getHead(ObjectType &object);
 
 private:
 
@@ -80,6 +81,18 @@ CyclicBuffer<ObjectType, Lock, Size>::remove(ObjectType &object) {
     if (!isEmpty()) {
         object = data[this->head];
         this->head = this->increment(this->head);
+        return true;
+    } else {
+        errorUnderflow();
+        return false;
+    }
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>inline bool
+CyclicBuffer<ObjectType, Lock, Size>::getHead(ObjectType &object) {
+    Lock();
+    if (!isEmpty()) {
+        object = data[this->head];
         return true;
     } else {
         errorUnderflow();

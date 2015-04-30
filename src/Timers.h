@@ -2,19 +2,21 @@
 
 typedef uint32_t TimerID;
 
+/**
+ * SystemTime can be any type which supports operations <,>,-
+ * For example, system tick
+ */
+typedef uint32_t SystemTime;
+
 enum TimerError {
-      Ok           ,
-      Expired      ,
-      Stppped      ,
-      Illegal      ,
-      NoFreeTimer  ,
-      ILLEGAL_ID   ,
+    Ok, Expired, Stppped, Illegal, NoFreeTimer, ILLEGAL_ID,
 };
 
 class Timer {
 public:
 
-    Timer() : isRunning(false) {
+    Timer() :
+            isRunning(false) {
     }
 
     TimerID getId() {
@@ -27,6 +29,14 @@ protected:
 
     void setId(TimerID id) {
         this->id = id;
+    }
+
+    void setExpirationTime(SystemTime systemTime) {
+        expirationTime = systemTime;
+    }
+
+    SystemTime getExpirationTime() {
+        return expirationTime;
     }
 
     inline void stop() {
@@ -55,24 +65,38 @@ protected:
     TimerID id;
     uintptr_t applicationData;
     bool isRunning;
+
+    /**
+     * Start time + timer timeout
+     */
+    SystemTime expirationTime;
 };
 
 typedef void (*TimerExpirationHandler)(void *);
 
 class TimerListBase {
 
-    TimerListBase(uint32_t timeout, TimerExpirationHandler expirationHandler,
+    TimerListBase(SystemTime timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
                     callExpiredForStoppedTimers) {
 
     }
 
-
 protected:
-    uint32_t timeout;
+
+    SystemTime getNearestExpirationTime() {
+        return nearestExpirationTime;
+    }
+
+    /**
+     * All timers in the list have the same timeout
+     * The expiration time of a timer depends on the start timer
+     */
+    SystemTime timeout;
     TimerExpirationHandler expirationHandler;
     bool callExpiredForStoppedTimers;
+    SystemTime nearestExpirationTime;
 
 };
 
@@ -84,34 +108,46 @@ protected:
  * @param Lock is a class synchronizing access to the list API
  * depend on the number of timers.
  */
-template<std::size_t Size, typename Lock> class TimerList : public TimerListBase {
+template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
 
-    inline TimerList(uint32_t timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers = false) : TimerListBase(timeout, expirationHandler, callExpiredForStoppedTimers) {
+    inline TimerList(SystemTime timeout,
+            TimerExpirationHandler expirationHandler,
+            bool callExpiredForStoppedTimers = false) :
+            TimerListBase(timeout, expirationHandler,
+                    callExpiredForStoppedTimers) {
 
         // fill the list of free timers
-        for (size_t i = 0;i < Size;i++) {
+        for (size_t i = 0; i < Size; i++) {
             freeTimers.add(timers[i]);
         }
     }
 
+protected:
+
     /**
-     * Move a timer from list of of free timers and
-     * add the timer to the tail of the list of the started timers
+     * Move a timer from the list of free timers and
+     * add the timer to the tail of the list of started timers
      *
      * @param timer - will be set to reference the started timer
      * @result TimerError:Ok if success
      */
-    inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData) {
+    inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData,
+            SystemTime systemTime) {
+        SystemTime expirationTime = systemTime + timeout;
+
         Lock();
         if (!freeTimers.isEmpty) {
             freeTimers.remove(timer);
+            timer.setExpirationTime(expirationTime);
             timer.setApplicationData(applicationData);
+            timer.setId(getNextId());
             timer.start();
             runningTimers.add(timer);
+            Timer& headTimer;
+            runningTimers.getHead(headTimer);
+            nearestExpirationTime = headTimer.getExpirationTime();
             return TimerError::Ok;
-        }
-        else {
+        } else {
             return TimerError::NoFreeTimer;
         }
     }
@@ -120,8 +156,6 @@ template<std::size_t Size, typename Lock> class TimerList : public TimerListBase
         timer.stop();
         return TimerError::Ok;
     }
-
-protected:
 
     /**
      * Generates unique ID for the timer
@@ -141,34 +175,52 @@ protected:
     array<Timer, Size> timers;
 };
 
-
 /**
  * A timer set is one or more lists of pending timers
  * For example set SlowTimers containing 1s timers, 2s timers and 5s timers
  * and set HighPriorityTimers containing 100 ms timers, 50 ms timers and 200 ms timers
  *
+ *
  * @param Size is small and usually is a single digit number. Performance of the set API
  * is linear function of the number of lists in the set.
  */
-template<std::size_t Size> class TimerSet {
+template<size_t Size> class TimerSet {
 
-    TimerSet(const char* name) : name(name) {
+    /**
+     * @param name is a name of the set, useful for debug
+     */
+    TimerSet(const char* name, int size) :
+            name(name) {
     }
 
-    const char *getName() {return name;}
+    const char *getName() {
+        return name;
+    }
 
     /**
      * Process all expired timers and remove stopped timers from the list of
      * running timers
-     * Application will call this method to calculate a timeout before the nearest timer expiration.
-     * The return can be use in, for example, sleep() function.
-     * Application will call this method after every timer start.
+     * Application will call this method to calculate time before the nearest timer expiration.
+     * The return value can be used in, for example, call to a semaphore with timeout
+     * Application will call this method after every timer start and correct the wait time
+     * accordingly
+     * Performance of this method depends on the number of lists in the set.
+     * This function creates some code bloat - it is duplicated for every TimerSet object in the
+     * system, unless the linker takes care to remove duplicate code.
      * @result time before next timer expires
      */
-    size_t processExpiredTimers() {
-
+    SystemTime processExpiredTimers(SystemTime) {
+        SystemTime nearestExpirationTime =
+                timerLists[0].getNearestExpirationTime();
+        for (size_t i = 1; i < Size; i++) {
+            SystemTime expirationTime =
+                    timerLists[0].getNearestExpirationTime();
+            if (expirationTime < nearestExpirationTime) {
+                nearestExpirationTime = expirationTime;
+            }
+        }
+        return nearestExpirationTime;
     }
-
 
 protected:
     const char *name;
