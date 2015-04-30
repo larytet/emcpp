@@ -17,6 +17,10 @@ public:
     Timer() : isRunning(false) {
     }
 
+    TimerID getId() {
+        return id;
+    }
+
 protected:
 
     friend class TimerListBase;
@@ -25,11 +29,15 @@ protected:
         this->id = id;
     }
 
-    void setIsrunning(bool flag) {
-        isRunning = flag;
+    inline void stop() {
+        isRunning = false;
     }
 
-    void setApplicationData(uintptr_t applicationData) {
+    inline void start() {
+        isRunning = true;
+    }
+
+    inline void setApplicationData(uintptr_t applicationData) {
         this->applicationData = applicationData;
     }
 
@@ -37,6 +45,13 @@ protected:
         return applicationData;
     }
 
+    /**
+     * Unique 32-bits ID of the timer
+     * This field initialized by startTimer()
+     * This field cab be used to solve the race condition between stopTimer and timerExpired -
+     * application keeping a trace of the IDs of all started timers can make sure that
+     * the expired timer has not been stopped a moment before it's expiration
+     */
     TimerID id;
     uintptr_t applicationData;
     bool isRunning;
@@ -71,9 +86,13 @@ protected:
  */
 template<std::size_t Size, typename Lock> class TimerList : public TimerListBase {
 
-    TimerList(uint32_t timeout, TimerExpirationHandler expirationHandler,
+    inline TimerList(uint32_t timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) : TimerListBase(timeout, expirationHandler, callExpiredForStoppedTimers) {
 
+        // fill the list of free timers
+        for (size_t i = 0;i < Size;i++) {
+            freeTimers.add(timers[i]);
+        }
     }
 
     /**
@@ -83,10 +102,12 @@ template<std::size_t Size, typename Lock> class TimerList : public TimerListBase
      * @param timer - will be set to reference the started timer
      * @result TimerError:Ok if success
      */
-    inline enum TimerError startTimer(Timer& timer) {
+    inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData) {
         Lock();
         if (!freeTimers.isEmpty) {
             freeTimers.remove(timer);
+            timer.setApplicationData(applicationData);
+            timer.start();
             runningTimers.add(timer);
             return TimerError::Ok;
         }
@@ -96,16 +117,28 @@ template<std::size_t Size, typename Lock> class TimerList : public TimerListBase
     }
 
     inline enum TimerError stopTimer(Timer& timer) {
-        timer.setIsrunning(false);
+        timer.stop();
         return TimerError::Ok;
     }
 
 protected:
 
+    /**
+     * Generates unique ID for the timer
+     */
+    inline static TimerID getNextId() {
+        static TimerID id = 0;
+        id++;
+        return id;
+    }
+
     friend class TimerSet;
 
     CyclicBuffer<Timer*, LockDummy, Size> runningTimers;
     CyclicBuffer<Timer*, LockDummy, Size> freeTimers;
+
+    // static allocation of all timers
+    array<Timer, Size> timers;
 };
 
 
@@ -123,6 +156,19 @@ template<std::size_t Size> class TimerSet {
     }
 
     const char *getName() {return name;}
+
+    /**
+     * Process all expired timers and remove stopped timers from the list of
+     * running timers
+     * Application will call this method to calculate a timeout before the nearest timer expiration.
+     * The return can be use in, for example, sleep() function.
+     * Application will call this method after every timer start.
+     * @result time before next timer expires
+     */
+    size_t processExpiredTimers() {
+
+    }
+
 
 protected:
     const char *name;
