@@ -11,25 +11,23 @@ public:
 
 protected:
 
-    /**
-     * this function will be called by the timer task if the timer expires
-     * can be 0
-     */
-    void (*timerExpired)(void *data);
+    friend class TimerList;
 
-    /**
-     * unique Id of the timer
-     * this field initialized by timerStart()
-     * can be used to solve the race condition between stopTimer and timerExpired -
-     * application can make sure that expired timer has not been stopped a moment before
-     * it's expiration
-     */
-    TimerID Id;
+    void setId(TimerID id) {
+        this->id = id;
+    }
 
-    /**
-     * Engine forwards this field as an argument in the timer expiration handler
-     */
-    void *applicationData;
+    void setApplicationData(uintptr_t applicationData) {
+        this->applicationData = applicationData;
+    }
+
+    uintptr_t getApplicationData() const {
+        return applicationData;
+    }
+
+    TimerID id;
+
+    uintptr_t applicationData;
 
     /**
      * pointer used to stop the timer
@@ -37,3 +35,5 @@ protected:
      */
     unsigned int timerHandle;
 };
+
+typedef void (*TimerExpirationHandler)(void *);
