@@ -30,6 +30,7 @@ using namespace std;
 #include "Memory.h"
 #include "HardwareC.h"
 #include "Hardware.h"
+#include "Timers.h"
 #endif
 
 #if EXAMPLE == 1
