@@ -127,18 +127,22 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         }
     }
 
-protected:
-
     /**
      * Move a timer from the list of free timers and
-     * add the timer to the tail of the list of started timers
+     * add the timer to the tail of the list of started timers.
      *
-     * @param timer - will be set to reference the started timer
+     * Application shall update the expiration time of the nearest timer and schedule
+     * a call to Set::processExpiredTimers() accordingly
+     *
+     * @param timer will be set to reference the started timer
+     * @param applicationData is provided as an argument in the application callback
+     * @param currentTime is a current value for the system tick
+     * @param nearestExpirationTime is set to the expiration time of the nearest timer
      * @result TimerError:Ok if success
      */
     inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData,
-            SystemTime systemTime) {
-        SystemTime expirationTime = systemTime + timeout;
+            SystemTime currentTime, SystemTime& nearestExpirationTime) {
+        SystemTime expirationTime = currentTime + timeout;
 
         Lock();
         if (!freeTimers.isEmpty) {
@@ -151,6 +155,7 @@ protected:
             Timer& headTimer;
             runningTimers.getHead(headTimer);
             nearestExpirationTime = headTimer.getExpirationTime();
+            this->nearestExpirationTime = nearestExpirationTime;
             noRunningTimers = false;
             return TimerError::Ok;
         } else {
@@ -162,6 +167,9 @@ protected:
         timer.stop();
         return TimerError::Ok;
     }
+
+
+protected:
 
 
     /**
@@ -207,38 +215,41 @@ template<size_t Size> class TimerSet {
     /**
      * Process all expired timers and remove stopped timers from the list of
      * running timers
-     * Application will call this method to calculate time before the nearest timer expiration.
+     * Application will call this method to calculate time before the next timer expiration.
      * The return value can be used in, for example, call to a semaphore with timeout
-     * Application will call this method after every timer start and correct the wait time
-     * accordingly
      * Performance of this method depends on the number of lists in the set.
+     *
+     * All expiration handlers are called from this method.
+     *
      * This function creates some code bloat - it is duplicated for every TimerSet object in the
      * system, unless the linker takes care to remove duplicate code.
-     * @result time before next timer expires
+     *
+     * @param currentTime is current value of the system tick
+     * @param currentTime is current value of the system tick
+     * @result true if new expiration time is available, false if no timers are running
      */
-    bool processExpiredTimers(SystemTime& expirationTime) {
+    bool processExpiredTimers(SystemTime currentTime, SystemTime& expirationTime) {
         TimerListBase* timerList;
         size_t i;
         SystemTime nearestExpirationTime;
         bool res = false;
         for (i = 0; i < listCount; i++) {
+
             timerList = timerLists[i];
-            if (!timerList->isEmpty()) {
-                nearestExpirationTime = timerList->getNearestExpirationTime();
-                res = true;
-                break;
+            if (timerList->isEmpty()) continue;
+
+            SystemTime listExpirationTime = timerList->getNearestExpirationTime();
+            if (!res) {
+                nearestExpirationTime = listExpirationTime;
             }
-        }
-        for (; i < listCount; i++) {
-            timerList = timerLists[i];
-            if (!timerList->isEmpty()) {
-                SystemTime expirationTime = timerList->getNearestExpirationTime();
-                if (nearestExpirationTime > expirationTime) {
-                    nearestExpirationTime = expirationTime;
+            else {
+                if (nearestExpirationTime > listExpirationTime) {
+                    nearestExpirationTime = listExpirationTime;
                 }
-                break;
             }
+            res = true;
         }
+
         expirationTime = nearestExpirationTime;
         return res;
     }
