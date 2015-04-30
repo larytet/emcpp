@@ -216,17 +216,31 @@ template<size_t Size> class TimerSet {
      * system, unless the linker takes care to remove duplicate code.
      * @result time before next timer expires
      */
-    SystemTime processExpiredTimers(SystemTime) {
-        TimerList* timerList;
+    bool processExpiredTimers(SystemTime& expirationTime) {
+        TimerListBase* timerList;
         size_t i;
         SystemTime nearestExpirationTime;
-        for (i = 1; i < listCount; i++) {
+        bool res = false;
+        for (i = 0; i < listCount; i++) {
             timerList = timerLists[i];
             if (!timerList->isEmpty()) {
                 nearestExpirationTime = timerList->getNearestExpirationTime();
+                res = true;
+                break;
             }
         }
-        return nearestExpirationTime;
+        for (; i < listCount; i++) {
+            timerList = timerLists[i];
+            if (!timerList->isEmpty()) {
+                SystemTime expirationTime = timerList->getNearestExpirationTime();
+                if (nearestExpirationTime > expirationTime) {
+                    nearestExpirationTime = expirationTime;
+                }
+                break;
+            }
+        }
+        expirationTime = nearestExpirationTime;
+        return res;
     }
 
     inline bool addList(TimerListBase* list) {
