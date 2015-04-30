@@ -1,7 +1,7 @@
 #pragma once
 
 
-typedef uint32_t ID;
+typedef uint32_t TimerID;
 
 /**
  * SystemTime can be any type which supports operations <,>,-,+
