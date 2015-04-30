@@ -79,8 +79,12 @@ class TimerListBase {
     TimerListBase(SystemTime timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers) {
+                    callExpiredForStoppedTimers), noRunningTimers(true) {
 
+    }
+
+    inline bool isEmpty() {
+        return noRunningTimers;
     }
 
 protected:
@@ -97,6 +101,7 @@ protected:
     TimerExpirationHandler expirationHandler;
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
+    bool noRunningTimers;
 
 };
 
@@ -146,6 +151,7 @@ protected:
             Timer& headTimer;
             runningTimers.getHead(headTimer);
             nearestExpirationTime = headTimer.getExpirationTime();
+            noRunningTimers = false;
             return TimerError::Ok;
         } else {
             return TimerError::NoFreeTimer;
@@ -156,6 +162,7 @@ protected:
         timer.stop();
         return TimerError::Ok;
     }
+
 
     /**
      * Generates unique ID for the timer
@@ -190,7 +197,7 @@ template<size_t Size> class TimerSet {
      * @param name is a name of the set, useful for debug
      */
     TimerSet(const char* name, int size) :
-            name(name) {
+            name(name), listCount(0) {
     }
 
     const char *getName() {
@@ -210,19 +217,32 @@ template<size_t Size> class TimerSet {
      * @result time before next timer expires
      */
     SystemTime processExpiredTimers(SystemTime) {
-        SystemTime nearestExpirationTime =
-                timerLists[0].getNearestExpirationTime();
-        for (size_t i = 1; i < Size; i++) {
-            SystemTime expirationTime =
-                    timerLists[0].getNearestExpirationTime();
-            if (expirationTime < nearestExpirationTime) {
-                nearestExpirationTime = expirationTime;
+        TimerList* timerList;
+        size_t i;
+        SystemTime nearestExpirationTime;
+        for (i = 1; i < listCount; i++) {
+            timerList = timerLists[i];
+            if (!timerList->isEmpty()) {
+                nearestExpirationTime = timerList->getNearestExpirationTime();
             }
         }
         return nearestExpirationTime;
     }
 
+    inline bool addList(TimerListBase* list) {
+        if (listCount < Size) {
+            timerLists[listCount] = list;
+            listCount++;
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 protected:
     const char *name;
     array<TimerListBase*, Size> timerLists;
+    size_t listCount;
 };
