@@ -69,7 +69,7 @@ protected:
  * @param Lock is a class synchronizing access to the list API
  * depend on the number of timers.
  */
-template<std::size_t Size, Lock> class TimerList : public TimerListBase {
+template<std::size_t Size, typename Lock> class TimerList : public TimerListBase {
 
     TimerList(uint32_t timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) : TimerListBase(timeout, expirationHandler, callExpiredForStoppedTimers) {
