@@ -216,34 +216,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
-    TimerError processExpiredTimers(SystemTime currentTime) {
-        Lock();
-
-        while (!isEmpty()) {
-            Timer& timer;
-            bool res = runningTimers->getHead(timer);
-            if (!res)
-                break;
-
-            bool timerExpired = isTimerExpired(timer.getStartTime(), timeout,
-                    currentTime);
-
-            if (timerExpired) {
-                (getExpirationHandler())(timer.applicationData);
-                runningTimers->remove();
-            } else if (!timer.isRunning) {
-                runningTimers->remove();
-            } else {
-                setNearestExpirationTime(timer.startTime + timeout);
-                break;
-            }
-        }
-
-        if (!isEmpty())
-            return TimerError::Ok;
-        else
-            return TimerError::NoRunningTimers;
-    }
+    TimerError processExpiredTimers(SystemTime currentTime);
 
 protected:
 
@@ -277,6 +250,35 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     } else {
         return TimerError::NoFreeTimer;
     }
+}
+
+template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
+    Lock();
+
+    while (!isEmpty()) {
+        Timer& timer;
+        bool res = runningTimers->getHead(timer);
+        if (!res)
+            break;
+
+        bool timerExpired = isTimerExpired(timer.getStartTime(), timeout,
+                currentTime);
+
+        if (timerExpired) {
+            (getExpirationHandler())(timer.applicationData);
+            runningTimers->remove();
+        } else if (!timer.isRunning) {
+            runningTimers->remove();
+        } else {
+            setNearestExpirationTime(timer.startTime + timeout);
+            break;
+        }
+    }
+
+    if (!isEmpty())
+        return TimerError::Ok;
+    else
+        return TimerError::NoRunningTimers;
 }
 
 
