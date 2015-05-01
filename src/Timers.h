@@ -50,12 +50,12 @@ protected:
         this->id = id;
     }
 
-    void setExpirationTime(SystemTime systemTime) {
-        expirationTime = systemTime;
+    void setStartTime(SystemTime systemTime) {
+        startTime = systemTime;
     }
 
-    SystemTime getExpirationTime() {
-        return expirationTime;
+    SystemTime getStartTime() const {
+        return startTime;
     }
 
     inline void stop() {
@@ -81,7 +81,7 @@ protected:
     /**
      * Start time + timer timeout
      */
-    SystemTime expirationTime;
+    SystemTime startTime;
 };
 
 typedef void (*TimerExpirationHandler)(uintptr_t);
@@ -181,19 +181,18 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
      */
     inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData,
             SystemTime currentTime, SystemTime& nearestExpirationTime) {
-        SystemTime expirationTime = currentTime + timeout;
 
         Lock();
         if (!freeTimers.isEmpty) {
             freeTimers.remove(timer);
-            timer.setExpirationTime(expirationTime);
+            timer.setStartTime(currentTime);
             timer.setApplicationData(applicationData);
             timer.setId(getNextId());
             timer.start();
             runningTimers.add(timer);
             Timer& headTimer;
             runningTimers.getHead(headTimer);
-            nearestExpirationTime = headTimer.getExpirationTime();
+            nearestExpirationTime = headTimer.getStartTime()+timeout;
             this->nearestExpirationTime = nearestExpirationTime;
             noRunningTimers = false;
             return TimerError::Ok;
@@ -220,6 +219,18 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
+    static inline bool isTimerExpired(const Timer& timer, SystemTime currentTime) {
+        bool timerExpired = false;
+
+        SystemTime timerStartTime = timer.getStartTime();
+        SystemTime timerExpiartionTime = timerStartTime+timeout;
+        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime < currentTime) );
+        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime > currentTime) );
+        timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (timerStartTime > currentTime) && (timerExpiartionTime < timerStartTime) );
+
+        return timerExpired;
+    }
+
     TimerError processExpiredTimers(SystemTime currentTime) {
         Lock();
 
@@ -228,13 +239,16 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             bool res = runningTimers->getHead(timer);
             if (!res)
                 break;
-            if (timer.expirationTime >= currentTime) {
+
+            bool timerExpired = isTimerExpired(timer, currentTime);
+
+            if (timerExpired) {
                 (getExpirationHandler())(timer.applicationData);
                 runningTimers->remove();
             } else if (!timer.isRunning) {
                 runningTimers->remove();
             } else {
-                setNearestExpirationTime(timer.expirationTime);
+                setNearestExpirationTime(timer.startTime+timeout);
                 break;
             }
         }
