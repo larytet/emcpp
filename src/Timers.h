@@ -16,7 +16,12 @@ typedef uint32_t SystemTime;
 typedef uint32_t Timeout;
 
 enum TimerError {
-    Ok, Expired, Stppped, Illegal, NoFreeTimer, ILLEGAL_ID,
+    Ok,
+    Expired,
+    Stppped,
+    Illegal,
+    NoFreeTimer,
+    NoRunningTimers
 };
 
 class Timer {
@@ -98,9 +103,9 @@ class TimerListBase {
      * Remove stopped timers from the list, call application callback
      * for expired timers
      *
-     * @result returns true if there is still running timers on the list
+     * @result returns TimerError::Ok if there is at least one running timer on the list
      */
-    virtual bool processExpiredTimers() = 0;
+    virtual TimerError processExpiredTimers() = 0;
 
 protected:
 
@@ -201,7 +206,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
-    bool processExpiredTimers(SystemTime currentTime) {
+    TimerError processExpiredTimers(SystemTime currentTime) {
         Lock();
 
         while (!isEmpty()) {
@@ -220,8 +225,10 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             }
         }
 
-        bool res = !isEmpty();
-        return res;
+        if (!isEmpty())
+            return TimerError::Ok;
+        else
+            return TimerError::NoRunningTimers;
     }
 
 protected:
@@ -282,7 +289,7 @@ template<size_t Size> class TimerSet {
      * @param currentTime is current value of the system tick
      * @result true if new expiration time is available, false if no timers are running
      */
-    bool processExpiredTimers(SystemTime currentTime,
+    TimerError processExpiredTimers(SystemTime currentTime,
             SystemTime& expirationTime) {
         TimerListBase* timerList;
         size_t i;
@@ -291,8 +298,8 @@ template<size_t Size> class TimerSet {
         for (i = 0; i < listCount; i++) {
             timerList = timerLists[i];
 
-            bool timerRes = timerList->processExpiredTimers();
-            if (timerRes) {
+            TimerError timerRes = timerList->processExpiredTimers();
+            if (timerRes == TimerError::Ok) {
                 res = true;
                 SystemTime listExpirationTime =
                         timerList->getNearestExpirationTime();
@@ -305,7 +312,7 @@ template<size_t Size> class TimerSet {
                 }
             }
         }
-
+        if ()
         expirationTime = nearestExpirationTime;
         return res;
     }
