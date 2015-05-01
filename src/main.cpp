@@ -330,7 +330,7 @@ protected:
 
 static HelloWorld helloWorld;
 
-void mainExpirationHandler(uintptr_t d) {
+void mainExpirationHandler(const Timer& timer) {
 
 }
 

@@ -100,7 +100,7 @@ protected:
     SystemTime startTime;
 };
 
-typedef void (*TimerExpirationHandler)(uintptr_t);
+typedef void (*TimerExpirationHandler)(const Timer& timer);
 
 class TimerListBase {
 
@@ -270,7 +270,7 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
         callExpirationHandler = callExpirationHandler || (!timerIsRunning && callExpiredForStoppedTimers);
 
         if (callExpirationHandler) {
-            (getExpirationHandler())(timer->getApplicationData());
+            (getExpirationHandler())(*timer);
         }
 
         if (timerExpired || !timerIsRunning) {
