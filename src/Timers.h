@@ -260,7 +260,8 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
     Lock();
     while (!isEmpty()) {
 
-        runningTimers.getHead(timer);
+        if (!runningTimers.getHead(timer))
+            break;
 
         bool timerExpired = isTimerExpired(timer->getStartTime(), timeout,
                 currentTime);
