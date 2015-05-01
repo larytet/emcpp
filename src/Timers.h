@@ -219,6 +219,9 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
+    /**
+     * Handles system tick wrap around
+     */
     static inline bool isTimerExpired(const Timer& timer, SystemTime currentTime) {
         bool timerExpired = false;
 
