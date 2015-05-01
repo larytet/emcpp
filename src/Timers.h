@@ -265,15 +265,21 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
 
         bool timerExpired = isTimerExpired(timer.getStartTime(), timeout,
                 currentTime);
+        bool timerIsRunning = timer.isRunning;
 
-        if (timerExpired) {
+        bool callExpirationHandler = timerExpired;
+        callExpirationHandler = callExpirationHandler || (!timerIsRunning && callExpiredForStoppedTimers);
+
+        if (callExpirationHandler) {
             (getExpirationHandler())(timer.applicationData);
+        }
+
+        if (timerExpired || !timerIsRunning) {
             runningTimers->remove();
-        } else if (!timer.isRunning) {
-            runningTimers->remove();
-        } else {
+        }
+
+        if (!timerExpired && timerIsRunning) {
             setNearestExpirationTime(timer.startTime + timeout);
-            break;
         }
     }
 
