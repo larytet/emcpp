@@ -249,9 +249,9 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     newTimer->setId(getNextId());
     newTimer->start();
     runningTimers.add(newTimer);
-    Timer& headTimer;
+    Timer* headTimer;
     runningTimers.getHead(headTimer);
-    nearestExpirationTime = headTimer.getStartTime() + timeout;
+    nearestExpirationTime = headTimer->getStartTime() + timeout;
     this->nearestExpirationTime = nearestExpirationTime;
     noRunningTimers = false;
     if (_timer != nullptr)
