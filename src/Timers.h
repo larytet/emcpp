@@ -315,52 +315,49 @@ template<size_t Size> class TimerSet {
      * @result true if new expiration time is available, false if no timers are running
      */
     TimerError processExpiredTimers(SystemTime currentTime,
-            SystemTime& expirationTime) {
-        TimerListBase* timerList;
-        size_t i;
-        SystemTime nearestExpirationTime;
-        bool res = false;
-        for (i = 0; i < listCount; i++) {
-            timerList = timerLists[i];
+            SystemTime& expirationTime);
 
-            TimerError timerRes = timerList->processExpiredTimers();
-            res = res || (timerRes == TimerError::Ok);
-
-            if (timerRes == TimerError::Ok) {
-                SystemTime listExpirationTime =
-                        timerList->getNearestExpirationTime();
-                if (!res) {
-                    nearestExpirationTime = listExpirationTime;
-                } else {
-                    if (nearestExpirationTime > listExpirationTime) {
-                        nearestExpirationTime = listExpirationTime;
-                    }
-                }
-            }
-        }
-
-        if (res) {
-            expirationTime = nearestExpirationTime;
-            return TimerError::Ok;
-        }
-
-        return TimerError::NoRunningTimers;
-    }
-
-    inline bool addList(TimerListBase* list) {
-        if (listCount < Size) {
-            timerLists[listCount] = list;
-            listCount++;
-            return true;
-        } else {
-            return false;
-        }
-
-    }
+    inline bool addList(TimerListBase* list);
 
 protected:
     const char *name;
     array<TimerListBase*, Size> timerLists;
     size_t listCount;
 };
+
+template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(SystemTime currentTime,
+        SystemTime& expirationTime) {
+    TimerListBase* timerList;
+    size_t i;
+    SystemTime nearestExpirationTime;
+    bool res = false;
+    for (i = 0; i < listCount; i++) {
+        timerList = timerLists[i];
+
+        TimerError timerRes = timerList->processExpiredTimers();
+        res = res || (timerRes == TimerError::Ok);
+
+        if (timerRes == TimerError::Ok) {
+            SystemTime listExpirationTime =
+                    timerList->getNearestExpirationTime();
+            if (!res) {
+                nearestExpirationTime = listExpirationTime;
+            } else {
+                if (nearestExpirationTime > listExpirationTime) {
+                    nearestExpirationTime = listExpirationTime;
+                }
+            }
+        }
+    }
+}
+
+template<size_t Size> inline bool TimerSet<Size>::addList(TimerListBase* list) {
+    if (listCount < Size) {
+        timerLists[listCount] = list;
+        listCount++;
+        return true;
+    } else {
+        return false;
+    }
+}
 
