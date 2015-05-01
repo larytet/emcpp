@@ -96,7 +96,6 @@ protected:
     TimerID id;
     uintptr_t applicationData;
     bool running;
-
     SystemTime startTime;
 };
 
