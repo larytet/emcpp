@@ -36,7 +36,7 @@ static inline bool isTimerExpired(SystemTime startTime, Timeout timeout,
     return timerExpired;
 }
 
-enum TimerError {
+enum class TimerError {
     Ok, Expired, Stppped, Illegal, NoFreeTimer, NoRunningTimers
 };
 
@@ -65,7 +65,7 @@ public:
 
     inline void setApplicationData(uintptr_t applicationData) ;
 
-    uintptr_t getApplicationData() const ;
+    inline uintptr_t getApplicationData() const ;
 
     void setId(TimerID id) ;
 
@@ -95,15 +95,15 @@ bool Timer::isRunning() const {
     return running;
 }
 
-inline void Timer::stop() {
+void Timer::stop() {
     running = false;
 }
 
-inline void  Timer::start() {
+void  Timer::start() {
     running = true;
 }
 
-inline void Timer::setApplicationData(uintptr_t applicationData) {
+void Timer::setApplicationData(uintptr_t applicationData) {
     this->applicationData = applicationData;
 }
 
@@ -118,6 +118,14 @@ void Timer::setId(TimerID id) {
 void Timer::setStartTime(SystemTime systemTime) {
     this->startTime = systemTime;
 }
+
+template<typename ApplicatonDataType> class TimerApp {
+
+protected:
+
+    TimerID id;
+    ApplicatonDataType applicationData;
+};
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
@@ -201,24 +209,20 @@ public:
         return TimerError::Ok;
     }
 
+    virtual TimerError processExpiredTimers(SystemTime currentTime);
+
+protected:
+
     bool getHead(Timer& timer) {
         bool res = runningTimers.getHead(timer);
         return res;
     }
 
     virtual inline bool isEmpty() {
-        Lock();
         bool res = runningTimers.isEmpty();
         return res;
     }
 
-    virtual TimerError processExpiredTimers(SystemTime currentTime);
-
-protected:
-
-    /**
-     * This method is not thread safe and can require synchronization of access
-     */
     bool removeHead(Timer& timer) {
         bool res = runningTimers.remove(timer);
         return res;
