@@ -103,7 +103,7 @@ typedef void (*TimerExpirationHandler)(uintptr_t);
 class TimerListBase {
 
     TimerListBase(Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers = false) :
+            bool callExpiredForStoppedTimers) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
                     callExpiredForStoppedTimers), noRunningTimers(true) {
 
@@ -222,7 +222,7 @@ protected:
 };
 
 template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
-        bool callExpiredForStoppedTimers = false) :
+        bool callExpiredForStoppedTimers) :
         TimerListBase(timeout, expirationHandler,
                 callExpiredForStoppedTimers) {
 
@@ -357,6 +357,10 @@ template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(SystemTime
             }
         }
     }
+    if (res)
+        return TimerError::Ok;
+    else
+        return TimerError::NoRunningTimers;
 }
 
 template<size_t Size> inline bool TimerSet<Size>::addList(TimerListBase* list) {
