@@ -95,9 +95,6 @@ protected:
     uintptr_t applicationData;
     bool isRunning;
 
-    /**
-     * Start time + timer timeout
-     */
     SystemTime startTime;
 };
 
