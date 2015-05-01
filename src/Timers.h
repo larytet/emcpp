@@ -136,8 +136,7 @@ protected:
     }
 
     /**
-     * Generates unique ID for the timer
-     *
+     * Generates unique system ID for the timer
      * This method is not thread safe and can require synchronization of access
      */
     inline static TimerID getNextId() {
