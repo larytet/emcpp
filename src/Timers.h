@@ -171,16 +171,11 @@ protected:
  */
 template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
 
-    inline TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers = false) :
-            TimerListBase(timeout, expirationHandler,
-                    callExpiredForStoppedTimers) {
-
-        // fill up the list of free timers
-        for (size_t i = 0; i < Size; i++) {
-            freeTimers.add(timers[i]);
-        }
-    }
+    /**
+     * Code bloat here - I duplicate non-trivial initialization routine
+     */
+    TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
+            bool callExpiredForStoppedTimers = false);
 
     /**
      * Move a timer from the list of free timers and
@@ -229,6 +224,17 @@ protected:
     array<Timer, Size> timers;
 
 };
+
+template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
+        bool callExpiredForStoppedTimers = false) :
+        TimerListBase(timeout, expirationHandler,
+                callExpiredForStoppedTimers) {
+
+    // fill up the list of free timers
+    for (size_t i = 0; i < Size; i++) {
+        freeTimers.add(timers[i]);
+    }
+}
 
 template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(Timer& timer, uintptr_t applicationData,
         SystemTime currentTime, SystemTime& nearestExpirationTime) {
