@@ -189,7 +189,7 @@ public:
      */
     inline enum TimerError startTimer(SystemTime currentTime,
             SystemTime& nearestExpirationTime, uintptr_t applicationData = 0,
-            const Timer** _timer = nullptr);
+            const Timer** timer = nullptr);
 
     inline enum TimerError stopTimer(Timer& timer) {
         timer.stop();
@@ -234,7 +234,7 @@ template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeo
 }
 
 template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(SystemTime currentTime,
-        SystemTime& nearestExpirationTime, uintptr_t applicationData, const Timer** _timer) {
+        SystemTime& nearestExpirationTime, uintptr_t applicationData, const Timer** timer) {
 
     Timer *newTimer;
 
@@ -254,8 +254,8 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     nearestExpirationTime = headTimer->getStartTime() + timeout;
     this->nearestExpirationTime = nearestExpirationTime;
     noRunningTimers = false;
-    if (_timer != nullptr)
-        *_timer = newTimer;
+    if (timer != nullptr)
+        *timer = newTimer;
 
     return TimerError::Ok;
 }
