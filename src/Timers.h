@@ -73,12 +73,6 @@ public:
 
 protected:
 
-    /**
-     * Generates unique system ID for the timer
-     * This method is not thread safe and can require synchronization of access
-     */
-    static TimerID getNextId() ;
-
     TimerID id;
     uintptr_t applicationData;
     bool running;
@@ -87,7 +81,6 @@ protected:
 
 Timer::Timer() {
     stop();
-    setId(getNextId());
 }
 
 TimerID Timer::getId() const {
@@ -124,12 +117,6 @@ void Timer::setId(TimerID id) {
 
 void Timer::setStartTime(SystemTime systemTime) {
     this->startTime = systemTime;
-}
-
-TimerID Timer::getNextId() {
-    static TimerID id = 0;
-    id++;
-    return id;
 }
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
@@ -237,6 +224,16 @@ protected:
         return res;
     }
 
+    /**
+     * Generates unique system ID for the timer
+     * This method is not thread safe and can require synchronization of access
+     */
+    inline static TimerID getNextId() {
+        static TimerID id = 0;
+        id++;
+        return id;
+    }
+
     CyclicBuffer<Timer*, LockDummy, Size> runningTimers;
     CyclicBuffer<Timer*, LockDummy, Size> freeTimers;
 
@@ -269,6 +266,7 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     freeTimers.remove(newTimer);
     newTimer->setStartTime(currentTime);
     newTimer->setApplicationData(applicationData);
+    newTimer->setId(getNextId());
     newTimer->start();
     runningTimers.add(newTimer);
     Timer* headTimer;
