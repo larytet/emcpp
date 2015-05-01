@@ -7,13 +7,12 @@ typedef uint32_t TimerID;
  * SystemTime can be any type which supports operations <,>,-,+
  * For example, system tick
  */
-typedef uint32_t SystemTime;
+typedef size_t SystemTime;
 
 /**
  * Timeout can be any type which supports Timeout operator+(SystemTime& rhs)
- *
  */
-typedef uint32_t Timeout;
+typedef size_t Timeout;
 
 enum TimerError {
     Ok,
