@@ -14,7 +14,7 @@ typedef size_t SystemTime;
 typedef size_t Timeout;
 
 /**
- * Handles system tick wrap around.
+ * Deals with system tick wrap around.
  * Implementation of the method depends on the definition of what System time and Timeout are.
  */
 static inline bool isTimerExpired(SystemTime startTime, Timeout timeout,
