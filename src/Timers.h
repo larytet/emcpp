@@ -196,26 +196,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
      * @result TimerError:Ok if success
      */
     inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData,
-            SystemTime currentTime, SystemTime& nearestExpirationTime) {
-
-        Lock();
-        if (!freeTimers.isEmpty) {
-            freeTimers.remove(timer);
-            timer.setStartTime(currentTime);
-            timer.setApplicationData(applicationData);
-            timer.setId(getNextId());
-            timer.start();
-            runningTimers.add(timer);
-            Timer& headTimer;
-            runningTimers.getHead(headTimer);
-            nearestExpirationTime = headTimer.getStartTime() + timeout;
-            this->nearestExpirationTime = nearestExpirationTime;
-            noRunningTimers = false;
-            return TimerError::Ok;
-        } else {
-            return TimerError::NoFreeTimer;
-        }
-    }
+            SystemTime currentTime, SystemTime& nearestExpirationTime);
 
     inline enum TimerError stopTimer(Timer& timer) {
         timer.stop();
@@ -275,6 +256,29 @@ protected:
     array<Timer, Size> timers;
 
 };
+
+template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(Timer& timer, uintptr_t applicationData,
+        SystemTime currentTime, SystemTime& nearestExpirationTime) {
+
+    Lock();
+    if (!freeTimers.isEmpty) {
+        freeTimers.remove(timer);
+        timer.setStartTime(currentTime);
+        timer.setApplicationData(applicationData);
+        timer.setId(getNextId());
+        timer.start();
+        runningTimers.add(timer);
+        Timer& headTimer;
+        runningTimers.getHead(headTimer);
+        nearestExpirationTime = headTimer.getStartTime() + timeout;
+        this->nearestExpirationTime = nearestExpirationTime;
+        noRunningTimers = false;
+        return TimerError::Ok;
+    } else {
+        return TimerError::NoFreeTimer;
+    }
+}
+
 
 /**
  * A timer set is one or more lists of pending timers
