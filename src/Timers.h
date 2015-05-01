@@ -43,9 +43,7 @@ enum TimerError {
 class Timer {
 public:
 
-    Timer() :
-        running(false) {
-    }
+    Timer();
 
     /**
      * Returns timer identifier - a unique on the system level ID of the timer
@@ -75,11 +73,22 @@ public:
 
 protected:
 
+    /**
+     * Generates unique system ID for the timer
+     * This method is not thread safe and can require synchronization of access
+     */
+    static TimerID getNextId() ;
+
     TimerID id;
     uintptr_t applicationData;
     bool running;
     SystemTime startTime;
 };
+
+Timer::Timer() {
+    stop();
+    setId(getNextId());
+}
 
 TimerID Timer::getId() const {
     return id;
@@ -117,6 +126,12 @@ void Timer::setStartTime(SystemTime systemTime) {
     this->startTime = systemTime;
 }
 
+TimerID Timer::getNextId() {
+    static TimerID id = 0;
+    id++;
+    return id;
+}
+
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
 class TimerListBase {
@@ -149,16 +164,6 @@ protected:
 
     TimerExpirationHandler& getExpirationHandler() {
         return expirationHandler;
-    }
-
-    /**
-     * Generates unique system ID for the timer
-     * This method is not thread safe and can require synchronization of access
-     */
-    inline static TimerID getNextId() {
-        static TimerID id = 0;
-        id++;
-        return id;
     }
 
     /**
@@ -264,7 +269,6 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     freeTimers.remove(newTimer);
     newTimer->setStartTime(currentTime);
     newTimer->setApplicationData(applicationData);
-    newTimer->setId(getNextId());
     newTimer->start();
     runningTimers.add(newTimer);
     Timer* headTimer;
