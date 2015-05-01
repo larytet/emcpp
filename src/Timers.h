@@ -31,6 +31,14 @@ public:
             isRunning(false) {
     }
 
+    /**
+     * Returns timer identifier - a unique on the system level ID of the timer
+     * Time ID is set by startTimer()
+     *
+     * This field cab be used to solve the race condition between stopTimer and timerExpired -
+     * application keeping a trace of the IDs of all started timers can make sure that
+     * the expired timer has not been stopped a moment before it's expiration
+     */
     TimerID getId() {
         return id;
     }
@@ -67,13 +75,6 @@ protected:
         return applicationData;
     }
 
-    /**
-     * Unique 32-bits ID of the timer
-     * This field initialized by startTimer()
-     * This field cab be used to solve the race condition between stopTimer and timerExpired -
-     * application keeping a trace of the IDs of all started timers can make sure that
-     * the expired timer has not been stopped a moment before it's expiration
-     */
     TimerID id;
     uintptr_t applicationData;
     bool isRunning;
@@ -299,8 +300,9 @@ template<size_t Size> class TimerSet {
             timerList = timerLists[i];
 
             TimerError timerRes = timerList->processExpiredTimers();
+            res = res || (timerRes == TimerError::Ok);
+
             if (timerRes == TimerError::Ok) {
-                res = true;
                 SystemTime listExpirationTime =
                         timerList->getNearestExpirationTime();
                 if (!res) {
@@ -312,9 +314,13 @@ template<size_t Size> class TimerSet {
                 }
             }
         }
-        if ()
-        expirationTime = nearestExpirationTime;
-        return res;
+
+        if (res) {
+            expirationTime = nearestExpirationTime;
+            return TimerError::Ok;
+        }
+
+        return TimerError::NoRunningTimers;
     }
 
     inline bool addList(TimerListBase* list) {
