@@ -246,10 +246,10 @@ protected:
 
 };
 
-template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
+template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(
+        Timeout timeout, TimerExpirationHandler expirationHandler,
         bool callExpiredForStoppedTimers) :
-        TimerListBase(timeout, expirationHandler,
-                callExpiredForStoppedTimers) {
+        TimerListBase(timeout, expirationHandler, callExpiredForStoppedTimers) {
 
     // fill up the list of free timers
     for (size_t i = 0; i < Size; i++) {
