@@ -206,7 +206,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
-    TimerError processExpiredTimers(SystemTime currentTime);
+    virtual TimerError processExpiredTimers(SystemTime currentTime);
 
 protected:
 
@@ -253,7 +253,7 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     }
 }
 
-template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
+template<std::size_t Size, typename Lock> virtual TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
     Lock();
 
     while (!isEmpty()) {
