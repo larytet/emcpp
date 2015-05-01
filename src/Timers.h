@@ -44,7 +44,7 @@ class Timer {
 public:
 
     Timer() :
-            isRunning(false) {
+        running(false) {
     }
 
     /**
@@ -59,28 +59,20 @@ public:
         return id;
     }
 
-protected:
-
-    friend class TimerListBase;
-
-    void setId(TimerID id) {
-        this->id = id;
-    }
-
-    void setStartTime(SystemTime systemTime) {
-        startTime = systemTime;
-    }
-
     SystemTime getStartTime() const {
         return startTime;
     }
 
+    bool isRunning() const {
+        return running;
+    }
+
     inline void stop() {
-        isRunning = false;
+        running = false;
     }
 
     inline void start() {
-        isRunning = true;
+        running = true;
     }
 
     inline void setApplicationData(uintptr_t applicationData) {
@@ -91,9 +83,19 @@ protected:
         return applicationData;
     }
 
+    void setId(TimerID id) {
+        this->id = id;
+    }
+
+    void setStartTime(SystemTime systemTime) {
+        startTime = systemTime;
+    }
+
+protected:
+
     TimerID id;
     uintptr_t applicationData;
-    bool isRunning;
+    bool running;
 
     SystemTime startTime;
 };
@@ -166,6 +168,7 @@ protected:
  */
 template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
 
+public:
     /**
      * Code bloat here - I duplicate non-trivial initialization routine
      */
@@ -197,6 +200,11 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
+
+    virtual TimerError processExpiredTimers(SystemTime currentTime);
+
+protected:
+
     /**
      * This method is not thread safe and can require synchronization of access
      */
@@ -204,12 +212,6 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         bool res = runningTimers.remove(timer);
         return res;
     }
-
-    virtual TimerError processExpiredTimers(SystemTime currentTime);
-
-protected:
-
-    friend class TimerSet;
 
     CyclicBuffer<Timer*, LockDummy, Size> runningTimers;
     CyclicBuffer<Timer*, LockDummy, Size> freeTimers;
@@ -252,32 +254,31 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     }
 }
 
-template<std::size_t Size, typename Lock> virtual TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
+template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
+    Timer* timer;
+
     Lock();
-
     while (!isEmpty()) {
-        Timer& timer;
-        bool res = runningTimers->getHead(timer);
-        if (!res)
-            break;
 
-        bool timerExpired = isTimerExpired(timer.getStartTime(), timeout,
+        runningTimers.getHead(timer);
+
+        bool timerExpired = isTimerExpired(timer->getStartTime(), timeout,
                 currentTime);
-        bool timerIsRunning = timer.isRunning;
+        bool timerIsRunning = timer->isRunning();
 
         bool callExpirationHandler = timerExpired;
         callExpirationHandler = callExpirationHandler || (!timerIsRunning && callExpiredForStoppedTimers);
 
         if (callExpirationHandler) {
-            (getExpirationHandler())(timer.applicationData);
+            (getExpirationHandler())(timer->getApplicationData());
         }
 
         if (timerExpired || !timerIsRunning) {
-            runningTimers->remove();
+            runningTimers.remove(timer);
         }
 
         if (!timerExpired && timerIsRunning) {
-            setNearestExpirationTime(timer.startTime + timeout);
+            setNearestExpirationTime(timer->getStartTime() + timeout);
         }
     }
 
