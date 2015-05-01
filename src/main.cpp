@@ -330,6 +330,12 @@ protected:
 
 static HelloWorld helloWorld;
 
+void mainExpirationHandler(uintptr_t d) {
+
+}
+
+static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
+
 int main()
 {
     cout << "Hello from main()!" << endl;
