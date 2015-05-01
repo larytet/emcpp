@@ -46,7 +46,7 @@ public:
 
     CyclicBuffer() :
         CyclicBufferBase(Size) {
-        static_assert(std::numeric_limits<ObjectType>::is_integer, "CyclicBuffer is intended to work only with integer types");
+        static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
     }
 
     ~CyclicBuffer() {

@@ -102,6 +102,7 @@ typedef void (*TimerExpirationHandler)(uintptr_t);
 
 class TimerListBase {
 
+protected:
     TimerListBase(Timeout timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
@@ -120,8 +121,6 @@ class TimerListBase {
      * @result returns TimerError::Ok if there is at least one running timer on the list
      */
     virtual TimerError processExpiredTimers() = 0;
-
-protected:
 
     SystemTime getNearestExpirationTime() {
         return nearestExpirationTime;
@@ -228,7 +227,7 @@ template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeo
 
     // fill up the list of free timers
     for (size_t i = 0; i < Size; i++) {
-        freeTimers.add(timers[i]);
+        freeTimers.add(&timers[i]);
     }
 }
 
