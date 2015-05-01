@@ -55,7 +55,7 @@ public:
      * application keeping a trace of the IDs of all started timers can make sure that
      * the expired timer has not been stopped a moment before it's expiration
      */
-    TimerID getId() {
+    TimerID getId() const {
         return id;
     }
 
@@ -187,8 +187,9 @@ public:
      * @param nearestExpirationTime is set to the expiration time of the nearest timer
      * @result TimerError:Ok if success
      */
-    inline enum TimerError startTimer(Timer& timer, uintptr_t applicationData,
-            SystemTime currentTime, SystemTime& nearestExpirationTime);
+    inline enum TimerError startTimer(SystemTime currentTime,
+            SystemTime& nearestExpirationTime, uintptr_t applicationData = 0,
+            const Timer** _timer = nullptr);
 
     inline enum TimerError stopTimer(Timer& timer) {
         timer.stop();
@@ -232,26 +233,31 @@ template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(Timeo
     }
 }
 
-template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(Timer& timer, uintptr_t applicationData,
-        SystemTime currentTime, SystemTime& nearestExpirationTime) {
+template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(SystemTime currentTime,
+        SystemTime& nearestExpirationTime, uintptr_t applicationData, const Timer** _timer) {
+
+    Timer *newTimer;
 
     Lock();
-    if (!freeTimers.isEmpty) {
-        freeTimers.remove(timer);
-        timer.setStartTime(currentTime);
-        timer.setApplicationData(applicationData);
-        timer.setId(getNextId());
-        timer.start();
-        runningTimers.add(timer);
-        Timer& headTimer;
-        runningTimers.getHead(headTimer);
-        nearestExpirationTime = headTimer.getStartTime() + timeout;
-        this->nearestExpirationTime = nearestExpirationTime;
-        noRunningTimers = false;
-        return TimerError::Ok;
-    } else {
+
+    if (!freeTimers.isEmpty())
         return TimerError::NoFreeTimer;
-    }
+
+    freeTimers.remove(newTimer);
+    newTimer->setStartTime(currentTime);
+    newTimer->setApplicationData(applicationData);
+    newTimer->setId(getNextId());
+    newTimer->start();
+    runningTimers.add(newTimer);
+    Timer& headTimer;
+    runningTimers.getHead(headTimer);
+    nearestExpirationTime = headTimer.getStartTime() + timeout;
+    this->nearestExpirationTime = nearestExpirationTime;
+    noRunningTimers = false;
+    if (_timer != nullptr)
+        *_timer = newTimer;
+
+    return TimerError::Ok;
 }
 
 template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {

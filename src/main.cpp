@@ -330,14 +330,39 @@ protected:
 
 static HelloWorld helloWorld;
 
-void mainExpirationHandler(const Timer& timer) {
+int mainExample12()
+{
+    cout << "Hello from main()!" << endl;
+    return 0;
+}
 
+void mainExpirationHandler(const Timer& timer) {
+    TimerID timerId = timer.getId();
+    uintptr_t data = timer.getApplicationData();
+    cout << "Expired id=" << timerId << ",appdata=" << data << endl;
 }
 
 static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
 
+
+int mainExample13()
+{
+    SystemTime currentTime = 0;
+    for (int i = 0;i < 3;i++) {
+        SystemTime nearestExpirationTime;
+        TimerError err = timers.startTimer(currentTime, nearestExpirationTime, i);
+        if (err == TimerError::Ok) {
+            cout << "nearestExpirationTime=" << nearestExpirationTime << endl;
+        }
+        else {
+            cout << "timer start failed for timer " << i << endl;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
-    cout << "Hello from main()!" << endl;
+    mainExample13();
     return 0;
 }
