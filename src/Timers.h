@@ -1,6 +1,5 @@
 #pragma once
 
-
 typedef uint32_t TimerID;
 
 /**
@@ -15,27 +14,30 @@ typedef size_t SystemTime;
 typedef size_t Timeout;
 
 /**
- * Handles system tick wrap around
+ * Handles system tick wrap around.
+ * Implementation of the method depends on the definition of what System time and Timeout are.
  */
-static inline bool isTimerExpired(SystemTime startTime, Timeout timeout, SystemTime currentTime) {
+static inline bool isTimerExpired(SystemTime startTime, Timeout timeout,
+        SystemTime currentTime) {
     bool timerExpired = false;
 
-    SystemTime timerExpiartionTime = startTime+timeout;
-    timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (startTime < currentTime) );
-    timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (startTime > currentTime) );
-    timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (startTime > currentTime) && (timerExpiartionTime < startTime) );
+    SystemTime timerExpiartionTime = startTime + timeout;
+    timerExpired = timerExpired
+            || ((timerExpiartionTime >= currentTime)
+                    && (startTime < currentTime));
+    timerExpired = timerExpired
+            || ((timerExpiartionTime >= currentTime)
+                    && (startTime > currentTime));
+    timerExpired = timerExpired
+            || ((timerExpiartionTime <= currentTime)
+                    && (startTime > currentTime)
+                    && (timerExpiartionTime < startTime));
 
     return timerExpired;
 }
 
-
 enum TimerError {
-    Ok,
-    Expired,
-    Stppped,
-    Illegal,
-    NoFreeTimer,
-    NoRunningTimers
+    Ok, Expired, Stppped, Illegal, NoFreeTimer, NoRunningTimers
 };
 
 class Timer {
@@ -169,8 +171,7 @@ protected:
  */
 template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
 
-    inline TimerList(Timeout timeout,
-            TimerExpirationHandler expirationHandler,
+    inline TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers = false) :
             TimerListBase(timeout, expirationHandler,
                     callExpiredForStoppedTimers) {
@@ -207,7 +208,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             runningTimers.add(timer);
             Timer& headTimer;
             runningTimers.getHead(headTimer);
-            nearestExpirationTime = headTimer.getStartTime()+timeout;
+            nearestExpirationTime = headTimer.getStartTime() + timeout;
             this->nearestExpirationTime = nearestExpirationTime;
             noRunningTimers = false;
             return TimerError::Ok;
@@ -243,7 +244,8 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             if (!res)
                 break;
 
-            bool timerExpired = isTimerExpired(timer.getStartTime(), timeout, currentTime);
+            bool timerExpired = isTimerExpired(timer.getStartTime(), timeout,
+                    currentTime);
 
             if (timerExpired) {
                 (getExpirationHandler())(timer.applicationData);
@@ -251,7 +253,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             } else if (!timer.isRunning) {
                 runningTimers->remove();
             } else {
-                setNearestExpirationTime(timer.startTime+timeout);
+                setNearestExpirationTime(timer.startTime + timeout);
                 break;
             }
         }
