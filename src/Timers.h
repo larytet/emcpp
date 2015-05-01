@@ -120,7 +120,7 @@ protected:
      *
      * @result returns TimerError::Ok if there is at least one running timer on the list
      */
-    virtual TimerError processExpiredTimers() = 0;
+    virtual TimerError processExpiredTimers(SystemTime) = 0;
 
     SystemTime getNearestExpirationTime() {
         return nearestExpirationTime;
@@ -173,9 +173,8 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             bool callExpiredForStoppedTimers = false);
 
     /**
-     * Move a timer from the list of free timers and
-     * add the timer to the tail of the list of started timers.
-     *
+     * Move a timer from the list of free timers to the tail of the list of started timers.
+     * Return time of the next timer expiration
      * Application shall update the expiration time of the nearest timer and schedule
      * a call to Set::processExpiredTimers() accordingly
      *
@@ -347,7 +346,7 @@ template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(SystemTime
     for (i = 0; i < listCount; i++) {
         timerList = timerLists[i];
 
-        TimerError timerRes = timerList->processExpiredTimers();
+        TimerError timerRes = timerList->processExpiredTimers(currentTime);
         res = res || (timerRes == TimerError::Ok);
 
         if (timerRes == TimerError::Ok) {
