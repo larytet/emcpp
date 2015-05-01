@@ -123,6 +123,17 @@ protected:
     }
 
     /**
+     * Generates unique ID for the timer
+     *
+     * This method is not thread safe and can require synchronization of access
+     */
+    inline static TimerID getNextId() {
+        static TimerID id = 0;
+        id++;
+        return id;
+    }
+
+    /**
      * All timers in the list have the same timeout
      * The expiration time of a timer depends on the start timer
      */
@@ -202,6 +213,9 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
+    /**
+     * This method is not thread safe and can require synchronization of access
+     */
     bool removeHead(Timer& timer) {
         bool res = runningTimers.remove(timer);
         return res;
@@ -233,15 +247,6 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
     }
 
 protected:
-
-    /**
-     * Generates unique ID for the timer
-     */
-    inline static TimerID getNextId() {
-        static TimerID id = 0;
-        id++;
-        return id;
-    }
 
     friend class TimerSet;
 
