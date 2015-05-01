@@ -122,6 +122,22 @@ protected:
     }
 
     /**
+     * Handles system tick wrap around
+     */
+    static inline bool isTimerExpired(const Timer& timer, SystemTime currentTime) {
+        bool timerExpired = false;
+
+        SystemTime timerStartTime = timer.getStartTime();
+        SystemTime timerExpiartionTime = timerStartTime+timeout;
+        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime < currentTime) );
+        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime > currentTime) );
+        timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (timerStartTime > currentTime) && (timerExpiartionTime < timerStartTime) );
+
+        return timerExpired;
+    }
+
+
+    /**
      * Generates unique ID for the timer
      *
      * This method is not thread safe and can require synchronization of access
@@ -219,21 +235,6 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
         return res;
     }
 
-    /**
-     * Handles system tick wrap around
-     */
-    static inline bool isTimerExpired(const Timer& timer, SystemTime currentTime) {
-        bool timerExpired = false;
-
-        SystemTime timerStartTime = timer.getStartTime();
-        SystemTime timerExpiartionTime = timerStartTime+timeout;
-        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime < currentTime) );
-        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime > currentTime) );
-        timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (timerStartTime > currentTime) && (timerExpiartionTime < timerStartTime) );
-
-        return timerExpired;
-    }
-
     TimerError processExpiredTimers(SystemTime currentTime) {
         Lock();
 
@@ -271,6 +272,7 @@ protected:
 
     // static allocation of all timers
     array<Timer, Size> timers;
+
 };
 
 /**
