@@ -342,11 +342,11 @@ void mainExpirationHandler(const Timer& timer) {
     cout << "Expired id=" << timerId << ",appdata=" << data << endl;
 }
 
-static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
 
 
 int mainExample13()
 {
+    TimerList<10, LockDummy> timers(3, mainExpirationHandler);
     SystemTime currentTime = 0;
     for (int i = 0;i < 3;i++) {
         SystemTime nearestExpirationTime;

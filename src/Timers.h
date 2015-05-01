@@ -240,7 +240,7 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
 
     Lock();
 
-    if (!freeTimers.isEmpty())
+    if (freeTimers.isEmpty())
         return TimerError::NoFreeTimer;
 
     freeTimers.remove(newTimer);
