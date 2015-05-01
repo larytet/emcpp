@@ -53,23 +53,23 @@ public:
      * application keeping a trace of the IDs of all started timers can make sure that
      * the expired timer has not been stopped a moment before it's expiration
      */
-    TimerID getId() const ;
+    TimerID getId() const;
 
-    SystemTime getStartTime() const ;
+    SystemTime getStartTime() const;
 
-    bool isRunning() const ;
+    bool isRunning() const;
 
-    inline void stop() ;
+    inline void stop();
 
-    inline void start() ;
+    inline void start();
 
-    inline void setApplicationData(uintptr_t applicationData) ;
+    inline void setApplicationData(uintptr_t applicationData);
 
-    inline uintptr_t getApplicationData() const ;
+    inline uintptr_t getApplicationData() const;
 
-    void setId(TimerID id) ;
+    void setId(TimerID id);
 
-    void setStartTime(SystemTime systemTime) ;
+    void setStartTime(SystemTime systemTime);
 
 protected:
 
@@ -99,7 +99,7 @@ void Timer::stop() {
     running = false;
 }
 
-void  Timer::start() {
+void Timer::start() {
     running = true;
 }
 
@@ -257,8 +257,10 @@ template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(
     }
 }
 
-template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size, Lock>::startTimer(SystemTime currentTime,
-        SystemTime& nearestExpirationTime, uintptr_t applicationData, const Timer** timer) {
+template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
+        Lock>::startTimer(SystemTime currentTime,
+        SystemTime& nearestExpirationTime, uintptr_t applicationData,
+        const Timer** timer) {
 
     Timer *newTimer;
 
@@ -283,7 +285,8 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     return TimerError::Ok;
 }
 
-template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(SystemTime currentTime) {
+template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(
+        SystemTime currentTime) {
     Timer* timer;
 
     Lock();
@@ -297,7 +300,8 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
         bool timerIsRunning = timer->isRunning();
 
         bool callExpirationHandler = timerExpired;
-        callExpirationHandler = callExpirationHandler || (!timerIsRunning && callExpiredForStoppedTimers);
+        callExpirationHandler = callExpirationHandler
+                || (!timerIsRunning && callExpiredForStoppedTimers);
 
         if (callExpirationHandler) {
             (getExpirationHandler())(*timer);
@@ -317,7 +321,6 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
     else
         return TimerError::NoRunningTimers;
 }
-
 
 /**
  * A timer set is one or more lists of pending timers
@@ -368,8 +371,8 @@ protected:
     size_t listCount;
 };
 
-template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(SystemTime currentTime,
-        SystemTime& expirationTime) {
+template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(
+        SystemTime currentTime, SystemTime& expirationTime) {
     TimerListBase* timerList;
     size_t i;
     SystemTime nearestExpirationTime;
