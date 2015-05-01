@@ -336,7 +336,7 @@ int mainExample12()
     return 0;
 }
 
-void mainExpirationHandler(const Timer& timer) {
+static void mainExpirationHandler(const Timer& timer) {
     TimerID timerId = timer.getId();
     uintptr_t data = timer.getApplicationData();
     cout << "Expired id=" << timerId << ",appdata=" << data << endl;
