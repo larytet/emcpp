@@ -14,6 +14,21 @@ typedef size_t SystemTime;
  */
 typedef size_t Timeout;
 
+/**
+ * Handles system tick wrap around
+ */
+static inline bool isTimerExpired(SystemTime startTime, Timeout timeout, SystemTime currentTime) {
+    bool timerExpired = false;
+
+    SystemTime timerExpiartionTime = startTime+timeout;
+    timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (startTime < currentTime) );
+    timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (startTime > currentTime) );
+    timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (startTime > currentTime) && (timerExpiartionTime < startTime) );
+
+    return timerExpired;
+}
+
+
 enum TimerError {
     Ok,
     Expired,
@@ -122,22 +137,6 @@ protected:
     }
 
     /**
-     * Handles system tick wrap around
-     */
-    static inline bool isTimerExpired(const Timer& timer, SystemTime currentTime) {
-        bool timerExpired = false;
-
-        SystemTime timerStartTime = timer.getStartTime();
-        SystemTime timerExpiartionTime = timerStartTime+timeout;
-        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime < currentTime) );
-        timerExpired = timerExpired || ((timerExpiartionTime >= currentTime) && (timerStartTime > currentTime) );
-        timerExpired = timerExpired || ((timerExpiartionTime <= currentTime) && (timerStartTime > currentTime) && (timerExpiartionTime < timerStartTime) );
-
-        return timerExpired;
-    }
-
-
-    /**
      * Generates unique ID for the timer
      *
      * This method is not thread safe and can require synchronization of access
@@ -244,7 +243,7 @@ template<std::size_t Size, typename Lock> class TimerList: public TimerListBase 
             if (!res)
                 break;
 
-            bool timerExpired = isTimerExpired(timer, currentTime);
+            bool timerExpired = isTimerExpired(timer.getStartTime(), timeout, currentTime);
 
             if (timerExpired) {
                 (getExpirationHandler())(timer.applicationData);
