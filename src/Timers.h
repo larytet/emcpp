@@ -55,41 +55,23 @@ public:
      * application keeping a trace of the IDs of all started timers can make sure that
      * the expired timer has not been stopped a moment before it's expiration
      */
-    TimerID getId() const {
-        return id;
-    }
+    TimerID getId() const ;
 
-    SystemTime getStartTime() const {
-        return startTime;
-    }
+    SystemTime getStartTime() const ;
 
-    bool isRunning() const {
-        return running;
-    }
+    bool isRunning() const ;
 
-    inline void stop() {
-        running = false;
-    }
+    inline void stop() ;
 
-    inline void start() {
-        running = true;
-    }
+    inline void start() ;
 
-    inline void setApplicationData(uintptr_t applicationData) {
-        this->applicationData = applicationData;
-    }
+    inline void setApplicationData(uintptr_t applicationData) ;
 
-    uintptr_t getApplicationData() const {
-        return applicationData;
-    }
+    uintptr_t getApplicationData() const ;
 
-    void setId(TimerID id) {
-        this->id = id;
-    }
+    void setId(TimerID id) ;
 
-    void setStartTime(SystemTime systemTime) {
-        startTime = systemTime;
-    }
+    void setStartTime(SystemTime systemTime) ;
 
 protected:
 
@@ -98,6 +80,42 @@ protected:
     bool running;
     SystemTime startTime;
 };
+
+TimerID Timer::getId() const {
+    return id;
+}
+
+SystemTime Timer::getStartTime() const {
+    return startTime;
+}
+
+bool Timer::isRunning() const {
+    return running;
+}
+
+inline void Timer::stop() {
+    running = false;
+}
+
+inline void  Timer::start() {
+    running = true;
+}
+
+inline void Timer::setApplicationData(uintptr_t applicationData) {
+    this->applicationData = applicationData;
+}
+
+uintptr_t Timer::getApplicationData() const {
+    return applicationData;
+}
+
+void Timer::setId(TimerID id) {
+    this->id = id;
+}
+
+void Timer::setStartTime(SystemTime systemTime) {
+    this->startTime = systemTime;
+}
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
