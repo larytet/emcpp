@@ -368,4 +368,3 @@ template<size_t Size> inline bool TimerSet<Size>::addList(TimerListBase* list) {
         return false;
     }
 }
-
