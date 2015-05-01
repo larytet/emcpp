@@ -108,13 +108,11 @@ protected:
     TimerListBase(Timeout timeout, TimerExpirationHandler expirationHandler,
             bool callExpiredForStoppedTimers) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers), noRunningTimers(true) {
+                    callExpiredForStoppedTimers) {
 
     }
 
-    inline bool isEmpty() {
-        return noRunningTimers;
-    }
+    virtual inline bool isEmpty() = 0;
 
     /**
      * Remove stopped timers from the list, call application callback
@@ -154,8 +152,6 @@ protected:
     TimerExpirationHandler expirationHandler;
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
-    bool noRunningTimers;
-
 };
 
 /**
@@ -201,6 +197,11 @@ public:
         return res;
     }
 
+    virtual inline bool isEmpty() {
+        Lock();
+        bool res = runningTimers.isEmpty();
+        return res;
+    }
 
     virtual TimerError processExpiredTimers(SystemTime currentTime);
 
@@ -253,7 +254,6 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     runningTimers.getHead(headTimer);
     nearestExpirationTime = headTimer->getStartTime() + timeout;
     this->nearestExpirationTime = nearestExpirationTime;
-    noRunningTimers = false;
     if (timer != nullptr)
         *timer = newTimer;
 
