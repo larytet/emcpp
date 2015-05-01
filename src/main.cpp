@@ -344,9 +344,9 @@ void mainExpirationHandler(const Timer& timer) {
 
 
 
+static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
 int mainExample13()
 {
-    TimerList<10, LockDummy> timers(3, mainExpirationHandler);
     SystemTime currentTime = 0;
     for (int i = 0;i < 3;i++) {
         SystemTime nearestExpirationTime;
@@ -358,6 +358,8 @@ int mainExample13()
             cout << "timer start failed for timer " << i << endl;
         }
     }
+
+    timers.processExpiredTimers(3);
     return 0;
 }
 
