@@ -39,15 +39,13 @@ protected:
     size_t tail;
     size_t size;
 
-};// CyclicBufferBase
+};
+// CyclicBufferBase
 
 template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: public CyclicBufferBase {
 public:
 
-    CyclicBuffer() :
-        CyclicBufferBase(Size) {
-        static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
-    }
+    inline CyclicBuffer();
 
     ~CyclicBuffer() {
     }
@@ -59,10 +57,17 @@ public:
 private:
 
     ObjectType data[Size + 1];
-};// class CyclicBuffer
+};
+// class CyclicBuffer
 
-template<typename ObjectType, typename Lock, std::size_t Size>inline bool
-CyclicBuffer<ObjectType, Lock, Size>::add(const ObjectType object) {
+template<typename ObjectType, typename Lock, std::size_t Size> inline CyclicBuffer<
+        ObjectType, Lock, Size>::CyclicBuffer() :
+        CyclicBufferBase(Size) {
+    static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
+        ObjectType, Lock, Size>::add(const ObjectType object) {
     Lock();
     if (!isFull()) {
         data[this->tail] = object;
@@ -75,8 +80,8 @@ CyclicBuffer<ObjectType, Lock, Size>::add(const ObjectType object) {
 
 }
 
-template<typename ObjectType, typename Lock, std::size_t Size>inline bool
-CyclicBuffer<ObjectType, Lock, Size>::remove(ObjectType &object) {
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
+        ObjectType, Lock, Size>::remove(ObjectType &object) {
     Lock();
     if (!isEmpty()) {
         object = data[this->head];
@@ -88,8 +93,8 @@ CyclicBuffer<ObjectType, Lock, Size>::remove(ObjectType &object) {
     }
 }
 
-template<typename ObjectType, typename Lock, std::size_t Size>inline bool
-CyclicBuffer<ObjectType, Lock, Size>::getHead(ObjectType &object) {
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
+        ObjectType, Lock, Size>::getHead(ObjectType &object) {
     Lock();
     if (!isEmpty()) {
         object = data[this->head];
