@@ -10,19 +10,23 @@ protected:
 
 template<typename IntegerType> class HardwareRegister {
 protected:
-    volatile IntegerType value;
-    static_assert(std::numeric_limits<IntegerType>::is_integer,
-            "HardwareRegister works only with integer types");
-};
+    HardwareRegister() {}
 
-class HardwareRegister32: HardwareRegister<uint32_t> {
-protected:
     inline uint32_t get() const {
         return value;
     }
     inline void set(uint32_t value) {
         this->value = value;
     }
+
+    volatile IntegerType value;
+
+    static_assert(std::numeric_limits<IntegerType>::is_integer,
+            "HardwareRegister works only with integer types");
+};
+
+class HardwareRegister32: public HardwareRegister<uint32_t> {
+protected:
 };
 static_assert((sizeof(HardwareRegister32) == sizeof(uint32_t)),
         "HardwareRegister32 is not 32 bits");
