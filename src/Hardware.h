@@ -13,29 +13,29 @@ protected:
     HardwareRegister() {}
 
     inline IntegerType get() const {
-        return value;
+        return atomic_load(&value);
     }
     inline void set(IntegerType value) {
-        this->value = value;
+        atomic_store(&this->value, value);
     }
 
-    volatile IntegerType value;
+    volatile atomic<IntegerType> value;
 
-    static_assert(std::numeric_limits<IntegerType>::is_integer,
+    static_assert(numeric_limits<IntegerType>::is_integer,
             "HardwareRegister works only with integer types");
 };
 
 template<typename IntegerType> class HardwareDirectAccessAPI {
 public:
     inline uint32_t get() const {
-        return value;
+        return atomic_load(&value);
     }
     inline void set(uint32_t value) {
-        this->value = value;
+        atomic_store(&this->value, value);
     }
 protected:
-    volatile IntegerType value;
-    static_assert(std::numeric_limits<IntegerType>::is_integer,
+    volatile atomic<IntegerType> value;
+    static_assert(numeric_limits<IntegerType>::is_integer,
             "HardwareDirectAccessAPI works only with integer types");
 };
 

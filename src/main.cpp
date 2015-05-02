@@ -13,6 +13,8 @@
 #include <algorithm>
 #include <array>
 #include <limits>
+#include <atomic>
+#include <cstdint>
 
 
 using namespace std;
@@ -272,7 +274,7 @@ public:
         HardwareRegister32WO PIO_SODR ;
         HardwareRegister32WO PIO_CODR ;
     };
-    static_assert((sizeof(struct Interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
+    //static_assert((sizeof(struct Interface) == (14*sizeof(uint32_t))), "struct interface is of wrong size, broken alignment?");
     enum Name {A, B, C, D, E, F, LAST};
 
     inline Interface& getInterface(Name name) const {return interface[name];};
@@ -365,6 +367,8 @@ int mainExample13()
 
 int main()
 {
-    mainExample13();
+    cout << "size=" << sizeof(HardwareRegister32) << endl;
+
+    //mainExample13();
     return 0;
 }
