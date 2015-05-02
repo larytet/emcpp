@@ -27,6 +27,7 @@ protected:
 
 class HardwareRegister32: public HardwareRegister<uint32_t> {
 protected:
+    HardwareRegister32() {}
 };
 static_assert((sizeof(HardwareRegister32) == sizeof(uint32_t)),
         "HardwareRegister32 is not 32 bits");
