@@ -12,10 +12,10 @@ template<typename IntegerType> class HardwareRegister {
 protected:
     HardwareRegister() {}
 
-    inline uint32_t get() const {
+    inline IntegerType get() const {
         return value;
     }
-    inline void set(uint32_t value) {
+    inline void set(IntegerType value) {
         this->value = value;
     }
 
@@ -23,6 +23,39 @@ protected:
 
     static_assert(std::numeric_limits<IntegerType>::is_integer,
             "HardwareRegister works only with integer types");
+};
+
+template<typename IntegerType> class HardwareDirectAccessAPI {
+public:
+    inline uint32_t get() const {
+        return value;
+    }
+    inline void set(uint32_t value) {
+        this->value = value;
+    }
+protected:
+    volatile IntegerType value;
+    static_assert(std::numeric_limits<IntegerType>::is_integer,
+            "HardwareDirectAccessAPI works only with integer types");
+};
+
+template<typename IntegerType, typename AccessAPI> class HardwareRegisterAccess {
+protected:
+    HardwareRegisterAccess() {}
+
+    inline IntegerType get() const {
+        return api.get();
+    }
+    inline void set(IntegerType value) {
+        api.set(value);
+    }
+
+    AccessAPI api;
+};
+
+class HardwareRegisterDirect32: public HardwareRegisterAccess<uint32_t, HardwareDirectAccessAPI<uint32_t> > {
+protected:
+    HardwareRegisterDirect32() {}
 };
 
 class HardwareRegister32: public HardwareRegister<uint32_t> {
