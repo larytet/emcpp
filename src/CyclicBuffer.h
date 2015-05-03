@@ -120,7 +120,7 @@ private:
 
     size_t increment(size_t index);
 
-    ObjectType data[];
+    ObjectType *data;
     size_t head;
     size_t tail;
     size_t size;
@@ -132,7 +132,7 @@ template<typename ObjectType, typename Lock> inline CyclicBufferDynamic<
     this->head = 0;
     this->tail = 0;
     this->size = size;
-    this->data = new ObjectType*[size];
+    this->data = new ObjectType[size];
     static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
 }
 
