@@ -8,17 +8,8 @@ public:
     ~CyclicBuffer() {
     }
 
-    inline bool isEmpty() {
-        bool res = (this->head == this->tail);
-        return res;
-    }
-
-    inline bool isFull() {
-        size_t tail = increment(this->tail);
-        bool res = (this->head == tail);
-        return res;
-    }
-
+    inline bool isEmpty();
+    inline bool isFull();
     inline bool add(const ObjectType object);
     inline bool remove(ObjectType &object);
     inline bool getHead(ObjectType &object);
@@ -43,13 +34,25 @@ private:
     size_t tail;
 };
 
-
 template<typename ObjectType, typename Lock, std::size_t Size> inline CyclicBuffer<
-        ObjectType, Lock, Size>::CyclicBuffer()  {
+        ObjectType, Lock, Size>::CyclicBuffer() {
 
     this->head = 0;
     this->tail = 0;
     static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
+        ObjectType, Lock, Size>::isEmpty() {
+    bool res = (this->head == this->tail);
+    return res;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
+        ObjectType, Lock, Size>::isFull() {
+    size_t tail = increment(this->tail);
+    bool res = (this->head == tail);
+    return res;
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
