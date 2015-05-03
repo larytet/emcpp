@@ -177,10 +177,10 @@ public:
     virtual CyclicBufferWrapperBase& getRunningTimers() = 0;
 
 protected:
-    TimerAllocatorBase {
+    TimerAllocatorBase() {
     }
 
-    virtual ~TimerAllocatorBase {
+    virtual ~TimerAllocatorBase() {
     }
 };
 
