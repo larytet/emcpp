@@ -149,34 +149,7 @@ public:
 protected:
 };
 
-
-class TimerAllocatorInterface {
-public:
-    TimerAllocatorInterface(size_t size) {
-    }
-
-    virtual void getBuffers(CyclicBufferDynamic<Timer, LockDummy> &b1, CyclicBufferDynamic<Timer, LockDummy> &b2) = 0;
-protected:
-    virtual ~TimerAllocatorInterface(size_t size) {}
-};
-
-class TimerAllocator {
-public:
-    TimerAllocator(size_t size) {
-        timers = (Timer*)new [size];
-    }
-
-    virtual void getBuffers(CyclicBufferDynamic<Timer, LockDummy> &b1, CyclicBufferDynamic<Timer, LockDummy> &b2) {
-        b1 = *data1;
-        b2 = *data2;
-    }
-protected:
-    virtual ~TimerAllocator(size_t size) {}
-
-    CyclicBufferDynamic<Timer, LockDummy> *data1;
-    CyclicBufferDynamic<Timer, LockDummy> *data2;
-    Timer *timers;
-};
+typedef CyclicBufferDynamic<Timer*, LockDummy> TimerCyclicBuffer;
 
 class TimerList {
 

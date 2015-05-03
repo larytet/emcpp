@@ -107,9 +107,9 @@ public:
 
     inline bool isEmpty();
     inline bool isFull();
-    inline bool add(const ObjectType* object);
-    inline bool remove(ObjectType** object);
-    inline bool getHead(ObjectType** object);
+    inline bool add(const ObjectType object);
+    inline bool remove(ObjectType* object);
+    inline bool getHead(ObjectType* object);
 
 private:
     void errorOverflow() {
@@ -120,7 +120,7 @@ private:
 
     size_t increment(size_t index);
 
-    ObjectType *data[];
+    ObjectType data[];
     size_t head;
     size_t tail;
     size_t size;
@@ -150,7 +150,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 }
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
-        ObjectType, Lock>::add(const ObjectType* object) {
+        ObjectType, Lock>::add(const ObjectType object) {
     Lock();
     if (!isFull()) {
         data[this->tail] = object;
@@ -164,7 +164,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 }
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
-        ObjectType, Lock>::remove(ObjectType** object) {
+        ObjectType, Lock>::remove(ObjectType* object) {
     Lock();
     if (!isEmpty()) {
         *object = data[this->head];
@@ -177,7 +177,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 }
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
-        ObjectType, Lock>::getHead(ObjectType **object) {
+        ObjectType, Lock>::getHead(ObjectType *object) {
     Lock();
     if (!isEmpty()) {
         *object = data[this->head];
