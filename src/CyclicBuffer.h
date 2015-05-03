@@ -100,16 +100,16 @@ ObjectType, Lock, Size>::increment(size_t index) {
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
 public:
 
-    inline CyclicBufferDynamic(ObjectType *data[], size_t size);
+    inline CyclicBufferDynamic(size_t size);
 
     ~CyclicBufferDynamic() {
     }
 
     inline bool isEmpty();
     inline bool isFull();
-    inline bool add(const ObjectType object);
-    inline bool remove(ObjectType* object);
-    inline bool getHead(ObjectType* object);
+    inline bool add(ObjectType object);
+    inline bool remove(ObjectType *object);
+    inline bool getHead(ObjectType *object);
 
 private:
     void errorOverflow() {
@@ -127,12 +127,12 @@ private:
 };
 
 template<typename ObjectType, typename Lock> inline CyclicBufferDynamic<
-        ObjectType, Lock>::CyclicBufferDynamic(ObjectType *data[], size_t size) {
+        ObjectType, Lock>::CyclicBufferDynamic(size_t size) {
 
     this->head = 0;
     this->tail = 0;
     this->size = size;
-    this->data = data;
+    this->data = new ObjectType*[size];
     static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
 }
 
@@ -150,7 +150,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 }
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
-        ObjectType, Lock>::add(const ObjectType object) {
+        ObjectType, Lock>::add(ObjectType object) {
     Lock();
     if (!isFull()) {
         data[this->tail] = object;
@@ -164,7 +164,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 }
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
-        ObjectType, Lock>::remove(ObjectType* object) {
+        ObjectType, Lock>::remove(ObjectType *object) {
     Lock();
     if (!isEmpty()) {
         *object = data[this->head];

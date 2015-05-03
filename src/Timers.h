@@ -155,15 +155,16 @@ class TimerList {
 
 public:
 
-    TimerList(Timer timers[], size_t size, Timeout timeout, TimerExpirationHandler expirationHandler,
+    TimerList(size_t size, Timeout timeout, TimerExpirationHandler expirationHandler,
             TimerLock& timerLock,
             bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers), freeTimers(timers, size), runningTimers(timers, size) ,
+                    callExpiredForStoppedTimers),
                     timerLock(timerLock) {
 
+        Timer *timers = new Timer[size];
         for (size_t i = 0;i < size;i++) {
-            freeTimers.add(timers[i]);
+            freeTimers.add(&timers[i]);
         }
     }
 
@@ -226,8 +227,8 @@ protected:
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
 
-    CyclicBufferDynamic<Timer, LockDummy> &freeTimers;
-    CyclicBufferDynamic<Timer, LockDummy> *runningTimers;
+    CyclicBufferDynamic<Timer*, LockDummy> freeTimers;
+    CyclicBufferDynamic<Timer*, LockDummy> runningTimers;
 
     TimerLock& timerLock;
 };
