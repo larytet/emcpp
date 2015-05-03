@@ -129,46 +129,6 @@ protected:
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
-class TimerCyclicBuffer : public CyclicBufferDynamic<Timer*, LockDummy> {
-
-public:
-
-protected:
-};
-
-/**
- * Allocate all required arrays
- */
-class TimerAllocator {
-
-public:
-    TimerAllocator(Timer *timers, size_t size) {
-        for (int i = 0;i < size;i++) {
-            freeTimers.add(&timers[i]);
-        }
-    }
-
-    ~TimerAllocator() {
-    }
-
-    TimerCyclicBuffer& getFreeTimers() {
-        return freeTimers;
-    }
-
-    TimerCyclicBuffer& getRunningTimers() {
-        return runningTimers;
-    }
-
-protected:
-
-    TimerCyclicBuffer freeTimers;
-    TimerCyclicBuffer runningTimers;
-
-    Timer *timers;
-};
-
-
-
 class TimerLock {
 
 public:
@@ -190,17 +150,48 @@ protected:
 };
 
 
+class TimerAllocatorInterface {
+public:
+    TimerAllocatorInterface(size_t size) {
+    }
+
+    virtual void getBuffers(CyclicBufferDynamic<Timer, LockDummy> &b1, CyclicBufferDynamic<Timer, LockDummy> &b2) = 0;
+protected:
+    virtual ~TimerAllocatorInterface(size_t size) {}
+};
+
+class TimerAllocator {
+public:
+    TimerAllocator(size_t size) {
+        timers = (Timer*)new [size];
+    }
+
+    virtual void getBuffers(CyclicBufferDynamic<Timer, LockDummy> &b1, CyclicBufferDynamic<Timer, LockDummy> &b2) {
+        b1 = *data1;
+        b2 = *data2;
+    }
+protected:
+    virtual ~TimerAllocator(size_t size) {}
+
+    CyclicBufferDynamic<Timer, LockDummy> *data1;
+    CyclicBufferDynamic<Timer, LockDummy> *data2;
+    Timer *timers;
+};
+
 class TimerList {
 
 public:
 
-    TimerList(TimerAllocator& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
+    TimerList(Timer timers[], size_t size, Timeout timeout, TimerExpirationHandler expirationHandler,
             TimerLock& timerLock,
             bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()),
+                    callExpiredForStoppedTimers), freeTimers(timers, size), runningTimers(timers, size) ,
                     timerLock(timerLock) {
 
+        for (size_t i = 0;i < size;i++) {
+            freeTimers.add(timers[i]);
+        }
     }
 
     /**
@@ -262,8 +253,8 @@ protected:
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
 
-    TimerCyclicBuffer& freeTimers;
-    TimerCyclicBuffer& runningTimers;
+    CyclicBufferDynamic<Timer, LockDummy> &freeTimers;
+    CyclicBufferDynamic<Timer, LockDummy> *runningTimers;
 
     TimerLock& timerLock;
 };
