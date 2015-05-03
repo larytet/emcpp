@@ -129,6 +129,10 @@ protected:
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
+/**
+ * I need a non-template version of CyclicBuffer
+ * API is built upon virtual methods
+ */
 class CyclicBufferWrapperBase {
 
 public:
@@ -169,6 +173,9 @@ protected:
     CyclicBuffer<Timer*, LockDummy, Size> cyclicBuffer;
 };
 
+/**
+ * Interface for the static allocator
+ */
 class TimerAllocatorBase {
 public:
     virtual CyclicBufferWrapperBase& getFreeTimers() = 0;
@@ -182,6 +189,9 @@ protected:
     }
 };
 
+/**
+ * Allocate timers statically
+ */
 template<size_t Size> class TimerAllocator : public TimerAllocatorBase {
 
 public:
