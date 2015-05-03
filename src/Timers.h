@@ -211,6 +211,14 @@ protected:
 class TimerList {
 
 public:
+
+    TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
+            bool callExpiredForStoppedTimers) :
+            timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
+                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()) {
+
+    }
+
     /**
      * Remove stopped timers from the list, call application callback
      * for expired timers
@@ -241,12 +249,10 @@ public:
         return TimerError::Ok;
     }
 
-    TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers) :
-            timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()) {
-
+    SystemTime getNearestExpirationTime() {
+        return nearestExpirationTime;
     }
+
 
 protected:
 
@@ -379,17 +385,17 @@ template<size_t Size> class TimerSet {
     TimerError processExpiredTimers(SystemTime currentTime,
             SystemTime& expirationTime);
 
-    inline bool addList(TimerListBase* list);
+    inline bool addList(TimerList* list);
 
 protected:
     const char *name;
-    array<TimerListBase*, Size> timerLists;
+    array<TimerList*, Size> timerLists;
     size_t listCount;
 };
 
 template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(
         SystemTime currentTime, SystemTime& expirationTime) {
-    TimerListBase* timerList;
+    TimerList* timerList;
     size_t i;
     SystemTime nearestExpirationTime;
     bool res = false;
@@ -417,7 +423,7 @@ template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(
         return TimerError::NoRunningTimers;
 }
 
-template<size_t Size> inline bool TimerSet<Size>::addList(TimerListBase* list) {
+template<size_t Size> inline bool TimerSet<Size>::addList(TimerList* list) {
     if (listCount < Size) {
         timerLists[listCount] = list;
         listCount++;
