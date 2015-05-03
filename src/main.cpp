@@ -350,8 +350,8 @@ static void mainExpirationHandler(const Timer& timer) {
 
 
 TimerAllocator<10> timerAllocator;
-
-static TimerList timerList(timerAllocator, 3, mainExpirationHandler);
+TimerLockDummy timerLock;
+static TimerList timerList(timerAllocator, 3, mainExpirationHandler, timerLock);
 int mainExample13()
 {
     SystemTime currentTime = 0;

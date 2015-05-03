@@ -139,8 +139,6 @@ public:
     virtual bool isEmpty() = 0;
 
 protected:
-    CyclicBufferWrapperBase() {
-    }
     virtual ~CyclicBufferWrapperBase() {
     }
 };
@@ -211,14 +209,37 @@ protected:
     array<Timer, Size> pool;
 };
 
+class TimerLock {
+
+public:
+    virtual void get() = 0;
+    virtual void release() = 0;
+
+protected:
+    virtual ~TimerLock() {}
+
+};
+
+class TimerLockDummy : public TimerLock {
+
+public:
+    virtual void get() {}
+    virtual void release() {}
+
+protected:
+};
+
+
 class TimerList {
 
 public:
 
     TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
+            TimerLock& timerLock,
             bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()) {
+                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()),
+                    timerLock(timerLock) {
 
     }
 
@@ -277,6 +298,8 @@ protected:
 
     CyclicBufferWrapperBase& freeTimers;
     CyclicBufferWrapperBase& runningTimers;
+
+    TimerLock& timerLock;
 };
 
 TimerID TimerList::getNextId() {
@@ -290,6 +313,8 @@ enum TimerError TimerList::startTimer(SystemTime currentTime,
         const Timer** timer) {
 
     Timer* newTimer;
+
+    timerLock.get();
 
     if (freeTimers.isEmpty())
         return TimerError::NoFreeTimer;
