@@ -40,7 +40,6 @@ protected:
     size_t size;
 
 };
-// CyclicBufferBase
 
 template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: public CyclicBufferBase {
 public:

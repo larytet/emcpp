@@ -129,76 +129,95 @@ protected:
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
-class TimerListBase {
+class CyclicBufferWrapperBase {
+
+public:
+
+    virtual bool add(Timer* timer) = 0;
+    virtual bool remove(Timer** timer) = 0;
+    virtual bool getHead(Timer** timer) = 0;
+    virtual bool isEmpty() = 0;
 
 protected:
-    TimerListBase(Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers) :
-            timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers) {
+    CyclicBufferWrapperBase() {
+    }
+    virtual ~CyclicBufferWrapperBase() {
+    }
+};
 
+template<std::size_t Size> class CyclicBufferWrapper: CyclicBufferWrapperBase {
+
+public:
+    CyclicBufferWrapper() {
     }
 
-    virtual inline bool isEmpty() = 0;
+    virtual bool add(Timer* timer) {
+        return cyclicBuffer.add(timer);
+    }
 
+    virtual bool remove(Timer** timer) {
+        return cyclicBuffer.remove(*timer);
+    }
+
+    virtual bool getHead(Timer** timer) {
+        return cyclicBuffer.getHead(*timer);
+    }
+
+    virtual bool isEmpty() {
+        return cyclicBuffer.isEmpty();
+    }
+
+protected:
+    CyclicBuffer<Timer*, LockDummy, Size> cyclicBuffer;
+};
+
+class TimerAllocatorBase {
+public:
+    virtual CyclicBufferWrapperBase& getFreeTimers() = 0;
+    virtual CyclicBufferWrapperBase& getRunningTimers() = 0;
+
+protected:
+    TimerAllocatorBase {
+    }
+
+    virtual ~TimerAllocatorBase {
+    }
+};
+
+template<size_t Size> class TimerAllocator {
+
+public:
+    TimerAllocator() {
+        for (int i=0;i < Size;i++) {
+            freeTimers.add(&pool[i]);
+        }
+    }
+
+    virtual CyclicBufferWrapperBase& getFreeTimers() {
+        return freeTimers;
+    }
+
+    virtual CyclicBufferWrapperBase& getRunningTimers() {
+        return runningTimers;
+    }
+
+    CyclicBufferWrapper<Size> freeTimers;
+    CyclicBufferWrapper<Size> runningTimers;
+
+protected:
+    array<Timer, Size> pool;
+};
+
+class TimerList {
+
+public:
     /**
      * Remove stopped timers from the list, call application callback
      * for expired timers
      *
      * @result returns TimerError::Ok if there is at least one running timer on the list
      */
-    virtual TimerError processExpiredTimers(SystemTime) = 0;
-
-    SystemTime getNearestExpirationTime() {
-        return nearestExpirationTime;
-    }
-
-    void setNearestExpirationTime(SystemTime time) {
-        nearestExpirationTime = time;
-    }
-
-    TimerExpirationHandler& getExpirationHandler() {
-        return expirationHandler;
-    }
-
-    /**
-     * Generates unique system ID for the timer
-     * This method is not thread safe and can require synchronization of access
-     */
-    inline static TimerID getNextId();
-
-    /**
-     * All timers in the list have the same timeout
-     * The expiration time of a timer depends on the start timer
-     */
-    Timeout timeout;
-    TimerExpirationHandler expirationHandler;
-    bool callExpiredForStoppedTimers;
-    SystemTime nearestExpirationTime;
-};
-
-TimerID TimerListBase::getNextId() {
-    static TimerID id = 0;
-    id++;
-    return id;
-}
-
-/**
- * A timer list is a queue of the started timers with the SAME timeout.
- * For example list of 1 s timers
- *
- * @param Size maximum number of pending timers. Performance of the list does not
- * @param Lock is a class synchronizing access to the list API
- * depend on the number of timers.
- */
-template<std::size_t Size, typename Lock> class TimerList: public TimerListBase {
-
-public:
-    /**
-     * Code bloat here - I duplicate non-trivial initialization routine
-     */
-    TimerList(Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers = false);
+    TimerError processExpiredTimers(SystemTime);
 
     /**
      * Move a timer from the list of free timers to the tail of the list of started timers.
@@ -212,74 +231,68 @@ public:
      * @param nearestExpirationTime is set to the expiration time of the nearest timer
      * @result TimerError:Ok if success
      */
-    inline enum TimerError startTimer(SystemTime currentTime,
+    enum TimerError startTimer(SystemTime currentTime,
             SystemTime& nearestExpirationTime, uintptr_t applicationData = 0,
             const Timer** timer = nullptr);
+
 
     inline enum TimerError stopTimer(Timer& timer) {
         timer.stop();
         return TimerError::Ok;
     }
 
-    virtual TimerError processExpiredTimers(SystemTime currentTime);
+    TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
+            bool callExpiredForStoppedTimers) :
+            timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
+                    callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()) {
+
+    }
 
 protected:
 
-    bool getHead(Timer& timer) {
-        bool res = runningTimers.getHead(timer);
-        return res;
-    }
+    /**
+     * Generates unique system ID for the timer
+     * This method is not thread safe and can require synchronization of access
+     */
+    inline static TimerID getNextId();
 
-    virtual inline bool isEmpty() {
-        bool res = runningTimers.isEmpty();
-        return res;
-    }
+    /**
+     * All timers in the list have the same timeout
+     * The expiration time of a timer depends on the start timer
+     */
+    Timeout timeout;
 
-    bool removeHead(Timer& timer) {
-        bool res = runningTimers.remove(timer);
-        return res;
-    }
+    TimerExpirationHandler expirationHandler;
+    bool callExpiredForStoppedTimers;
+    SystemTime nearestExpirationTime;
 
-    CyclicBuffer<Timer*, LockDummy, Size> runningTimers;
-    CyclicBuffer<Timer*, LockDummy, Size> freeTimers;
-
-    // static allocation of all timers
-    array<Timer, Size> timers;
-
+    CyclicBufferWrapperBase& freeTimers;
+    CyclicBufferWrapperBase& runningTimers;
 };
 
-
-template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(
-        Timeout timeout, TimerExpirationHandler expirationHandler,
-        bool callExpiredForStoppedTimers) :
-        TimerListBase(timeout, expirationHandler, callExpiredForStoppedTimers) {
-
-    // fill up the list of free timers
-    for (size_t i = 0; i < Size; i++) {
-        freeTimers.add(&timers[i]);
-    }
+TimerID TimerList::getNextId() {
+    static TimerID id = 0;
+    id++;
+    return id;
 }
 
-template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
-        Lock>::startTimer(SystemTime currentTime,
+enum TimerError TimerList::startTimer(SystemTime currentTime,
         SystemTime& nearestExpirationTime, uintptr_t applicationData,
         const Timer** timer) {
 
-    Timer *newTimer;
-
-    Lock();
+    Timer* newTimer;
 
     if (freeTimers.isEmpty())
         return TimerError::NoFreeTimer;
 
-    freeTimers.remove(newTimer);
+    freeTimers.remove(&newTimer);
     newTimer->setStartTime(currentTime);
     newTimer->setApplicationData(applicationData);
     newTimer->setId(getNextId());
     newTimer->start();
     runningTimers.add(newTimer);
     Timer* headTimer;
-    runningTimers.getHead(headTimer);
+    runningTimers.getHead(&headTimer);
     nearestExpirationTime = headTimer->getStartTime() + timeout;
     this->nearestExpirationTime = nearestExpirationTime;
     if (timer != nullptr)
@@ -288,14 +301,13 @@ template<std::size_t Size, typename Lock> inline enum TimerError TimerList<Size,
     return TimerError::Ok;
 }
 
-template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::processExpiredTimers(
+TimerError TimerList::processExpiredTimers(
         SystemTime currentTime) {
     Timer* timer;
 
-    Lock();
-    while (!isEmpty()) {
+    while (!runningTimers.isEmpty()) {
 
-        if (!runningTimers.getHead(timer))
+        if (!runningTimers.getHead(&timer))
             break;
 
         bool timerExpired = isTimerExpired(timer->getStartTime(), timeout,
@@ -307,19 +319,20 @@ template<std::size_t Size, typename Lock> TimerError TimerList<Size, Lock>::proc
                 || (!timerIsRunning && callExpiredForStoppedTimers);
 
         if (callExpirationHandler) {
-            (getExpirationHandler())(*timer);
+            (expirationHandler)(*timer);
         }
 
         if (timerExpired || !timerIsRunning) {
-            runningTimers.remove(timer);
+            runningTimers.remove(&timer);
+            freeTimers.add(timer);
         }
 
         if (!timerExpired && timerIsRunning) {
-            setNearestExpirationTime(timer->getStartTime() + timeout);
+            nearestExpirationTime = timer->getStartTime() + timeout;
         }
     }
 
-    if (!isEmpty())
+    if (!runningTimers.isEmpty())
         return TimerError::Ok;
     else
         return TimerError::NoRunningTimers;
