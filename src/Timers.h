@@ -372,7 +372,7 @@ class TimerSet {
     TimerError processExpiredTimers(SystemTime currentTime,
             SystemTime& expirationTime);
 
-    inline bool addList(TimerList* list);
+    bool addList(TimerList* list);
 
 protected:
     const char *name;
@@ -411,7 +411,7 @@ TimerError TimerSet::processExpiredTimers(
         return TimerError::NoRunningTimers;
 }
 
-inline bool TimerSet::addList(TimerList* list) {
+bool TimerSet::addList(TimerList* list) {
     if (listCount < size) {
         timerLists[listCount] = list;
         listCount++;
