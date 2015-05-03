@@ -349,6 +349,7 @@ static void mainExpirationHandler(const Timer& timer) {
 }
 
 
+TimerAllocator<10> timerAllocator;
 
 static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
 int mainExample13()
