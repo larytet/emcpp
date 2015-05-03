@@ -338,13 +338,15 @@ TimerError TimerList::_processExpiredTimers(
  * @param Size is small and usually is a single digit number. Performance of the set API
  * is linear function of the number of lists in the set.
  */
-template<size_t Size> class TimerSet {
+class TimerSet {
 
     /**
      * @param name is a name of the set, useful for debug
      */
     TimerSet(const char* name, int size) :
-            name(name), listCount(0) {
+            name(name), listCount(size) {
+        this->size = size;
+        timerLists = new TimerList*[size];
     }
 
     const char *getName() {
@@ -374,11 +376,12 @@ template<size_t Size> class TimerSet {
 
 protected:
     const char *name;
-    array<TimerList*, Size> timerLists;
+    TimerList **timerLists;
     size_t listCount;
+    size_t size;
 };
 
-template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(
+TimerError TimerSet::processExpiredTimers(
         SystemTime currentTime, SystemTime& expirationTime) {
     TimerList* timerList;
     size_t i;
@@ -408,8 +411,8 @@ template<size_t Size> TimerError TimerSet<Size>::processExpiredTimers(
         return TimerError::NoRunningTimers;
 }
 
-template<size_t Size> inline bool TimerSet<Size>::addList(TimerList* list) {
-    if (listCount < Size) {
+inline bool TimerSet::addList(TimerList* list) {
+    if (listCount < size) {
         timerLists[listCount] = list;
         listCount++;
         return true;
