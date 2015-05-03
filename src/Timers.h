@@ -129,95 +129,45 @@ protected:
 
 typedef void (*TimerExpirationHandler)(const Timer& timer);
 
-/**
- * I need a non-template version of CyclicBuffer
- * API is built upon virtual methods
- */
-class CyclicBufferWrapperBase {
+class TimerCyclicBuffer : public CyclicBufferDynamic<Timer*, LockDummy> {
 
 public:
 
-    virtual bool add(Timer* timer) = 0;
-    virtual bool remove(Timer** timer) = 0;
-    virtual bool getHead(Timer** timer) = 0;
-    virtual bool isEmpty() = 0;
-
 protected:
-    virtual ~CyclicBufferWrapperBase() {
-    }
-};
-
-template<std::size_t Size> class CyclicBufferWrapper: public CyclicBufferWrapperBase {
-
-public:
-    CyclicBufferWrapper() {
-    }
-
-    virtual bool add(Timer* timer) {
-        return cyclicBuffer.add(timer);
-    }
-
-    virtual bool remove(Timer** timer) {
-        return cyclicBuffer.remove(*timer);
-    }
-
-    virtual bool getHead(Timer** timer) {
-        return cyclicBuffer.getHead(*timer);
-    }
-
-    virtual bool isEmpty() {
-        return cyclicBuffer.isEmpty();
-    }
-
-protected:
-    CyclicBuffer<Timer*, LockDummy, Size> cyclicBuffer;
 };
 
 /**
- * Interface for the static allocator
+ * Allocate all required arrays
  */
-class TimerAllocatorBase {
-public:
-    virtual CyclicBufferWrapperBase& getFreeTimers() = 0;
-    virtual CyclicBufferWrapperBase& getRunningTimers() = 0;
-
-protected:
-    TimerAllocatorBase() {
-    }
-
-    virtual ~TimerAllocatorBase() {
-    }
-};
-
-/**
- * Allocate timers statically
- */
-template<size_t Size> class TimerAllocator : public TimerAllocatorBase {
+class TimerAllocator {
 
 public:
-    TimerAllocator() {
-        for (int i=0;i < Size;i++) {
-            freeTimers.add(&pool[i]);
+    TimerAllocator(Timer *timers, size_t size) {
+        for (int i = 0;i < size;i++) {
+            freeTimers.add(&timers[i]);
         }
     }
 
-    virtual CyclicBufferWrapperBase& getFreeTimers() {
+    ~TimerAllocator() {
+    }
+
+    TimerCyclicBuffer& getFreeTimers() {
         return freeTimers;
     }
 
-    virtual CyclicBufferWrapperBase& getRunningTimers() {
+    TimerCyclicBuffer& getRunningTimers() {
         return runningTimers;
     }
 
-    CyclicBufferWrapper<Size> freeTimers;
-    CyclicBufferWrapper<Size> runningTimers;
-
-    virtual ~TimerAllocator() {
-    }
-
 protected:
-    array<Timer, Size> pool;
+
+    TimerCyclicBuffer freeTimers;
+    TimerCyclicBuffer runningTimers;
+
+    Timer *timers;
 };
+
+
 
 class TimerLock {
 
@@ -244,7 +194,7 @@ class TimerList {
 
 public:
 
-    TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
+    TimerList(TimerAllocator& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
             TimerLock& timerLock,
             bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
@@ -312,8 +262,8 @@ protected:
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
 
-    CyclicBufferWrapperBase& freeTimers;
-    CyclicBufferWrapperBase& runningTimers;
+    TimerCyclicBuffer& freeTimers;
+    TimerCyclicBuffer& runningTimers;
 
     TimerLock& timerLock;
 };
