@@ -1,8 +1,13 @@
 #pragma once
 
-class CyclicBufferBase {
-
+template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer {
 public:
+
+    inline CyclicBuffer();
+
+    ~CyclicBuffer() {
+    }
+
     inline bool isEmpty() {
         bool res = (this->head == this->tail);
         return res;
@@ -14,13 +19,11 @@ public:
         return res;
     }
 
-protected:
-    CyclicBufferBase(size_t size) {
-        this->size = size;
-        this->head = 0;
-        this->tail = 0;
-    }
+    inline bool add(const ObjectType object);
+    inline bool remove(ObjectType &object);
+    inline bool getHead(ObjectType &object);
 
+private:
     void errorOverflow() {
     }
 
@@ -28,40 +31,24 @@ protected:
     }
 
     size_t increment(size_t index) {
-        if (index < this->size) {
+        if (index < Size) {
             return (index + 1);
         } else {
             return 0;
         }
     }
 
+    ObjectType data[Size + 1];
     size_t head;
     size_t tail;
-    size_t size;
-
 };
 
-template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBuffer: public CyclicBufferBase {
-public:
-
-    inline CyclicBuffer();
-
-    ~CyclicBuffer() {
-    }
-
-    inline bool add(const ObjectType object);
-    inline bool remove(ObjectType &object);
-    inline bool getHead(ObjectType &object);
-
-private:
-
-    ObjectType data[Size + 1];
-};
-// class CyclicBuffer
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline CyclicBuffer<
-        ObjectType, Lock, Size>::CyclicBuffer() :
-        CyclicBufferBase(Size) {
+        ObjectType, Lock, Size>::CyclicBuffer()  {
+
+    this->head = 0;
+    this->tail = 0;
     static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
 }
 
