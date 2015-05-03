@@ -303,6 +303,10 @@ static HardwarePIO hardwarePIO(reinterpret_cast<uintptr_t>(pioDummy));
 static void mainExample11() {
     hardwarePIO.enableOutput(HardwarePIO::A, 2, 1);
     //uint32_t per = hardwarePIO.getInterface(HardwarePIO::A).PIO_PER;
+    cout << pioDummy[0].PIO_SODR << endl;
+    cout << pioDummy[0].PIO_CODR << endl;
+    cout << pioDummy[0].PIO_PER << endl;
+    cout << pioDummy[0].PIO_OER << endl;
 }
 
 static const char *helloWorldStr = 0;
@@ -369,6 +373,6 @@ int main()
 {
     cout << "size=" << sizeof(HardwareRegister32) << endl;
 
-    //mainExample13();
+    mainExample11();
     return 0;
 }

@@ -162,6 +162,12 @@ protected:
     }
 
     /**
+     * Generates unique system ID for the timer
+     * This method is not thread safe and can require synchronization of access
+     */
+    inline static TimerID getNextId();
+
+    /**
      * All timers in the list have the same timeout
      * The expiration time of a timer depends on the start timer
      */
@@ -170,6 +176,12 @@ protected:
     bool callExpiredForStoppedTimers;
     SystemTime nearestExpirationTime;
 };
+
+TimerID TimerListBase::getNextId() {
+    static TimerID id = 0;
+    id++;
+    return id;
+}
 
 /**
  * A timer list is a queue of the started timers with the SAME timeout.
@@ -228,16 +240,6 @@ protected:
         return res;
     }
 
-    /**
-     * Generates unique system ID for the timer
-     * This method is not thread safe and can require synchronization of access
-     */
-    inline static TimerID getNextId() {
-        static TimerID id = 0;
-        id++;
-        return id;
-    }
-
     CyclicBuffer<Timer*, LockDummy, Size> runningTimers;
     CyclicBuffer<Timer*, LockDummy, Size> freeTimers;
 
@@ -245,6 +247,7 @@ protected:
     array<Timer, Size> timers;
 
 };
+
 
 template<std::size_t Size, typename Lock> TimerList<Size, Lock>::TimerList(
         Timeout timeout, TimerExpirationHandler expirationHandler,
