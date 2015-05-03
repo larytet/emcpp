@@ -286,6 +286,12 @@ protected:
      */
     inline static TimerID getNextId();
 
+    enum TimerError _startTimer(SystemTime currentTime,
+            SystemTime& nearestExpirationTime, uintptr_t applicationData = 0,
+            const Timer** timer = nullptr);
+
+    TimerError _processExpiredTimers(SystemTime);
+
     /**
      * All timers in the list have the same timeout
      * The expiration time of a timer depends on the start timer
@@ -312,9 +318,23 @@ enum TimerError TimerList::startTimer(SystemTime currentTime,
         SystemTime& nearestExpirationTime, uintptr_t applicationData,
         const Timer** timer) {
 
-    Timer* newTimer;
-
     timerLock.get();
+
+    TimerError res = TimerList::_startTimer(currentTime,
+            nearestExpirationTime, applicationData,
+            timer);
+
+    timerLock.release();
+
+
+    return res;
+}
+
+enum TimerError TimerList::_startTimer(SystemTime currentTime,
+        SystemTime& nearestExpirationTime, uintptr_t applicationData,
+        const Timer** timer) {
+
+    Timer* newTimer;
 
     if (freeTimers.isEmpty())
         return TimerError::NoFreeTimer;
@@ -336,6 +356,18 @@ enum TimerError TimerList::startTimer(SystemTime currentTime,
 }
 
 TimerError TimerList::processExpiredTimers(
+        SystemTime currentTime) {
+
+    timerLock.get();
+
+    TimerError res = TimerList::_processExpiredTimers(currentTime);
+
+    timerLock.release();
+
+    return res;
+}
+
+TimerError TimerList::_processExpiredTimers(
         SystemTime currentTime) {
     Timer* timer;
 
