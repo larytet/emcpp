@@ -159,7 +159,7 @@ public:
             TimerLock& timerLock,
             bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
-                    callExpiredForStoppedTimers),
+                    callExpiredForStoppedTimers), freeTimers(size), runningTimers(size),
                     timerLock(timerLock) {
 
         Timer *timers = new Timer[size];
