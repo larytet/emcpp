@@ -204,6 +204,9 @@ public:
     CyclicBufferWrapper<Size> freeTimers;
     CyclicBufferWrapper<Size> runningTimers;
 
+    virtual ~TimerAllocator() {
+    }
+
 protected:
     array<Timer, Size> pool;
 };
