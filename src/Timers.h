@@ -145,7 +145,7 @@ protected:
     }
 };
 
-template<std::size_t Size> class CyclicBufferWrapper: CyclicBufferWrapperBase {
+template<std::size_t Size> class CyclicBufferWrapper: public CyclicBufferWrapperBase {
 
 public:
     CyclicBufferWrapper() {
@@ -184,7 +184,7 @@ protected:
     }
 };
 
-template<size_t Size> class TimerAllocator {
+template<size_t Size> class TimerAllocator : public TimerAllocatorBase {
 
 public:
     TimerAllocator() {
@@ -216,7 +216,7 @@ class TimerList {
 public:
 
     TimerList(TimerAllocatorBase& allocator, Timeout timeout, TimerExpirationHandler expirationHandler,
-            bool callExpiredForStoppedTimers) :
+            bool callExpiredForStoppedTimers=false) :
             timeout(timeout), expirationHandler(expirationHandler), callExpiredForStoppedTimers(
                     callExpiredForStoppedTimers), freeTimers(allocator.getFreeTimers()), runningTimers(allocator.getRunningTimers()) {
 

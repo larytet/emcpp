@@ -351,13 +351,13 @@ static void mainExpirationHandler(const Timer& timer) {
 
 TimerAllocator<10> timerAllocator;
 
-static TimerList<10, LockDummy> timers(3, mainExpirationHandler);
+static TimerList timerList(timerAllocator, 3, mainExpirationHandler);
 int mainExample13()
 {
     SystemTime currentTime = 0;
     for (int i = 0;i < 3;i++) {
         SystemTime nearestExpirationTime;
-        TimerError err = timers.startTimer(currentTime, nearestExpirationTime, i);
+        TimerError err = timerList.startTimer(currentTime, nearestExpirationTime, i);
         if (err == TimerError::Ok) {
             cout << "nearestExpirationTime=" << nearestExpirationTime << endl;
         }
@@ -366,7 +366,7 @@ int mainExample13()
         }
     }
 
-    timers.processExpiredTimers(3);
+    timerList.processExpiredTimers(3);
     return 0;
 }
 
