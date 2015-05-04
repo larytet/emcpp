@@ -1,100 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-04T12:03:03</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P4DT23H35M6S</meta:editing-duration><meta:editing-cycles>1646</meta:editing-cycles><meta:generator>LibreOffice/3.5$Linux_X86_64 LibreOffice_project/350m1$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="50" meta:paragraph-count="1379" meta:word-count="9480" meta:character-count="68796" meta:non-whitespace-character-count="55768"/></office:meta>
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-04T20:43:19.593759835</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P4DT23H35M6S</meta:editing-duration><meta:editing-cycles>1647</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="50" meta:paragraph-count="1379" meta:word-count="9436" meta:character-count="68799" meta:non-whitespace-character-count="55770"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">1392543</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">825789</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">23650</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">10358</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">22604</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">10684</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">15371</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">1398469</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">12458</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">828931</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">1392543</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">23648</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">1402898</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">825789</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">22602</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">836471</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">210</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">295</config:config-item>
      <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
     </config:config-item-map-entry>
    </config:config-item-map-indexed>
   </config:config-item-set>
   <config:config-item-set config:name="ooo:configuration-settings">
-   <config:config-item config:name="PrintTables" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintTextPlaceholder" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
-   <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="PrintFaxName" config:type="string"/>
+   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
    <config:config-item config:name="PrintControls" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintPageBackground" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintRightPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintEmptyPages" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ApplyParagraphMarkFormatToNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabOverMargin" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="EmbedSystemFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="BackgroundParaOverDrawings" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintDrawings" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="RsidRoot" config:type="int">379458</config:config-item>
+   <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ClippedPictures" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="DoNotCaptureDrawObjsOnPage" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IgnoreTabsAndBlanksForLineCalculation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="DoNotResetParaAttrsForNumFont" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="TabAtLeftIndentForParagraphsInList" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddExternalLeading" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="FloattableNomargins" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SurroundTextWrapSmall" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IgnoreFirstLineIndentInNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="UseFormerObjectPositioning" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintTables" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
+   <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
+   <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
+   <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
+   <config:config-item config:name="Rsid" config:type="int">379458</config:config-item>
+   <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AddParaTableSpacing" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrintHiddenText" config:type="boolean">false</config:config-item>
    <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintEmptyPages" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UseFormerObjectPositioning" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintRightPages" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintTextPlaceholder" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintGraphics" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="StylesNoDefault" config:type="boolean">false</config:config-item>
    <config:config-item config:name="AddFrameOffsets" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AddExternalLeading" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
-   <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
-   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
-   <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
+   <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string"/>
-   <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
-   <config:config-item config:name="IgnoreFirstLineIndentInNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintPageBackground" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="DoNotCaptureDrawObjsOnPage" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="TabAtLeftIndentForParagraphsInList" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintFaxName" config:type="string"/>
-   <config:config-item config:name="PrintDrawings" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AddParaTableSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintGraphics" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
+   <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
-   <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="IgnoreTabsAndBlanksForLineCalculation" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
-   <config:config-item config:name="DoNotResetParaAttrsForNumFont" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">false</config:config-item>
   </config:config-item-set>
  </office:settings>
  <office:scripts>
@@ -122,7 +133,7 @@
    <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
-   <style:text-properties style:use-window-font-color="true" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+   <style:text-properties style:use-window-font-color="true" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="FreeSans" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
   </style:default-style>
   <style:default-style style:family="paragraph">
    <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.5in" style:writing-mode="lr-tb"/>
@@ -136,49 +147,49 @@
   </style:default-style>
   <style:style style:name="Standard" style:family="paragraph" style:class="text"/>
   <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
-   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" fo:keep-with-next="always"/>
-   <style:text-properties style:font-name="Liberation Sans" fo:font-size="14pt" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="14pt" style:font-name-complex="FreeSans" style:font-size-complex="14pt"/>
+   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-with-next="always"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="14pt" style:font-name-asian="Droid Sans Fallback" style:font-family-asian="&apos;Droid Sans Fallback&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="14pt" style:font-name-complex="FreeSans" style:font-family-complex="FreeSans" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="14pt"/>
   </style:style>
   <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0972in" fo:line-height="120%"/>
+   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0972in" style:contextual-spacing="false" fo:line-height="120%"/>
   </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
-   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="FreeSans1"/>
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="FreeSans1" style:font-family-complex="FreeSans" style:font-family-generic-complex="swiss"/>
   </style:style>
   <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
-   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="FreeSans1" style:font-size-complex="12pt" style:font-style-complex="italic"/>
+   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
+   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="FreeSans1" style:font-family-complex="FreeSans" style:font-family-generic-complex="swiss" style:font-size-complex="12pt" style:font-style-complex="italic"/>
   </style:style>
   <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
    <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
-   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="FreeSans1"/>
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="FreeSans1" style:font-family-complex="FreeSans" style:font-family-generic-complex="swiss"/>
   </style:style>
   <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="1" style:class="text">
-   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in"/>
+   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false"/>
    <style:text-properties fo:font-size="130%" fo:font-weight="bold" style:font-size-asian="130%" style:font-weight-asian="bold" style:font-size-complex="130%" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="Text_20_body_20_indent" style:display-name="Text body indent" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="text">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0.1965in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.1965in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="2" style:class="text">
-   <style:paragraph-properties fo:margin-top="0.139in" fo:margin-bottom="0.0835in"/>
+   <style:paragraph-properties fo:margin-top="0.139in" fo:margin-bottom="0.0835in" style:contextual-spacing="false"/>
    <style:text-properties fo:font-size="115%" fo:font-weight="bold" style:font-size-asian="115%" style:font-weight-asian="bold" style:font-size-complex="115%" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="First_20_line_20_indent" style:display-name="First line indent" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="text">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0.1965in" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0.1965in" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="Hanging_20_indent" style:display-name="Hanging indent" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="text">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="-0.1965in" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.3937in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="-0.1965in" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="0in"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Preformatted_20_Text" style:display-name="Preformatted Text" style:family="paragraph" style:parent-style-name="Standard" style:class="html">
-   <style:text-properties style:font-name="Liberation Mono" fo:font-size="10pt" style:font-size-asian="10.5pt"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Regular" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="10pt" style:font-size-asian="10.5pt"/>
   </style:style>
   <style:style style:name="Quotations" style:family="paragraph" style:parent-style-name="Standard" style:class="html" style:master-page-name="">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0in" fo:margin-right="3in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false" style:page-number="auto" fo:background-color="transparent" style:shadow="none">
+   <style:paragraph-properties fo:margin-left="0in" fo:margin-right="3in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false" style:page-number="auto" fo:background-color="transparent" style:shadow="none">
     <style:tab-stops/>
     <style:background-image/>
    </style:paragraph-properties>
@@ -193,18 +204,18 @@
   <style:style style:name="Numbering_20_1" style:display-name="Numbering 1" style:family="paragraph" style:parent-style-name="List" style:class="list"/>
   <style:style style:name="List_20_Indent" style:display-name="List Indent" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="text"/>
   <style:style style:name="Contents_20_Heading" style:display-name="Contents Heading" style:family="paragraph" style:parent-style-name="Heading" style:class="index">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false" text:number-lines="false" text:line-number="0"/>
+   <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false" text:number-lines="false" text:line-number="0"/>
    <style:text-properties fo:font-size="16pt" fo:font-weight="bold" style:font-size-asian="16pt" style:font-weight-asian="bold" style:font-size-complex="16pt" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="Contents_20_1" style:display-name="Contents 1" style:family="paragraph" style:parent-style-name="Index" style:class="index">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Contents_20_2" style:display-name="Contents 2" style:family="paragraph" style:parent-style-name="Index" style:class="index">
-   <style:paragraph-properties fo:margin="100%" fo:margin-left="0.1965in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" fo:text-indent="0in" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.1965in" fo:margin-right="0in" fo:margin-top="0in" fo:margin-bottom="0in" style:contextual-spacing="false" fo:text-indent="0in" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="6.7283in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
@@ -213,7 +224,7 @@
   <style:style style:name="Table_20_Contents" style:display-name="Table Contents" style:family="paragraph" style:parent-style-name="Standard" style:class="extra"/>
   <style:style style:name="Table_20_Heading" style:display-name="Table Heading" style:family="paragraph" style:parent-style-name="Table_20_Contents" style:class="extra"/>
   <style:style style:name="Bullet_20_Symbols" style:display-name="Bullet Symbols" style:family="text">
-   <style:text-properties style:font-name="OpenSymbol" style:font-name-asian="OpenSymbol" style:font-name-complex="OpenSymbol"/>
+   <style:text-properties style:font-name="OpenSymbol" fo:font-family="OpenSymbol" style:font-charset="x-symbol" style:font-name-asian="OpenSymbol" style:font-family-asian="OpenSymbol" style:font-charset-asian="x-symbol" style:font-name-complex="OpenSymbol" style:font-family-complex="OpenSymbol" style:font-charset-complex="x-symbol"/>
   </style:style>
   <style:style style:name="Emphasis" style:family="text">
    <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
@@ -601,6 +612,9 @@
   <style:style style:name="T51" style:family="text">
    <style:text-properties style:font-name-asian="Monospace" style:font-name-complex="Monospace" style:font-size-complex="10pt"/>
   </style:style>
+  <style:style style:name="T52" style:family="text">
+   <style:text-properties officeooo:rsid="0005ca42"/>
+  </style:style>
   <style:style style:name="Sect1" style:family="section">
    <style:section-properties fo:background-color="transparent" style:editable="false">
     <style:columns fo:column-count="1" fo:column-gap="0in"/>
@@ -613,7 +627,7 @@
    </style:section-properties>
   </style:style>
   <style:page-layout style:name="pm1">
-   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin="0.7874in" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="44" style:layout-grid-base-height="0.2165in" style:layout-grid-ruby-height="0in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="true" style:layout-grid-display="true" style:layout-grid-base-width="0.1457in" style:layout-grid-snap-to="true" style:layout-grid-snap-to-characters="true" style:footnote-max-height="0in">
+   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="44" style:layout-grid-base-height="0.2165in" style:layout-grid-ruby-height="0in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="true" style:layout-grid-display="true" style:layout-grid-base-width="0.1457in" style:layout-grid-snap-to="true" style:layout-grid-snap-to-characters="true" style:footnote-max-height="0in">
     <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0398in" style:distance-after-sep="0.0398in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
@@ -1602,7 +1616,7 @@
    <text:p text:style-name="Text_20_body">I need an application callback which handles timer expiration. The callback could be a template <text:soft-page-break/>function in a more advanced design.</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">typedef</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T13"> (*</text:span><text:span text:style-name="T25">TimerExpirationHandler</text:span><text:span text:style-name="T13">)(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">Timer</text:span><text:span text:style-name="T13">&amp; timer);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text">I am going to provide synchronization API via argumnet to the constructor:</text:p>
+   <text:p text:style-name="Text_20_body">I am going to provide synchronization API via <text:span text:style-name="T52">an </text:span>argume<text:span text:style-name="T52">n</text:span>t to the constructor:</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">TimerLock</text:span><text:span text:style-name="T13"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">public</text:span><text:span text:style-name="T13">:</text:span></text:p>
@@ -1651,7 +1665,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T25">size_t</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T41">tail</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T25">size_t</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T41">size</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text">};</text:p>
-   <text:p text:style-name="Text_20_body">Constructor calls new[] to allocate array of pointers. There is a statc assert which insures that the <text:soft-page-break/>template class is used only for pointers. </text:p>
+   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Constructor calls new[] to allocate array of pointers. There is a statc assert which insures that the template class is used only for pointers. </text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T13">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T13">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">Lock</text:span><text:span text:style-name="T13">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T15">CyclicBufferDynamic&lt;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T15"><text:s text:c="8"/>ObjectType, Lock&gt;::CyclicBufferDynamic</text:span><text:span text:style-name="T13">(</text:span><text:span text:style-name="T25">size_t</text:span><text:span text:style-name="T13"> size) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1702,11 +1716,11 @@
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="Preformatted_20_Text">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T13">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T13">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">Lock</text:span><text:span text:style-name="T13">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T13"> </text:span><text:soft-page-break/><text:span text:style-name="T15">CyclicBufferDynamic&lt;</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T13">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T13">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T34">Lock</text:span><text:span text:style-name="T13">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T15">CyclicBufferDynamic&lt;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T15"><text:s text:c="8"/>ObjectType, Lock&gt;::getHead</text:span><text:span text:style-name="T13">(</text:span><text:span text:style-name="T34">ObjectType</text:span><text:span text:style-name="T13"> *object) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T34">Lock</text:span><text:span text:style-name="T13">();</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (!isEmpty()) {</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/>*object = </text:span><text:span text:style-name="T41">data</text:span><text:span text:style-name="T13">[</text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T13">-&gt;</text:span><text:span text:style-name="T41">head</text:span><text:span text:style-name="T13">];</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/>*object = </text:span><text:span text:style-name="T41">data</text:span><text:span text:style-name="T13">[</text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T13">-&gt;</text:span><text:span text:style-name="T41">head</text:span><text:span text:style-name="T13">];</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">true</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T13"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="8"/>errorUnderflow();</text:p>
@@ -1751,11 +1765,11 @@
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">enum</text:span><text:span text:style-name="T13"> TimerError </text:span><text:span text:style-name="T15">stopTimer</text:span><text:span text:style-name="T13">(</text:span><text:span text:style-name="T25">Timer</text:span><text:span text:style-name="T13">&amp; timer) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="8"/>timer.stop();</text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">;</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T25">SystemTime</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T15">getNearestExpirationTime</text:span><text:span text:style-name="T13">() {</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T41">nearestExpirationTime</text:span><text:span text:style-name="T13">;</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T41">nearestExpirationTime</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1804,11 +1818,11 @@
    <text:p text:style-name="Text_20_body">Method startTimer() moves a free from the list of free timers to the list of running timers</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">enum</text:span><text:span text:style-name="T13"> TimerError </text:span><text:span text:style-name="T15">TimerList::_startTimer</text:span><text:span text:style-name="T13">(</text:span><text:span text:style-name="T25">SystemTime</text:span><text:span text:style-name="T13"> currentTime,</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T25">SystemTime</text:span><text:span text:style-name="T13">&amp; nearestExpirationTime, </text:span><text:span text:style-name="T25">uintptr_t</text:span><text:span text:style-name="T13"> applicationData,</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">Timer</text:span><text:span text:style-name="T13">** timer) {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">Timer</text:span><text:span text:style-name="T13">** timer) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T25">Timer</text:span><text:span text:style-name="T13">* newTimer;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (</text:span><text:span text:style-name="T41">freeTimers</text:span><text:span text:style-name="T13">.isEmpty())</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (</text:span><text:span text:style-name="T41">freeTimers</text:span><text:span text:style-name="T13">.isEmpty())</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">NoFreeTimer</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T41">freeTimers</text:span><text:span text:style-name="T13">.remove(&amp;newTimer);</text:span></text:p>
@@ -1853,11 +1867,11 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T13"> timerIsRunning = timer-&gt;isRunning();</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T13"> callExpirationHandler = timerExpired;</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:s text:c="8"/>callExpirationHandler = callExpirationHandler</text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:s text:c="8"/>callExpirationHandler = callExpirationHandler</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="16"/>|| (!timerIsRunning &amp;&amp; </text:span><text:span text:style-name="T41">callExpiredForStoppedTimers</text:span><text:span text:style-name="T13">);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (callExpirationHandler) {</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="12"/>(</text:span><text:span text:style-name="T41">expirationHandler</text:span><text:span text:style-name="T13">)(*timer);</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="12"/>(</text:span><text:span text:style-name="T41">expirationHandler</text:span><text:span text:style-name="T13">)(*timer);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="8"/>}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (timerExpired || !timerIsRunning) {</text:span></text:p>
@@ -1910,9 +1924,9 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (!isEmpty())</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">else</text:span></text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">NoRunningTimers</text:span><text:span text:style-name="T13">;</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T13"> TimerError::</text:span><text:span text:style-name="T42">NoRunningTimers</text:span><text:span text:style-name="T13">;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text">}</text:p>
-   <text:p text:style-name="Text_20_body">I group timer lists in “sets”. For example, a set of relatively long, low priority timers with timeouts 5s, 20s, 60s and a set of high priority timers. Different sets can be served by threads running in different priorities. I know <text:s/>what timers types belong to a set at compilation time. </text:p>
+   <text:p text:style-name="Text_20_body">I group timer lists in “sets”. For example, a set of relatively long, low priority timers with timeouts 5s, 20s, 60s and a set of high priority timers. Different sets can be served by threads running in different <text:soft-page-break/>priorities. I know <text:s/>what timers types belong to a set at compilation time. </text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T8">class</text:span> <text:span text:style-name="T23">TimerSet</text:span> {</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T15">TimerSet</text:span><text:span text:style-name="T13">(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T5">char</text:span><text:span text:style-name="T13">* name, </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T13"> size) :</text:span></text:p>
@@ -1961,12 +1975,12 @@
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="8"/>TimerError timerRes = timerList-&gt;processExpiredTimers(currentTime);</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/>res = res || (timerRes == TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">);</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (timerRes == TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">) {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="8"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (timerRes == TimerError::</text:span><text:span text:style-name="T42">Ok</text:span><text:span text:style-name="T13">) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="12"/></text:span><text:span text:style-name="T25">SystemTime</text:span><text:span text:style-name="T13"> listExpirationTime =</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="20"/>timerList-&gt;getNearestExpirationTime();</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="12"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (!res) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="16"/>nearestExpirationTime = listExpirationTime;</text:p>
-   <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="12"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T13"> {</text:span></text:p>
+   <text:p text:style-name="Preformatted_20_Text"><text:soft-page-break/><text:span text:style-name="T13"><text:s text:c="12"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T13"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="16"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T13"> (nearestExpirationTime &gt; listExpirationTime) {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="20"/>nearestExpirationTime = listExpirationTime;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:s text:c="16"/>}</text:p>
