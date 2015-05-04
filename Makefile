@@ -1,6 +1,6 @@
 CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 
 
-OBJS =		src/main.o src/timers.o
+OBJS =		src/main.o 
 
 LIBS =
 
