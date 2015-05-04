@@ -1,3 +1,67 @@
+ /**
+ *                      -----------   Terminology   ---------------
+ *
+ *   Timer list - queue of the running timers with the SAME timeout. For example list of 1 s timers
+ *   Set - one or more lists of timers
+ *       For example set A containing 1s timers, 2s timers and 5s timers
+ *       and set B containing 100 ms timers, 50 ms timers and 200 ms timers
+ *
+ *                      -----------   Design   ---------------
+ *
+ *   In the system run one or more timers tasks handling different timer sets. Every timer
+ *   set contains zero or more timer lists.
+ *   Function start timer allocates a free entry from the a pool of free timers and places
+ *   the timer in the end of the list of running timers. Complexity of operation is ~O(1)
+ *
+ *   Timer task waits for the expiration of the nearest timer, calls API processExpiredTimers
+ *   The API returns the next timer to be expired using sequential search in the
+ *   set. The next timer to expire is always at the head of the timer list. Complexity of the
+ *   API is ~O(size of set)
+ *   Function stop timer marks a running timer as stopped. Comlexity ~O(1)
+ *
+ *                      -----------   Reasoning  ---------------
+ *
+ *   1. It is possible that every subsystem will have it's own timer tasks running in
+ *      different priorities.
+ *   2. Set of long timers and set of short timers can be created and handled by tasks with
+ *      different priorities.
+ *   3. "Timer expired"  application handlers can be called from different tasks. For high
+ *      priority short timers such handler should be fast - release a semaphore for example,
+ *      for low priority long timers the handler can make long processing like audit in a data-base.
+ *   4. In the system can coexist 1 or 2 short timers - 50 ms - used in a VoIP state machine
+ *      and 10 long timers  - 10 s, 1 min, 1 h, etc. - used in the application
+ *      sanity checking or management.
+ *   5. In the system can coexist short - 10 ms - timer that always expires and 10 long
+ *      DHCP timers that usually get stopped by the application before expiration
+ *
+ *                      -----------   Example of usage  ---------------
+ *
+ *    void myTimerTask(TimerSet MySet)
+ *    {
+ *      int timeOut = FOREVER;
+ *      while (1)
+ *      {
+ *        semGet(MySemaphore, timeOut);
+ *        SystemTime nearestExpirationTime;
+ *        TimerError err = MySet.processExpiredTimers(currentSystemTick, nearestExpirationTime);
+ *        if (err == TimerError::Ok)
+ *          timeoOut = nearestExpirationTime - currentSystemTick;
+ *        else
+ *          timeOut = FOREVER
+ *      }
+ *    }
+ *
+ *    startMyTimers()
+ *    {
+ *      SystemTime nearestExpirationTime;
+ *      TimerError err = timerList.startTimer(currentTime, nearestExpirationTime, 0);
+ *      if (err == TimerError::Ok)
+ *        timeoOut = nearestExpirationTime - currentSystemTick;
+ *      else
+ *        timeOut = FOREVER
+ *       semSend(MySemaphore); // wake up myTimerTask
+ *    }
+ */
 #pragma once
 
 typedef uint32_t TimerID;
