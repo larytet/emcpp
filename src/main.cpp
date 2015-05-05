@@ -372,6 +372,16 @@ int mainExample13()
     return 0;
 }
 
+template<const uint32_t N> struct factorial
+{
+    static constexpr uint32_t value = N * factorial<N - 1>::value;
+};
+
+template<>struct factorial<0>
+{
+    static constexpr uint32_t value = 1;
+};
+
 int main()
 {
     cout << "size=" << sizeof(HardwareRegister32) << endl;
