@@ -100,7 +100,7 @@ ObjectType, Lock, Size>::increment(size_t index) {
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
 public:
 
-    inline CyclicBufferDynamic(size_t size);
+    inline CyclicBufferDynamic(size_t size, void *address=nullptr);
 
     ~CyclicBufferDynamic() {
     }
@@ -127,12 +127,18 @@ private:
 };
 
 template<typename ObjectType, typename Lock> inline CyclicBufferDynamic<
-        ObjectType, Lock>::CyclicBufferDynamic(size_t size) {
+        ObjectType, Lock>::CyclicBufferDynamic(size_t size, void *address) {
 
     this->head = 0;
     this->tail = 0;
     this->size = size;
-    this->data = new ObjectType[size];
+    if (address != nullptr) {
+        this->data = new (address) ObjectType[size];
+    }
+    else {
+        this->data = new ObjectType[size];
+    }
+
     static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
 }
 
