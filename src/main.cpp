@@ -382,14 +382,6 @@ template<>struct factorial<0>
     static constexpr uint32_t value = 1;
 };
 
-BaseType_t xTaskCreate(
-                            TaskFunction_t pvTaskCode,
-                            const char * const pcName,
-                            unsigned short usStackDepth,
-                            void *pvParameters,
-                            UBaseType_t uxPriority,
-                            TaskHandle_t *pvCreatedTask
-                          );
 
 int main()
 {
