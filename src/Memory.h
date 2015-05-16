@@ -132,7 +132,6 @@ protected:
 template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(const char* name, MemoryAllocatorRaw& memoryAllocator) :
     name(name), memoryAllocator(memoryAllocator) {
     memset(&this->statistics, 0, sizeof(this->statistics));
-    this->name = name;
     for (size_t i = 0;i < Size;i++) {
         uint8_t *block = memoryAllocator.getBlock();
         pool.push(block);
