@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-16T07:20:39.179994415</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P5DT1H24M16S</meta:editing-duration><meta:editing-cycles>1741</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="52" meta:paragraph-count="1408" meta:word-count="9967" meta:character-count="72395" meta:non-whitespace-character-count="58795"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-16T08:03:59.734241439</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P5DT2H7M35S</meta:editing-duration><meta:editing-cycles>1744</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="52" meta:paragraph-count="1410" meta:word-count="10066" meta:character-count="72952" meta:non-whitespace-character-count="59254"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">225397</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">1453399</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">22604</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">10684</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">13323</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">232902</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">6641</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">1457186</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">225397</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">1453399</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">22602</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">236079</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">1464081</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -81,7 +81,7 @@
    <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
    <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
-   <config:config-item config:name="Rsid" config:type="int">1945693</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">2026543</config:config-item>
    <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
    <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
@@ -452,12 +452,19 @@
   <style:style style:name="P37" style:family="paragraph" style:parent-style-name="Title">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
-  <style:style style:name="P38" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
-  <style:style style:name="P39" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P38" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:rsid="001db05d" officeooo:paragraph-rsid="001db05d"/>
+  </style:style>
+  <style:style style:name="P39" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
+  <style:style style:name="P40" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P40" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
-  <style:style style:name="P41" style:family="paragraph" style:parent-style-name="Heading_20_2">
+  <style:style style:name="P41" style:family="paragraph" style:parent-style-name="Heading_20_1">
+   <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties officeooo:rsid="001db05d" officeooo:paragraph-rsid="001db05d"/>
+  </style:style>
+  <style:style style:name="P42" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
+  <style:style style:name="P43" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
@@ -619,6 +626,9 @@
   <style:style style:name="T53" style:family="text">
    <style:text-properties officeooo:rsid="001db05d"/>
   </style:style>
+  <style:style style:name="T54" style:family="text">
+   <style:text-properties officeooo:rsid="001eec2f"/>
+  </style:style>
   <style:style style:name="Sect1" style:family="section">
    <style:section-properties fo:background-color="transparent" style:editable="false">
     <style:columns fo:column-count="1" fo:column-gap="0in"/>
@@ -761,7 +771,7 @@
      <text:p text:style-name="P29"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>52</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:h text:style-name="P38" text:outline-level="1"/>
+   <text:h text:style-name="P39" text:outline-level="1"/>
    <text:h text:style-name="P32" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2313_977618933"/>Introduction.<text:bookmark-end text:name="__RefHeading__2313_977618933"/></text:h>
    <text:p text:style-name="Quotations">I&apos;ve come to the conclusion that any programmer that would prefer the project to be in C++ over C is likely a programmer that I really would prefer to piss off, so that he doesn&apos;t come and screw up any project I&apos;m involved with.</text:p>
    <text:p text:style-name="P24">Linus Torvalds</text:p>
@@ -867,12 +877,12 @@
    <text:p text:style-name="P1"/>
    <text:p text:style-name="Text_20_body">Overhead of the wrapper around the functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembly I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? What is an added value? </text:p>
    <text:p text:style-name="Text_20_body">The code does not allow me to leave out calling enable interrupts after I called disable interrupt. No matter how many return points or breaks out of a loop my function has C++ compiler ensures that the function interruptEnable is called exactly once. I will return to the synchronization objects later in this book. </text:p>
-   <text:h text:style-name="P38" text:outline-level="1"/>
+   <text:h text:style-name="P39" text:outline-level="1"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2317_977618933"/>Containers.<text:bookmark-end text:name="__RefHeading__2317_977618933"/></text:h>
    <text:p text:style-name="Quotations">When your hammer is C++, everything begins to look like a thumb.</text:p>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="Text_20_body">C++ is all about containers. Standard template library (STL) contains a lot of very smart and convenient code dealing with vectors, stacks, queues, hash tables, trees and many other types of dynamic and static data storage. Unfortunately a firmware developer frequently needs something very different. In some cases high performance and small code/data footprint should coexist in one application. In this chapter I will demonstrate a container which makes sense in an embedded environment with limited resources. The API should be reentrant and allow safe concurrent access. The performance of the container is going to be at least not worse than a C alternative. All my allocations are going to be static and done at build time – I will deal with the dynamic allocation later in this book. </text:p>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2535_977618933"/>Cyclic buffer.<text:bookmark-end text:name="__RefHeading__2535_977618933"/></text:h>
    <text:p text:style-name="Text_20_body">My first example is going to be a cyclic buffer also known as a ring buffer. A “producer” adds objects to the “tail” of the cyclic buffer and a “consumer” pulls the objects from the “head” of the cyclic buffer. <text:span text:style-name="T53">An e</text:span>xample of producer can be an interrupt routine which gets characters from UART device (serial port). A consumer can be a function called from the <text:span text:style-name="T53">application </text:span>main loop which handles commands arriving from the UART. My CyclicBuffer class is a template class which should help the optimizer to generate the most efficient code possible for the given integer type and CPU architecture.</text:p>
    <text:p text:style-name="P19"><text:span text:style-name="T8">template</text:span><text:span text:style-name="T11">&lt;</text:span><text:span text:style-name="T8">typename</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T36">ObjectType</text:span><text:span text:style-name="T11">, </text:span><text:span text:style-name="T8">typename</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T36">Lock</text:span><text:span text:style-name="T11">, std::</text:span><text:span text:style-name="T23">size_t</text:span><text:span text:style-name="T11"> </text:span><text:span text:style-name="T36">Size</text:span><text:span text:style-name="T11">&gt;</text:span></text:p>
@@ -1015,7 +1025,7 @@
    <text:p text:style-name="P15"/>
    <text:p text:style-name="Text_20_body">I see a couple of move instructions – update of the tail and update of the data in the cyclic buffer, a compare when the tail is incremented. There are 9 opcodes total. There is no unexpected overhead in this code. </text:p>
    <text:p text:style-name="Text_20_body">I coded one cyclic buffer implementation, but I gained four different cyclic buffers optimized for four different integer types and equally efficient when working with 8, 16, 32, 64 bits integers on different CPUs. Class CyclicBuffer encapsulates the data in the private region making it accessible only via the class methods and this is a good thing. </text:p>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2537_977618933"/>Cyclic buffer – C alternative.<text:bookmark-end text:name="__RefHeading__2537_977618933"/></text:h>
    <text:p text:style-name="Quotations">/**</text:p>
    <text:p text:style-name="Quotations"><text:s/>* Returns true</text:p>
@@ -1147,7 +1157,7 @@
    <text:p text:style-name="P15">mov <text:s text:c="3"/>%r8,0x20099c(%rip)</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">xor</text:span><text:span text:style-name="T13"> <text:s text:c="3"/>%r12d,%r12d</text:span></text:p>
    <text:p text:style-name="Text_20_body">Performance of C and C++ versions measured on Intel is the same. </text:p>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2646_977618933"/>C++ templates in the embedded systems.<text:bookmark-end text:name="__RefHeading__2646_977618933"/></text:h>
    <text:p text:style-name="Text_20_body">At this point a patient reader would ask about “code bloat” caused by C++ templates and object code duplication. Typically an implementation in C should have a smaller memory footprint, should not it? </text:p>
    <text:p text:style-name="Text_20_body">In case of the cyclic buffer all methods are inline and there is no any specific “template code”. In general case for every unique combination ObjectsType/Size used in the code the C++ compiler is going to instantiate a class and add a full set of methods to the application code. A careful C++ programmer shall move the methods which do not require template arguments to a base class and derive the CyclicBuffer template from the new class. Moving type-invariant code into a base class sometimes is called “code hoisting”. Code hoisting does not necessary cause a performance hit. I will call the base class CyclicBufferBase. Constructor of the base class CyclicBufferBase is protected and no objects of the base class can be created by an application. </text:p>
@@ -1330,7 +1340,7 @@
    <text:p text:style-name="P15"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P15">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:p text:style-name="P30">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be placed at a specific memory address. One popular application for such memory blocks are data buffers for DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. First I define a memory region. I use operator “new” <text:s/>- a placement new operator - to “place” the data at the specified address. My memory region has a name for debug purposes. A region address is of type uintptr_t - an unsigned integer that is capable of storing a pointer.</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">MemoryRegion</text:span><text:span text:style-name="T13"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -2373,7 +2383,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">8660:</text:span><text:span text:style-name="T13"><text:tab/>e5832060 <text:tab/>str<text:tab/>r2, [r3, #96]</text:span></text:p>
    <text:p text:style-name="P15"><text:s text:c="4"/>pio-&gt;PIO_OER = mask;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T13"><text:s text:c="4"/></text:span><text:span text:style-name="T5">8664:</text:span><text:span text:style-name="T13"><text:tab/>e5832070 <text:tab/>str<text:tab/>r2, [r3, #112]</text:span></text:p>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8082_1329019087"/>I/O access in C++.<text:bookmark-end text:name="__RefHeading__8082_1329019087"/></text:h>
    <text:p text:style-name="Text_20_body">This is not easy to compete with C when accessing the I/O. Compiler C translates every line of C code into a single machine opcode. There is no need to manually specify an address for every register - it&apos;s enough to create a pointer which references physical address. I need C++ implementation with the same perfect performance score, similar convenience of usage AND some added value, for example type safety.</text:p>
    <text:p text:style-name="Text_20_body">First class is an abstraction of a hardware module. The class constructor is protected – application can create only objects of derived classes.</text:p>
@@ -2534,7 +2544,7 @@
    <text:p text:style-name="Text_20_body">There are two types of ROM – erasable and not erasable. In the Atmega MCUs different areas of the ROM can be programmed by the firmware assuming that the firmware runs from another area. In case of ASICs ROM is often not erasable. ROM programming is a part of the ASIC production process. The ROM can not be modified after the chip leaves the factory (FAB). </text:p>
    <text:p text:style-name="Text_20_body">If there is not enough RAM to load the firmware then parts of the firmware code should be located in the chip ROM. In case of an ASIC it means that the ROM based parts of the firmware can be changed only in the future versions of the chip. High complexity of the modern ASIC firmware makes it very hard to reach 100% code coverage in the ASIC verification process. Even if the ROM based firmware is verified and tested completely still there is a chance that this or that protocol has been misunderstood by the development team or product requirements has changed. The development team prepares the firmware and the hardware for the not unlikely event that need to patch the ROM will arise.</text:p>
    <text:p text:style-name="Text_20_body">This chapter covers some of the ROM related problems.</text:p>
-   <text:h text:style-name="P40" text:outline-level="2"/>
+   <text:h text:style-name="P42" text:outline-level="2"/>
    <text:h text:style-name="P33" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7728_2007975351"/>C++ Initialized data.<text:bookmark-end text:name="__RefHeading__7728_2007975351"/></text:h>
    <text:p text:style-name="Text_20_body">At least one code section – boot, constants and initialized data are parts of the ROM. Initialized non-zero data is going to consume memory two times. Initialization values of the initialized data are part of the ROM. Usually boot process copies the values from the ROM to the RAM. If I inspect an object file generated by a compiler I can easily find initialization data for the strings. There are utilities which help to inspect the object files, dump different section into separate files and prepare the images for ROM programming. Example of such utility is GNU objdump. Let&apos;s see some C++ initialized data in action. Following code produces two line of output - “Hello, world!” and “Hello from main()!”</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T13"> </text:span><text:span text:style-name="T25">HelloWorld</text:span><text:span text:style-name="T13"> {</text:span></text:p>
@@ -2580,7 +2590,9 @@
    <text:p text:style-name="P15">};</text:p>
    <text:p text:style-name="Text_20_body">For Patch Type C I need support in the linker script. I want to place constructor of the HelloWorld in the RAM, but method printHello() I want to execute in the RAM. If the HelloWorld constructor calls a function in the RAM I can easily patch the function code. </text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="P32" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__12016_732733800"/>Conclusion.<text:bookmark-end text:name="__RefHeading__12016_732733800"/></text:h>
+   <text:h text:style-name="P41" text:outline-level="1">Operating system.</text:h>
+   <text:p text:style-name="P38">I will start from the create task API. Typical wrapper for API similar to pthread_create or FreeRTOS xTaskCreate is a static method in a class called Task. Indeed this is the only way I know to write <text:span text:style-name="T54">a </text:span>portable C++ wrapper which will work for any or most operating systems. I will duly <text:span text:style-name="T54">present a basic example of this approach not because there it is fascinating, but because it is expected of a reasonable “C++ for embedded” book. Feel free to jump right to the next paragraph where I present non-portable code of C++ create task wrapper. </text:span></text:p>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__12016_732733800"/>Conclusion.<text:bookmark-end text:name="__RefHeading__12016_732733800"/></text:h>
    <text:p text:style-name="Text_20_body">I hope you have found the book interesting and worth the time spent. Please let me know what do you think or ask questions – my e-mail <text:a xlink:type="simple" xlink:href="mailto:larytet@yahoo.com?subject=C++%20for%20embedded%20systems:%20...">mailto:arkady.miasnikov@gmail.com?subject=C++ for embedded systems: …</text:a></text:p>
    <text:p text:style-name="Text_20_body">Thank you, Arkady.</text:p>
   </office:text>
