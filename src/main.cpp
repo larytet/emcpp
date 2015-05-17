@@ -406,7 +406,7 @@ static inline void log_print(int line, int level, const char *fmt, ...)
     printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[level], line, buffer);
 }
 
-void mainExample14(void) {
+void testLog(void) {
     LOG_INFO("This is info %d", 1);
     LOG_ERROR("This is error %d", 2);
 }
@@ -414,6 +414,6 @@ void mainExample14(void) {
 int main()
 {
 
-    mainExample14();
+    testLog();
     return 0;
 }
