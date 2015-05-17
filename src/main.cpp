@@ -16,6 +16,7 @@
 #include <atomic>
 #include <cstdint>
 
+#include <stdarg.h>
 
 using namespace std;
 
@@ -382,11 +383,37 @@ template<>struct factorial<0>
     static constexpr uint32_t value = 1;
 };
 
+enum {
+    LOG_LEVEL_INFO,
+    LOG_LEVEL_ERROR,
+    LOG_LEVEL_LAST,
+};
+static const char *LOG_LEVEL_NAME[] = {"INFO", "ERROR"};
+
+#define LOG_INFO(fmt, ...) log_print(__LINE__, LOG_LEVEL_INFO, fmt, ##__VA_ARGS__ )
+#define LOG_ERROR(fmt, ...) log_print(__LINE__, LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__ )
+
+
+static inline void log_print(int line, int level, const char *fmt, ...)
+{
+    va_list ap;
+    char buffer[512];
+
+    va_start(ap, fmt);
+    vsnprintf(&buffer[0], sizeof(buffer), fmt, ap);
+    va_end(ap);
+
+    printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[level], line, buffer);
+}
+
+void mainExample14(void) {
+    LOG_INFO("This is info %d", 1);
+    LOG_ERROR("This is error %d", 2);
+}
 
 int main()
 {
-    cout << "size=" << sizeof(HardwareRegister32) << endl;
 
-    mainExample7();
+    mainExample14();
     return 0;
 }
