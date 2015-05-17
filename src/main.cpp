@@ -401,7 +401,7 @@ static inline void log_print(int line, int level, const char *fmt, ...)
 
 #undef LOG_INFO
 #undef LOG_ERROR
-#if 1
+#if 0
 template <int Level> class Log {
 public:
     Log(int line, const char *fmt, ...) {
