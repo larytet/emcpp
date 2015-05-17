@@ -392,7 +392,7 @@ static inline void log_print(int line, int level, const char *fmt, ...)
 {
     va_list ap;
 
-    printf("%s: line=%d, msg=", level, line);
+    printf("%s: line=%d, msg=", LOG_LEVEL_NAME[level], line);
     va_start(ap, fmt);
     vprintf(fmt, ap);
     va_end(ap);
@@ -447,9 +447,22 @@ void testLog(void) {
     LOG_ERROR("This is error %d", 2);
 }
 
+int sum()
+{
+    return 0;
+}
+
+template<typename ... Types>
+int sum (int first, Types ... rest)
+{
+    return first + sum(rest...);
+}
+
+const int SUM = sum(1, 2, 3, 4, 5);
+
 int main()
 {
-
+    cout << "SUM=" << SUM << endl;
     testLog();
     return 0;
 }
