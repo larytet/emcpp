@@ -392,9 +392,9 @@ static inline void log_print(int line, int level, const char *fmt, ...)
 {
     va_list ap;
 
-    printf("%s: line=%d, msg=\n", LOG_LEVEL_NAME[level], line);
+    printf("%s: line=%d, msg=", level, line);
     va_start(ap, fmt);
-    printf(fmt, ap);
+    vprintf(fmt, ap);
     va_end(ap);
 }
 
@@ -407,9 +407,9 @@ public:
     Log(int line, const char *fmt, ...) {
         va_list ap;
 
-        printf("%s: line=%d, msg=\n", LOG_LEVEL_NAME[Level], line);
+        printf("%s: line=%d, msg=", Level, line);
         va_start(ap, fmt);
-        printf(fmt, ap);
+        vprintf(fmt, ap);
         va_end(ap);
     }
 };
@@ -428,9 +428,9 @@ public:
     void print(int line, const char *fmt, ...) const {
         va_list ap;
 
-        printf("%s: line=%d, msg=\n", level, line);
+        printf("%s: line=%d, msg=", level, line);
         va_start(ap, fmt);
-        printf(fmt, ap);
+        vprintf(fmt, ap);
         va_end(ap);
     }
 protected:
