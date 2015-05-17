@@ -401,13 +401,13 @@ static inline void log_print(int line, int level, const char *fmt, ...)
 
 #undef LOG_INFO
 #undef LOG_ERROR
-#if 0
+#if 1
 template <int Level> class Log {
 public:
     Log(int line, const char *fmt, ...) {
         va_list ap;
 
-        printf("%s: line=%d, msg=", Level, line);
+        printf("%s: line=%d, msg=", LOG_LEVEL_NAME[Level], line);
         va_start(ap, fmt);
         vprintf(fmt, ap);
         va_end(ap);
