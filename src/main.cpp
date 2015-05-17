@@ -391,13 +391,11 @@ static const char *LOG_LEVEL_NAME[] = {"INFO", "ERROR"};
 static inline void log_print(int line, int level, const char *fmt, ...)
 {
     va_list ap;
-    char buffer[512];
 
+    printf("%s: line=%d, msg=\n", LOG_LEVEL_NAME[level], line);
     va_start(ap, fmt);
-    vsnprintf(&buffer[0], sizeof(buffer), fmt, ap);
+    printf(fmt, ap);
     va_end(ap);
-
-    printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[level], line, buffer);
 }
 
 
@@ -408,13 +406,11 @@ template <int Level> class Log {
 public:
     Log(int line, const char *fmt, ...) {
         va_list ap;
-        char buffer[512];
 
+        printf("%s: line=%d, msg=\n", LOG_LEVEL_NAME[Level], line);
         va_start(ap, fmt);
-        vsnprintf(&buffer[0], sizeof(buffer), fmt, ap);
+        printf(fmt, ap);
         va_end(ap);
-
-        printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[Level], line, buffer);
     }
 };
 #endif
@@ -430,15 +426,12 @@ public:
     Log(const char *level) : level(level) {}
 
     void print(int line, const char *fmt, ...) const {
-
         va_list ap;
-        char buffer[512];
 
+        printf("%s: line=%d, msg=\n", level, line);
         va_start(ap, fmt);
-        vsnprintf(&buffer[0], sizeof(buffer), fmt, ap);
+        printf(fmt, ap);
         va_end(ap);
-
-        printf("%s: line=%d, msg=%s\n", level, line, buffer);
     }
 protected:
     const char *level;
