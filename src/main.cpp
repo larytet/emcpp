@@ -383,11 +383,6 @@ template<>struct factorial<0>
     static constexpr uint32_t value = 1;
 };
 
-enum {
-    LOG_LEVEL_INFO,
-    LOG_LEVEL_ERROR,
-    LOG_LEVEL_LAST,
-};
 static const char *LOG_LEVEL_NAME[] = {"INFO", "ERROR"};
 
 #define LOG_INFO(fmt, ...) log_print(__LINE__, LOG_LEVEL_INFO, fmt, ##__VA_ARGS__ )
@@ -405,14 +400,10 @@ static inline void log_print(int line, int level, const char *fmt, ...)
     printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[level], line, buffer);
 }
 
-void testLog(void) {
-    LOG_INFO("This is info %d", 1);
-    LOG_ERROR("This is error %d", 2);
-}
 
 #undef LOG_INFO
 #undef LOG_ERROR
-
+#if 0
 template <int Level> class Log {
 public:
     Log(int line, const char *fmt, ...) {
@@ -426,11 +417,39 @@ public:
         printf("%s: line=%d, msg=%s\n", LOG_LEVEL_NAME[Level], line, buffer);
     }
 };
+#endif
 
 #define LOG_INFO(fmt, ...) Log<LOG_LEVEL_INFO>(__LINE__, fmt, ##__VA_ARGS__ )
 #define LOG_ERROR(fmt, ...) Log<LOG_LEVEL_ERROR>(__LINE__, fmt, ##__VA_ARGS__ )
+#undef LOG_INFO
+#undef LOG_ERROR
 
-void testLog1(void) {
+
+class Log {
+public:
+    Log(const char *level) : level(level) {}
+
+    void print(int line, const char *fmt, ...) const {
+
+        va_list ap;
+        char buffer[512];
+
+        va_start(ap, fmt);
+        vsnprintf(&buffer[0], sizeof(buffer), fmt, ap);
+        va_end(ap);
+
+        printf("%s: line=%d, msg=%s\n", level, line, buffer);
+    }
+protected:
+    const char *level;
+};
+
+const Log LogInfo("INFO");
+const Log LogError("ERROR");
+#define LOG_INFO(fmt, ...) LogInfo.print(__LINE__, fmt, ##__VA_ARGS__ )
+#define LOG_ERROR(fmt, ...) LogError.print(__LINE__, fmt, ##__VA_ARGS__ )
+
+void testLog(void) {
     LOG_INFO("This is info %d", 1);
     LOG_ERROR("This is error %d", 2);
 }
