@@ -513,6 +513,12 @@ void testBinaryLog(void) {
     LOG_ERROR("This is error %d %d %d", 0, 1, 2);
 }
 
+const int TIMERS_COUNT = 3;
+const int TIMERS_SIZE = 3;
+uint32_t dummyTimers[TIMERS_SIZE][TIMERS_COUNT];
+
+HardwareTimer *myHardwareTimers = new (&dummyTimers[0][0]) HardwareTimer[TIMERS_COUNT];
+
 int main()
 {
     testBinaryLog();
