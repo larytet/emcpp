@@ -490,6 +490,7 @@ public:
     HardwareTimer() {}
 
     inline void start() {
+        cout << "Starting timer" << &CONF << endl;
         CONF = 0x01;
     }
 
