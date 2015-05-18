@@ -451,6 +451,8 @@ int sum()
 {
     return 0;
 }
+#undef LOG_INFO
+#undef LOG_ERROR
 
 template<typename ... Types>
 int sum (int first, Types ... rest)
@@ -460,9 +462,39 @@ int sum (int first, Types ... rest)
 
 const int SUM = sum(1, 2, 3, 4, 5);
 
+
+constexpr uint64_t do_the_hash(const char* input, uint64_t value_so_far) {
+    return *input ? do_the_hash(input + 1, (value_so_far << 8) | *input) : value_so_far;
+}
+
+constexpr uint64_t hash_metafunction(const char* input) {
+    return do_the_hash(input, 0);
+}
+
+constexpr uint64_t FILE_ID = hash_metafunction(__FILE__);
+
+class BinaryLog {
+public:
+    BinaryLog(uint64_t fileId, int line, ...) {
+    }
+
+protected:
+};
+
+const Log LogInfo("INFO");
+const Log LogError("ERROR");
+#define LOG_INFO(fmt, ...) BinaryLog(FILE_ID, __LINE__, ##__VA_ARGS__ )
+#define LOG_ERROR(fmt, ...) BinaryLog(FILE_ID, __LINE__, ##__VA_ARGS__ )
+
+
+void testBinaryLog(void) {
+    LOG_INFO("This is info %d", 1);
+    LOG_ERROR("This is error %d", 2);
+}
+
 int main()
 {
-    cout << "SUM=" << SUM << endl;
-    testLog();
+    cout << "hash=" << FILE_ID << endl;
+    testBinaryLog();
     return 0;
 }
