@@ -490,7 +490,6 @@ public:
     HardwareTimer() {}
 
     inline void start() {
-        cout << "Starting timer" << &CONF << endl;
         CONF = 0x01;
     }
 
@@ -511,5 +510,4 @@ protected:
     HardwareRegister32RW CONF;
     HardwareRegister32RW CURR;
     HardwareRegister32RW RST;
-
 };
