@@ -494,8 +494,9 @@ public:
     }
 };
 
-#define LOG_INFO(count, fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
-#define LOG_ERROR(count, fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
+#define ARGUMENTS_COUNT(...)  (sizeof((int[]){__VA_ARGS__})/sizeof(int))
+#define LOG_INFO(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
+#define LOG_ERROR(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
 
 constexpr int hashData(const char* s, int accumulator) {
     return *s ? hashData(s + 1, (accumulator << 1) | *s) : accumulator;
@@ -508,8 +509,8 @@ constexpr int hashMetafunction(const char* s) {
 constexpr int FILE_ID = hashMetafunction(__FILE__);
 
 void testBinaryLog(void) {
-    LOG_INFO(2, "This is info %d %d", 1, 2);
-    LOG_ERROR(3, "This is error %d %d %d", 0, 1, 2);
+    LOG_INFO("This is info %d %d", 1, 2);
+    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
 }
 
 int main()
