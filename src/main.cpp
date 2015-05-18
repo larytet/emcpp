@@ -509,8 +509,7 @@ constexpr int FILE_ID = hashMetafunction(__FILE__);
 
 void testBinaryLog(void) {
     LOG_INFO(2, "This is info %d %d", 1, 2);
-    LOG_ERROR(3, "This is error %d %d", 0, 1, 2);
-
+    LOG_ERROR(3, "This is error %d %d %d", 0, 1, 2);
 }
 
 int main()
