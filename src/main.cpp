@@ -465,7 +465,7 @@ const int SUM = sum(1, 2, 3, 4, 5);
 
 
 
-void sendLog(const int *data, int count) {
+void sendData(const int *data, int count) {
     for (int i = 0;i < count;i++) {
         cout << data[i] << endl;
     }
@@ -490,7 +490,7 @@ public:
             args[j] = va_arg(ap, int);
         }
         va_end(ap);
-        sendLog(args, arguments);
+        sendData(args, arguments);
     }
 };
 
