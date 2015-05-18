@@ -67,7 +67,7 @@ static_assert((sizeof(HardwareRegister32) == sizeof(uint32_t)),
 
 class HardwareRegister32RO: public HardwareRegister32 {
 public:
-    uint32_t operator=(const HardwareRegister32RO& r) const {
+    uint32_t operator=(const HardwareRegister32RO &r) const {
         return get();
     }
 };
@@ -86,7 +86,7 @@ static_assert((sizeof(HardwareRegister32WO) == sizeof(uint32_t)),
 
 class HardwareRegister32RW: public HardwareRegister32 {
 public:
-    uint32_t operator=(const HardwareRegister32RW& r) const {
+    uint32_t operator=(const HardwareRegister32RW &r) const {
         return get();
     }
     uint32_t operator=(uint32_t value) {
