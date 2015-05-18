@@ -493,11 +493,12 @@ public:
         args[2] = count;
         va_list ap;
         va_start(ap, count);
-        for (int j=HEADER_SIZE; j < count+HEADER_SIZE; j++) {
+        int arguments = count+HEADER_SIZE;
+        for (int j=HEADER_SIZE; j < arguments; j++) {
             args[j] = va_arg(ap, int);
         }
         va_end(ap);
-        sendLog(args, count);
+        sendLog(args, arguments);
     }
 };
 
