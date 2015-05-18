@@ -463,38 +463,55 @@ int sum (int first, Types ... rest)
 const int SUM = sum(1, 2, 3, 4, 5);
 
 
-constexpr uint64_t do_the_hash(const char* input, uint64_t value_so_far) {
+constexpr int do_the_hash(const char* input, int value_so_far) {
     return *input ? do_the_hash(input + 1, (value_so_far << 8) | *input) : value_so_far;
 }
 
-constexpr uint64_t hash_metafunction(const char* input) {
+constexpr int hash_metafunction(const char* input) {
     return do_the_hash(input, 0);
 }
 
-constexpr uint64_t FILE_ID = hash_metafunction(__FILE__);
+constexpr int FILE_ID = hash_metafunction(__FILE__);
 
-class BinaryLog {
-public:
-    BinaryLog(uint64_t fileId, int line, ...) {
+void sendLog(const int *data, int count) {
+    for (int i = 0;i < count;i++) {
+        cout << data[i] << endl;
     }
+}
 
-protected:
+template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
+public:
+    BinaryLog(int fileId, int line, int count, ...) {
+        const int HEADER_SIZE = 3;
+        int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
+
+        if (count > MAX_ARGUMENTS_COUNT) {
+            count = MAX_ARGUMENTS_COUNT;
+        }
+        args[0] = fileId;
+        args[1] = line;
+        args[2] = count;
+        va_list ap;
+        va_start(ap, count);
+        for (int j=HEADER_SIZE; j < count+HEADER_SIZE; j++) {
+            args[j] = va_arg(ap, int);
+        }
+        va_end(ap);
+        sendLog(args, count);
+    }
 };
 
-const Log LogInfo("INFO");
-const Log LogError("ERROR");
-#define LOG_INFO(fmt, ...) BinaryLog(FILE_ID, __LINE__, ##__VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) BinaryLog(FILE_ID, __LINE__, ##__VA_ARGS__ )
+#define LOG_INFO(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
+#define LOG_ERROR(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
 
 
 void testBinaryLog(void) {
-    LOG_INFO("This is info %d", 1);
-    LOG_ERROR("This is error %d", 2);
+    LOG_INFO("This is info %d", 2, 1, 2);
+    LOG_ERROR("This is error %d", 3, 0, 1, 2);
 }
 
 int main()
 {
-    cout << "hash=" << FILE_ID << endl;
     testBinaryLog();
     return 0;
 }
