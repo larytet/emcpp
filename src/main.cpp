@@ -463,15 +463,7 @@ int sum (int first, Types ... rest)
 const int SUM = sum(1, 2, 3, 4, 5);
 
 
-constexpr int do_the_hash(const char* input, int value_so_far) {
-    return *input ? do_the_hash(input + 1, (value_so_far << 8) | *input) : value_so_far;
-}
 
-constexpr int hash_metafunction(const char* input) {
-    return do_the_hash(input, 0);
-}
-
-constexpr int FILE_ID = hash_metafunction(__FILE__);
 
 void sendLog(const int *data, int count) {
     for (int i = 0;i < count;i++) {
@@ -505,6 +497,15 @@ public:
 #define LOG_INFO(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
 #define LOG_ERROR(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
 
+constexpr int hashData(const char* input, int value_so_far) {
+    return *input ? hashData(input + 1, (value_so_far << 8) | *input) : value_so_far;
+}
+
+constexpr int hashMetafunction(const char* input) {
+    return hashData(input, 0);
+}
+
+constexpr int FILE_ID = hashMetafunction(__FILE__);
 
 void testBinaryLog(void) {
     LOG_INFO("This is info %d", 2, 1, 2);
