@@ -497,12 +497,12 @@ public:
 #define LOG_INFO(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
 #define LOG_ERROR(fmt, count, ...) BinaryLog<3>(FILE_ID, __LINE__, count, ##__VA_ARGS__ )
 
-constexpr int hashData(const char* input, int accumulator) {
-    return *input ? hashData(input + 1, (accumulator << 1) | *input) : accumulator;
+constexpr int hashData(const char* s, int accumulator) {
+    return *s ? hashData(s + 1, (accumulator << 1) | *s) : accumulator;
 }
 
-constexpr int hashMetafunction(const char* input) {
-    return hashData(input, 0);
+constexpr int hashMetafunction(const char* s) {
+    return hashData(s, 0);
 }
 
 constexpr int FILE_ID = hashMetafunction(__FILE__);
