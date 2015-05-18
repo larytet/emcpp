@@ -489,11 +489,6 @@ class HardwareTimer : HardwareModule {
 public:
     HardwareTimer() {}
 
-protected:
-    HardwareRegister32RW CONF;
-    HardwareRegister32RW CURR;
-    HardwareRegister32RW RST;
-
     inline void start() {
         CONF = 0x01;
     }
@@ -510,4 +505,10 @@ protected:
     inline void stop() {
         CONF = 0x00;
     }
+
+protected:
+    HardwareRegister32RW CONF;
+    HardwareRegister32RW CURR;
+    HardwareRegister32RW RST;
+
 };

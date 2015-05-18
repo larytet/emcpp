@@ -519,8 +519,12 @@ uint32_t dummyTimers[TIMERS_SIZE][TIMERS_COUNT];
 
 HardwareTimer *myHardwareTimers = new (&dummyTimers[0][0]) HardwareTimer[TIMERS_COUNT];
 
+void testHardwareTimers(void) {
+    myHardwareTimers[0].start();
+}
+
 int main()
 {
-    testBinaryLog();
+    testHardwareTimers();
     return 0;
 }
