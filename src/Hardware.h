@@ -89,6 +89,9 @@ public:
     uint32_t operator=(const HardwareRegister32RW &r) const {
         return get();
     }
+    operator uint32_t() const {
+        return get();
+    }
     uint32_t operator=(uint32_t value) {
         set(value);
         return value;
