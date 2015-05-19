@@ -34,6 +34,7 @@ using namespace std;
 #include "HardwareC.h"
 #include "Hardware.h"
 #include "Timers.h"
+#include "Log.h"
 #endif
 
 #if EXAMPLE == 1
@@ -383,64 +384,6 @@ template<>struct factorial<0>
     static constexpr uint32_t value = 1;
 };
 
-static const char *LOG_LEVEL_NAME[] = {"INFO", "ERROR"};
-
-#define LOG_INFO(fmt, ...) log_print(__LINE__, LOG_LEVEL_INFO, fmt, ##__VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) log_print(__LINE__, LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__ )
-
-static inline void log_print(int line, int level, const char *fmt, ...)
-{
-    va_list ap;
-
-    printf("%s: line=%d, msg=", LOG_LEVEL_NAME[level], line);
-    va_start(ap, fmt);
-    vprintf(fmt, ap);
-    va_end(ap);
-}
-
-
-#undef LOG_INFO
-#undef LOG_ERROR
-#if 0
-template <int Level> class Log {
-public:
-    Log(int line, const char *fmt, ...) {
-        va_list ap;
-
-        printf("%s: line=%d, msg=", LOG_LEVEL_NAME[Level], line);
-        va_start(ap, fmt);
-        vprintf(fmt, ap);
-        va_end(ap);
-    }
-};
-#endif
-
-#define LOG_INFO(fmt, ...) Log<LOG_LEVEL_INFO>(__LINE__, fmt, ##__VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) Log<LOG_LEVEL_ERROR>(__LINE__, fmt, ##__VA_ARGS__ )
-#undef LOG_INFO
-#undef LOG_ERROR
-
-
-class Log {
-public:
-    Log(const char *level) : level(level) {}
-
-    void print(int line, const char *fmt, ...) const {
-        va_list ap;
-
-        printf("%s: line=%d, msg=", level, line);
-        va_start(ap, fmt);
-        vprintf(fmt, ap);
-        va_end(ap);
-    }
-protected:
-    const char *level;
-};
-
-const Log LogInfo("INFO");
-const Log LogError("ERROR");
-#define LOG_INFO(fmt, ...) LogInfo.print(__LINE__, fmt, ##__VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) LogError.print(__LINE__, fmt, ##__VA_ARGS__ )
 
 void testLog(void) {
     LOG_INFO("This is info %d", 1);
@@ -451,8 +394,6 @@ int sum()
 {
     return 0;
 }
-#undef LOG_INFO
-#undef LOG_ERROR
 
 template<typename ... Types>
 int sum (int first, Types ... rest)
@@ -471,42 +412,6 @@ void sendData(const int *data, int count) {
     }
 }
 
-template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
-public:
-    BinaryLog(int fileId, int line, int count, ...) {
-        const int HEADER_SIZE = 3;
-        int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
-
-        if (count > MAX_ARGUMENTS_COUNT) {
-            count = MAX_ARGUMENTS_COUNT;
-        }
-        args[0] = fileId;
-        args[1] = line;
-        args[2] = count;
-        va_list ap;
-        va_start(ap, count);
-        int arguments = count+HEADER_SIZE;
-        for (int j=HEADER_SIZE; j < arguments; j++) {
-            args[j] = va_arg(ap, int);
-        }
-        va_end(ap);
-        sendData(args, arguments);
-    }
-};
-
-#define ARGUMENTS_COUNT(...)  (sizeof((int[]){__VA_ARGS__})/sizeof(int))
-#define LOG_INFO(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
-
-constexpr int hashData(const char* s, int accumulator) {
-    return *s ? hashData(s + 1, (accumulator << 1) | *s) : accumulator;
-}
-
-constexpr int hashMetafunction(const char* s) {
-    return hashData(s, 0);
-}
-
-constexpr int FILE_ID = hashMetafunction(__FILE__);
 
 void testBinaryLog(void) {
     LOG_INFO("This is info %d %d", 1, 2);
@@ -528,5 +433,6 @@ void testHardwareTimers(void) {
 int main()
 {
     testHardwareTimers();
+    testBinaryLog();
     return 0;
 }
