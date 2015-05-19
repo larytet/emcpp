@@ -66,44 +66,30 @@ extern void sendData(const int *data, int count);
 
 template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
 public:
-    BinaryLog(int fileId, int line, int count, ...) {
-        const int HEADER_SIZE = 3;
-        int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
-
-        if (count > MAX_ARGUMENTS_COUNT) {
-            count = MAX_ARGUMENTS_COUNT;
-        }
-        args[0] = fileId;
-        args[1] = line;
-        args[2] = count;
-        va_list ap;
-        va_start(ap, count);
-        int arguments = count+HEADER_SIZE;
-        for (int j=HEADER_SIZE; j < arguments; j++) {
-            args[j] = va_arg(ap, int);
-        }
-        va_end(ap);
-        sendData(args, arguments);
-    }
-    BinaryLog(void *address, int line, int count, ...) {
-        const int HEADER_SIZE = 2;
-        int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
-
-        if (count > MAX_ARGUMENTS_COUNT) {
-            count = MAX_ARGUMENTS_COUNT;
-        }
-        args[0] = ((uintptr_t)address) & UINT32_MAX;
-        args[1] = count;
-        va_list ap;
-        va_start(ap, count);
-        int arguments = count+HEADER_SIZE;
-        for (int j=HEADER_SIZE; j < arguments; j++) {
-            args[j] = va_arg(ap, int);
-        }
-        va_end(ap);
-        sendData(args, arguments);
-    }
+    BinaryLog(int fileId, int line, int count, ...);
+    BinaryLog(void *address, int line, int count, ...);
 };
+
+template<int MAX_ARGUMENTS_COUNT>
+BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int fileId, int line, int count, ...) {
+    const int HEADER_SIZE = 3;
+    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
+
+    if (count > MAX_ARGUMENTS_COUNT) {
+        count = MAX_ARGUMENTS_COUNT;
+    }
+    args[0] = fileId;
+    args[1] = line;
+    args[2] = count;
+    va_list ap;
+    va_start(ap, count);
+    int arguments = count+HEADER_SIZE;
+    for (int j=HEADER_SIZE; j < arguments; j++) {
+        args[j] = va_arg(ap, int);
+    }
+    va_end(ap);
+    sendData(args, arguments);
+}
 
 #define ARGUMENTS_COUNT(...)  (sizeof((int[]){__VA_ARGS__})/sizeof(int))
 #undef LOG_INFO
@@ -121,14 +107,32 @@ constexpr int hashMetafunction(const char* s) {
 
 constexpr int FILE_ID = hashMetafunction(__FILE__);
 
+template<int MAX_ARGUMENTS_COUNT>
+BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ...) {
+    const int HEADER_SIZE = 2;
+    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
 
+    if (count > MAX_ARGUMENTS_COUNT) {
+        count = MAX_ARGUMENTS_COUNT;
+    }
+    args[0] = ((uintptr_t)address) & UINT32_MAX;
+    args[1] = count;
+    va_list ap;
+    va_start(ap, count);
+    int arguments = count+HEADER_SIZE;
+    for (int j=HEADER_SIZE; j < arguments; j++) {
+        args[j] = va_arg(ap, int);
+    }
+    va_end(ap);
+    sendData(args, arguments);
+}
 
 #undef LOG_INFO
 #undef LOG_ERROR
 
 #define TOKEN_CAT(x, y) x ## y
 #define TOKEN_CAT2(x, y) TOKEN_CAT(x, y)
-#define LABEL TOKEN_CAT(logLabel_, __LINE__)
+#define LABEL TOKEN_CAT2 (logLabel_, __LINE__)
 
 #define LOG_INFO(fmt, ...) {  \
         LABEL:\
