@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-19T19:01:56.587496907</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P6DT17H26M38S</meta:editing-duration><meta:editing-cycles>2151</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="106" meta:paragraph-count="1654" meta:word-count="12139" meta:character-count="86613" meta:non-whitespace-character-count="70478"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-19T22:59:17.739610460</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P6DT17H30M20S</meta:editing-duration><meta:editing-cycles>2156</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="108" meta:paragraph-count="1654" meta:word-count="12139" meta:character-count="86613" meta:non-whitespace-character-count="70478"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">2363124</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">30392</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">22638</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">12407</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">22710</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">23394</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">2524</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">2370561</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">2559</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">32145</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">2363124</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">22636</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">2375530</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">30392</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">22708</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">53785</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">254</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">139</config:config-item>
      <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
     </config:config-item-map-entry>
    </config:config-item-map-indexed>
@@ -81,7 +81,7 @@
    <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
    <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
-   <config:config-item config:name="Rsid" config:type="int">1215793</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">1405369</config:config-item>
    <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
    <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
@@ -562,24 +562,48 @@
   <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties officeooo:paragraph-rsid="001266ee"/>
   </style:style>
-  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0in" style:auto-text-indent="false"/>
-   <style:text-properties fo:color="#000000" style:font-name="Monospace1" fo:font-size="10pt" style:font-size-asian="10pt"/>
+  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:paragraph-rsid="000c92bd"/>
   </style:style>
-  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
-  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_1">
-   <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
-  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
-  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Heading_20_2">
+  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:paragraph-rsid="000c92bd"/>
   </style:style>
-  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
-   <style:text-properties fo:color="#000000" style:font-name="Monospace1" fo:font-size="10pt" style:font-size-asian="10pt"/>
+  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Heading_20_1">
+   <style:paragraph-properties fo:break-before="page"/>
+  </style:style>
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
+  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:paragraph-properties fo:break-before="page"/>
+  </style:style>
+  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties officeooo:paragraph-rsid="000c92bd"/>
+  </style:style>
+  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
+   <style:text-properties officeooo:paragraph-rsid="000c92bd"/>
+  </style:style>
+  <style:style style:name="P77" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
+   <style:paragraph-properties fo:break-before="page"/>
+  </style:style>
+  <style:style style:name="P78" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
+   <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties officeooo:paragraph-rsid="000c92bd"/>
+  </style:style>
+  <style:style style:name="P79" style:family="paragraph" style:parent-style-name="Contents_20_1">
+   <style:paragraph-properties>
+    <style:tab-stops>
+     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="P80" style:family="paragraph" style:parent-style-name="Contents_20_2">
+   <style:paragraph-properties>
+    <style:tab-stops>
+     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+    </style:tab-stops>
+   </style:paragraph-properties>
   </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties fo:color="#3f7f5f"/>
@@ -921,32 +945,32 @@
      <text:index-title text:style-name="Sect2" text:name="Table of Contents1_Head">
       <text:p text:style-name="Contents_20_Heading">Contents</text:p>
      </text:index-title>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>13</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>14</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>25</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>28</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>33</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>45</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>64</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>67</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>67</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>73</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>74</text:a></text:p>
-     <text:p text:style-name="P42"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>85</text:a></text:p>
-     <text:p text:style-name="P43"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>106</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>14</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>25</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>28</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>45</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>47</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>49</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>65</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>66</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>73</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>74</text:a></text:p>
+     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>85</text:a></text:p>
+     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>108</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:h text:style-name="P70" text:outline-level="1"/>
+   <text:h text:style-name="P71" text:outline-level="1"/>
    <text:h text:style-name="P49" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2313_977618933"/>Introduction.<text:bookmark-end text:name="__RefHeading__2313_977618933"/></text:h>
    <text:p text:style-name="Quotations">I&apos;ve come to the conclusion that any programmer that would prefer the project to be in C++ over C is likely a programmer that I really would prefer to piss off, so that he doesn&apos;t come and screw up any project I&apos;m involved with.</text:p>
    <text:p text:style-name="P36">Linus Torvalds</text:p>
@@ -967,7 +991,7 @@
    <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body">In the multi-task environment threads and interrupts can concurrently read and write data objects. I can use different tools to synchronize access to the data between different contexts and create thread safe APIs. Among available for me tools are semaphores and mutual exclusion APIs provided by operating systems, disable all interrupts, disable some interrupt, disable operating system scheduler, spin locks. When I write a wrapper around an API provided by my real-time operating system or by the hardware I want the wrapper to be as thin as possible. Usually I measure the overhead of the wrapper by a number of assembly instructions. Number of instructions provides a good approximation of the CPU cycles or execution time. </text:p>
    <text:p text:style-name="Text_20_body">I am starting from a code snippet which creates and calls a dummy lock object.</text:p>
-   <text:p text:style-name="P1"/>
+   <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="P52"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> LockDummy {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">public</text:span><text:span text:style-name="T14">:</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1058,12 +1082,12 @@
    <text:p text:style-name="Preformatted_20_Text">}</text:p>
    <text:p text:style-name="Text_20_body">Overhead of the wrapper around the functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembly I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? What is an added value? </text:p>
    <text:p text:style-name="Text_20_body">The code does not allow me to leave out calling enable interrupts after I called disable interrupt. No matter how many return points or breaks out of a loop my function has C++ compiler ensures that the function interruptEnable is called exactly once. I will return to the synchronization objects later in this book. </text:p>
-   <text:h text:style-name="P70" text:outline-level="1"/>
+   <text:h text:style-name="P71" text:outline-level="1"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2317_977618933"/>Containers.<text:bookmark-end text:name="__RefHeading__2317_977618933"/></text:h>
    <text:p text:style-name="Quotations">When your hammer is C++, everything begins to look like a thumb.</text:p>
    <text:p text:style-name="P35"/>
    <text:p text:style-name="Text_20_body">C++ is all about containers. Standard template library (STL) contains a lot of very smart and convenient code dealing with vectors, stacks, queues, hash tables, trees and many other types of dynamic and static data storage. Unfortunately a firmware developer frequently needs something very different. In some cases high performance and small code/data footprint should coexist in one application. In this chapter I will demonstrate a container which makes sense in an embedded environment with limited resources. The API should be reentrant and allow safe concurrent access. The performance of the container is going to be at least not worse than a C alternative. All my allocations are going to be static and done at build time – I will deal with the dynamic allocation later in this book. </text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2535_977618933"/>Cyclic buffer.<text:bookmark-end text:name="__RefHeading__2535_977618933"/></text:h>
    <text:p text:style-name="Quotations">Some people, when confronted with a problem, think, &apos;I know, I&apos;ll use threads&apos; - and then two they hav erpoblems.</text:p>
    <text:p text:style-name="P64"/>
@@ -1215,7 +1239,7 @@
    <text:p text:style-name="P17"/>
    <text:p text:style-name="Text_20_body">I see a couple of move instructions – update of the tail and update of the data in the cyclic buffer, a compare when the tail is incremented. There are 9 opcodes total. There is no unexpected overhead in this code. </text:p>
    <text:p text:style-name="Text_20_body">I coded one cyclic buffer implementation, but I gained four different cyclic buffers optimized for four different integer types and equally efficient when working with 8, 16, 32, 64 bits integers on different CPUs. Class CyclicBuffer encapsulates the data in the private region making it accessible only via the class methods and this is a good thing. </text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2537_977618933"/>Cyclic buffer – C alternative.<text:bookmark-end text:name="__RefHeading__2537_977618933"/></text:h>
    <text:p text:style-name="Quotations">/**</text:p>
    <text:p text:style-name="Quotations"><text:s/>* Returns true</text:p>
@@ -1347,7 +1371,7 @@
    <text:p text:style-name="P17">mov <text:s text:c="3"/>%r8,0x20099c(%rip)</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">xor</text:span><text:span text:style-name="T14"> <text:s text:c="3"/>%r12d,%r12d</text:span></text:p>
    <text:p text:style-name="Text_20_body">Performance of C and C++ versions measured on Intel is the same. </text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2646_977618933"/>C++ templates in embedded systems.<text:bookmark-end text:name="__RefHeading__2646_977618933"/></text:h>
    <text:p text:style-name="Quotations">To understand what recursion is, you must first understand recursion.</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -1469,7 +1493,7 @@
    <text:p text:style-name="P17">{</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T14"><text:s text:c="4"/>cout &lt;&lt; </text:span><text:span text:style-name="T38">&quot;SUM=&quot;</text:span><text:span text:style-name="T14"> &lt;&lt; SUM &lt;&lt; </text:span><text:span text:style-name="T42">endl</text:span><text:span text:style-name="T14">;</text:span></text:p>
    <text:p text:style-name="P17">}</text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2948_1515059145"/>Memory Management.<text:bookmark-end text:name="__RefHeading__2948_1515059145"/></text:h>
    <text:p text:style-name="Quotations">Programming is like sex, one mistake and you have to support it for the rest of your life. </text:p>
    <text:p text:style-name="Quotations"/>
@@ -1554,7 +1578,7 @@
    <text:p text:style-name="P17"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P17">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:p text:style-name="P44">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be placed at a specific memory address. One popular application for such memory blocks are data buffers for DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. First I define a memory region. I use operator “new” - a placement new operator - to “place” the data at the specified address. My memory region has a name for debug purposes. A region address is of type uintptr_t - an unsigned integer that is capable of storing a pointer.</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T32">MemoryRegion</text:span><text:span text:style-name="T14"> {</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1983,7 +2007,7 @@
    </table:table>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body">There are 5 32 bits I/Os like this called A, B, C, D, E, F in the microcontroller. The registers are mapped starting at the address 0xFFFFF200. User shall write 1 to the bit she wishes to modify in a write-only registers. For example, user will write 0x04 to PIO_SODR – set the output value first, PIO_PER, PIO_OER to drive pin 2 (zero based) of the PIO high. Write to the PIO registers is an atomic operation. The hardware interface allows to change the configuration of a single bit in a thread safe manner. Hardware provides convenient status registers which keep the current value of the registers, also called a shadow.</text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8080_1329019087"/>I/O access in C.<text:bookmark-end text:name="__RefHeading__8080_1329019087"/></text:h>
    <text:p text:style-name="Quotations">&quot;Writing in C or C++ is like running a chain saw with all the safety guards removed,&quot;    <text:span text:style-name="Citation">— Bob Gray.</text:span></text:p>
    <text:p text:style-name="Quotations"/>
@@ -2083,7 +2107,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">8660:</text:span><text:span text:style-name="T14"><text:tab/>e5832060 <text:tab/>str<text:tab/>r2, [r3, #96]</text:span></text:p>
    <text:p text:style-name="P17"><text:s text:c="4"/>pio-&gt;PIO_OER = mask;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">8664:</text:span><text:span text:style-name="T14"><text:tab/>e5832070 <text:tab/>str<text:tab/>r2, [r3, #112]</text:span></text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8082_1329019087"/>I/O access in C++.<text:bookmark-end text:name="__RefHeading__8082_1329019087"/></text:h>
    <text:p text:style-name="Quotations">&quot;C(++) is a write-only, high-level assembler language.&quot; <text:span text:style-name="Citation">— Stefan Van Baelen.</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -2209,7 +2233,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T32">uint32_t</text:span><text:span text:style-name="T14"> per = hardwarePIO.getInterface(</text:span><text:span text:style-name="T32">HardwarePIO</text:span><text:span text:style-name="T14">::</text:span><text:span text:style-name="T52">A</text:span><text:span text:style-name="T14">).</text:span><text:span text:style-name="T51">PIO_PER</text:span><text:span text:style-name="T14">;</text:span></text:p>
    <text:p text:style-name="Text_20_body">Access to the PIO registers is encapsulated in the class methods of the hardware module. The methods in the HardwarePIO class are the only way to modify a register. C++ implementation allows to catch other wrong doings at compilation time, for example reading or writing reserved registers. </text:p>
    <text:p text:style-name="Text_20_body">It is easy to cache all written values in the hardware module. One way to cache or log the read and write transactions is to add a “shadow” interface field to the hardware module class.</text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__11237_696237465"/>Indirect I/O access.<text:bookmark-end text:name="__RefHeading__11237_696237465"/></text:h>
    <text:p text:style-name="Text_20_body">In some case the hardware is accessible via a serial interface like SPI, MDIO or I2C. I am using a direct access API for the sake of brevity. A real access interface for a real SPI device can contain system calls or calls to the serial interface driver.</text:p>
    <text:p text:style-name="P1"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">IntegerType</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T32">HardwareDirectAccessAPI</text:span><text:span text:style-name="T14"> {</text:span></text:p>
@@ -2255,7 +2279,7 @@
    <text:p text:style-name="Text_20_body">There are two types of ROM – erasable and not erasable. In the Atmega MCUs different areas of the ROM can be programmed by the firmware assuming that the firmware runs from another area. In case of ASICs ROM is often not erasable. ROM programming is a part of the ASIC production process. The ROM can not be modified after the chip leaves the factory (FAB). </text:p>
    <text:p text:style-name="Text_20_body">If there is not enough RAM to load the firmware then parts of the firmware code should be located in the chip ROM. In case of an ASIC it means that the ROM based parts of the firmware can be changed only in the future versions of the chip. High complexity of the modern ASIC firmware makes it very hard to reach 100% code coverage in the ASIC verification process. Even if the ROM based firmware is verified and tested completely still there is a chance that this or that protocol has been misunderstood by the development team or product requirements has changed. The development team prepares the firmware and the hardware for the not unlikely event that need to patch the ROM will arise.</text:p>
    <text:p text:style-name="Text_20_body">This chapter covers some of the ROM related problems.</text:p>
-   <text:h text:style-name="P72" text:outline-level="2"/>
+   <text:h text:style-name="P73" text:outline-level="2"/>
    <text:h text:style-name="P50" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7728_2007975351"/>C++ Initialized data.<text:bookmark-end text:name="__RefHeading__7728_2007975351"/></text:h>
    <text:p text:style-name="Text_20_body">At least one code section – boot, constants and initialized data are parts of the ROM. Initialized non-zero data is going to consume memory two times. Initialization values of the initialized data are part of the ROM. Usually boot process copies the values from the ROM to the RAM. If I inspect an object file generated by a compiler I can easily find initialization data for the strings. There are utilities which help to inspect the object files, dump different section into separate files and prepare the images for ROM programming. Example of such utility is GNU objdump. Let&apos;s see some C++ initialized data in action. Following code produces two line of output - “Hello, world!” and “Hello from main()!”</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T32">HelloWorld</text:span><text:span text:style-name="T14"> {</text:span></text:p>
@@ -2600,7 +2624,8 @@
    <text:p text:style-name="P63">The software timers API will have O(1) complexity. The API is going to be thread safe. The source code for the software timer can be found <text:span text:style-name="T65">in</text:span> <text:a xlink:type="simple" xlink:href="https://github.com/larytet/emcpp/blob/master/src/timers.cpp">https://github.com/larytet/emcpp/blob/master/src/Timers.h</text:a></text:p>
    <text:p text:style-name="P63">At this point you know the object-oriented design routine. Let&apos;s declare a timer object first. A timer object keeps a unique timer identifier. </text:p>
    <text:p text:style-name="P63">A unique timer identifier can be used to solve possible race conditions between stopTimer and timerExpired. Consider following scenario: timer “a” is started by context A. Timer “a” is stopped by context A, but too late - timer “a” has just expired and the application code which handles the expiration is running. Depending on the implementation of the application callback the processing of the event can be done asynchronously. Meanwhile the same timer object can be allocated and modified by context B – a different thread. If context A keeps identities of all started timers the application callback can check if the timer identifier is on the list of running timers. If the timer was stopped the callback can ignore the timer expiration. Using of the timer object itself for such bookkeeping is not good because a pool of timer objects is probably a shared resource.</text:p>
-   <text:p text:style-name="P63">When starting a time<text:span text:style-name="T65">r</text:span> the user can supply optional pointer to the application data – a cookie. Timer class could be a template like this</text:p>
+   <text:p text:style-name="P63"/>
+   <text:p text:style-name="P47">When starting a time<text:span text:style-name="T65">r</text:span> the user can supply optional pointer to the application data – a cookie. Timer class could be a template like this</text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">CookieType</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T32">Timer</text:span><text:span text:style-name="T14"> {</text:span></text:p>
    <text:p text:style-name="P24"/>
    <text:p text:style-name="P24"><text:span text:style-name="T5">protected</text:span><text:span text:style-name="T14">:</text:span></text:p>
@@ -2609,7 +2634,7 @@
    <text:p text:style-name="P24">};</text:p>
    <text:p text:style-name="P63">I want to simplify the interface and avoid using of virtual methods – more on virtual methods in a moment - in the timer objects. Instead of objects of an arbitrary type a timer object <text:span text:style-name="T65">will </text:span>keep a pointer to the application data. </text:p>
    <text:p text:style-name="P63">A user can access the timer&apos;s data only via the public methods – getters and setters. This approach helps to maintain the code in the future. </text:p>
-   <text:p text:style-name="P63">Class Timer implements a constructor without arguments - I want to be able to create a static array of <text:soft-page-break/>timers with not too much of trouble. </text:p>
+   <text:p text:style-name="P63">Class Timer implements a constructor without arguments - I want to be able to create a static array of timers with not too much of trouble. </text:p>
    <text:p text:style-name="P24"/>
    <text:p text:style-name="P53"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T32">Timer</text:span><text:span text:style-name="T14"> {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T5">public</text:span><text:span text:style-name="T14">:</text:span></text:p>
@@ -2792,7 +2817,8 @@
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T14"> res;</text:span></text:p>
    <text:p text:style-name="P24">}</text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P24"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T17">CyclicBufferDynamic&lt;</text:span></text:p>
+   <text:p text:style-name="P24"/>
+   <text:p text:style-name="P53"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T17">CyclicBufferDynamic&lt;</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T17"><text:s text:c="8"/>ObjectType, Lock&gt;::add</text:span><text:span text:style-name="T14">(</text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14"> object) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">();</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T14"> (!isFull()) {</text:span></text:p>
@@ -2819,7 +2845,8 @@
    <text:p text:style-name="P24"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P24">}</text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P24"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T17">CyclicBufferDynamic&lt;</text:span></text:p>
+   <text:p text:style-name="P24"/>
+   <text:p text:style-name="P53"><text:span text:style-name="T5">template</text:span><text:span text:style-name="T14">&lt;</text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14">, </text:span><text:span text:style-name="T5">typename</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">&gt; </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T17">CyclicBufferDynamic&lt;</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T17"><text:s text:c="8"/>ObjectType, Lock&gt;::getHead</text:span><text:span text:style-name="T14">(</text:span><text:span text:style-name="T43">ObjectType</text:span><text:span text:style-name="T14"> *object) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T43">Lock</text:span><text:span text:style-name="T14">();</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T14"> (!isEmpty()) {</text:span></text:p>
@@ -2835,7 +2862,7 @@
    <text:p text:style-name="P24"><text:span text:style-name="T17">ObjectType, Lock&gt;::increment</text:span><text:span text:style-name="T14">(</text:span><text:span text:style-name="T32">size_t</text:span><text:span text:style-name="T14"> index) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T14"> (index &lt; </text:span><text:span text:style-name="T5">this</text:span><text:span text:style-name="T14">-&gt;</text:span><text:span text:style-name="T51">size</text:span><text:span text:style-name="T14">) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T14"> (index + 1);</text:span></text:p>
-   <text:p text:style-name="P24"><text:soft-page-break/><text:span text:style-name="T14"><text:s text:c="4"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T14"> {</text:span></text:p>
+   <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/>} </text:span><text:span text:style-name="T5">else</text:span><text:span text:style-name="T14"> {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="8"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T14"> 0;</text:span></text:p>
    <text:p text:style-name="P24"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P24">}</text:p>
@@ -3037,7 +3064,8 @@
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T32">size_t</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T51">size</text:span><text:span text:style-name="T14">;</text:span></text:p>
    <text:p text:style-name="P24">};</text:p>
    <text:p text:style-name="P32"/>
-   <text:p text:style-name="P63">Add list API fills the array timerLists:</text:p>
+   <text:p text:style-name="P63"/>
+   <text:p text:style-name="P47">Add list API fills the array timerLists:</text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T5">bool</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T17">TimerSet::addList</text:span><text:span text:style-name="T14">(</text:span><text:span text:style-name="T32">TimerList</text:span><text:span text:style-name="T14">* list) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">if</text:span><text:span text:style-name="T14"> (</text:span><text:span text:style-name="T51">listCount</text:span><text:span text:style-name="T14"> &lt; </text:span><text:span text:style-name="T51">size</text:span><text:span text:style-name="T14">) {</text:span></text:p>
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="8"/></text:span><text:span text:style-name="T51">timerLists</text:span><text:span text:style-name="T14">[</text:span><text:span text:style-name="T51">listCount</text:span><text:span text:style-name="T14">] = list;</text:span></text:p>
@@ -3107,7 +3135,7 @@
    <text:p text:style-name="P24"><text:span text:style-name="T14"><text:s text:c="4"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T14"> 0;</text:span></text:p>
    <text:p text:style-name="P23">}</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="P70" text:outline-level="1"/>
+   <text:h text:style-name="P71" text:outline-level="1"/>
    <text:h text:style-name="P49" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__12016_732733800"/>Conclusion.<text:bookmark-end text:name="__RefHeading__12016_732733800"/></text:h>
    <text:p text:style-name="Quotations">Programming is a lot like sex. One mistake and you&apos;re providing support for a lifetime.</text:p>
    <text:p text:style-name="Text_20_body"/>
