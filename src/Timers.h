@@ -101,7 +101,7 @@ static inline bool isTimerExpired(SystemTime startTime, Timeout timeout,
 }
 
 enum class TimerError {
-    Ok, Expired, Stppped, Illegal, NoFreeTimer, NoRunningTimers
+    Ok, Expired, Stopped, Illegal, NoFreeTimer, NoRunningTimers
 };
 
 class Timer {
