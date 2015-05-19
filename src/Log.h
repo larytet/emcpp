@@ -115,7 +115,7 @@ BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ..
     if (count > MAX_ARGUMENTS_COUNT) {
         count = MAX_ARGUMENTS_COUNT;
     }
-    args[0] = ((uintptr_t)address) & UINT32_MAX;
+    args[0] = ((uintptr_t)address) & INTMAX_MAX;
     args[1] = count;
     va_list ap;
     va_start(ap, count);
