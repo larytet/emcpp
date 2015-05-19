@@ -128,7 +128,7 @@ constexpr int FILE_ID = hashMetafunction(__FILE__);
 
 #define TOKEN_CAT(x, y) x ## y
 #define TOKEN_CAT2(x, y) TOKEN_CAT(x, y)
-#define LABEL TOKEN_CAT2(logLabel_, __LINE__)
+#define LABEL TOKEN_CAT(logLabel_, __LINE__)
 
 #define LOG_INFO(fmt, ...) {  \
         LABEL:\
