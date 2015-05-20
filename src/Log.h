@@ -66,13 +66,13 @@ extern void sendData(const int *data, int count);
 
 template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
 public:
-    BinaryLog(int fileId, int line, int count, ...);
+    BinaryLog(char *, int fileId, int line, int count, ...);
     BinaryLog(void *address, int line, int count, ...);
     BinaryLog(int count, ...);
 };
 
 template<int MAX_ARGUMENTS_COUNT>
-BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int fileId, int line, int count, ...) {
+BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(char *c, int fileId, int line, int count, ...) {
     const int HEADER_SIZE = 3;
     int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
 
@@ -150,13 +150,14 @@ BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ..
 template<int MAX_ARGUMENTS_COUNT>
 BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int count, ...) {
     const int HEADER_SIZE = 2;
-    int stack;
     int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
 
     if (count > MAX_ARGUMENTS_COUNT) {
         count = MAX_ARGUMENTS_COUNT;
     }
-    args[0] = ((uintptr_t)&stack) & INTMAX_MAX;
+
+    void *retAddress = __builtin_extract_return_addr(__builtin_return_address(0));
+    args[0] = ((uintptr_t)retAddress) & INTMAX_MAX;
     args[1] = count;
     va_list ap;
     va_start(ap, count);

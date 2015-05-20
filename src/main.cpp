@@ -406,17 +406,6 @@ const int SUM = sum(1, 2, 3, 4, 5);
 
 
 
-void sendData(const int *data, int count) {
-    for (int i = 0;i < count;i++) {
-        cout << data[i] << " ";
-    }
-}
-
-
-void testBinaryLog(void) {
-    LOG_INFO("This is info %d %d", 1, 2);
-    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
-}
 
 const int TIMERS_COUNT = 3;
 const int TIMERS_SIZE = 3;
@@ -429,6 +418,20 @@ void testHardwareTimers(void) {
         myHardwareTimers[i].start();
     }
 }
+
+void sendData(const int *data, int count) {
+    for (int i = 0;i < count;i++) {
+        cout << hex << data[i] << " ";
+    }
+    cout << endl;
+}
+
+void testBinaryLog(void) {
+    LOG_INFO("This is info %d %d", 1, 2);
+    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
+}
+
+
 
 int main()
 {
