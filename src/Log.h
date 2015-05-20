@@ -68,6 +68,7 @@ template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
 public:
     BinaryLog(int fileId, int line, int count, ...);
     BinaryLog(void *address, int line, int count, ...);
+    BinaryLog(int count, ...);
 };
 
 template<int MAX_ARGUMENTS_COUNT>
@@ -142,4 +143,38 @@ BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ..
 #define LOG_ERROR(fmt, ...) {\
         LABEL:\
         BinaryLog<3>(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+}
+
+
+
+template<int MAX_ARGUMENTS_COUNT>
+BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int count, ...) {
+    const int HEADER_SIZE = 2;
+    int stack;
+    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
+
+    if (count > MAX_ARGUMENTS_COUNT) {
+        count = MAX_ARGUMENTS_COUNT;
+    }
+    args[0] = ((uintptr_t)&stack) & INTMAX_MAX;
+    args[1] = count;
+    va_list ap;
+    va_start(ap, count);
+    int arguments = count+HEADER_SIZE;
+    for (int j=HEADER_SIZE; j < arguments; j++) {
+        args[j] = va_arg(ap, int);
+    }
+    va_end(ap);
+    sendData(args, arguments);
+}
+
+#undef LOG_INFO
+#undef LOG_ERROR
+
+#define LOG_INFO(fmt, ...) {  \
+        BinaryLog<3>(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
+}
+
+#define LOG_ERROR(fmt, ...) {\
+        BinaryLog<3>(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
 }

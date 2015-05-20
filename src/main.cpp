@@ -432,7 +432,7 @@ void testHardwareTimers(void) {
 
 int main()
 {
-    testHardwareTimers();
+//    testHardwareTimers();
     testBinaryLog();
     return 0;
 }
