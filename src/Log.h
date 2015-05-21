@@ -67,6 +67,11 @@ void sendData(const int data) {
 }
 void sendDataStart() {cout << endl;}
 void sendDataEnd() {cout << endl;}
+void sendData(const int *data, int count) {
+    for (int i = 0;i < count;i++) {
+        cout << hex << data[i] << " ";
+    }
+}
 
 class BinaryLog {
 public:

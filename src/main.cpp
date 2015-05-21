@@ -419,11 +419,6 @@ void testHardwareTimers(void) {
     }
 }
 
-void sendData(const int *data, int count) {
-    for (int i = 0;i < count;i++) {
-        cout << hex << data[i] << " ";
-    }
-}
 
 
 
