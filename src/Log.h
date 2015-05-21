@@ -62,41 +62,38 @@ const Log LogError("ERROR");
 #define LOG_INFO(fmt, ...) LogInfo.print(__LINE__, fmt, ##__VA_ARGS__ )
 #define LOG_ERROR(fmt, ...) LogError.print(__LINE__, fmt, ##__VA_ARGS__ )
 
-extern void sendData(const int *data, int count);
+void sendData(const int data) {
+    cout << hex << data << " ";
+}
+void sendDataStart() {cout << endl;}
+void sendDataEnd() {cout << endl;}
 
-template<int MAX_ARGUMENTS_COUNT> class BinaryLog {
+class BinaryLog {
 public:
-    BinaryLog(char *, int fileId, int line, int count, ...);
+    BinaryLog(int fileId, int line, int count, ...);
     BinaryLog(void *address, int line, int count, ...);
     BinaryLog(int count, ...);
 };
 
-template<int MAX_ARGUMENTS_COUNT>
-BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(char *c, int fileId, int line, int count, ...) {
-    const int HEADER_SIZE = 3;
-    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
 
-    if (count > MAX_ARGUMENTS_COUNT) {
-        count = MAX_ARGUMENTS_COUNT;
-    }
-    args[0] = fileId;
-    args[1] = line;
-    args[2] = count;
+BinaryLog::BinaryLog(int fileId, int line, int count, ...) {
+    const int HEADER_SIZE = 3;
+    int header[HEADER_SIZE];
+
+    header[0] = fileId;
+    header[1] = line;
+    header[2] = count;
+    sendDataStart();
+    sendData(header, HEADER_SIZE);
     va_list ap;
     va_start(ap, count);
-    int arguments = count+HEADER_SIZE;
-    for (int j=HEADER_SIZE; j < arguments; j++) {
-        args[j] = va_arg(ap, int);
+    for (int j=0; j < count; j++) {
+        int arg = va_arg(ap, int);
+        sendData(arg);
     }
     va_end(ap);
-    sendData(args, arguments);
+    sendDataEnd();
 }
-
-#define ARGUMENTS_COUNT(...)  (sizeof((int[]){__VA_ARGS__})/sizeof(int))
-#undef LOG_INFO
-#undef LOG_ERROR
-#define LOG_INFO(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
-#define LOG_ERROR(fmt, ...) BinaryLog<3>(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
 
 constexpr int hashData(const char* s, int accumulator) {
     return *s ? hashData(s + 1, (accumulator << 1) | *s) : accumulator;
@@ -108,24 +105,35 @@ constexpr int hashMetafunction(const char* s) {
 
 constexpr int FILE_ID = hashMetafunction(__FILE__);
 
-template<int MAX_ARGUMENTS_COUNT>
-BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ...) {
-    const int HEADER_SIZE = 2;
-    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
+#define ARGUMENTS_COUNT(...)  (sizeof((int[]){__VA_ARGS__})/sizeof(int))
+#undef LOG_INFO
+#undef LOG_ERROR
+#define LOG_INFO(fmt, ...) BinaryLog(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
+#define LOG_ERROR(fmt, ...) BinaryLog(FILE_ID, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ )
 
-    if (count > MAX_ARGUMENTS_COUNT) {
-        count = MAX_ARGUMENTS_COUNT;
-    }
-    args[0] = ((uintptr_t)address) & INTMAX_MAX;
-    args[1] = count;
+void testBinaryLog1(void) {
+    LOG_INFO("This is info %d %d", 1, 2);
+    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
+}
+
+
+
+BinaryLog::BinaryLog(void *address, int line, int count, ...) {
+    const int HEADER_SIZE = 2;
+    int header[HEADER_SIZE];
+
+    header[0] = ((uintptr_t)address) & INTMAX_MAX;
+    header[1] = count;
+    sendDataStart();
+    sendData(header, HEADER_SIZE);
     va_list ap;
     va_start(ap, count);
-    int arguments = count+HEADER_SIZE;
-    for (int j=HEADER_SIZE; j < arguments; j++) {
-        args[j] = va_arg(ap, int);
+    for (int j=0; j < count; j++) {
+        int arg = va_arg(ap, int);
+        sendData(arg);
     }
     va_end(ap);
-    sendData(args, arguments);
+    sendDataEnd();
 }
 
 #undef LOG_INFO
@@ -137,78 +145,60 @@ BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(void *address, int line, int count, ..
 
 #define LOG_INFO(fmt, ...) {  \
         LABEL:\
-        BinaryLog<3>(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
+        BinaryLog(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
 }
 
 #define LOG_ERROR(fmt, ...) {\
         LABEL:\
-        BinaryLog<3>(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+        BinaryLog(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
 }
 
-
-
-template<int MAX_ARGUMENTS_COUNT>
-BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int count, ...) {
-    const int HEADER_SIZE = 2;
-    int args[MAX_ARGUMENTS_COUNT+HEADER_SIZE];
-
-    if (count > MAX_ARGUMENTS_COUNT) {
-        count = MAX_ARGUMENTS_COUNT;
-    }
-
-    void *retAddress = __builtin_extract_return_addr(__builtin_return_address(0));
-    args[0] = ((uintptr_t)retAddress) & INTMAX_MAX;
-    args[1] = count;
-    va_list ap;
-    va_start(ap, count);
-    int arguments = count+HEADER_SIZE;
-    for (int j=HEADER_SIZE; j < arguments; j++) {
-        args[j] = va_arg(ap, int);
-    }
-    va_end(ap);
-    sendData(args, arguments);
-}
-
-#undef LOG_INFO
-#undef LOG_ERROR
-
-#define LOG_INFO(fmt, ...) {  \
-        BinaryLog<3>(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
-}
-
-#define LOG_ERROR(fmt, ...) {\
-        BinaryLog<3>(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+void testBinaryLog2(void) {
+    LOG_INFO("This is info %d %d", 1, 2);
+    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
 }
 
 
 class FastLog {
 public:
-    FastLog(int count, ...) {
-        const int HEADER_SIZE = 2;
-        int header[HEADER_SIZE];
-
-        void *retAddress = __builtin_extract_return_addr(__builtin_return_address(0));
-        header[0] = ((uintptr_t)retAddress) & INTMAX_MAX;
-        header[1] = count;
-        uint64_t *argAddress = (uint64_t *)&count;
-        int arguments = count+HEADER_SIZE;
-        //sendData(header, 2);
-        for (int i =-20;i < 20;i++) {
-            cout << hex << argAddress[i] << ",";
-        }
-        //sendData(argAddress+1, count);
-    }
+    FastLog(int count, ...);
 };
+
+FastLog::FastLog(int count, ...) {
+    const int HEADER_SIZE = 2;
+    int header[HEADER_SIZE];
+
+    void *retAddress =
+       __builtin_extract_return_addr(
+       __builtin_return_address(0));
+    header[0] = ((uintptr_t)retAddress) & INTMAX_MAX;
+    header[1] = count;
+    sendDataStart();
+    sendData(header, 2);
+    va_list ap;
+    va_start(ap, count);
+    for (int j=0; j < count; j++) {
+        int arg = va_arg(ap, int);
+        sendData(arg);
+    }
+    va_end(ap);
+    sendDataEnd();
+}
 
 
 
 #undef LOG_INFO
 #undef LOG_ERROR
 
-#define LOG_INFO(fmt, ...) {  \
-        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
-}
+#define LOG_INFO(fmt, ...) \
+        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );
 
-#define LOG_ERROR(fmt, ...) {\
-        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+
+#define LOG_ERROR(fmt, ...) \
+        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );
+
+
+void testBinaryLog3(void) {
+    LOG_INFO("This is info %d %d", 1, 2);
+    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
 }

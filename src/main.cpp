@@ -423,12 +423,6 @@ void sendData(const int *data, int count) {
     for (int i = 0;i < count;i++) {
         cout << hex << data[i] << " ";
     }
-    cout << endl;
-}
-
-void testBinaryLog(void) {
-    LOG_INFO("This is info %d %d", 1, 2);
-    LOG_ERROR("This is error %d %d %d", 0, 1, 2);
 }
 
 
@@ -436,6 +430,6 @@ void testBinaryLog(void) {
 int main()
 {
 //    testHardwareTimers();
-    testBinaryLog();
+    testBinaryLog3();
     return 0;
 }
