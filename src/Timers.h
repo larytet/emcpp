@@ -127,20 +127,20 @@ public:
 
     inline void start();
 
-    inline void setApplicationData(uintptr_t applicationData);
-
     inline uintptr_t getApplicationData() const;
 
-    void setId(TimerID id);
-
-    void setStartTime(SystemTime systemTime);
-
 protected:
+
+    friend class TimerList;
 
     TimerID id;
     uintptr_t applicationData;
     bool running;
     SystemTime startTime;
+
+    inline void setApplicationData(uintptr_t applicationData);
+    inline void setId(TimerID id);
+    inline void setStartTime(SystemTime systemTime);
 };
 
 Timer::Timer() {

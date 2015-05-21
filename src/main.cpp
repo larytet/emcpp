@@ -356,7 +356,7 @@ static void mainExpirationHandler(const Timer& timer) {
 
 TimerLockDummy timerLock;
 static TimerList timerList(3, 3, mainExpirationHandler, timerLock);
-int mainExample13()
+int testTimer()
 {
     SystemTime currentTime = 0;
     for (int i = 0;i < 3;i++) {
@@ -425,6 +425,7 @@ void testHardwareTimers(void) {
 int main()
 {
 //    testHardwareTimers();
-    testBinaryLog3();
+//    testBinaryLog3();
+    testTimer();
     return 0;
 }
