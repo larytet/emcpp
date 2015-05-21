@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-21T14:21:26</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P6DT18H43M10S</meta:editing-duration><meta:editing-cycles>2263</meta:editing-cycles><meta:generator>LibreOffice/3.5$Linux_X86_64 LibreOffice_project/350m1$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="157" meta:paragraph-count="1695" meta:word-count="12305" meta:character-count="87085" meta:non-whitespace-character-count="70928"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-21T17:14:53</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P6DT18H44M45S</meta:editing-duration><meta:editing-cycles>2268</meta:editing-cycles><meta:generator>LibreOffice/3.5$Linux_X86_64 LibreOffice_project/350m1$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="157" meta:paragraph-count="1696" meta:word-count="12326" meta:character-count="87199" meta:non-whitespace-character-count="71025"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">29580</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">2705158</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">23650</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">10358</config:config-item>
@@ -14,11 +14,11 @@
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
      <config:config-item config:name="ViewLeft" config:type="long">3030</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">32646</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">2707084</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">29580</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">2705158</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">23648</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">39936</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">2715514</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -494,20 +494,6 @@
   <style:style style:name="P52" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P53" style:family="paragraph" style:parent-style-name="Contents_20_2">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P54" style:family="paragraph" style:parent-style-name="Contents_20_1">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties fo:color="#3f7f5f"/>
   </style:style>
@@ -821,29 +807,29 @@
      <text:index-title text:style-name="Sect2" text:name="Table of Contents1_Head">
       <text:p text:style-name="Contents_20_Heading">Contents</text:p>
      </text:index-title>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>13</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>14</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>25</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>41</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>68</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>77</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>89</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>93</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>94</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>96</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>99</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>100</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>109</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>112</text:a></text:p>
-     <text:p text:style-name="P53"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>134</text:a></text:p>
-     <text:p text:style-name="P54"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>157</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>14</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>25</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>32</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>41</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>66</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>77</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>89</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>93</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>94</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>96</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>99</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>100</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>109</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>112</text:a></text:p>
+     <text:p text:style-name="P32"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>134</text:a></text:p>
+     <text:p text:style-name="P33"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>157</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:h text:style-name="P49" text:outline-level="1"/>
@@ -1916,7 +1902,7 @@
    <text:p text:style-name="Text_20_body">There are 5 32 bits I/Os like this called A, B, C, D, E, F in the microcontroller. The registers are mapped starting at the address 0xFFFFF200. User shall write 1 to the bit she wishes to modify in a write-only registers. For example, user will write 0x04 to PIO_SODR – set the output value first, PIO_PER, PIO_OER to drive pin 2 (zero based) of the PIO high. Write to the PIO registers is an atomic operation. The hardware interface allows to change the configuration of a single bit in a thread safe manner. Hardware provides convenient status registers which keep the current value of the registers, also called a shadow.</text:p>
    <text:h text:style-name="P51" text:outline-level="2"/>
    <text:h text:style-name="P37" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8080_1329019087"/>I/O access in C.<text:bookmark-end text:name="__RefHeading__8080_1329019087"/></text:h>
-   <text:p text:style-name="Quotations">&quot;Writing in C or C++ is like running a chain saw with all the safety guards removed,&quot;    <text:span text:style-name="Citation">— Bob Gray.</text:span></text:p>
+   <text:p text:style-name="Quotations">&quot;Writing in C or C++ is like running a chain saw with all the safety guards removed,&quot; - <text:span text:style-name="Citation">Bob Gray.</text:span></text:p>
    <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body">I am providing quick and dirty C implementation. Macro RESERVED demonstrates a neat trick to generate unique identifier name. </text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T14"> TOKEN_CAT(x, y) x </text:span><text:span text:style-name="T5">##</text:span><text:span text:style-name="T14"> y</text:span></text:p>
@@ -2217,6 +2203,8 @@
    <text:p text:style-name="Text_20_body">Function main() contains only one output. Entity responsible for initializing of the C++ object helloWorld and printing the first line is an object loader running in my operating system. In case of the embedded systems this code is usually part of the boot process. Constructor of the HelloWorld class is text and appears only once in the ROM. Arguments of the cout – the strings can exist in two places in the memory. Original or master copy is in the ROM and a second copy created by the loader is in the RAM. Pointer “this” which contains address of the statically allocated object helloWorld has two copies too. There is an initialization value for “this” pointer in the ROM and “this” pointer in the RAM. <text:s/>Size allocated by helloWorld object in the ROM of 32 bits CPU is at least 4 bytes of “this” and 14 bytes of zero terminated string. Linker script is responsible for correct placement of different sections of the code and data. If the CPU can not access data stored in the code memory linker script should contain relevant allocation instructions. Specifically place for the constant data section will be allocated two times – in the code ROM address space and in the RAM. <text:s/></text:p>
    <text:p text:style-name="Text_20_body">In a typical case a linker script will add global variables which reference start and end address of the not initialized data section(s) “bss”, initialize data and table of “ctor” functions. Usually ctor section is a table or tables of functions which the boot code calls to initialize static C++ objects. See your linker documentation for details.</text:p>
    <text:h text:style-name="P37" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7954_2007975351"/>ROM patching.<text:bookmark-end text:name="__RefHeading__7954_2007975351"/></text:h>
+   <text:p text:style-name="Quotations">Programming is a lot like sex. One mistake and you&apos;re providing support for a lifetime.</text:p>
+   <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body">I want to prepare the constructor code for a patch in the future. I will check some well known address in the RAM. If there is a non-zero entry I will use the string from there, if not I will print the default value – the ROMed one.</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="P38"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T14"> </text:span><text:span text:style-name="T5">char</text:span><text:span text:style-name="T14"> *helloWorldStr = 0;</text:span></text:p>
@@ -3105,8 +3093,8 @@
    <text:p text:style-name="Text_20_body"/>
    <text:h text:style-name="P49" text:outline-level="1"/>
    <text:h text:style-name="P36" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__12016_732733800"/>Conclusion.<text:bookmark-end text:name="__RefHeading__12016_732733800"/></text:h>
-   <text:p text:style-name="Quotations">Programming is a lot like sex. One mistake and you&apos;re providing support for a lifetime.</text:p>
-   <text:p text:style-name="Text_20_body"/>
+   <text:p text:style-name="Quotations">You have delighted us long enough. Let the other young ladies have time to exhibit - Jane Austen, Pride and Prejudice</text:p>
+   <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body">I hope you have found the book interesting and worth the time and money spent. This book gets updates often. You can always get the updated version by turning “Automatic Update” on in the “Manage Your Content and Devices”. </text:p>
    <text:p text:style-name="Text_20_body">Please let me know what do you think or ask questions – my e-mail <text:a xlink:type="simple" xlink:href="mailto:larytet@yahoo.com?subject=C++%20for%20embedded%20systems:%20...">mailto:arkady.miasnikov@gmail.com?subject=C++ for embedded systems: …</text:a></text:p>
    <text:p text:style-name="Text_20_body">Thank you, Arkady.</text:p>
