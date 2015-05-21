@@ -179,3 +179,36 @@ BinaryLog<MAX_ARGUMENTS_COUNT>::BinaryLog(int count, ...) {
 #define LOG_ERROR(fmt, ...) {\
         BinaryLog<3>(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
 }
+
+
+class FastLog {
+public:
+    FastLog(int count, ...) {
+        const int HEADER_SIZE = 2;
+        int header[HEADER_SIZE];
+
+        void *retAddress = __builtin_extract_return_addr(__builtin_return_address(0));
+        header[0] = ((uintptr_t)retAddress) & INTMAX_MAX;
+        header[1] = count;
+        uint64_t *argAddress = (uint64_t *)&count;
+        int arguments = count+HEADER_SIZE;
+        //sendData(header, 2);
+        for (int i =-20;i < 20;i++) {
+            cout << hex << argAddress[i] << ",";
+        }
+        //sendData(argAddress+1, count);
+    }
+};
+
+
+
+#undef LOG_INFO
+#undef LOG_ERROR
+
+#define LOG_INFO(fmt, ...) {  \
+        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
+}
+
+#define LOG_ERROR(fmt, ...) {\
+        FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+}
