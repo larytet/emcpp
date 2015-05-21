@@ -125,8 +125,6 @@ public:
 
     inline void stop();
 
-    inline void start();
-
     inline uintptr_t getApplicationData() const;
 
 protected:
@@ -138,6 +136,7 @@ protected:
     bool running;
     SystemTime startTime;
 
+    inline void start();
     inline void setApplicationData(uintptr_t applicationData);
     inline void setId(TimerID id);
     inline void setStartTime(SystemTime systemTime);
