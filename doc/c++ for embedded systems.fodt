@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-22T15:53:52.058612655</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P7DT1H9M13S</meta:editing-duration><meta:editing-cycles>2299</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="162" meta:paragraph-count="1729" meta:word-count="12563" meta:character-count="89177" meta:non-whitespace-character-count="72630"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-22T17:04:17.305051439</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P7DT2H19M35S</meta:editing-duration><meta:editing-cycles>2304</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="162" meta:paragraph-count="1729" meta:word-count="12581" meta:character-count="89273" meta:non-whitespace-character-count="72708"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">397237</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">424404</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">22661</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">11262</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">5604</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">402135</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">7191</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">432832</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">397237</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">424404</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">22659</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">408497</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">435665</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -521,43 +521,46 @@
    <style:text-properties officeooo:paragraph-rsid="00147669"/>
   </style:style>
   <style:style style:name="P56" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:break-before="page"/>
-   <style:text-properties officeooo:rsid="0012962e" officeooo:paragraph-rsid="0012962e"/>
+   <style:text-properties officeooo:rsid="00147669" officeooo:paragraph-rsid="00147669"/>
   </style:style>
   <style:style style:name="P57" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties officeooo:rsid="0012962e" officeooo:paragraph-rsid="0012962e"/>
+  </style:style>
+  <style:style style:name="P58" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:rsid="0012962e" officeooo:paragraph-rsid="00147669"/>
   </style:style>
-  <style:style style:name="P58" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
-  <style:style style:name="P59" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P59" style:family="paragraph" style:parent-style-name="Heading_20_1" style:list-style-name=""/>
+  <style:style style:name="P60" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P60" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
-  <style:style style:name="P61" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
+  <style:style style:name="P61" style:family="paragraph" style:parent-style-name="Heading_20_2" style:list-style-name=""/>
   <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
-   <style:text-properties officeooo:rsid="0012962e"/>
   </style:style>
   <style:style style:name="P63" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties officeooo:rsid="0012962e"/>
+  </style:style>
+  <style:style style:name="P64" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:paragraph-rsid="0012962e"/>
   </style:style>
-  <style:style style:name="P64" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
+  <style:style style:name="P65" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
    <style:text-properties officeooo:paragraph-rsid="0012962e"/>
   </style:style>
-  <style:style style:name="P65" style:family="paragraph" style:parent-style-name="Quotations">
+  <style:style style:name="P66" style:family="paragraph" style:parent-style-name="Quotations">
    <style:text-properties officeooo:rsid="0012962e" officeooo:paragraph-rsid="00147669"/>
   </style:style>
-  <style:style style:name="P66" style:family="paragraph" style:parent-style-name="Contents_20_1">
+  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Contents_20_1">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Contents_20_2">
+  <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Contents_20_2">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="6.9252in" style:type="right" style:leader-style="dotted" style:leader-text="."/>
@@ -904,33 +907,33 @@
      <text:index-title text:style-name="Sect2" text:name="Table of Contents1_Head">
       <text:p text:style-name="Contents_20_Heading">Contents</text:p>
      </text:index-title>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__14882_1513893511" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Parallel execution.<text:tab/>13</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>17</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>18</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>29</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>36</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>45</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>67</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>70</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>72</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>81</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>93</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>98</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>99</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>101</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>104</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>105</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>114</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>117</text:a></text:p>
-     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>139</text:a></text:p>
-     <text:p text:style-name="P66"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>162</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2313_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Introduction.<text:tab/>3</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__13919_1660174531" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ code style.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__2315_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software primitives.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__10716_42486590" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Mutual exclusion.<text:tab/>4</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__14882_1513893511" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Parallel execution.<text:tab/>13</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__2317_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Containers.<text:tab/>17</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__2535_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer.<text:tab/>18</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__2537_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Cyclic buffer – C alternative.<text:tab/>29</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__2646_977618933" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ templates in embedded systems.<text:tab/>36</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__2948_1515059145" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Memory Management.<text:tab/>45</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__12039_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operator new.<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__12421_1005710029" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Hardware.<text:tab/>70</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__8080_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C.<text:tab/>72</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__8082_1329019087" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I/O access in C++.<text:tab/>81</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__11237_696237465" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Indirect I/O access.<text:tab/>93</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__7726_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Code ROM and data RAM.<text:tab/>98</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__7728_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C++ Initialized data.<text:tab/>99</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__7954_2007975351" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ROM patching.<text:tab/>101</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__12357_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Operating system.<text:tab/>104</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__13575_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Static (class) member.<text:tab/>105</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__13577_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Non static member.<text:tab/>114</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__14433_1195782936" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Log.<text:tab/>117</text:a></text:p>
+     <text:p text:style-name="P68"><text:a xlink:type="simple" xlink:href="#__RefHeading__14278_363426044" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Software Timers.<text:tab/>139</text:a></text:p>
+     <text:p text:style-name="P67"><text:a xlink:type="simple" xlink:href="#__RefHeading__12016_732733800" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Conclusion.<text:tab/>162</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:h text:style-name="P58" text:outline-level="1"/>
+   <text:h text:style-name="P59" text:outline-level="1"/>
    <text:h text:style-name="P38" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__2313_977618933"/>Introduction.<text:bookmark-end text:name="__RefHeading__2313_977618933"/></text:h>
    <text:p text:style-name="Quotations">I&apos;ve come to the conclusion that any programmer that would prefer the project to be in C++ over C is likely a programmer that I really would prefer to piss off, so that he doesn&apos;t come and screw up any project I&apos;m involved with.</text:p>
    <text:p text:style-name="P30">Linus Torvalds</text:p>
@@ -1042,42 +1045,42 @@
    <text:p text:style-name="Preformatted_20_Text">}</text:p>
    <text:p text:style-name="Text_20_body">Overhead of the wrapper around the functions which disable and enable interrupts is exactly zero. Indeed if I check the disassembly I will see two calls to the print function in the main routine and nothing else. I got some C++ code which gets optimized to nothing. What did I gain? What is an added value? </text:p>
    <text:p text:style-name="Text_20_body">The code does not allow me to leave out calling enable interrupts after I called disable interrupt. No matter how many return points or breaks out of a loop my function has C++ compiler ensures that the function interruptEnable is called exactly once. I will return to the synchronization objects later in this book. </text:p>
-   <text:h text:style-name="P63" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__14882_1513893511"/>Parallel execution.<text:bookmark-end text:name="__RefHeading__14882_1513893511"/></text:h>
-   <text:p text:style-name="P65">Some people, when confronted with a problem, think, &apos;I know, I&apos;ll use threads&apos; - and then two they hav erpoblems.</text:p>
-   <text:p text:style-name="P65"/>
+   <text:h text:style-name="P64" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__14882_1513893511"/>Parallel execution.<text:bookmark-end text:name="__RefHeading__14882_1513893511"/></text:h>
+   <text:p text:style-name="P66">Some people, when confronted with a problem, think, &apos;I know, I&apos;ll use threads&apos; - and then two they hav erpoblems.</text:p>
+   <text:p text:style-name="P66"/>
    <text:p text:style-name="P54">I have a quad core Intel system. I want to run my encryption algorithm in parallel using two of the four available cores. Because execution time is well under 1ms on my platform <text:span text:style-name="T73">thread API provided by the operating system</text:span> involves too much of overhead. Fortunately <text:span text:style-name="T73">I can use GCC 4.8 on my system – a </text:span>compiler which <text:span text:style-name="T73">supports </text:span>OpenMP. </text:p>
-   <text:p text:style-name="P57">My encryption function <text:span text:style-name="T73">is trivial – it </text:span>copies data from the source to the destination:</text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">encrypt</text:span><text:span text:style-name="T15">(</text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> idx, </text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *src, </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *dst, </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> size) {</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T46">memcpy</text:span><text:span text:style-name="T15">(dst, src, size);</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/>cout &lt;&lt; </text:span><text:span text:style-name="T41">&quot;Completed &quot;</text:span><text:span text:style-name="T15"> &lt;&lt; dec &lt;&lt; idx &lt;&lt; </text:span><text:span text:style-name="T46">endl</text:span><text:span text:style-name="T15">;</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15">}</text:span></text:p>
+   <text:p text:style-name="P58">My encryption function <text:span text:style-name="T73">is trivial – it </text:span>copies data from the source to the destination:</text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">encrypt</text:span><text:span text:style-name="T15">(</text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> idx, </text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *src, </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *dst, </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> size) {</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T46">memcpy</text:span><text:span text:style-name="T15">(dst, src, size);</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/>cout &lt;&lt; </text:span><text:span text:style-name="T41">&quot;Completed &quot;</text:span><text:span text:style-name="T15"> &lt;&lt; dec &lt;&lt; idx &lt;&lt; </text:span><text:span text:style-name="T46">endl</text:span><text:span text:style-name="T15">;</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15">}</text:span></text:p>
    <text:p text:style-name="P51"/>
    <text:p text:style-name="P52"><text:span text:style-name="T72">Encrypt packet executes the encryption for two blocks of the packet in parallel. GCC adds some assembler code to my executable which will create a “team” of threads. GCC will take care to execute two calls to “encrypt” in two different threads and wait for completion of both threads before return from the function.</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">encryptPacket</text:span><text:span text:style-name="T15">(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *src, </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *dst, </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> size) {</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> blockSize = size/2;</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T5">#pragma</text:span><text:span text:style-name="T15"> omp parallel sections</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/>{</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="8"/>encrypt(0, src, dst, blockSize);</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="8"/></text:span><text:span text:style-name="T5">#pragma</text:span><text:span text:style-name="T15"> omp section</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="8"/>encrypt(1, src+blockSize, dst+blockSize, blockSize);</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/>}</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15">}</text:span></text:p>
-   <text:p text:style-name="P53"/>
-   <text:p text:style-name="P56">In the usage example I don&apos;t initialize arrays for sake or brevity:</text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">testOpenMP</text:span><text:span text:style-name="T15">() {</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> packet[1024];</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> encPacket[1024];</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15"><text:s text:c="4"/>encryptPacket(packet, encPacket, </text:span><text:span text:style-name="T5">sizeof</text:span><text:span text:style-name="T15">(encPacket));</text:span></text:p>
-   <text:p text:style-name="P64"><text:span text:style-name="T15">}</text:span></text:p>
-   <text:p text:style-name="P53">The code above on my system generates two lines</text:p>
-   <text:p text:style-name="P64">Completed Completed 01</text:p>
-   <text:p text:style-name="P64"><text:s text:c="22"/></text:p>
-   <text:p text:style-name="Text_20_body">I need a <text:span text:style-name="T73">mutual exclusion for the threads running on different cores.</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T5">static</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">inline</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">encryptPacket</text:span><text:span text:style-name="T15">(</text:span><text:span text:style-name="T5">const</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *src, </text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> *dst, </text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> size) {</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T5">int</text:span><text:span text:style-name="T15"> blockSize = size/2;</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T5">#pragma</text:span><text:span text:style-name="T15"> omp parallel sections</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/>{</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="8"/>encrypt(0, src, dst, blockSize);</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="8"/></text:span><text:span text:style-name="T5">#pragma</text:span><text:span text:style-name="T15"> omp section</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="8"/>encrypt(1, src+blockSize, dst+blockSize, blockSize);</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/>}</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15">}</text:span></text:p>
+   <text:p text:style-name="P56"/>
+   <text:p text:style-name="P57">In the usage example I don&apos;t initialize arrays for sake or brevity:</text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T5">void</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T17">testOpenMP</text:span><text:span text:style-name="T15">() {</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> packet[1024];</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T34">uint8_t</text:span><text:span text:style-name="T15"> encPacket[1024];</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15"><text:s text:c="4"/>encryptPacket(packet, encPacket, </text:span><text:span text:style-name="T5">sizeof</text:span><text:span text:style-name="T15">(encPacket));</text:span></text:p>
+   <text:p text:style-name="P65"><text:span text:style-name="T15">}</text:span></text:p>
+   <text:p text:style-name="P53"><text:span text:style-name="T73">If I add compilation flag -fopenmp to the build rule t</text:span>he code above generates <text:span text:style-name="T73">on my system </text:span>two lines</text:p>
+   <text:p text:style-name="P65">Completed Completed 01</text:p>
+   <text:p text:style-name="P65"><text:s text:c="22"/></text:p>
+   <text:p text:style-name="P55">I need a <text:span text:style-name="T73">mutual exclusion for the threads running on different cores. Lock which uses OpenMP can look like this:</text:span></text:p>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2317_977618933"/>Containers.<text:bookmark-end text:name="__RefHeading__2317_977618933"/></text:h>
    <text:p text:style-name="Quotations">When your hammer is C++, everything begins to look like a thumb.</text:p>
    <text:p text:style-name="P29"/>
    <text:p text:style-name="Text_20_body">C++ is all about containers. Standard template library (STL) contains a lot of very smart and convenient code dealing with vectors, stacks, queues, hash tables, trees and many other types of dynamic and static data storage. Unfortunately a firmware developer frequently needs something very different. In some cases high performance and small code/data footprint should coexist in one application. In this chapter I will demonstrate a container which makes sense in an embedded environment with limited resources. The API should be reentrant and allow safe concurrent access. The performance of the container is going to be at least not worse than a C alternative. All my allocations are going to be static and done at build time – I will deal with the dynamic allocation later in this book. </text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2535_977618933"/>Cyclic buffer.<text:bookmark-end text:name="__RefHeading__2535_977618933"/></text:h>
    <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body"/>
@@ -1229,7 +1232,7 @@
    <text:p text:style-name="P16"/>
    <text:p text:style-name="Text_20_body">I see a couple of move instructions – update of the tail and update of the data in the cyclic buffer, a compare when the tail is incremented. There are 9 opcodes total. There is no unexpected overhead in this code. </text:p>
    <text:p text:style-name="Text_20_body">I coded one cyclic buffer implementation, but I gained four different cyclic buffers optimized for four different integer types and equally efficient when working with 8, 16, 32, 64 bits integers on different CPUs. Class CyclicBuffer encapsulates the data in the private region making it accessible only via the class methods and this is a good thing. </text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2537_977618933"/>Cyclic buffer – C alternative.<text:bookmark-end text:name="__RefHeading__2537_977618933"/></text:h>
    <text:p text:style-name="Quotations">/**</text:p>
    <text:p text:style-name="Quotations"><text:s/>* Returns true</text:p>
@@ -1364,7 +1367,7 @@
    <text:p text:style-name="P16">mov <text:s text:c="3"/>%r8,0x20099c(%rip)</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">xor</text:span><text:span text:style-name="T15"> <text:s text:c="3"/>%r12d,%r12d</text:span></text:p>
    <text:p text:style-name="Text_20_body">Performance of C and C++ versions measured on Intel is the same. </text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2646_977618933"/>C++ templates in embedded systems.<text:bookmark-end text:name="__RefHeading__2646_977618933"/></text:h>
    <text:p text:style-name="Quotations">To understand what recursion is, you must first understand recursion.</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -1490,7 +1493,7 @@
    <text:p text:style-name="P16">{</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T15"><text:s text:c="4"/>cout &lt;&lt; </text:span><text:span text:style-name="T41">&quot;SUM=&quot;</text:span><text:span text:style-name="T15"> &lt;&lt; SUM &lt;&lt; </text:span><text:span text:style-name="T46">endl</text:span><text:span text:style-name="T15">;</text:span></text:p>
    <text:p text:style-name="P16">}</text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__2948_1515059145"/>Memory Management.<text:bookmark-end text:name="__RefHeading__2948_1515059145"/></text:h>
    <text:p text:style-name="Quotations">Programming is like sex, one mistake and you have to support it for the rest of your life. </text:p>
    <text:p text:style-name="Quotations"/>
@@ -1580,7 +1583,7 @@
    <text:p text:style-name="P16"><text:s text:c="4"/>}</text:p>
    <text:p text:style-name="P16">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:p text:style-name="P36">My next step is to define a block of “raw” data memory. A block of memory is a correctly aligned array of bytes which optionally can be placed at a specific memory address. One popular application for such memory blocks are data buffers for DMA transfers. Data buffer can be placed in the regular RAM or in the dedicated address space. First I define a memory region. I use operator “new” - a placement new operator - to “place” the data at the specified address. My memory region has a name for debug purposes. A region address is of type uintptr_t - an unsigned integer that is capable of storing a pointer.</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="P40"><text:span text:style-name="T5">class</text:span><text:span text:style-name="T15"> </text:span><text:span text:style-name="T34">MemoryRegion</text:span><text:span text:style-name="T15"> {</text:span></text:p>
@@ -2028,7 +2031,7 @@
    </table:table>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body">There are 5 32 bits I/Os like this called A, B, C, D, E, F in the microcontroller. The registers are mapped starting at the address 0xFFFFF200. User shall write 1 to the bit she wishes to modify in a write-only registers. For example, user will write 0x04 to PIO_SODR – set the output value first, PIO_PER, PIO_OER to drive pin 2 (zero based) of the PIO high. Write to the PIO registers is an atomic operation. The hardware interface allows to change the configuration of a single bit in a thread safe manner. Hardware provides convenient status registers which keep the current value of the registers, also called a shadow.</text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8080_1329019087"/>I/O access in C.<text:bookmark-end text:name="__RefHeading__8080_1329019087"/></text:h>
    <text:p text:style-name="Quotations">&quot;Writing in C or C++ is like running a chain saw with all the safety guards removed,&quot; - <text:span text:style-name="Citation">Bob Gray.</text:span></text:p>
    <text:p text:style-name="Quotations"/>
@@ -2134,7 +2137,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">8660:</text:span><text:span text:style-name="T15"><text:tab/>e5832060 <text:tab/>str<text:tab/>r2, [r3, #96]</text:span></text:p>
    <text:p text:style-name="P16">pio-&gt;PIO_OER = mask;</text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">8664:</text:span><text:span text:style-name="T15"><text:tab/>e5832070 <text:tab/>str<text:tab/>r2, [r3, #112]</text:span></text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8082_1329019087"/>I/O access in C++.<text:bookmark-end text:name="__RefHeading__8082_1329019087"/></text:h>
    <text:p text:style-name="Quotations">&quot;C(++) is a write-only, high-level assembler language.&quot; <text:span text:style-name="Citation">— Stefan Van Baelen.</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -2263,7 +2266,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T34">uint32_t</text:span><text:span text:style-name="T15"> per = hardwarePIO.getInterface(</text:span><text:span text:style-name="T34">HardwarePIO</text:span><text:span text:style-name="T15">::</text:span><text:span text:style-name="T57">A</text:span><text:span text:style-name="T15">).</text:span><text:span text:style-name="T56">PIO_PER</text:span><text:span text:style-name="T15">;</text:span></text:p>
    <text:p text:style-name="Text_20_body">Access to the PIO registers is encapsulated in the class methods of the hardware module. The methods in the HardwarePIO class are the only way to modify a register. C++ implementation allows to catch other wrong doings at compilation time, for example reading or writing reserved registers. </text:p>
    <text:p text:style-name="Text_20_body">It is easy to cache all written values in the hardware module. One way to cache or log the read and write transactions is to add a “shadow” interface field to the hardware module class.</text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__11237_696237465"/>Indirect I/O access.<text:bookmark-end text:name="__RefHeading__11237_696237465"/></text:h>
    <text:p text:style-name="Text_20_body">In some case the hardware is accessible via a serial interface like SPI, MDIO or I2C. I am using a direct access API for the sake of brevity. A real access interface for a real SPI device can contain system calls or calls to the serial interface driver.</text:p>
    <text:p text:style-name="P1"/>
@@ -2304,7 +2307,7 @@
    <text:p text:style-name="P5">};</text:p>
    <text:p text:style-name="Text_20_body">Rest of the classes remain the same. </text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="P62" text:outline-level="2"/>
+   <text:h text:style-name="P63" text:outline-level="2"/>
    <text:h text:style-name="P38" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__7726_2007975351"/>Code ROM and data RAM.<text:bookmark-end text:name="__RefHeading__7726_2007975351"/></text:h>
    <text:p text:style-name="Quotations">If at first you don&apos;t succeed; call it version 1.0. </text:p>
    <text:p text:style-name="Quotations"/>
@@ -2312,7 +2315,7 @@
    <text:p text:style-name="Text_20_body">There are two types of ROM – erasable and not erasable. In the Atmega MCUs different areas of the ROM can be programmed by the firmware assuming that the firmware runs from another area. In case of ASICs ROM is often not erasable. ROM programming is a part of the ASIC production process. The ROM can not be modified after the chip leaves the factory (FAB). </text:p>
    <text:p text:style-name="Text_20_body">If there is not enough RAM to load the firmware then parts of the firmware code should be located in the chip ROM. In case of an ASIC it means that the ROM based parts of the firmware can be changed only in the future versions of the chip. High complexity of the modern ASIC firmware makes it very hard to reach 100% code coverage in the ASIC verification process. Even if the ROM based firmware is verified and tested completely still there is a chance that this or that protocol has been misunderstood by the development team or product requirements has changed. The development team prepares the firmware and the hardware for the not unlikely event that need to patch the ROM will arise.</text:p>
    <text:p text:style-name="Text_20_body">This chapter covers some of the ROM related problems.</text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__7728_2007975351"/>C++ Initialized data.<text:bookmark-end text:name="__RefHeading__7728_2007975351"/></text:h>
    <text:p text:style-name="Text_20_body">At least one code section – boot, constants and initialized data are parts of the ROM. Initialized non-zero data is going to consume memory two times. Initialization values of the initialized data are part of the ROM. Usually boot process copies the values from the ROM to the RAM. If I inspect an object file generated by a compiler I can easily find initialization data for the strings. There are utilities which help to inspect the object files, dump different section into separate files and prepare the images for ROM programming. Example of such utility is GNU objdump. Let&apos;s see some C++ initialized data in action. Following code produces two line of output - “Hello, world!” and “Hello from main()!”</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -2367,7 +2370,7 @@
    <text:p text:style-name="Quotations">Have you ever noticed the difference between a &apos;C&apos; project plan, and a C++ project plan? The planning stage for a C++ project is three times as long. Precisely to make sure that everything which should be inherited is, and what shouldn&apos;t isn&apos;t. Then, they still get it wrong. Remember the length of the average-sized &apos;C&apos; project? About 6 months. Not nearly long enough for a guy with a wife and kids to earn enough to have a decent standard of living. Take the same project, design it in C++ and what do you get? I&apos;ll tell you. One to two years. Isn&apos;t that great?</text:p>
    <text:p text:style-name="Quotations"/>
    <text:p text:style-name="Text_20_body">I will attempt to write a wrapper for the “create task” API. A typical wrapper for APIs similar to pthread_create or FreeRTOS xTaskCreate is based on a static method in a class called, for example, MyThread. Indeed this is the only way I know to write a portable C++ wrapper which will work for most operating systems. I will duly present a basic example of this approach not because it is fascinating, but because it is expected of a reasonable “C++ for embedded” book. Feel free to jump right to the next paragraph where I present non-portable code of C++ create task wrapper. </text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__13575_1195782936"/>Static (class) member.<text:bookmark-end text:name="__RefHeading__13575_1195782936"/></text:h>
    <text:p text:style-name="Quotations"><text:span text:style-name="Emphasis">C </text:span>allows you to shoot yourself in the foot. <text:span text:style-name="Emphasis">C++ </text:span>allows you to re-use the bullet.</text:p>
    <text:p text:style-name="Quotations"/>
@@ -2475,7 +2478,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T17"><text:s text:c="4"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T15"> 1;</text:span></text:p>
    <text:p text:style-name="P16">}</text:p>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__13577_1195782936"/>Non static member.<text:bookmark-end text:name="__RefHeading__13577_1195782936"/></text:h>
    <text:p text:style-name="Quotations">&quot;C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg.</text:p>
    <text:p text:style-name="Quotations"/>
@@ -2497,7 +2500,7 @@
    <text:p text:style-name="P16">}</text:p>
    <text:p text:style-name="Text_20_body">The trick works because most (all?) C++ compilers push “this” - a pointer to the object – first to the arguments stack. The trick can fail if C and C++ code use stack frames differently. Pointers to virtual methods can fail too. This is always possible to use brute force – disassembly – and figure out how to call the member function correctly. Calls to virtual functions are going to be very different across compilers. Most C++ compilers replace the call to a virtual member by a small chunk of assembly code which calculates the method address.</text:p>
    <text:p text:style-name="Text_20_body">A reader of this text could ask what is the point behind this pointer-to-member exercise. When I run the application under a debugger sometimes I want to set a break point using an absolute address. I can print an absolute address of a member and see in run-time how many instances of the same method my generic class creates. Taking a pointer of a function insures that the function is not an “inline” function.</text:p>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__14433_1195782936"/>Log.<text:bookmark-end text:name="__RefHeading__14433_1195782936"/></text:h>
    <text:p text:style-name="Quotations">Perfection is achieved, not when there is nothing left to add, but when there is nothing left to take away - Antoine de St. Exupery</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -2706,7 +2709,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T15"> LOG_INFO(fmt, ...)\</text:span></text:p>
    <text:p text:style-name="P16"><text:s text:c="2"/>FastLog(ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );</text:p>
    <text:p text:style-name="P16"/>
-   <text:h text:style-name="P60" text:outline-level="2"/>
+   <text:h text:style-name="P61" text:outline-level="2"/>
    <text:h text:style-name="P39" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__14278_363426044"/>Software Timers.<text:bookmark-end text:name="__RefHeading__14278_363426044"/></text:h>
    <text:p text:style-name="Quotations">C++: Hard to learn and built to stay that way.</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -3216,7 +3219,7 @@
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T15"><text:s text:c="4"/></text:span><text:span text:style-name="T5">return</text:span><text:span text:style-name="T15"> 0;</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text">}</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="P58" text:outline-level="1"/>
+   <text:h text:style-name="P59" text:outline-level="1"/>
    <text:h text:style-name="P38" text:outline-level="1"><text:bookmark-start text:name="__RefHeading__12016_732733800"/>Conclusion.<text:bookmark-end text:name="__RefHeading__12016_732733800"/></text:h>
    <text:p text:style-name="Quotations">You have delighted us long enough. Let the other young ladies have time to exhibit - Jane Austen, Pride and Prejudice</text:p>
    <text:p text:style-name="Quotations"/>
