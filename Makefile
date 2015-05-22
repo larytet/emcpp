@@ -1,4 +1,4 @@
-CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 
+CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 -fopenmp   
 
 OBJS =		src/main.o 
 
@@ -20,7 +20,7 @@ SIZE            := $(CROSS)size
 
 
 $(TARGET):	$(OBJS) Makefile src/Memory.h
-	$(CXX) -o $(TARGET) -fopenmp  $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 	
 $(TARGET).s:	$(TARGET)
 	$(OBJDUMP) -S --disassemble $(TARGET) > $(TARGET).s

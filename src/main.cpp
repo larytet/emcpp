@@ -35,6 +35,7 @@ using namespace std;
 #include "Hardware.h"
 #include "Timers.h"
 #include "Log.h"
+#include "OpenMP.h"
 #endif
 
 #if EXAMPLE == 1
