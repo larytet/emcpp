@@ -42,35 +42,28 @@ public:
 
 protected:
     omp_lock_t lock;
-    bool initialized = false;
 
-    inline SynchroObjectOmpLock() {}
-    static SynchroObjectOmpLock *getInstance();
+    static SynchroObjectOmpLock *instance;
+    inline SynchroObjectOmpLock();
 };
-
+SynchroObjectOmpLock *SynchroObjectOmpLock::instance = new SynchroObjectOmpLock();
 
 void SynchroObjectOmpLock::get() {
-    SynchroObjectOmpLock *instance = getInstance();
     omp_set_lock(&instance->lock);
 }
 
 void SynchroObjectOmpLock::release() {
-    SynchroObjectOmpLock *instance = getInstance();
     omp_unset_lock(&instance->lock);
 }
 
+SynchroObjectOmpLock::SynchroObjectOmpLock() {
+    omp_init_lock(&lock);
+}
+
 SynchroObjectOmpLock::~SynchroObjectOmpLock() {
-    SynchroObjectOmpLock *instance = getInstance();
     omp_destroy_lock(&instance->lock);
 }
 
-SynchroObjectOmpLock *SynchroObjectOmpLock::getInstance() {
-    static SynchroObjectOmpLock *instance = new SynchroObjectOmpLock();
-    if (!instance->initialized) {
-        omp_init_lock(&instance->lock);
-    }
-    return instance;
-}
 
 
 /**

@@ -438,7 +438,9 @@ void testOpenMpReduction(void) {
 }
 
 void testLockOmp() {
-    LockOmp();
+    {
+        LockOmp();
+    }
 }
 
 
