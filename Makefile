@@ -20,7 +20,7 @@ SIZE            := $(CROSS)size
 
 
 $(TARGET):	$(OBJS) Makefile src/Memory.h
-	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET) -fopenmp  $(OBJS) $(LIBS)
 	
 $(TARGET).s:	$(TARGET)
 	$(OBJDUMP) -S --disassemble $(TARGET) > $(TARGET).s
