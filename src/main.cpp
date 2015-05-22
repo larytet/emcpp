@@ -438,7 +438,6 @@ void testOpenMpReduction(void) {
 }
 
 void testLockOmp() {
-    SynchroObjectOmpLock::createInstance();
     LockOmp();
 }
 
