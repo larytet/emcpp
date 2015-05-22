@@ -17,6 +17,7 @@
 #include <cstdint>
 
 #include <stdarg.h>
+#include <omp.h>
 
 using namespace std;
 
@@ -427,11 +428,28 @@ void testOpenMP() {
     encryptPacket(packet, encPacket, sizeof(encPacket));
 }
 
+void testOpenMpReduction(void) {
+    int a = 0;
+    #pragma omp parallel reduction (+:a)
+    {
+      a = 1;
+    }
+    cout << a << endl;
+}
+
+void testLockOmp() {
+    SynchroObjectOmpLock::createInstance();
+    LockOmp();
+}
+
+
 int main()
 {
 //    testHardwareTimers();
 //    testBinaryLog3();
 //    testTimer();
-    testOpenMP();
+//    testOpenMpReduction();
+     testLockOmp();
+    // testOpenMP();
     return 0;
 }
