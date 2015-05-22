@@ -421,12 +421,17 @@ void testHardwareTimers(void) {
 }
 
 
-
+void testOpenMP() {
+    uint8_t packet[1024];
+    uint8_t encPacket[1024];
+    encryptPacket(packet, encPacket, sizeof(encPacket));
+}
 
 int main()
 {
 //    testHardwareTimers();
 //    testBinaryLog3();
-    testTimer();
+//    testTimer();
+    testOpenMP();
     return 0;
 }
