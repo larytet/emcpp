@@ -402,6 +402,7 @@ TimerError TimerList::_processExpiredTimers(
  * is linear function of the number of lists in the set.
  */
 class TimerSet {
+public:
 
     /**
      * @param name is a name of the set, useful for debug
