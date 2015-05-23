@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-23T14:52:13.808455640</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P7DT23H13M40S</meta:editing-duration><meta:editing-cycles>2691</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="164" meta:paragraph-count="1760" meta:word-count="12665" meta:character-count="90103" meta:non-whitespace-character-count="73485"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-23T14:57:00.035909909</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P7DT23H18M22S</meta:editing-duration><meta:editing-cycles>2698</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="164" meta:paragraph-count="1760" meta:word-count="12669" meta:character-count="90121" meta:non-whitespace-character-count="73500"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">2057834</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">2077711</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">22666</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">14444</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">17614</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">2064974</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">9811</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">2085088</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">2057834</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">2077711</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">22664</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">2072277</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">2092154</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -2123,11 +2123,11 @@
    <text:h text:style-name="P46" text:outline-level="2"><text:bookmark-start text:name="__RefHeading__8080_1329019087"/>I/O access in C.<text:bookmark-end text:name="__RefHeading__8080_1329019087"/></text:h>
    <text:p text:style-name="Quotations">&quot;Writing in C or C++ is like running a chain saw with all the safety guards removed,&quot; - <text:span text:style-name="Citation">Bob Gray.</text:span></text:p>
    <text:p text:style-name="Quotations"/>
-   <text:p text:style-name="Text_20_body">I am providing quick and dirty C implementation. Macro RESERVED demonstrates a neat trick to generate unique identifier name. </text:p>
+   <text:p text:style-name="Text_20_body">I am providing quick and dirty C implementation. Macro RESERVED demonstrates a neat trick to generate <text:span text:style-name="T75">a </text:span>unique identifier name. </text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T16"> TOKEN_CAT(x, y) x </text:span><text:span text:style-name="T5">##</text:span><text:span text:style-name="T16"> y</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T16"> TOKEN_CAT2(x, y) TOKEN_CAT(x, y)</text:span></text:p>
    <text:p text:style-name="Preformatted_20_Text"><text:span text:style-name="T5">#define</text:span><text:span text:style-name="T16"> RESERVED TOKEN_CAT2(reserved, __COUNTER__)</text:span></text:p>
-   <text:p text:style-name="Text_20_body">Declare the PIO structure – a group of32 bits registers. The structure is “packed” - I want to ensure that the compiler does not do any padding. Pragma “pack” is potentially not safe, because some architectures, like ARM or MIPS, do not support non-aligned access. </text:p>
+   <text:p text:style-name="P69">Declar<text:span text:style-name="T75">ation of</text:span> the PIO structure, a group of32 bits registers, <text:span text:style-name="T75">follows</text:span>. I want to ensure that the compiler does not do any paddin<text:span text:style-name="T75">g and I mark t</text:span>he structure “packed”. Pragma “pack” is potentially not safe. <text:span text:style-name="T75">S</text:span>ome architectures, <text:span text:style-name="T75">such as </text:span>ARM or MIPS, do not support non-aligned access. </text:p>
    <text:p text:style-name="P22"/>
    <text:p text:style-name="P50"><text:span text:style-name="T7">#pragma</text:span><text:span text:style-name="T15"> pack(push)</text:span></text:p>
    <text:p text:style-name="P22"><text:span text:style-name="T7">#pragma</text:span><text:span text:style-name="T15"> pack(1)</text:span></text:p>
