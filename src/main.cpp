@@ -19,6 +19,7 @@
 #include <stdarg.h>
 #include <omp.h>
 
+#include <sys/time.h>
 using namespace std;
 
 
@@ -443,14 +444,20 @@ void testLockOmp() {
     }
 }
 
-volatile uint_fast8_t myArray[(size_t)32*1024*1024];
+volatile uint8_t myArray[(size_t)8*1024*1024];
 uint_fast32_t testOpenMPLoop() {
     uint_fast32_t sum = 0;
+    struct timespec t2, t3;
+    double dt1;
+    clock_gettime(CLOCK_MONOTONIC,  &t2);
     #pragma omp parallel for reduction(+:sum)
     for (uint64_t i=0; i < sizeof(myArray); i++)
     {
         sum += myArray[i];
     }
+    clock_gettime(CLOCK_MONOTONIC,  &t3);
+    dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
+    cout << "time:  " << dt1 << endl;
     return sum;
 }
 
