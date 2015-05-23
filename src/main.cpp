@@ -443,17 +443,7 @@ void testLockOmp() {
     }
 }
 
-uint_fast8_t myArray[512*1024*1024];
-/**
- * OpenMP  Size Time
- *
- *  Yes    512   580
- *  No
- *
- *
- *
- *
- */
+volatile uint_fast8_t myArray[(size_t)32*1024*1024];
 uint_fast32_t testOpenMPLoop() {
     uint_fast32_t sum = 0;
     //#pragma omp parallel for reduction(+:sum)
