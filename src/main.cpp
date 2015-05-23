@@ -446,7 +446,7 @@ void testLockOmp() {
 volatile uint_fast8_t myArray[(size_t)32*1024*1024];
 uint_fast32_t testOpenMPLoop() {
     uint_fast32_t sum = 0;
-    //#pragma omp parallel for reduction(+:sum)
+    #pragma omp parallel for reduction(+:sum)
     for (uint64_t i=0; i < sizeof(myArray); i++)
     {
         sum += myArray[i];
