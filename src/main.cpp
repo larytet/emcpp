@@ -443,13 +443,13 @@ void testLockOmp() {
     }
 }
 
-uint_fast8_t array[100*1024*1024];
+uint_fast8_t myArray[1024*1024];
 uint_fast32_t testOpenMPLoop() {
     uint_fast32_t sum = 0;
     #pragma omp parallel for reduction(+:sum)
-    for (int i=0; i < 100; i++)
+    for (uint64_t i=0; i < sizeof(myArray); i++)
     {
-        sum += array[i];
+        sum += myArray[i];
     }
     return sum;
 }
@@ -460,7 +460,8 @@ int main()
 //    testBinaryLog3();
 //    testTimer();
 //    testOpenMpReduction();
-     testLockOmp();
+     //testLockOmp();
+    testOpenMPLoop();
     // testOpenMP();
     return 0;
 }
