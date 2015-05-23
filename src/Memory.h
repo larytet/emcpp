@@ -30,23 +30,14 @@ protected:
 class MemoryAllocatorRaw {
 
 public:
-    MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment);
-
+    MemoryAllocatorRaw(MemoryRegion memoryRegion,
+            size_t blockSize,
+            size_t count, unsigned int alignment);
     uint8_t* getBlock();
-
     bool blockBelongs(const void* block) const;
-
-    const MemoryRegion& getRegion() const {
-        return memoryRegion;
-    }
-
-    void reset() {
-        firstNotAllocatedAddress = memoryRegion.getAddress();
-    }
-
-    constexpr static size_t predictMemorySize(size_t blockSize, size_t count, unsigned int alignment) {
-        return count * alignConst(blockSize, alignment);
-    }
+    const MemoryRegion& getRegion() const;
+    void reset();
+    constexpr static size_t predictMemorySize(size_t blockSize, size_t count, unsigned int alignment);
 
 protected:
     int alignment;
@@ -57,15 +48,31 @@ protected:
     size_t alignedBlockSize;
     uintptr_t firstNotAllocatedAddress;
 
-    static constexpr size_t alignConst(size_t value, unsigned int alignment) {
-        return (value + ((size_t)alignment-1)) & (~((size_t)alignment-1));
-    }
+    static constexpr size_t alignConst(size_t value, unsigned int alignment);
 
-    inline static uintptr_t alignAddress(uintptr_t address, unsigned int alignment) {
-        uintptr_t res = (address+((uintptr_t)alignment-1)) & (~((uintptr_t)alignment-1));
-        return res;
-    }
+    inline static uintptr_t alignAddress(uintptr_t address, unsigned int alignment);
 };
+
+constexpr size_t MemoryAllocatorRaw::alignConst(size_t value, unsigned int alignment) {
+    return (value + ((size_t)alignment-1)) & (~((size_t)alignment-1));
+}
+
+uintptr_t MemoryAllocatorRaw::alignAddress(uintptr_t address, unsigned int alignment) {
+    uintptr_t res = (address+((uintptr_t)alignment-1)) & (~((uintptr_t)alignment-1));
+    return res;
+}
+
+const MemoryRegion& MemoryAllocatorRaw::getRegion() const {
+    return memoryRegion;
+}
+
+void MemoryAllocatorRaw::reset() {
+    firstNotAllocatedAddress = memoryRegion.getAddress();
+}
+
+constexpr size_t MemoryAllocatorRaw::predictMemorySize(size_t blockSize, size_t count, unsigned int alignment) {
+    return count * alignConst(blockSize, alignment);
+}
 
 MemoryAllocatorRaw::MemoryAllocatorRaw(MemoryRegion memoryRegion, size_t blockSize, size_t count, unsigned int alignment) :
     alignment(alignment), blockSize(blockSize), memoryRegion(memoryRegion), count(count)  {  // initialize internal data
