@@ -443,6 +443,16 @@ void testLockOmp() {
     }
 }
 
+uint_fast8_t array[100*1024*1024];
+uint_fast32_t testOpenMPLoop() {
+    uint_fast32_t sum = 0;
+    #pragma omp parallel for reduction(+:sum)
+    for (int i=0; i < 100; i++)
+    {
+        sum += array[i];
+    }
+    return sum;
+}
 
 int main()
 {
