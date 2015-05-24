@@ -38,6 +38,7 @@ using namespace std;
 #include "Timers.h"
 #include "Log.h"
 #include "OpenMP.h"
+#include "Mailbox.h"
 #endif
 
 #if EXAMPLE == 1
