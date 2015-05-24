@@ -9,7 +9,7 @@ public:
         nextStage(nextStage){}
 
     void doJob();
-    void addJob(ObjectType data);
+    void addJob(ObjectType &data);
 
 protected:
     const char *name;
@@ -29,6 +29,6 @@ void PipelineTask<ObjectType, Lock, Size>::doJob() {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-void PipelineTask<ObjectType, Lock, Size>::addJob(ObjectType data) {
+void PipelineTask<ObjectType, Lock, Size>::addJob(ObjectType &data) {
     fifo.add(data);
 }

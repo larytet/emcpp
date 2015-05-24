@@ -471,10 +471,11 @@ typedef PipelineTask<int, LockDummy, 3> MyPipelineTask;
 
 MyPipelineTask pipelineTask3("3");
 MyPipelineTask pipelineTask2("2", &pipelineTask3);
-MyPipelineTask pipelineTask1("1", &pipelineTask1);
+MyPipelineTask pipelineTask1("1", &pipelineTask2);
 
 void testPipeline() {
-    pipelineTask1.addJob(0);
+    int data = 0;
+    pipelineTask1.addJob(data);
     pipelineTask1.doJob();
     pipelineTask2.doJob();
     pipelineTask3.doJob();
