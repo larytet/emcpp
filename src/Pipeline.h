@@ -2,9 +2,9 @@
 
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-class PipeLineTask {
+class PipelineTask {
 public:
-    PipeLineTask(const char *name, PipeLineTask *nextStage = nullptr) :
+    PipelineTask(const char *name, PipelineTask *nextStage = nullptr) :
         name(name),
         nextStage(nextStage){}
 
@@ -13,12 +13,12 @@ public:
 
 protected:
     const char *name;
-    PipeLineTask *nextStage;
+    PipelineTask *nextStage;
     CyclicBuffer<ObjectType, Lock, Size> fifo;
 };
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-void PipeLineTask<ObjectType, Lock, Size>::doJob() {
+void PipelineTask<ObjectType, Lock, Size>::doJob() {
     while (!fifo.isEmpty()) {
         ObjectType data;
         fifo.remove(&data);
@@ -27,8 +27,7 @@ void PipeLineTask<ObjectType, Lock, Size>::doJob() {
     }
 }
 
-
 template<typename ObjectType, typename Lock, std::size_t Size>
-void PipeLineTask<ObjectType, Lock, Size>::addJob(ObjectType data) {
+void PipelineTask<ObjectType, Lock, Size>::addJob(ObjectType data) {
     fifo.add(data);
 }

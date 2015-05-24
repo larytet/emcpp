@@ -467,15 +467,21 @@ uint_fast32_t testOpenMPLoop() {
     return sum;
 }
 
-typedef PipeLineTask<const char*, LockDummy, 3> MyPipeLineTask;
+typedef PipelineTask<const char*, LockDummy, 3> MyPipelineTask;
 
-MyPipeLineTask pipeLineTask("1");
-MyPipeLineTask pipeLineTask("2");
-MyPipeLineTask pipeLineTask("3");
+MyPipelineTask pipelineTask3("3");
+MyPipelineTask pipelineTask2("2", &pipelineTask3);
+MyPipelineTask pipelineTask1("1", &pipelineTask1);
+
+void testPipeline() {
+
+
+}
 
 int main()
 {
-    testDummyLock1();
+    testPipeline();
+//    testDummyLock1();
 //    testHardwareTimers();
 //    testBinaryLog3();
 //    testTimer();
