@@ -190,6 +190,10 @@ FastLog::FastLog(int count, ...) {
     sendDataEnd();
 }
 
+template <typename Lock> class SystemLog {
+public:
+    SystemLog(int count, ...);
+};
 
 
 #undef LOG_INFO
