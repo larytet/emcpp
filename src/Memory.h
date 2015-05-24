@@ -173,3 +173,39 @@ inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     return res;
 }
 
+template<typename ObjectType, typename Lock> class ObjectPool :
+        protected CyclicBufferDynamic<ObjectType*, Lock> {
+public:
+    ObjectPool(const char *name, size_t size);
+    const char *getName() {return name;}
+    inline bool get(ObjectType **msg);
+    inline bool free(ObjectType *msg);
+
+protected:
+    const char *name;
+    ObjectType *objects;
+};
+
+template<typename ObjectType, typename Lock>
+ObjectPool<ObjectType, Lock>::ObjectPool(const char *name, size_t size) :
+    CyclicBufferDynamic<ObjectType*, Lock>(size),
+    name(name) {
+    objects = new ObjectType[size];
+    for (size_t i = 0;i < size;i++) {
+        this->add(&objects[i]);
+    }
+}
+
+template<typename ObjectType, typename Lock>
+bool ObjectPool<ObjectType, Lock>::free(ObjectType *msg) {
+    bool res;
+    res = add(msg);
+    return res;
+}
+
+template<typename ObjectType, typename Lock>
+bool ObjectPool<ObjectType, Lock>::get(ObjectType **msg) {
+    bool res;
+    res = this->remove(msg);
+    return res;
+}
