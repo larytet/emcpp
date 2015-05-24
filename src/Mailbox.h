@@ -25,8 +25,8 @@
  */
 
 
-template<typename ObjectType, typename Lock> class Mailbox :
-        public CyclicBufferDynamic<ObjectType, Lock> {
+template<typename ObjectType, typename Lock>
+class Mailbox {
 public:
     Mailbox(const char *name, size_t size);
     const char *getName() {return name;}
@@ -40,12 +40,14 @@ public:
 protected:
     const char *name;
     xQueueHandle semaphore;
+
+    CyclicBufferDynamic<ObjectType, Lock> fifo;
 };
 
 
 template<typename ObjectType, typename Lock>
 Mailbox<ObjectType, Lock>::Mailbox(const char *name, size_t size) :
-    CyclicBufferDynamic<ObjectType, Lock>(size),
+    fifo(size),
     name(name) {
     semaphore = xSemaphoreCreateCounting(size+1, 0);
 }
@@ -53,7 +55,7 @@ Mailbox<ObjectType, Lock>::Mailbox(const char *name, size_t size) :
 template<typename ObjectType, typename Lock>
 bool Mailbox<ObjectType, Lock>::send(ObjectType msg) {
     bool res;
-    res = this->add(msg);
+    res = fifo.add(msg);
     xSemaphoreGive(semaphore);
     return res;
 }
@@ -77,8 +79,8 @@ bool Mailbox<ObjectType, Lock>::wait(ObjectType *msg,
         }
     }
 
-    if ((semaphoreRes == pdTRUE) && !this->isEmpty()) {
-        res = this->remove(msg);
+    if ((semaphoreRes == pdTRUE) && !fifo.isEmpty()) {
+        res = fifo.remove(msg);
     }
 
     return res;
