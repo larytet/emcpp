@@ -21,7 +21,8 @@ template<typename ObjectType, typename Lock, std::size_t Size>
 void PipelineTask<ObjectType, Lock, Size>::doJob() {
     while (!fifo.isEmpty()) {
         ObjectType data;
-        fifo.remove(&data);
+        fifo.remove(data);
+        data++;
         cout << "Stage:" << name << ", data=" << data << endl;
         nextStage->addJob(data);
     }
