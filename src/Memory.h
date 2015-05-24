@@ -173,33 +173,39 @@ inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     return res;
 }
 
-template<typename Lock, typename ObjectType, size_t Size> class MemoryPool {
-
+template<typename Lock, typename ObjectType, size_t Size>
+class MemoryPool {
 public:
-
-    MemoryPool() {
-        for (int i = 0;i < Size;i++) {
-            pool.push(&objects[i]);
-        }
-    }
-
+    MemoryPool();
     ~MemoryPool() {}
 
-    inline bool allocate(ObjectType **obj) {
-        bool res;
-        Lock lock;
-        res = pool.pop(obj);
-        return res;
-    }
-
-    inline bool free(ObjectType *obj) {
-        bool res;
-        Lock lock;
-        res = pool.push(obj);
-        return res;
-    }
+    inline bool allocate(ObjectType **obj);
+    inline bool free(ObjectType *obj);
 
 protected:
     Stack<ObjectType, LockDummy,  Size> pool;
     ObjectType objects[Size];
 };
+
+template<typename Lock, typename ObjectType, size_t Size>
+MemoryPool<Lock, ObjectType, Size>::MemoryPool() {
+    for (int i = 0;i < Size;i++) {
+        pool.push(&objects[i]);
+    }
+}
+
+template<typename Lock, typename ObjectType, size_t Size>
+bool MemoryPool<Lock, ObjectType, Size>::allocate(ObjectType **obj) {
+    bool res;
+    Lock lock;
+    res = pool.pop(obj);
+    return res;
+}
+
+template<typename Lock, typename ObjectType, size_t Size>
+bool MemoryPool<Lock, ObjectType, Size>::free(ObjectType *obj) {
+    bool res;
+    Lock lock;
+    res = pool.push(obj);
+    return res;
+}
