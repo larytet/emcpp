@@ -1,8 +1,32 @@
 #pragma once
 
+/**
+ * Usage example:
+ *
+ * enum EVENT {FIRST, LAST};
+ * typedef struct {
+ *     enum EVENT event;
+ *     size_t data;
+ * } Message;
+ *
+ * MemoryPool<LockDummy, Message, 3> pool;
+ * Mailbox<Message*, LockDummy> myMailbox("mbx", 3);
+ *
+ * Message *message;
+ * pool.allocate(&message);
+ * message->data = 1;
+ * message->event = EVENT::FIRST;
+ *
+ * myMailbox.send(message);
+ * myMailbox.wait(&message, myMailbox.TIMEOUT::FOREVER, 0);
+ * cout << "data=" << message->data << ", event=" << message->event << endl;
+ * pool.free(message);
+ *
+ */
+
 
 template<typename ObjectType, typename Lock> class Mailbox :
-        protected CyclicBufferDynamic<ObjectType, Lock> {
+        public CyclicBufferDynamic<ObjectType, Lock> {
 public:
     Mailbox(const char *name, size_t size);
     const char *getName() {return name;}

@@ -1,10 +1,20 @@
 #pragma once
 
-struct PrintJob {
-    void run(void) {
-        cout << "Print job is running" << endl;
-    }
-};
+/**
+ *
+ * Usage example
+ * struct PrintJob {
+ *     void run(void) {
+ *         cout << "Print job is running" << endl;
+ *     }
+ * };
+ *
+ * MemoryPool<LockDummy, JobThread<PrintJob>, 3> jobThreads;
+ * PrintJob printJob;
+ * JobThread<PrintJob> *jobThread;
+ * jobThreads.allocate(&jobThread);
+ * jobThread->start(&printJob);
+ */
 
 
 template <typename JobType> class JobThread {
