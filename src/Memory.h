@@ -161,7 +161,7 @@ inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
 template<typename Lock, size_t Size>
 inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     bool res;
-    Lock() lock;
+    Lock lock;
     res = memoryAllocator.blockBelongs(block);
     if (res) {
         res = pool.push(block);
