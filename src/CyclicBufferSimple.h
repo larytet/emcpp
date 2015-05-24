@@ -54,7 +54,7 @@ CyclicBufferSimple<ObjectType, Lock, Size>::CyclicBufferSimple() {
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 inline bool CyclicBufferSimple<ObjectType, Lock, Size>::add(const ObjectType object) {
-    Lock();
+    Lock lock;
     if (!isFull()) {
         data[this->tail] = object;
         this->tail = increment(this->tail);
@@ -67,7 +67,7 @@ inline bool CyclicBufferSimple<ObjectType, Lock, Size>::add(const ObjectType obj
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 inline bool CyclicBufferSimple<ObjectType, Lock, Size>::remove(ObjectType &object) {
-    Lock();
+    Lock lock;
     if (!isEmpty()) {
         object = data[this->head];
         this->head = this->increment(this->head);

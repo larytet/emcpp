@@ -148,7 +148,7 @@ template<typename Lock, size_t Size> MemoryPoolRaw<Lock, Size>::MemoryPoolRaw(co
 template<typename Lock, size_t Size>
 inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
     bool res;
-    Lock();
+    Lock lock;
     res = pool.pop(block);
     if (res) {
         statistics.inUse++;
@@ -161,7 +161,7 @@ inline bool MemoryPoolRaw<Lock, Size>::allocate(uint8_t** block) {
 template<typename Lock, size_t Size>
 inline bool MemoryPoolRaw<Lock, Size>::free(uint8_t* block) {
     bool res;
-    Lock();
+    Lock() lock;
     res = memoryAllocator.blockBelongs(block);
     if (res) {
         res = pool.push(block);
@@ -187,14 +187,14 @@ public:
 
     inline bool allocate(ObjectType **obj) {
         bool res;
-        Lock();
+        Lock lock;
         res = pool.pop(obj);
         return res;
     }
 
     inline bool free(ObjectType *obj) {
         bool res;
-        Lock();
+        Lock lock;
         res = pool.push(obj);
         return res;
     }

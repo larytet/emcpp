@@ -51,7 +51,7 @@ template<typename ObjectType, typename Lock, std::size_t Size> inline bool Cycli
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
         ObjectType, Lock, Size>::add(const ObjectType object) {
-    Lock();
+    Lock lock;
     if (!isFull()) {
         data[this->tail] = object;
         this->tail = increment(this->tail);
@@ -65,7 +65,7 @@ template<typename ObjectType, typename Lock, std::size_t Size> inline bool Cycli
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
         ObjectType, Lock, Size>::remove(ObjectType &object) {
-    Lock();
+    Lock lock;
     if (!isEmpty()) {
         object = data[this->head];
         this->head = this->increment(this->head);
@@ -78,7 +78,7 @@ template<typename ObjectType, typename Lock, std::size_t Size> inline bool Cycli
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBuffer<
         ObjectType, Lock, Size>::getHead(ObjectType &object) {
-    Lock();
+    Lock lock;
     if (!isEmpty()) {
         object = data[this->head];
         return true;
@@ -157,7 +157,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
         ObjectType, Lock>::add(ObjectType object) {
-    Lock();
+    Lock lock;
     if (!isFull()) {
         data[this->tail] = object;
         this->tail = increment(this->tail);
@@ -171,7 +171,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
         ObjectType, Lock>::remove(ObjectType *object) {
-    Lock();
+    Lock lock;
     if (!isEmpty()) {
         *object = data[this->head];
         this->head = this->increment(this->head);
@@ -184,7 +184,7 @@ template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
 
 template<typename ObjectType, typename Lock> inline bool CyclicBufferDynamic<
         ObjectType, Lock>::getHead(ObjectType *object) {
-    Lock();
+    Lock lock;
     if (!isEmpty()) {
         *object = data[this->head];
         return true;
