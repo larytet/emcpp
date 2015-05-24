@@ -40,7 +40,6 @@ using namespace std;
 #include "OpenMP.h"
 #endif
 
-#if EXAMPLE == 1
 
 /**
  * Dummy lock
@@ -67,16 +66,16 @@ private:
  * Locked context
  * Lock is freed
  */
-int main() {
+int testDummyLock1() {
 #if (__cplusplus >= 201103) // use "auto" if C++11 or better
     auto myDummyLock = LockDummySimple();
 #else
     LockDummySimple myDummyLock = LockDummySimple();
 #endif
+    cout << "Protected context" << endl;
     return 0;
 }
 
-#endif // EXAMPLE == 1
 
 #if EXAMPLE == 2
 
@@ -469,12 +468,13 @@ uint_fast32_t testOpenMPLoop() {
 
 int main()
 {
+    testDummyLock1();
 //    testHardwareTimers();
 //    testBinaryLog3();
 //    testTimer();
 //    testOpenMpReduction();
      //testLockOmp();
-    testOpenMPLoop();
+    // testOpenMPLoop();
     // testOpenMP();
     return 0;
 }
