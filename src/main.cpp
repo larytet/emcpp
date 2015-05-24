@@ -38,6 +38,7 @@ using namespace std;
 #include "Timers.h"
 #include "Log.h"
 #include "OpenMP.h"
+#include "Pipeline.h"
 #endif
 
 
@@ -466,6 +467,12 @@ uint_fast32_t testOpenMPLoop() {
     return sum;
 }
 
+typedef PipeLineTask<const char*, LockDummy, 3> MyPipeLineTask;
+
+MyPipeLineTask pipeLineTask("1");
+MyPipeLineTask pipeLineTask("2");
+MyPipeLineTask pipeLineTask("3");
+
 int main()
 {
     testDummyLock1();
@@ -476,5 +483,6 @@ int main()
      //testLockOmp();
     // testOpenMPLoop();
     // testOpenMP();
+
     return 0;
 }
