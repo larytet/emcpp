@@ -499,7 +499,7 @@ constexpr size_t calculateCyclicBufferSizeLage() {
     return 1000*1024*1024;
 }
 
-array<uint8_t> myArray;
+array<uint8_t, 100> myStlArray;
 
 //static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
 static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
