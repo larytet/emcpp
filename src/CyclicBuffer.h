@@ -247,7 +247,7 @@ template<typename ObjectType, typename Lock, std::size_t Size> inline bool Cycli
 
 template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
         ObjectType, Lock, Size>::isFull() {
-    size_t tail = increment(this->tail);
+    ObjectType *tail = increment(this->tail);
     bool res = (this->head == tail);
     return res;
 }
