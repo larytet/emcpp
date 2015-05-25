@@ -202,3 +202,100 @@ ObjectType, Lock>::increment(size_t index) {
         return 0;
     }
 }
+
+template<typename ObjectType, typename Lock, std::size_t Size> class CyclicBufferFast {
+public:
+
+    inline CyclicBufferFast();
+
+    ~CyclicBufferFast() {
+    }
+
+    inline bool isEmpty();
+    inline bool isFull();
+    inline bool add(const ObjectType object);
+    inline bool remove(ObjectType &object);
+    inline bool getHead(ObjectType &object);
+
+private:
+    void errorOverflow() {
+    }
+
+    void errorUnderflow() {
+    }
+
+    inline ObjectType *increment(ObjectType *entry);
+
+    ObjectType data[Size + 1];
+    ObjectType *head;
+    ObjectType *tail;
+};
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline CyclicBufferFast<
+        ObjectType, Lock, Size>::CyclicBufferFast() {
+
+    this->head = &data[0];
+    this->tail = &data[0];
+    static_assert(sizeof(ObjectType) <= sizeof(uintptr_t), "CyclicBuffer is intended to work only with integer types or pointers");
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
+        ObjectType, Lock, Size>::isEmpty() {
+    bool res = (this->head == this->tail);
+    return res;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
+        ObjectType, Lock, Size>::isFull() {
+    size_t tail = increment(this->tail);
+    bool res = (this->head == tail);
+    return res;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
+        ObjectType, Lock, Size>::add(const ObjectType object) {
+    Lock lock;
+    if (!isFull()) {
+        *this->tail = object;
+        this->tail = increment(this->tail);
+        return true;
+    } else {
+        errorOverflow();
+        return false;
+    }
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
+        ObjectType, Lock, Size>::remove(ObjectType &object) {
+    Lock lock;
+    if (!isEmpty()) {
+        object = *(this->head);
+        this->head = this->increment(this->head);
+        return true;
+    } else {
+        errorUnderflow();
+        return false;
+    }
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> inline bool CyclicBufferFast<
+        ObjectType, Lock, Size>::getHead(ObjectType &object) {
+    Lock lock;
+    if (!isEmpty()) {
+        object = *(this->head);
+        return true;
+    } else {
+        errorUnderflow();
+        return false;
+    }
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> ObjectType *CyclicBufferFast<
+ObjectType, Lock, Size>::increment(ObjectType *entry) {
+    if (entry < &data[Size]) {
+        return (entry + 1);
+    } else {
+        return &data[0];
+    }
+}
