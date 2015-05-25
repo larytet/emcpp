@@ -205,9 +205,9 @@ constexpr size_t calculateCyclicBufferSizeLage() {
 static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
 //static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
 void testCyclicBuffer1() {
-    while (!myCyclicBufferLarge.isFull())
-        myCyclicBuffer.add(0);
-    }
+    while (!myCyclicBufferLarge.isFull()) {
+        myCyclicBufferLarge.add(0);
+    };
 
     while (!myCyclicBufferLarge.isEmpty()) {
         uint8_t val;
