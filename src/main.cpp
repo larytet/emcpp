@@ -198,22 +198,6 @@ int testCyclicBufferFast() {
     return 0;
 }
 
-constexpr size_t calculateCyclicBufferSizeLage() {
-    return 10*1024*1024;
-}
-
-static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
-//static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
-void testCyclicBuffer1() {
-    while (!myCyclicBufferLarge.isFull()) {
-        myCyclicBufferLarge.add(0);
-    };
-
-    while (!myCyclicBufferLarge.isEmpty()) {
-        uint8_t val;
-        myCyclicBufferLarge.remove(val);
-    }
-}
 
 constexpr size_t calculateStackSize() {
     return 10;
@@ -489,17 +473,11 @@ uint_fast32_t testOpenMPLoop() {
         sum += myArray[i];
     }
 
-    struct timespec t2, t3;
-    double dt1;
-    clock_gettime(CLOCK_MONOTONIC,  &t2);
     #pragma omp parallel for reduction(+:sum)
     for (uint64_t i=0; i < sizeof(myArray); i++)
     {
         sum += myArray[i];
     }
-    clock_gettime(CLOCK_MONOTONIC,  &t3);
-    dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
-    cout << "time:  " << dt1 << endl;
     return sum;
 }
 
@@ -517,9 +495,30 @@ void testPipeline() {
     pipelineTask3.doJob();
 }
 
+constexpr size_t calculateCyclicBufferSizeLage() {
+    return 10*1024*1024;
+}
+
+static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
+//static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
+void testCyclicBuffer1() {
+    while (!myCyclicBufferLarge.isFull()) {
+        myCyclicBufferLarge.add(0);
+    };
+
+    while (!myCyclicBufferLarge.isEmpty()) {
+        uint8_t val;
+        myCyclicBufferLarge.remove(val);
+    }
+}
+
 int main()
 {
-    testPipeline();
+    struct timespec t2, t3;
+    double dt1;
+    clock_gettime(CLOCK_MONOTONIC,  &t2);
+    testCyclicBuffer1();
+    // testPipeline();
 //    testDummyLock1();
 //    testHardwareTimers();
 //    testBinaryLog3();
@@ -528,6 +527,9 @@ int main()
      //testLockOmp();
     // testOpenMPLoop();
     // testOpenMP();
+    clock_gettime(CLOCK_MONOTONIC,  &t3);
+    dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
+    cout << "time:  " << dt1 << endl;
 
     return 0;
 }
