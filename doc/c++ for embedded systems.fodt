@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-25T19:51:40.823696452</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P8DT21H51M36S</meta:editing-duration><meta:editing-cycles>3446</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="181" meta:paragraph-count="1985" meta:word-count="14112" meta:character-count="100171" meta:non-whitespace-character-count="81946"/></office:meta>
+ <office:meta><meta:initial-creator>arkady </meta:initial-creator><meta:creation-date>2015-04-24T15:47:16.425999108</meta:creation-date><dc:date>2015-05-25T19:52:16.419173379</dc:date><dc:creator>arkady </dc:creator><meta:editing-duration>P8DT21H52M11S</meta:editing-duration><meta:editing-cycles>3447</meta:editing-cycles><meta:generator>LibreOffice/4.2.8.2$Linux_X86_64 LibreOffice_project/420m0$Build-2</meta:generator><meta:document-statistic meta:table-count="1" meta:image-count="0" meta:object-count="0" meta:page-count="181" meta:paragraph-count="1985" meta:word-count="14112" meta:character-count="100172" meta:non-whitespace-character-count="81947"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">5094243</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">5087823</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">22774</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">32941</config:config-item>
@@ -14,11 +14,11 @@
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
      <config:config-item config:name="ViewLeft" config:type="long">2591</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">5094437</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">5097759</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">5094243</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">5087823</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">22772</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">5127182</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">5120762</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">3</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -3807,13 +3807,13 @@
    <text:p text:style-name="P60"/>
    <text:bibliography text:style-name="Sect2" text:protected="true" text:name="Bibliography1">
     <text:bibliography-source>
-     <text:index-title-template text:style-name="Bibliography_20_Heading">Bibliography</text:index-title-template>
+     <text:index-title-template text:style-name="Bibliography_20_Heading">Bibliography.</text:index-title-template>
      <text:bibliography-entry-template text:bibliography-type="article" text:style-name="Bibliography_20_1">
-      <text:index-entry-bibliography text:style-name="_30__20_0_20_0_20_" text:bibliography-data-field="identifier"/>
+      <text:index-entry-bibliography text:style-name="_30__20_0_20_0_20_0_20_" text:bibliography-data-field="identifier"/>
       <text:index-entry-span>: </text:index-entry-span>
-      <text:index-entry-bibliography text:style-name="_34__20_4_20_4_20_" text:bibliography-data-field="author"/>
+      <text:index-entry-bibliography text:style-name="_34__20_4_20_4_20_4_20_" text:bibliography-data-field="author"/>
       <text:index-entry-span>,</text:index-entry-span>
-      <text:index-entry-bibliography text:style-name="_34__20_" text:bibliography-data-field="url"/>
+      <text:index-entry-bibliography text:style-name="_34__20_4_20_" text:bibliography-data-field="url"/>
      </text:bibliography-entry-template>
      <text:bibliography-entry-template text:bibliography-type="book" text:style-name="Bibliography_20_1">
       <text:index-entry-bibliography text:style-name="_30__20_0_20_0_20_" text:bibliography-data-field="identifier"/>
@@ -3965,7 +3965,7 @@
     </text:bibliography-source>
     <text:index-body>
      <text:index-title text:style-name="Sect2" text:name="Bibliography1_Head">
-      <text:h text:style-name="Bibliography_20_Heading" text:outline-level="1" text:is-list-header="true">Bibliography</text:h>
+      <text:h text:style-name="Bibliography_20_Heading" text:outline-level="1" text:is-list-header="true">Bibliography.</text:h>
      </text:index-title>
      <text:p text:style-name="P126">Constexpr hashes: Matias Fontanini,https://github.com/mfontanini/Programs-Scripts/tree/master/constexpr_hashes</text:p>
      <text:p text:style-name="P126">Parsers: Arkady Miasnikov,https://www.assembla.com/code/OpenTI/subversion/nodes/641/scripts</text:p>
