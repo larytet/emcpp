@@ -496,8 +496,10 @@ void testPipeline() {
 }
 
 constexpr size_t calculateCyclicBufferSizeLage() {
-    return 100*1024*1024;
+    return 1000*1024*1024;
 }
+
+array<uint8_t> myArray;
 
 //static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
 static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
