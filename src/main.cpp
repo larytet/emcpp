@@ -499,7 +499,18 @@ constexpr size_t calculateCyclicBufferSizeLage() {
     return 1000*1024*1024;
 }
 
-array<uint8_t, 100> myStlArray;
+static array<uint8_t, 100> myStlArray;
+
+void testStlArray() {
+    array<uint8_t, 100>::iterator myIntVectorIterator;
+    for(myIntVectorIterator = myStlArray.begin();
+            myIntVectorIterator != myStlArray.end();
+            myIntVectorIterator++)
+    {
+        cout<<*myIntVectorIterator<<" ";
+        //Should output 1 4 8
+    }
+}
 
 //static CyclicBuffer<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
 static CyclicBufferFast<uint_fast8_t, LockDummy, calculateCyclicBufferSizeLage()> myCyclicBufferLarge;
@@ -516,10 +527,11 @@ void testCyclicBuffer1() {
 
 int main()
 {
+    testStlArray();
     struct timespec t2, t3;
     double dt1;
     clock_gettime(CLOCK_MONOTONIC,  &t2);
-    testCyclicBuffer1();
+    //testCyclicBuffer1();
     // testPipeline();
 //    testDummyLock1();
 //    testHardwareTimers();

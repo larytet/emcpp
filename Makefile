@@ -1,4 +1,4 @@
-CXXFLAGS = -O2 -g -Wall -fmessage-length=0 -std=c++11 -fopenmp   
+CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 -fopenmp   
 
 OBJS =		src/main.o 
 
