@@ -527,9 +527,11 @@ void testCyclicBuffer1() {
 
 template<typename ObjectType, std::size_t Size> class ADC {
 public:
-    typedef void (*Filter)(ObjectType current, ObjectType sample);
     inline ADC(ObjectType initialValue=0);
+
+    typedef ObjectType (*Filter)(ObjectType current, ObjectType sample);
     inline void add(ObjectType sample, Filter);
+
     inline ObjectType get();
 
 protected:
@@ -540,7 +542,7 @@ protected:
 
 template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
-ADC(Filter filter, ObjectType initialValue) {
+ADC(ObjectType initialValue) {
     value = initialValue;
 }
 
@@ -557,9 +559,13 @@ get() {
     return value;
 }
 
+ADC<double, 4> myAdc(4.0);
 
 int main()
 {
+    myAdc.add(4.0, [](double current, double sample) {
+        return (current+sample)/2;  });
+
     testStlArray();
     struct timespec t2, t3;
     double dt1;
