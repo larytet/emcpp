@@ -525,6 +525,39 @@ void testCyclicBuffer1() {
     }
 }
 
+template<typename ObjectType, std::size_t Size> class ADC {
+public:
+    typedef void (*Filter)(ObjectType current, ObjectType sample);
+    inline ADC(ObjectType initialValue=0);
+    inline void add(ObjectType sample, Filter);
+    inline ObjectType get();
+
+protected:
+    CyclicBuffer<ObjectType, LockDummy, Size> data;
+    ObjectType value;
+};
+
+
+template<typename ObjectType, std::size_t Size>
+ADC<ObjectType, Size>::
+ADC(Filter filter, ObjectType initialValue) {
+    value = initialValue;
+}
+
+template<typename ObjectType, std::size_t Size>
+void ADC<ObjectType, Size>::
+add(ObjectType sample, Filter filter) {
+    data.add(sample);
+    value = filter(value, sample);
+}
+
+template<typename ObjectType, std::size_t Size>
+ObjectType ADC<ObjectType, Size>::
+get() {
+
+}
+
+
 int main()
 {
     testStlArray();
