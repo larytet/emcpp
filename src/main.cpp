@@ -569,9 +569,8 @@ static void testADC()
     for (int i = 0;i < 10;i++) {
         myAdc.add(4.0,
                 [](double current, double sample) {
-                    static const double k = 1.0;
-                    static const double r = k+1;
-                    return (current+k*sample)/r;
+                    static const double alpha = 0.5;
+                    return current+alpha*(sample-current);
                 }
         );
     }
