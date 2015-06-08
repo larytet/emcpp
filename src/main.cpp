@@ -554,7 +554,7 @@ add(ObjectType sample, Filter filter) {
 template<typename ObjectType, std::size_t Size>
 ObjectType ADC<ObjectType, Size>::
 get() {
-
+    return value;
 }
 
 
