@@ -564,11 +564,15 @@ ADC<double, 4> myAdc(3.0);
 int main()
 {
 
+    cout << "ADC=" << myAdc.get() << endl;
     for (int i = 0;i < 4;i++) {
-        myAdc.add(4.0, [](double current, double sample) {
-            return (current+sample)/2;  });
-        cout << "ADC=" << myAdc.get() << endl;
+        myAdc.add(4.0,
+                [](double current, double sample) {
+                    return (current+sample)/2;
+                }
+        );
     }
+    cout << "ADC=" << myAdc.get() << endl;
 
     testStlArray();
     struct timespec t2, t3;
