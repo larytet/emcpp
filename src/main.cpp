@@ -565,10 +565,12 @@ int main()
 {
 
     cout << "ADC=" << myAdc.get() << endl;
-    for (int i = 0;i < 4;i++) {
+    for (int i = 0;i < 5;i++) {
         myAdc.add(4.0,
                 [](double current, double sample) {
-                    return (current+sample)/2;
+                    static const double k = 1.0;
+                    static const double r = k+1;
+                    return (current+k*sample)/r;
                 }
         );
     }
