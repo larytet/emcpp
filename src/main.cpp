@@ -559,12 +559,16 @@ get() {
     return value;
 }
 
-ADC<double, 4> myAdc(4.0);
+ADC<double, 4> myAdc(3.0);
 
 int main()
 {
-    myAdc.add(4.0, [](double current, double sample) {
-        return (current+sample)/2;  });
+
+    for (int i = 0;i < 4;i++) {
+        myAdc.add(4.0, [](double current, double sample) {
+            return (current+sample)/2;  });
+        cout << "ADC=" << myAdc.get() << endl;
+    }
 
     testStlArray();
     struct timespec t2, t3;
@@ -577,9 +581,9 @@ int main()
 //    testBinaryLog3();
 //    testTimer();
 //    testOpenMpReduction();
-     //testLockOmp();
     // testOpenMPLoop();
     // testOpenMP();
+     //testLockOmp();
     clock_gettime(CLOCK_MONOTONIC,  &t3);
     dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
     cout << "time:  " << dt1 << endl;
