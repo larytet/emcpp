@@ -529,7 +529,8 @@ template<typename ObjectType, std::size_t Size> class ADC {
 public:
     inline ADC(ObjectType initialValue=0);
 
-    typedef ObjectType (*Filter)(ObjectType current, ObjectType sample);
+    typedef ObjectType (*Filter)(ObjectType current,
+            ObjectType sample);
     inline void add(ObjectType sample, Filter);
 
     inline ObjectType get();
@@ -559,13 +560,13 @@ get() {
     return value;
 }
 
-ADC<double, 4> myAdc(3.0);
 
-int main()
+
+static void testADC()
 {
-
+    static ADC<double, 4> myAdc(3.0);
     cout << "ADC=" << myAdc.get() << endl;
-    for (int i = 0;i < 5;i++) {
+    for (int i = 0;i < 10;i++) {
         myAdc.add(4.0,
                 [](double current, double sample) {
                     static const double k = 1.0;
@@ -575,6 +576,12 @@ int main()
         );
     }
     cout << "ADC=" << myAdc.get() << endl;
+}
+
+int main()
+{
+
+    testADC();
 
     testStlArray();
     struct timespec t2, t3;
