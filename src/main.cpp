@@ -527,31 +527,33 @@ void testCyclicBuffer1() {
 
 template<typename ObjectType, std::size_t Size> class ADC {
 public:
-    inline ADC(ObjectType initialValue=0);
-
     typedef ObjectType (*Filter)(ObjectType current,
             ObjectType sample);
-    inline void add(ObjectType sample, Filter);
+    inline ADC(Filter filter, ObjectType initialValue=0);
+
+    inline void add(ObjectType sample);
 
     inline ObjectType get();
 
 protected:
     CyclicBuffer<ObjectType, LockDummy, Size> data;
     ObjectType value;
+    Filter filter;
 };
 
 
 template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
-ADC(ObjectType initialValue) {
+ADC(Filter filter, ObjectType initialValue) {
     value = initialValue;
+    this->filter = filter;
 }
 
 template<typename ObjectType, std::size_t Size>
 void ADC<ObjectType, Size>::
-add(ObjectType sample, Filter filter) {
+add(ObjectType sample) {
     data.add(sample);
-    value = filter(value, sample);
+    value = this->filter(value, sample);
 }
 
 template<typename ObjectType, std::size_t Size>
@@ -564,15 +566,14 @@ get() {
 
 static void testADC()
 {
-    static ADC<double, 4> myAdc(3.0);
+    static ADC<double, 4> myAdc(
+            [](double current, double sample) {
+                return current+0.5*(sample-current);
+            },
+            3.0);
     cout << "ADC=" << myAdc.get() << endl;
     for (int i = 0;i < 10;i++) {
-        myAdc.add(4.0,
-                [](double current, double sample) {
-                    static const double alpha = 0.5;
-                    return current+alpha*(sample-current);
-                }
-        );
+        myAdc.add(4.0);
     }
     cout << "ADC=" << myAdc.get() << endl;
 }
