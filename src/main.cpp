@@ -538,7 +538,6 @@ public:
 protected:
     CyclicBuffer<ObjectType, LockDummy, Size> data;
     ObjectType value;
-    Filter filter;
 };
 
 
@@ -546,14 +545,13 @@ template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
 ADC(ObjectType initialValue) {
     value = initialValue;
-    this->filter = filter;
 }
 
 template<typename ObjectType, std::size_t Size>
 void ADC<ObjectType, Size>::
 add(ObjectType sample, Filter filter) {
     data.add(sample);
-    value = this->filter(value, sample);
+    value = filter(value, sample);
 }
 
 template<typename ObjectType, std::size_t Size>
@@ -594,7 +592,7 @@ struct ReadADC {
     void run(void) {
         double sample = hardwareModuleADC.read();
         for (int i = 0;i < 10;i++) {
-            myAdc.add(4.0,
+            myAdc.add(sample,
                 [](double current, double sample) {
                     return current+0.5*(sample-current);
                 });
@@ -602,7 +600,7 @@ struct ReadADC {
     }
 };
 
-JobThread<ReadADC> jobThreadReadADC;
+//JobThread<ReadADC> jobThreadReadADC;
 
 void testADC1() {
 
