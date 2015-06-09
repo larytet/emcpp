@@ -600,7 +600,7 @@ struct ReadADC {
     }
 };
 
-//JobThread<ReadADC> jobThreadReadADC;
+JobThread<ReadADC> jobThreadReadADC;
 
 void testADC1() {
 
