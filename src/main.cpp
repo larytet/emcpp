@@ -546,7 +546,7 @@ template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
 ADC(Filter filter, ObjectType initialValue) {
     value = initialValue;
-    this->filter = filter;
+    this->filter = filter
 }
 
 template<typename ObjectType, std::size_t Size>
@@ -576,6 +576,37 @@ static void testADC()
         myAdc.add(4.0);
     }
     cout << "ADC=" << myAdc.get() << endl;
+}
+
+
+
+class HardwareModuleADC : HardwareModule {
+public:
+    double read();
+protected:
+};
+
+HardwareModuleADC hardwareModuleADC;
+
+static ADC<double, 4> myAdc(
+        [](double current, double sample) {
+            return current+0.5*(sample-current);
+        },
+        3.0);
+
+struct ReadADC {
+    void run(void) {
+        double sample = hardwareModuleADC.read();
+        for (int i = 0;i < 10;i++) {
+            myAdc.add(4.0);
+        }
+    }
+};
+
+JobThread<ReadADC> jobThreadReadADC;
+
+void testADC1() {
+
 }
 
 int main()
