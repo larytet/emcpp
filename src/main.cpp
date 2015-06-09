@@ -527,10 +527,10 @@ void testCyclicBuffer1() {
 
 template<typename ObjectType, std::size_t Size> class ADC {
 public:
-    typedef ObjectType (*Filter)(ObjectType current,
-            ObjectType sample);
     inline ADC(ObjectType initialValue=0);
 
+    typedef ObjectType (*Filter)(ObjectType current,
+            ObjectType sample);
     inline void add(ObjectType sample, Filter filter);
 
     inline ObjectType get();
