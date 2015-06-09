@@ -529,9 +529,9 @@ template<typename ObjectType, std::size_t Size> class ADC {
 public:
     typedef ObjectType (*Filter)(ObjectType current,
             ObjectType sample);
-    inline ADC(Filter filter, ObjectType initialValue=0);
+    inline ADC(ObjectType initialValue=0);
 
-    inline void add(ObjectType sample);
+    inline void add(ObjectType sample, Filter filter);
 
     inline ObjectType get();
 
@@ -544,14 +544,14 @@ protected:
 
 template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
-ADC(Filter filter, ObjectType initialValue) {
+ADC(ObjectType initialValue) {
     value = initialValue;
     this->filter = filter
 }
 
 template<typename ObjectType, std::size_t Size>
 void ADC<ObjectType, Size>::
-add(ObjectType sample) {
+add(ObjectType sample, Filter filter) {
     data.add(sample);
     value = this->filter(value, sample);
 }
@@ -566,14 +566,14 @@ get() {
 
 static void testADC()
 {
-    static ADC<double, 4> myAdc(
-            [](double current, double sample) {
-                return current+0.5*(sample-current);
-            },
-            3.0);
+    static ADC<double, 4> myAdc(3.0);
     cout << "ADC=" << myAdc.get() << endl;
     for (int i = 0;i < 10;i++) {
-        myAdc.add(4.0);
+        myAdc.add(4.0,
+                [](double current, double sample) {
+                     return current+0.5*(sample-current);
+                }
+        );
     }
     cout << "ADC=" << myAdc.get() << endl;
 }
@@ -588,17 +588,17 @@ protected:
 
 HardwareModuleADC hardwareModuleADC;
 
-static ADC<double, 4> myAdc(
-        [](double current, double sample) {
-            return current+0.5*(sample-current);
-        },
-        3.0);
+static ADC<double, 4> myAdc(3.0);
 
 struct ReadADC {
     void run(void) {
         double sample = hardwareModuleADC.read();
         for (int i = 0;i < 10;i++) {
-            myAdc.add(4.0);
+            myAdc.add(4.0,
+                [](double current, double sample) {
+                    return current+0.5*(sample-current);
+                }
+            );
         }
     }
 };
