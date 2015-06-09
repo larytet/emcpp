@@ -597,8 +597,7 @@ struct ReadADC {
             myAdc.add(4.0,
                 [](double current, double sample) {
                     return current+0.5*(sample-current);
-                }
-            );
+                });
         }
     }
 };
