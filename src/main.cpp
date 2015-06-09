@@ -546,7 +546,7 @@ template<typename ObjectType, std::size_t Size>
 ADC<ObjectType, Size>::
 ADC(ObjectType initialValue) {
     value = initialValue;
-    this->filter = filter
+    this->filter = filter;
 }
 
 template<typename ObjectType, std::size_t Size>
