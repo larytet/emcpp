@@ -15,6 +15,7 @@
 #include <limits>
 #include <atomic>
 #include <cstdint>
+#include <memory>
 
 #include <stdarg.h>
 #include <omp.h>
@@ -606,9 +607,38 @@ void testADC1() {
 
 }
 
+/**
+ * I've had a lot of conversations with people lately based on their experience and my own
+ * regarding shared_ptr (either the C++11 standard version,
+ * the TR version, the Boost version, or home-grown versions).
+ * The almost universal conclusion has been that shared_ptr is best
+ * avoided in almost every circumstance when writing software of substantial size.
+ *
+ * Sean Middleditch, Game developer.
+ *
+ */
+class Test {
+public:
+    Test(int a = 0 ) : m_a(a)
+    {
+    }
+    ~Test( )
+    {
+        cout<<"Calling destructor"<<endl;
+    }
+public:
+    int m_a;
+};
+
+void testSmartPtr( )
+{
+    shared_ptr<Test> sptr1( new Test);
+}
+
 int main()
 {
 
+    testSmartPtr();
     testADC();
 
     testStlArray();
