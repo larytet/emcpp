@@ -6,7 +6,7 @@ class FixedPoint
 public:
     typedef FixedPoint<IntType, Precision> T;
     FixedPoint(double d) : v(static_cast<IntType>(d * FACTOR)) { }
-    FixedPoint(T &rhs) : v(rhs.v) { }
+    FixedPoint(const T &rhs) : v(rhs.v) { }
     T& operator+=(const T &rhs) { v += rhs.v; return *this; }
     T& operator-=(const T &rhs) { v -= rhs.v; return *this; }
     T& operator*=(const T &rhs) { v *= rhs.v; v >>= Precision; return *this; }
