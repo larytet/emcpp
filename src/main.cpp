@@ -636,9 +636,20 @@ void testSmartPtr( )
     shared_ptr<Test> sptr1( new Test);
 }
 
+static void FixedPointTest() {
+    typedef FixedPoint<uint64_t, 2> myFixedPoint;
+    myFixedPoint value(3.431);
+    cout << value.toDouble( ) << endl;
+    value += FixedPoint(1.1);
+    cout << value.toDouble( ) << endl;
+    value = value + FixedPoint(1.1);
+    cout << value.toDouble( ) << endl;
+}
+
 int main()
 {
 
+    FixedPointTest();
     testSmartPtr();
     testADC();
 
