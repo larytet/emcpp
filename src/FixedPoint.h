@@ -12,16 +12,16 @@ public:
     T& operator/=(const T &rhs) { v /= rhs.v; v *= FACTOR; return *this; }
     double toDouble( ) const { return double(v) / FACTOR; }
 
-    friend T operator+(T lhs, const T& rhs) { return lhs += rhs; }
-    friend T operator-(T lhs, const T& rhs) { return lhs -= rhs; }
-    friend T operator*(T lhs, const T& rhs) { return lhs *= rhs; }
-    friend T operator/(T lhs, const T& rhs) { return lhs /= rhs; }
-    friend bool operator==(const T &lhs, const T &rhs) { return lhs.v == rhs; }
-    friend bool operator!=(const T &lhs, const T &rhs) { return lhs.v != rhs; }
-    friend bool operator>(const T &lhs, const T &rhs) { return lhs.v > rhs; }
-    friend bool operator<(const T &lhs, const T &rhs) { return lhs.v < rhs; }
-    friend bool operator>=(const T &lhs, const T &rhs) { return lhs.v >= rhs; }
-    friend bool operator<=(const T &lhs, const T &rhs) { return lhs.v <= rhs; }
+    friend T operator+(T lhs, const T &rhs) { return lhs += rhs; }
+    friend T operator-(T lhs, const T &rhs) { return lhs -= rhs; }
+    friend T operator*(T lhs, const T &rhs) { return lhs *= rhs; }
+    friend T operator/(T lhs, const T &rhs) { return lhs /= rhs; }
+    friend bool operator==(const T &lhs, const T &rhs) { return lhs.v == rhs.v; }
+    friend bool operator!=(const T &lhs, const T &rhs) { return lhs.v != rhs.v; }
+    friend bool operator>(const T &lhs, const T &rhs) { return lhs.v > rhs.v; }
+    friend bool operator<(const T &lhs, const T &rhs) { return lhs.v < rhs.v; }
+    friend bool operator>=(const T &lhs, const T &rhs) { return lhs.v >= rhs.v; }
+    friend bool operator<=(const T &lhs, const T &rhs) { return lhs.v <= rhs.v; }
 protected:
     const int FACTOR = 1 << (Precision - 1);
     int v;
