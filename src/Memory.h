@@ -209,3 +209,42 @@ bool MemoryPool<Lock, ObjectType, Size>::free(ObjectType *obj) {
     res = pool.push(obj);
     return res;
 }
+
+template<typename Lock, typename ObjectType>
+class MemoryPoolDynamic {
+public:
+    MemoryPoolDynamic(size_t size);
+    ~MemoryPoolDynamic() {}
+
+    inline bool allocate(ObjectType **obj);
+    inline bool free(ObjectType *obj);
+
+protected:
+    StackDynamic<ObjectType, LockDummy> pool;
+    ObjectType *objects;
+};
+
+template<typename Lock, typename ObjectType>
+MemoryPoolDynamic<Lock, ObjectType>::MemoryPoolDynamic(size_t size):
+    pool(size) {
+    ObjectType *objects = new ObjectType[size];
+    for (int i = 0;i < size;i++) {
+        pool.push(&objects[i]);
+    }
+}
+
+template<typename Lock, typename ObjectType>
+bool MemoryPoolDynamic<Lock, ObjectType>::allocate(ObjectType **obj) {
+    bool res;
+    Lock lock;
+    res = pool.pop(obj);
+    return res;
+}
+
+template<typename Lock, typename ObjectType>
+bool MemoryPoolDynamic<Lock, ObjectType>::free(ObjectType *obj) {
+    bool res;
+    Lock lock;
+    res = pool.push(obj);
+    return res;
+}
