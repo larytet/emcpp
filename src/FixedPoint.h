@@ -1,20 +1,28 @@
 #pragma once
 
-template <typename IntType> class FixedPoint
+template<typename IntType, int Precision>
+class FixedPoint
 {
-    IntType rep_;
-    public:
-    FixedPoint(IntType i=0) : rep_(i) {}
+public:
+    typedef FixedPoint<IntType, Precision> T;
+    FixedPoint(double d) : v(static_cast<IntType>(d * FACTOR)) { }
+    T& operator+=(const T &rhs) { v += rhs.v; return *this; }
+    T& operator-=(const T &rhs) { v -= rhs.v; return *this; }
+    T& operator*=(const T &rhs) { v *= rhs.v; v >>= Precision; return *this; }
+    T& operator/=(const T &rhs) { v /= rhs.v; v *= FACTOR; return *this; }
+    double toDouble( ) const { return double(v) / FACTOR; }
 
-    IntType& operator+=(IntType const &rhs)
-    { rep_ += rhs.rep_; return *this; }
-
-    bool operator<(IntType const &rhs) const
-    { return rep_ < rhs.rep_; }
-
-    IntType operator+(IntType const &lhs, IntType const &rhs)
-    { FixedPoint tmp = lhs; tmp += rhs; return tmp; }
-
-    bool operator>=(IntType const &lhs, IntType const &rhs)
-    { return !(lhs < rhs); }
+    friend T operator+(T lhs, const T& rhs) { return lhs += rhs; }
+    friend T operator-(T lhs, const T& rhs) { return lhs -= rhs; }
+    friend T operator*(T lhs, const T& rhs) { return lhs *= rhs; }
+    friend T operator/(T lhs, const T& rhs) { return lhs /= rhs; }
+    friend bool operator==(const T &lhs, const T &rhs) { return lhs.v == rhs; }
+    friend bool operator!=(const T &lhs, const T &rhs) { return lhs.v != rhs; }
+    friend bool operator>(const T &lhs, const T &rhs) { return lhs.v > rhs; }
+    friend bool operator<(const T &lhs, const T &rhs) { return lhs.v < rhs; }
+    friend bool operator>=(const T &lhs, const T &rhs) { return lhs.v >= rhs; }
+    friend bool operator<=(const T &lhs, const T &rhs) { return lhs.v <= rhs; }
+protected:
+    const int FACTOR = 1 << (Precision - 1);
+    int v;
 };

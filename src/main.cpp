@@ -40,6 +40,7 @@ using namespace std;
 #include "Log.h"
 #include "OpenMP.h"
 #include "Pipeline.h"
+#include "FixedPoint.h"
 #endif
 
 
