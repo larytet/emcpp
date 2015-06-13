@@ -12,7 +12,7 @@ public:
     T& operator*=(const T &rhs) {v *= rhs.v; v >>= Precision; return *this;}
     T& operator/=(const T &rhs) {v /= rhs.v; v *= FACTOR; return *this;}
     T& operator=(const T &rhs) {v = rhs.v;return *this;}
-    double toDouble( ) const { return double(v) / FACTOR;}
+    operator double() { return double(v) / FACTOR;}
 
     friend T operator+(T lhs, const T &rhs) {return lhs += rhs;}
     friend T operator-(T lhs, const T &rhs) {return lhs -= rhs;}
