@@ -637,12 +637,12 @@ void testSmartPtr( )
 }
 
 static void FixedPointTest() {
-    typedef FixedPoint<uint64_t, 2> myFixedPoint;
-    myFixedPoint value(3.431);
+    typedef FixedPoint<uint64_t, 3> FixedPoint_3;
+    FixedPoint_3 value(3.43188);
     cout << value.toDouble( ) << endl;
-    value += FixedPoint(1.1);
+    value += FixedPoint_3(1.4);
     cout << value.toDouble( ) << endl;
-    value = value + FixedPoint(1.1);
+    value = value + FixedPoint_3(1.4);
     cout << value.toDouble( ) << endl;
 }
 
