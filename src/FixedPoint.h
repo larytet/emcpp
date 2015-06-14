@@ -1,30 +1,27 @@
 #pragma once
 
-template<typename IntType, int Precision>
+template<typename IntType, const int FRACTION_BITS>
 class FixedPoint
 {
 public:
-    typedef FixedPoint<IntType, Precision> T;
-    FixedPoint(double d) : v(static_cast<IntType>(d * FACTOR)) {}
-    FixedPoint(const T &rhs) : v(rhs.v) { }
-    T& operator+=(const T &rhs) {v += rhs.v; return *this;}
-    T& operator-=(const T &rhs) {v -= rhs.v; return *this;}
-    T& operator*=(const T &rhs) {v *= rhs.v; v >>= Precision; return *this;}
-    T& operator/=(const T &rhs) {v /= rhs.v; v *= FACTOR; return *this;}
-    T& operator=(const T &rhs) {v = rhs.v;return *this;}
-    double toDouble() const { return double(v) / FACTOR;}
+    typedef FixedPoint<IntType, FRACTION_BITS> T;
 
-    friend T operator+(T lhs, const T &rhs) {return lhs += rhs;}
-    friend T operator-(T lhs, const T &rhs) {return lhs -= rhs;}
-    friend T operator*(T lhs, const T &rhs) {return lhs *= rhs;}
-    friend T operator/(T lhs, const T &rhs) {return lhs /= rhs;}
+    FixedPoint(){}
+    FixedPoint(double d) {v = (IntType)(d*scale);}
+    FixedPoint(const T &rhs) : v(rhs.v) { }
+    T& operator=(const T &rhs) {v = rhs.v;return *this;}
+    double toDouble() const { return double(v/scale);}
+
+
+    friend T operator+(T lhs, const T &rhs) {T r;r.v = lhs.v + rhs.v;return r;}
+    friend T operator-(T lhs, const T &rhs) {T r;r.v = lhs.v - rhs.v;return r;}
+    friend T operator*(T lhs, const T &rhs) {T r;r.v = (lhs.v * rhs.v) / scale;return r;}
+    friend T operator/(T lhs, const T &rhs) {T r;r.v = (lhs.v * scale)/rhs.v;return r;}
     friend bool operator==(const T &lhs, const T &rhs) {return lhs.v == rhs.v;}
-    friend bool operator!=(const T &lhs, const T &rhs) {return lhs.v != rhs.v;}
-    friend bool operator>(const T &lhs, const T &rhs) {return lhs.v > rhs.v;}
-    friend bool operator<(const T &lhs, const T &rhs) {return lhs.v < rhs.v;}
-    friend bool operator>=(const T &lhs, const T &rhs) {return lhs.v >= rhs.v;}
-    friend bool operator<=(const T &lhs, const T &rhs) {return lhs.v <= rhs.v;}
 protected:
-    const int FACTOR = 1 << Precision;
     int v;
+    enum    //  some attributes
+    {
+        scale  = 1<<FRACTION_BITS,
+    };
 };
