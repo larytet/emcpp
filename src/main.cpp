@@ -605,16 +605,16 @@ protected:
 class ReadADCFixedPoint {
 public:
     ReadADCFixedPoint() : myAdc(3.0) {}
-    typedef FixedPoint<int_fast16_t, 3> FixedPointADC;
+    typedef FixedPoint<int_fast16_t, 3> FPADC;
     void run(void) {
-        FixedPointADC sample = FixedPointADC(hardwareModuleADC.read());
+        FPADC sample = FPADC(hardwareModuleADC.read());
         myAdc.add(sample,
-            [](FixedPointADC current, FixedPointADC sample) {
+            [](FPADC current, FPADC sample) {
                 return current+(sample-current)/2;
             });
     }
 protected:
-    ADC<FixedPointADC, 4> myAdc;
+    ADC<FPADC, 4> myAdc;
     HardwareModuleADC hardwareModuleADC;
 };
 
