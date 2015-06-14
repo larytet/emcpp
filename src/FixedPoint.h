@@ -10,7 +10,7 @@ public:
     FixedPoint(double d) {v = (IntType)(d*scale);}
     FixedPoint(const T &rhs) : v(rhs.v) { }
     T& operator=(const T &rhs) {v = rhs.v;return *this;}
-    double toDouble() const { return double(v/scale);}
+    double toDouble() const { return double(v)/scale;}
 
 
     friend T operator+(T lhs, const T &rhs) {T r;r.v = lhs.v + rhs.v;return r;}
