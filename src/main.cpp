@@ -637,7 +637,7 @@ void testSmartPtr( )
 }
 
 static void FixedPointTest() {
-    typedef FixedPoint<int_fast8_t, 3> FixedPoint_3;
+    typedef FixedPoint<int_fast16_t, 3> FixedPoint_3;
     FixedPoint_3 value(3.43188);
     cout << value.toDouble() << endl;
     value = value+FixedPoint_3(1.4);
