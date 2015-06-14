@@ -20,7 +20,7 @@ public:
     friend bool operator==(const T &lhs, const T &rhs) {return lhs.v == rhs.v;}
 protected:
     int v;
-    enum    //  some attributes
+    enum
     {
         scale  = 1<<FRACTION_BITS,
     };
