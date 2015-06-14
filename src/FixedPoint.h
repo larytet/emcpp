@@ -20,8 +20,5 @@ public:
     friend bool operator==(const T &lhs, const T &rhs) {return lhs.v == rhs.v;}
 protected:
     int v;
-    enum
-    {
-        scale  = 1<<FRACTION_BITS,
-    };
+    enum{scale  = 1<<FRACTION_BITS};
 };
