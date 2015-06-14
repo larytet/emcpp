@@ -586,20 +586,36 @@ public:
 protected:
 };
 
-HardwareModuleADC hardwareModuleADC;
 
-static ADC<double, 4> myAdc(3.0);
-
-struct ReadADC {
+class ReadADC {
+public:
+    ReadADC() : myAdc(3.0) {}
     void run(void) {
         double sample = hardwareModuleADC.read();
-        for (int i = 0;i < 10;i++) {
-            myAdc.add(sample,
-                [](double current, double sample) {
-                    return current+0.5*(sample-current);
-                });
-        }
+        myAdc.add(sample,
+            [](double current, double sample) {
+                return current+0.5*(sample-current);
+            });
     }
+protected:
+    ADC<double, 4> myAdc;
+    HardwareModuleADC hardwareModuleADC;
+};
+
+class ReadADCFixedPoint {
+public:
+    ReadADCFixedPoint() : myAdc(3.0) {}
+    typedef FixedPoint<int_fast16_t, 3> FixedPointADC;
+    void run(void) {
+        FixedPointADC sample = FixedPointADC(hardwareModuleADC.read());
+        myAdc.add(sample,
+            [](FixedPointADC current, FixedPointADC sample) {
+                return current+(sample-current)/2;
+            });
+    }
+protected:
+    ADC<FixedPointADC, 4> myAdc;
+    HardwareModuleADC hardwareModuleADC;
 };
 
 //JobThread<ReadADC> jobThreadReadADC;
