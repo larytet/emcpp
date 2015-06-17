@@ -456,18 +456,19 @@ TimerError TimerSet::processExpiredTimers(
         timerList = timerLists[i];
 
         TimerError timerRes = timerList->processExpiredTimers(currentTime);
-        res = res || (timerRes == TimerError::Ok);
 
         if (timerRes == TimerError::Ok) {
             SystemTime listExpirationTime =
                     timerList->getNearestExpirationTime();
-            if (!res) {
-                nearestExpirationTime = listExpirationTime;
-            } else {
+            if (res) {
                 if (nearestExpirationTime > listExpirationTime) {
                     nearestExpirationTime = listExpirationTime;
                 }
             }
+            else {
+                nearestExpirationTime = listExpirationTime;
+            }
+            res = true;
         }
     }
     if (res)
