@@ -383,6 +383,7 @@ TimerError TimerList::_processExpiredTimers(
 
         if (!timerExpired && timerIsRunning) {
             nearestExpirationTime = timer->getStartTime() + timeout;
+            break;
         }
     }
 
