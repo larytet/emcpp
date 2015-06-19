@@ -76,7 +76,7 @@ void sendData(const int *data, int count) {
 class BinaryLog {
 public:
     BinaryLog(int fileId, int line, int count, ...);
-    BinaryLog(void *address, int line, int count, ...);
+    BinaryLog(void *address, int count, ...);
     BinaryLog(int count, ...);
 };
 
@@ -123,7 +123,7 @@ void testBinaryLog1(void) {
 
 
 
-BinaryLog::BinaryLog(void *address, int line, int count, ...) {
+BinaryLog::BinaryLog(void *address, int count, ...) {
     const int HEADER_SIZE = 2;
     int header[HEADER_SIZE];
 
@@ -150,12 +150,12 @@ BinaryLog::BinaryLog(void *address, int line, int count, ...) {
 
 #define LOG_INFO(fmt, ...) {  \
         LABEL:\
-        BinaryLog(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
+        BinaryLog(&&LABEL, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ ); \
 }
 
 #define LOG_ERROR(fmt, ...) {\
         LABEL:\
-        BinaryLog(&&LABEL, __LINE__, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
+        BinaryLog(&&LABEL, ARGUMENTS_COUNT(__VA_ARGS__), __VA_ARGS__ );\
 }
 
 void testBinaryLog2(void) {
