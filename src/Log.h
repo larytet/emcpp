@@ -17,6 +17,18 @@ static inline void log_print(int line, int level, const char *fmt, ...)
     va_end(ap);
 }
 
+#undef LOG_INFO
+#undef LOG_ERROR
+#define LOG_CAT(fmt, ...) print_log("%s %d" fmt, __FUNCTION__, __LINE__, ##__VA_ARGS__ )
+
+static inline void print_log(const char *fmt, ...)
+{
+    va_list ap;
+
+    va_start(ap, fmt);
+    vprintf(fmt, ap);
+    va_end(ap);
+}
 
 
 #if 0

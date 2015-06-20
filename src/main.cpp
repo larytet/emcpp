@@ -659,8 +659,16 @@ static void FixedPointTest() {
     cout << value.toDouble() << endl;
 }
 
+void testLogCat()
+{
+    char *f = "Test";
+    LOG_CAT("Test %d", 1);
+//    LOG_CAT(f);
+}
+
 int main()
 {
+    testLogCat();
 
     FixedPointTest();
     testSmartPtr();
