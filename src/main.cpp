@@ -661,9 +661,9 @@ static void FixedPointTest() {
 
 void testLogCat()
 {
-    char *f = "Test";
+    char *f = "Test %d";
     LOG_CAT("Test %d", 1);
-//    LOG_CAT(f);
+    LOG_CAT(f, 1);
 }
 
 int main()
