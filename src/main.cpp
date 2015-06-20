@@ -141,6 +141,20 @@ int testCyclicBufferSimple() {
     return 0;
 }
 
+int findFirst(int x)
+{
+    if (x == 0)
+      return 0;
+
+    int t = 1;
+    int r = 1;
+    while ((x & t) == 0) {
+        t = t << 1;
+        r = r + 1;
+    }
+    return r;
+}
+
 
 #if EXAMPLE == 5
 #include "CyclicBufferC.h"
@@ -662,7 +676,6 @@ static void FixedPointTest() {
 void testLogCat()
 {
     char *f = "Test %d";
-    LOG_CAT("Test %d", 1);
     LOG_CAT(f, 1);
 }
 
