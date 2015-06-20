@@ -155,6 +155,15 @@ int findFirst(int x)
     return r;
 }
 
+uint32_t Tick = 0;
+int MyTickIsr()
+{
+    Tick++;
+
+    printf("%s", __FUNCTION__);
+    return 0;
+}
+
 
 #if EXAMPLE == 5
 #include "CyclicBufferC.h"
