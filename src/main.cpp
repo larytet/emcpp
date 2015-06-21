@@ -164,6 +164,15 @@ int MyTickIsr()
     return 0;
 }
 
+int negate(int x) {
+    int result = 0;
+    int sign = x < 0 ? 1 : -1;
+    while (x != 0) {
+        result += sign;
+        x += sign;
+    }
+    return result;
+}
 
 #if EXAMPLE == 5
 #include "CyclicBufferC.h"
