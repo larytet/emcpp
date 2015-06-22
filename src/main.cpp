@@ -188,13 +188,14 @@ int countBits(int n)
 
 }
 
-#define BIG_ENDIAN 0
-#define LITTLE_ENDIAN 1
 int isLittleEndian() {
+    static const int BIG = 0;
+    static const int LITTLE = 1;
     short int data = 0x0001;
     char *byte = (char *) &data;
-    return (byte[0] ? LITTLE_ENDIAN : BIG_ENDIAN);
+    return (byte[0] ? LITTLE : BIG);
 }
+
 
 void mistake()
 {
@@ -724,11 +725,16 @@ static void FixedPointTest() {
 void testLogCat()
 {
     char *f = "Test %d";
-    LOG_CAT(f, 1);
+    LOG_CAT("Test %d", 1);
 }
+
+#define IS_LITTLE_ENDIAN (*(uint16_t *)"\0\xff" >= 0x100)
 
 int main()
 {
+    if (IS_LITTLE_ENDIAN) {
+        cout << "Little endian" << endl;
+    }
     testLogCat();
 
     FixedPointTest();
