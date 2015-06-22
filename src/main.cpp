@@ -185,6 +185,23 @@ int countBits(int n)
     }
 
     return count;
+
+}
+
+#define BIG_ENDIAN 0
+#define LITTLE_ENDIAN 1
+int isLittleEndian() {
+    short int data = 0x0001;
+    char *byte = (char *) &data;
+    return (byte[0] ? LITTLE_ENDIAN : BIG_ENDIAN);
+}
+
+void mistake()
+{
+    unsigned int i;
+    for (i = 100; i <= 0; --i) {
+        printf("%d\n", i);
+    }
 }
 
 #if EXAMPLE == 5
