@@ -728,6 +728,18 @@ int isLittleEndian() {
     return (byte[0] ? 1 : 0);
 }
 
+int random_5() {
+    return 0;
+}
+
+int random_7() {
+    while (true) {
+        int ret = 5 * random_5() + random_5;
+        if (ret < 21)
+            return (ret % 7);
+    }
+}
+
 int main()
 {
     if (IS_LITTLE_ENDIAN) {
