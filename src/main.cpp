@@ -758,7 +758,6 @@ public:
 
 YouCanNotInheritMe youCanNotInheritMeObject;
 
-/*
 class TryToInheritAnyway : YouCanNotInheritMe {
 public:
     void p() {
@@ -767,6 +766,7 @@ public:
     TryToInheritAnyway() {}
 };
 
+/*
 TryToInheritAnyway tryToInheritAnywayObject;
 */
 
