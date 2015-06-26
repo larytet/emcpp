@@ -742,29 +742,61 @@ int random_7() {
 
 class YouCanNotInheritMe;
 class Singleton {
+public:
+    void p() {
+        printf("I am a Singletone\r\n");
+    }
 private:
     Singleton() {}
     friend YouCanNotInheritMe;
 };
 
-class YouCanNotInheritMe : virtual public Singleton {
+class YouCanNotInheritMe : public Singleton {
 public:
     YouCanNotInheritMe(){}
 };
 
-YouCanNotInheritMe youCanNotInheritMeObject2;
+YouCanNotInheritMe youCanNotInheritMeObject;
 
 /*
 class TryToInheritAnyway : YouCanNotInheritMe {
 public:
+    void p() {
+        printf("I am a TryToInheritAnyway\r\n");
+    }
     TryToInheritAnyway() {}
 };
 
 TryToInheritAnyway tryToInheritAnywayObject;
 */
 
+class Final final {
+public:
+    Final() {}
+};
+
+
+template <class T>class SealedBase
+{
+protected:
+    SealedBase()
+    {
+    }
+};
+
+#define SEAL_ME(className) private virtual SealedBase<className>
+
+class SealedClass : SEAL_ME(SealedClass){
+};
+class TryToInheritAnyway : SealedClass {
+};
+
+TryToInheritAnyway tryToInheritAnywayObject;
+
 int main()
 {
+    youCanNotInheritMeObject.p();
+//  tryToInheritAnywayObject.p();
     if (IS_LITTLE_ENDIAN) {
         cout << "Little endian" << endl;
     }
