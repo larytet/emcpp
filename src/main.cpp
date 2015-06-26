@@ -751,7 +751,7 @@ private:
     friend YouCanNotInheritMe;
 };
 
-class YouCanNotInheritMe : public Singleton {
+class YouCanNotInheritMe : virtual public Singleton {
 public:
     YouCanNotInheritMe(){}
 };
