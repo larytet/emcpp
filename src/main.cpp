@@ -775,24 +775,6 @@ public:
     Final() {}
 };
 
-
-template <class T>class SealedBase
-{
-protected:
-    SealedBase()
-    {
-    }
-};
-
-#define SEAL_ME(className) private SealedBase<className>
-
-class SealedClass : SEAL_ME(SealedClass){
-};
-class TryToInheritAnyway : SealedClass {
-};
-
-TryToInheritAnyway tryToInheritAnywayObject;
-
 int main()
 {
     youCanNotInheritMeObject.p();
