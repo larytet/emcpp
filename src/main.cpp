@@ -784,7 +784,7 @@ protected:
     }
 };
 
-#define SEAL_ME(className) private virtual SealedBase<className>
+#define SEAL_ME(className) private SealedBase<className>
 
 class SealedClass : SEAL_ME(SealedClass){
 };
