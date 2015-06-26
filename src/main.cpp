@@ -734,11 +734,34 @@ int random_5() {
 
 int random_7() {
     while (true) {
-        int ret = 5 * random_5() + random_5;
+        int ret = 5 * random_5() + random_5();
         if (ret < 21)
             return (ret % 7);
     }
 }
+
+class YouCanNotInheritMe;
+class Singleton {
+private:
+    Singleton() {}
+    friend YouCanNotInheritMe;
+};
+
+class YouCanNotInheritMe : virtual public Singleton {
+public:
+    YouCanNotInheritMe(){}
+};
+
+YouCanNotInheritMe youCanNotInheritMeObject2;
+
+/*
+class TryToInheritAnyway : YouCanNotInheritMe {
+public:
+    TryToInheritAnyway() {}
+};
+
+TryToInheritAnyway tryToInheritAnywayObject;
+*/
 
 int main()
 {
