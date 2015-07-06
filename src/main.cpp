@@ -777,6 +777,8 @@ public:
 };
 
 class MutexAB {
+public:
+    MutexAB() {}
 };
 
 class A {
@@ -861,6 +863,23 @@ void testFastSum(int delta, int *result, int count) {
         result[i] = fastSum.sum(i);
     }
 }
+
+class LazyInitialization {
+    LazyInitialization *getInstance() {
+        if (instance == nullptr) {
+            MutexAB m;
+            if (instance == nullptr) {
+                instance = new LazyInitialization();
+            }
+        }
+        return instance;
+    }
+private:
+    LazyInitialization();
+    static LazyInitialization *instance;
+};
+
+LazyInitialization *LazyInitialization::instance = nullptr;
 
 int main()
 {
