@@ -846,6 +846,22 @@ void initDataArrayC() {
     memset(dataArray.c, 0, sizeof(dataArray.c));
 }
 
+class FastSum {
+public:
+    FastSum(int delta) : delta(delta) {}
+    virtual int sum(int a) { return delta+a;}
+    virtual ~FastSum() {}
+protected:
+    int delta;
+};
+
+void testFastSum(int delta, int result[100]) {
+    FastSum fastSum(delta);
+    for (int i = 0;i < 100;i++) {
+        result[i] = fastSum.sum(i);
+    }
+}
+
 int main()
 {
     youCanNotInheritMeObject.p();
