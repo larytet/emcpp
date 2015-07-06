@@ -851,13 +851,13 @@ public:
     FastSum(int delta) : delta(delta) {}
     virtual int sum(int a) { return delta+a;}
     virtual ~FastSum() {}
-protected:
+    protected:
     int delta;
 };
 
-void testFastSum(int delta, int result[100]) {
+void testFastSum(int delta, int *result, int count) {
     FastSum fastSum(delta);
-    for (int i = 0;i < 100;i++) {
+    for (int i = 0;i < count;i++) {
         result[i] = fastSum.sum(i);
     }
 }
