@@ -14,6 +14,7 @@
 #include <array>
 #include <limits>
 #include <atomic>
+#include <thread>
 #include <cstdint>
 #include <memory>
 
@@ -763,7 +764,7 @@ public:
     void p() {
         printf("I am a TryToInheritAnyway\r\n");
     }
-    TryToInheritAnyway() {}
+//    TryToInheritAnyway() {}
 };
 
 /*
@@ -774,6 +775,76 @@ class Final final {
 public:
     Final() {}
 };
+
+class MutexAB {
+};
+
+class A {
+public:
+    A() : isDone(false) {}
+    virtual void m1() = 0;
+    void m2() {
+        m1();
+        MutexAB m;
+        isDone = true;
+    }
+    virtual ~A() {
+        MutexAB m;
+        while (!isDone) {}
+    }
+protected:
+    bool isDone;
+};
+
+class B : public A {
+public:
+    void m1() {}
+    virtual ~B() {}
+};
+
+void testAB() {
+    B *b = new B;
+    std::thread t1{ [=] {
+        b->m1();
+        b->m2();
+    }};
+
+    std::thread t2{ [=] {
+        delete b;
+    }};
+}
+
+typedef struct {
+    int f1 : 8;
+    int f2 : 8;
+} myDataT;
+
+static myDataT myData;
+void testMyData() {
+    std::thread t1{ [=] {
+        myData.f1 = 0;
+    }};
+
+    std::thread t2{ [=] {
+        myData.f2 = 1;
+    }};
+}
+
+static struct {
+    int a[128];
+    int b[128];
+    int c[128];
+} dataArray;
+
+void initDataArrayB() {
+    memset(dataArray.a, 0, sizeof(dataArray.a));
+    memset(dataArray.b, 0, sizeof(dataArray.a));
+}
+
+void initDataArrayC() {
+    memset(dataArray.a, 0, sizeof(dataArray.a));
+    memset(dataArray.c, 0, sizeof(dataArray.c));
+}
 
 int main()
 {
