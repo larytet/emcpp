@@ -838,7 +838,7 @@ static struct {
 
 void initDataArrayB() {
     memset(dataArray.a, 0, sizeof(dataArray.a));
-    memset(dataArray.b, 0, sizeof(dataArray.a));
+    memset(dataArray.b, 0, sizeof(dataArray.b));
 }
 
 void initDataArrayC() {
