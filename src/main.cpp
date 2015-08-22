@@ -883,8 +883,34 @@ private:
 
 atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
 
+#include <vector>
+#include <string>
+#include <utility>
+#include <iostream>
+
+template<typename Container> class NamedContainer
+{
+public:
+    template <typename... Args> NamedContainer(const string& name, Args&&... args): name(name), c(std::forward<Args>(args)...) {}
+    const std::string name;
+    Container c;
+    Container& operator() () {return c;}
+};
+
+class NamedVector : public NamedContainer< std::vector<double> >
+{
+public:
+    template <typename... Args> NamedVector(const string& name, Args&&... args) : NamedContainer(name, std::forward<Args>(args)...) {
+    }
+};
+
+
+
 int main()
 {
+    NamedVector vec1("vec2", 119);
+    cout << "Vector " << vec1.name << ", size " << vec1().size() << endl;
+
     youCanNotInheritMeObject.p();
 //  tryToInheritAnywayObject.p();
     if (IS_LITTLE_ENDIAN) {
