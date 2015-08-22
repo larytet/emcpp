@@ -891,21 +891,27 @@ atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
 template<typename Container> class NamedContainer
 {
 public:
-    template <typename... Args> NamedContainer(const string& name, Args&&... args): name(name), c(std::forward<Args>(args)...) {}
+    template <typename... Args>
+        NamedContainer(const string& name, Args&&... args):
+            name(name), c(std::forward<Args>(args)...) {}
     const std::string name;
     Container c;
     Container& operator() () {return c;}
 };
 
-typedef NamedContainer< std::vector<double> > NamedVector;
 
+void testNamedContainer()
+{
+    typedef NamedContainer< std::vector<double> > NamedVector;
 
+    NamedVector vec1("vec2", 119);
+    cout << "Vector " << vec1.name << ", size " << vec1().size() << endl;
+}
 
 int main()
 {
-    NamedVector vec1("vec2", 119);
-    cout << "Vector " << vec1.name << ", size " << vec1().size() << endl;
 
+    testNamedContainer();
     youCanNotInheritMeObject.p();
 //  tryToInheritAnywayObject.p();
     if (IS_LITTLE_ENDIAN) {
