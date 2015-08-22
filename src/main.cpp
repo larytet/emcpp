@@ -897,12 +897,7 @@ public:
     Container& operator() () {return c;}
 };
 
-class NamedVector : public NamedContainer< std::vector<double> >
-{
-public:
-    template <typename... Args> NamedVector(const string& name, Args&&... args) : NamedContainer(name, std::forward<Args>(args)...) {
-    }
-};
+typedef NamedContainer< std::vector<double> > NamedVector;
 
 
 
