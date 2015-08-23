@@ -908,10 +908,29 @@ void testNamedContainer()
     cout << "Vector " << vec1.name << ", size " << vec1().size() << endl;
 }
 
+template<typename Container> struct NamedContainerS
+{
+    NamedContainerS(const char* name) : name(name){}
+    Container c;
+    const char* name;
+};
+
+void testNamedContainerS()
+{
+    typedef NamedContainerS< std::vector<double> > NamedVector;
+
+    NamedVector vec1("vec3");
+    vector<double>* vec1v = (vector<double>*)&vec1;
+    vec1v->resize(139);
+    cout << "Vector " << vec1.name << ", size " << vec1v->size() << endl;
+}
+
+
 int main()
 {
 
     testNamedContainer();
+    testNamedContainerS();
     youCanNotInheritMeObject.p();
 //  tryToInheritAnywayObject.p();
     if (IS_LITTLE_ENDIAN) {
