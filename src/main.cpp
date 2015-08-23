@@ -888,10 +888,11 @@ atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
 #include <utility>
 #include <iostream>
 
-template<typename Container> class SingletonS {
+template<typename Container> class NamedContainer;
+class SingletonS {
 private:
     SingletonS() {}
-    friend template<typename Container> class NamedContainer<Container>;
+    template<typename Container> friend  class NamedContainer;
 };
 
 
@@ -931,10 +932,25 @@ void testNamedContainerS()
     cout << "Vector " << vec1.name << ", size " << vec1v->size() << endl;
 }
 
+template<typename T> class NamedVector final : public vector<T>
+{
+public:
+    template <typename... Args> NamedVector(const string& name, Args&&... args) : vector<T>(std::forward<Args>(args)...), name(name) {}
+    const string name;
+};
+
+void testNamedContainerF()
+{
+    NamedVector<double> vec4("vec4", 893);
+
+    cout << "Vector " << vec4.name << ", size " << vec4.size() << endl;
+}
+
 
 int main()
 {
 
+    testNamedContainerF();
     testNamedContainer();
     testNamedContainerS();
     youCanNotInheritMeObject.p();
