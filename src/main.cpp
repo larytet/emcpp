@@ -888,8 +888,14 @@ atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
 #include <utility>
 #include <iostream>
 
-template<typename Container> class NamedContainer
-{
+class SingletonS {
+private:
+    SingletonS() {}
+    friend template<typename Container> class NamedContainer<Container>;
+};
+
+
+template<typename Container> class NamedContainer  : virtual public SingletonS {
 public:
     template <typename... Args>
         NamedContainer(const string& name, Args&&... args):
