@@ -888,7 +888,7 @@ atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
 #include <utility>
 #include <iostream>
 
-class SingletonS {
+template<typename Container> class SingletonS {
 private:
     SingletonS() {}
     friend template<typename Container> class NamedContainer<Container>;
