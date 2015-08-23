@@ -939,7 +939,7 @@ public:
     const string name;
 };
 
-void testNamedContainerF()
+void testNamedContainerFinal()
 {
     NamedVector<double> vec4("vec4", 893);
 
@@ -950,7 +950,7 @@ void testNamedContainerF()
 int main()
 {
 
-    testNamedContainerF();
+    testNamedContainerFinal();
     testNamedContainer();
     testNamedContainerS();
     youCanNotInheritMeObject.p();
