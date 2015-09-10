@@ -21,8 +21,15 @@ How to scale the system while keeping the united frontend/management system?
 What is the performance of the modern I/O? Tip: consider 128 DDR bus. 
 When the CPU will be a bottleneck? Tip: deduplication, real time compression
 
+Different between mutex and a binary semaphore? Tip: mutex is context aware. Only a thread which locks a mutex can free the mutex.
+The mutext owner can enter the critical section protected by the mutex multiple times. 
 
+There is a single writer and multiple reader threads. How to implement a mutex protected a data base? 
+Tip: in Linux you can use a conditional variable.
+Tip2: a global variable discribes a state of the data base - writing, reading. Before a thread enters the critical section it shall check 
+and probably modify the state. The test-modify operation shall be atomic.
 
+    
 
 
 
