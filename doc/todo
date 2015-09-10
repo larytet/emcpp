@@ -5,3 +5,30 @@ http://puddleofriddles.blogspot.co.il/2011/07/basketball-riddle.html
 
 
 
+One writing thread, N reading threads. In between a queue of messages. 
+How to implement a synchronization message - a message which will be processed only after all reading threads
+complet their work.
+
+Travel single linked list in the reverse order. Tip switch direction of the links - O(n) Check that the question is not 
+duplicated.
+
+
+Block diagram for the bakcup system which target backup of the virtual machines - scalable, reliable. 
+How many threads should be in the backup? Tip: if the CPU/IO is not a bottleneck and networking 
+is the main bottleneck (typical) two thread read/write should be sufficient
+to move the data between network interfaces
+How to scale the system while keeping the united frontend/management system?
+What is the performance of the modern I/O? Tip: consider 128 DDR bus. 
+When the CPU will be a bottleneck? Tip: deduplication, real time compression
+
+
+
+
+
+
+
+
+
+
+     
+
