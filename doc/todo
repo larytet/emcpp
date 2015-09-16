@@ -31,6 +31,16 @@ and probably modify the state. The test-modify operation shall be atomic.
 
     
 
+Implemet three functions which manipulate a binary tree:
+
+void insert(node **root, int val)
+node *delete(node *root, int val)
+void print(node *root)
+
+
+You have a storage (a hard disk) and two or more servers which can access the storage concurrently. A block write/read is an atomic operation. 
+How mutex can be implemented?
+
 
 
 
