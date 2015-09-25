@@ -946,6 +946,12 @@ void testNamedContainerFinal()
     cout << "Vector " << vec4.name << ", size " << vec4.size() << endl;
 }
 
+enum class LetterType {
+    complement,
+    complaint,
+    unknown
+};
+
 
 int main()
 {
@@ -986,4 +992,8 @@ int main()
     cout << "time:  " << dt1 << endl;
 
     return 0;
+
 }
+
+
+
