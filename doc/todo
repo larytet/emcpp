@@ -92,12 +92,17 @@ int main()
 	// 1. What happens here:
 	char *a = "123";
 	// 2. What happens here:
-	char b[] = "456";
+	char b[] = "123";
+        // What happens here:
+        const char *c = "123";
 	// 3. What happens here:
 	a[0] = '0';
+        .................
 	// 4. What happens here:
 	return a;
-        ......
+        .................
+        return c;
+        ................
         // 5. What happens here:
         return b;
 }
