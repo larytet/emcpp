@@ -73,27 +73,36 @@ int itoa(int value, char *s, int size)
 
 
 }
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
+
+inifinidat
+
+What does the following x86 chunk of assembly code
+call .next
+next:
+	pop rasx
+
+
+There is a region in the RAM of size 1MB. We need a pool of 4 bytes blocks which utilizes as much of the memory as possible. Complexity is O(1).
+
+
+How to count number of bits in a 64 bits integer?
+
+int main()
+{
+	// 1. What happens here:
+	char *a = "123";
+	// 2. What happens here:
+	char b[] = "456";
+	// 3. What happens here:
+	a[0] = '0';
+	// 4. What happens here:
+	return a;
+        ......
+        // 5. What happens here:
+        return b;
+}
+
+
 
 
 
