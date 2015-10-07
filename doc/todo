@@ -89,21 +89,24 @@ How to count number of bits in a 64 bits integer?
 
 int main()
 {
-	// 1. What happens here:
+	// 1.
 	char *a = "123";
-	// 2. What happens here:
+	// 2.
 	char b[] = "123";
-        // What happens here:
+        // 3.
         const char *c = "123";
-	// 3. What happens here:
+        // 4.
+        static char d[] = "123";
+	// 5.
 	a[0] = '0';
         .................
-	// 4. What happens here:
+	// 6.
 	return a;
         .................
+        // 7.
         return c;
         ................
-        // 5. What happens here:
+        // 8. 
         return b;
 }
 
