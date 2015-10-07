@@ -44,35 +44,6 @@ How mutex can be implemented? Tip: https://en.wikipedia.org/wiki/Peterson%27s_al
 
 
 INFINIDAT:
-/**
- * return size if Ok
- */
-int itoa(int value, char *s, int size)
-{
-    int i = 0;
-    int chars = size - 1;
-    int digits = 0;
-    int v = value;
-    while (v)
-    {
-        v = v / 10;
-        digits++;
-    }
-    while (value)
-    {
-        if (i >= chars)
-            break;
-       s[digits-1-i] = '0' + value;
-        i++;
-        value = value / 10;
-    }
-    if (value == 0)
-        return size;
-    else
-        return 0;
-
-
-}
 
 inifinidat
 

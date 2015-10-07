@@ -955,8 +955,45 @@ enum class LetterType {
 
 #include "fastpool.h"
 
+/**
+ * return size if Ok
+ */
+static int itoa(int value, char *s, int size)
+{
+    int i = 0;
+    int chars = size - 1;
+    int digits = 0;
+    int v = value;
+    while (v)
+    {
+        v = v / 10;
+        digits++;
+    }
+    while (value)
+    {
+        if (i >= chars)
+            break;
+        s[digits-1-i] = '0' + (value%10);
+        i++;
+        value = value / 10;
+    }
+    s[digits] = 0;
+    if (i >= (digits-1))
+        return size;
+    else
+        return 0;
+
+}
+
 int main()
 {
+    vector<int> testArray = {1234, 123456,1234567,12345678};
+    for (int i : testArray)
+    {
+        char s[7];
+        int res = itoa(i, s, sizeof(s));
+        cout << "val=" << i << ",res=" << res << ",s=" << s << endl;
+    }
 
     fastPoolInitialize();
     fastPoolPrint();
