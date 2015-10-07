@@ -977,11 +977,16 @@ static int itoa(int value, char *s, int size)
         i++;
         value = value / 10;
     }
-    s[digits-1] = 0;
-    if (i < (digits-1))
+    if ((digits-1-i) < 0)
+    {
+        s[digits-1] = 0;
         return size;
+    }
     else
+    {
+        s[chars] = 0;
         return 0;
+    }
 
 }
 
