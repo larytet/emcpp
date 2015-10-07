@@ -43,13 +43,6 @@ How mutex can be implemented? Tip: https://en.wikipedia.org/wiki/Peterson%27s_al
 
 
 
-INFINIDAT:
-
-inifinidat
-
-
-There is a region in the RAM of size 1MB. We need a pool of 4 bytes blocks which utilizes as much of the memory as possible. Complexity is O(1).
-
 
 
 
