@@ -953,8 +953,20 @@ enum class LetterType {
 };
 
 
+#include "fastpool.h"
+
 int main()
 {
+
+    fastPoolInitialize();
+    fastPoolPrint();
+    uint32_t *p1 = fastPoolAllocate();
+    uint32_t *p2 = fastPoolAllocate();
+    uint32_t *p3 = fastPoolAllocate();
+    fastPoolFree(p1);
+    fastPoolFree(p3);
+    fastPoolFree(p2);
+    fastPoolPrint();
 
     testNamedContainerFinal();
     testNamedContainer();
