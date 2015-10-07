@@ -42,7 +42,7 @@ uint32_t *fastPoolAllocate()
     if (blockOffset != ALLOCATED_ENTRY)
     {
         fastPoolHead = fastPoolGetNext(blockOffset);
-        fastPoolData[blockOffset] = ALLOCATED_ENTRY;
+        fastPoolSetNext(blockOffset, ALLOCATED_ENTRY);
         return &fastPoolData[blockOffset];
     }
 
