@@ -1,6 +1,6 @@
 CXXFLAGS = -O0 -g -Wall -fmessage-length=0 -std=c++11 -fopenmp   
 
-OBJS =		src/main.o 
+OBJS =		src/main.o src/fastpool.o 
 
 LIBS =
 

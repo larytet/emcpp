@@ -6,6 +6,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 static const int POOL_SIZE = 127;
 static uint32_t fastPoolData[POOL_SIZE];
 static uint32_t fastPoolHead;
