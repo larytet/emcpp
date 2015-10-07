@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static const int POOL_SIZE = 127;
+static const int POOL_SIZE = 7;
 static uint32_t fastPoolData[POOL_SIZE];
 static uint32_t fastPoolHead;
 static const int ALLOCATED_ENTRY = (POOL_SIZE+1);
@@ -42,6 +42,7 @@ uint32_t *fastPoolAllocate()
     if (blockOffset != ALLOCATED_ENTRY)
     {
         fastPoolHead = fastPoolGetNext(blockOffset);
+        fastPoolData[blockOffset] = ALLOCATED_ENTRY;
         return &fastPoolData[blockOffset];
     }
 

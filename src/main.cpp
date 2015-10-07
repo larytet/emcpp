@@ -964,7 +964,9 @@ int main()
     uint32_t *p2 = fastPoolAllocate();
     uint32_t *p3 = fastPoolAllocate();
     fastPoolFree(p1);
+    fastPoolPrint();
     fastPoolFree(p3);
+    fastPoolPrint();
     fastPoolFree(p2);
     fastPoolPrint();
 
