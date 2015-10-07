@@ -58,6 +58,7 @@ void fastPoolFree(uint32_t *block)
 
 void fastPoolPrint()
 {
+    cout << "Head=" << fastPoolHead << " ";
     for (int i = 0;i < POOL_SIZE;i++)
     {
         cout << fastPoolData[i] << " ";
