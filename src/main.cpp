@@ -977,8 +977,8 @@ static int itoa(int value, char *s, int size)
         i++;
         value = value / 10;
     }
-    s[digits] = 0;
-    if (i >= (digits-1))
+    s[digits-1] = 0;
+    if (i < (digits-1))
         return size;
     else
         return 0;
