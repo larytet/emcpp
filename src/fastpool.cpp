@@ -1,6 +1,7 @@
 /**
  * Pool for allocation of small (4 bytes) blocks
- * This is an interview question
+ * This code is a result of an interview question and probably does not 
+ * have many real life applications. The code is not thread safe.
  */
 
 #include <string>
