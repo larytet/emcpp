@@ -44,7 +44,44 @@ How mutex can be implemented? Tip: https://en.wikipedia.org/wiki/Peterson%27s_al
 
 
 
+class Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in parent" << endl; 
+} 
+}; 
 
+class Child : public Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in child" << endl; 
+} 
+
+void Y() 
+{ 
+cout << " Y in child" << endl; 
+} 
+}; 
+
+
+int main() 
+{ 
+Child c; 
+Base b = c; 
+b.X();	
+
+Base *ptr = new Child(); 
+ptr->X();	// how is this call different from "b.X()" 
+return 0; 
+} 
+
+Output : 
+X in parent 
+X in child
 
 
 
