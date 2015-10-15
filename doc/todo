@@ -84,6 +84,10 @@ X in parent
 X in child
 
 
+Implement a thread pool 
+
+Implement a timer using hash table, hash key is based on the expiration tick
+
 
 
 
