@@ -6,6 +6,14 @@ http://mithileshjoshi.blogspot.co.il/2015/08/every-programmers-see-at-1-time.htm
 http://puddleofriddles.blogspot.co.il/2011/07/basketball-riddle.html
 
 
+Here is a first hand story. Some time ago I applied for a job at an algo trading shop. Before they started any interview process I was asked to 
+write in real-time online environment programming (C/C++) solution for 3 non-trivial algorithmic problems. 
+I was allowed total 160 minutes for this. Naturally I entered Google.com. 
+In less than 5 minutes I have discovered solutions for all three. 
+By my estimation 160 minutes were barely enough to translate the solution in Java - the one I found - to C and run unitest 
+and see if it works. I personally know people who work in the middle management positions. These are smart guys, but they are not there. 
+They are not and never was able to find a solution for these kind of problems, neither implement a solution in this kind of time. 
+
 
 One writing thread, N reading threads. In between a queue of messages. 
 How to implement a synchronization message - a message which will be processed only after all reading threads
