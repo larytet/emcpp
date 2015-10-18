@@ -134,7 +134,9 @@ check("") -> true
 
 
 
-def checkBrackets(s):
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+def checkParentheses(s):
     stack = []
     openningParentheses = ['{', '[', '('] 
     closingParentheses = ['}', ']', ')'] 
@@ -157,4 +159,5 @@ def checkBrackets(s):
 
 testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
 for line in testLines:
-    print line, ":", checkBrackets(line)
+    print line, ":", checkParentheses(line)
+
