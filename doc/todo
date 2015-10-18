@@ -134,3 +134,26 @@ check("") -> true
 
 
 
+def checkParentheses(s):
+    stack = []
+    openningParentheses = ['{', '[', '(']
+    closingParentheses = ['}', ']', ')']
+    pairs = {'}':'{', ']':'[', ')':'('}
+    for ch in s:
+        if ch in openningParentheses:
+            stack.append(ch)
+        elif (ch in closingParentheses):
+            if (len(stack) == 0):    
+                return False
+            translatedCh = pairs[ch]
+            stackTop = stack[-1]
+        if (stackTop == translatedCh):
+            stack.pop();
+        else:
+            return False
+return (len(stack) == 0)
+
+testLines = [‘1{2}3’, ‘1{‘, ‘1[{]}’]
+for line in testLines:
+    print line, “:”, checkParentheses(line)
+
