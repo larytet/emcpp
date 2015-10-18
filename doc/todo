@@ -107,3 +107,30 @@ Programer needs job, Willing to do Windows.
 
      
 
+Hello
+
+-Assume most recent language standard are available (ES5, SE8, C11, C++11...).
+- We expect good performance.
+- If missing more requirements details, just make reasonable assumptions of
+  your own.
+- Solution must be simple and compact.
+  No defensive coding, no comments, no unrequested features.
+  Only one file 10-20 lines of code
+- Work only inside Google Docs: no external editor/IDE/debugger, no copy-paste
+  to/from such an editor. We must see the flow of how you write the code.
+
+Implement function check (text) which checks whether brackets within text are
+correctly nested. You need to consider brackets of three kinds: (), [], {}.
+
+
+Examples:
+    
+check("a(b)") -> true
+check("[{}]") -> true
+check("[(]") -> false
+check("}{") -> false
+check("z([{}-()]{a})") -> true
+check("") -> true
+
+
+
