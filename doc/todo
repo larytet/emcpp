@@ -181,3 +181,27 @@ testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"
 for line in testLines:
     print line, ":", checkParentheses(line)
 
+
+
+// Implement following class
+class Bandwidth
+{
+        void notify(unsigned);
+        unsiged byetsPerSecond();
+        const unsigned WINDOW_SIZE = 500; //ms
+}
+
+// Assume that exists function
+extern unsigned getTimeMs();
+
+
+The system has two inpiuts and four outputs. Implement a thrad which reads the inputs and write outputs.
+Insure fairness between the outputs. You have following functions
+void select(fdW[], fdR[])
+bool isReady(fd)
+void write(fd, buffer)
+void read(fd, buffer)
+
+Tip: maintane a list of output fds where the latest used output moves to the end of the list.
+
+
