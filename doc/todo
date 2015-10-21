@@ -194,6 +194,8 @@ class Bandwidth
 // Assume that exists function
 extern unsigned getTimeMs();
 
+Deliver packets from one side to another side of the cloud and feed the packets to the processing server at fixed latency. 
+
 
 The system has two inpiuts and four outputs. Implement a thrad which reads the inputs and write outputs.
 Insure fairness between the outputs. You have following functions
