@@ -41,6 +41,26 @@ void print(node *root)
 You have a storage (a hard disk) and two or more servers which can access the storage concurrently. A block write/read is an atomic operation. 
 How mutex can be implemented? Tip: https://en.wikipedia.org/wiki/Peterson%27s_algorithm
 
+// Implement following class
+class Bandwidth
+{
+ 	void notify(unsigned);
+	unsiged byetsPerSecond();
+	const unsigned WINDOW_SIZE = 500; //ms
+}
+
+// Assume that exists function
+extern unsigned getTimeMs();
+
+
+The system has two inpiuts and four outputs. Implement a thrad which reads the inputs and write outputs. 
+Insure fairness between the outputs. You have following functions
+void select(fdW[], fdR[])
+bool isReady(fd)
+void write(fd, buffer)
+void read(fd, buffer)
+
+Tip: maintane a list of output fds where the latest used output moves to the end of the list.
 
 
 
