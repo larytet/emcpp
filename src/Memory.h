@@ -1,3 +1,7 @@
+/**
+ * See comments http://www.amazon.com/dp/B00WVDHP8E 
+ */
+
 #pragma once
 
 class MemoryRegion {

@@ -1,8 +1,18 @@
 https://graphics.stanford.edu/~seander/bithacks.html
 http://www.careercup.com/
+http://www.poemofquotes.com/funny-quotes/computer-nerds.php
+http://mithileshjoshi.blogspot.co.il/2015/08/every-programmers-see-at-1-time.html
 
 http://puddleofriddles.blogspot.co.il/2011/07/basketball-riddle.html
 
+
+Here is a first hand story. Some time ago I applied for a job at an algo trading shop. Before they started any interview process I was asked to 
+write in real-time online environment programming (C/C++) solution for 3 non-trivial algorithmic problems. 
+I was allowed total 160 minutes for this. Naturally I entered Google.com. 
+In less than 5 minutes I have discovered solutions for all three. 
+By my estimation 160 minutes were barely enough to translate the solution in Java - the one I found - to C and run unitest 
+and see if it works. I personally know people who work in the middle management positions. These are smart guys, but they are not there. 
+They are not and never was able to find a solution for these kind of problems, neither implement a solution in this kind of time. 
 
 
 One writing thread, N reading threads. In between a queue of messages. 
@@ -64,12 +74,110 @@ Tip: maintane a list of output fds where the latest used output moves to the end
 
 
 
+class Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in parent" << endl; 
+} 
+}; 
+
+class Child : public Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in child" << endl; 
+} 
+
+void Y() 
+{ 
+cout << " Y in child" << endl; 
+} 
+}; 
+
+
+int main() 
+{ 
+Child c; 
+Base b = c; 
+b.X();	
+
+Base *ptr = new Child(); 
+ptr->X();	// how is this call different from "b.X()" 
+return 0; 
+} 
+
+Output : 
+X in parent 
+X in child
+
+
+Implement a thread pool 
+
+Implement a timer using hash table, hash key is based on the expiration tick
 
 
 
+Real programmers do not comment their code. It was hard to write, it should be hard to understand.
 
-
+Programer needs job, Willing to do Windows.
 
 
      
+
+Hello
+
+-Assume most recent language standard are available (ES5, SE8, C11, C++11...).
+- We expect good performance.
+- If missing more requirements details, just make reasonable assumptions of
+  your own.
+- Solution must be simple and compact.
+  No defensive coding, no comments, no unrequested features.
+  Only one file 10-20 lines of code
+- Work only inside Google Docs: no external editor/IDE/debugger, no copy-paste
+  to/from such an editor. We must see the flow of how you write the code.
+
+Implement function check (text) which checks whether brackets within text are
+correctly nested. You need to consider brackets of three kinds: (), [], {}.
+
+
+Examples:
+    
+check("a(b)") -> true
+check("[{}]") -> true
+check("[(]") -> false
+check("}{") -> false
+check("z([{}-()]{a})") -> true
+check("") -> true
+
+
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+def checkParentheses(s):
+    stack = []
+    openningParentheses = ['{', '[', '('] 
+    closingParentheses = ['}', ']', ')'] 
+    pairs = {'}':'{', ']':'[', ')':'('}
+    for ch in s:
+        if ch in openningParentheses:
+            stack.append(ch)
+        elif (ch in closingParentheses):
+            if (len(stack) == 0):
+                return False
+            translatedCh = pairs[ch]
+            stackTop = stack[-1]
+            if (stackTop == translatedCh):
+                stack.pop()
+            else:
+                return False
+                
+    return (len(stack) == 0)
+
+
+testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
+for line in testLines:
+    print line, ":", checkParentheses(line)
 
