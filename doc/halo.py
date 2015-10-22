@@ -19,7 +19,6 @@ check("") -> true
 def isMatch(stack, ch):
     if (ch == '}'):
         if (len(stack) == 0):
-            print "12"
             return False
         stackTop = stack[-1]
         if (stackTop != '{'):
@@ -57,7 +56,7 @@ def checkParentheses(s):
     return (len(stack) == 0)
 
 
-testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
+testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{", "", "z([{}-()]{a})", "[(]"]
 for line in testLines:
     print line, ":", checkParentheses(line)
 
