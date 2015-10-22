@@ -156,15 +156,15 @@ check("") -> true
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-def checkParentheses(s):
+def checkP1arentheses(s):
     stack = []
-    openningParentheses = ['{', '[', '('] 
-    closingParentheses = ['}', ']', ')'] 
+    openningP1arentheses = ['{', '[', '('] 
+    closingP1arentheses = ['}', ']', ')'] 
     pairs = {'}':'{', ']':'[', ')':'('}
     for ch in s:
-        if ch in openningParentheses:
+        if ch in openningP1arentheses:
             stack.append(ch)
-        elif (ch in closingParentheses):
+        elif (ch in closingP1arentheses):
             if (len(stack) == 0):
                 return False
             translatedCh = pairs[ch]
@@ -179,7 +179,7 @@ def checkParentheses(s):
 
 testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
 for line in testLines:
-    print line, ":", checkParentheses(line)
+    print line, ":", checkP1arentheses(line)
 
 
 
