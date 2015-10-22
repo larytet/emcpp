@@ -43,11 +43,8 @@ def isMatch(stack, ch):
     
 def checkParentheses(s):
     stack = []
-    print "s", s
     for ch in s:
-        print "ch=", ch
         if ((ch == '{') or (ch == '[') or (ch == '(')):
-            print "append"
             stack.append(ch)
         else:
             res = isMatch(stack, ch)
@@ -57,12 +54,10 @@ def checkParentheses(s):
             elif (res == False):
                 return False
 
-    print "len(stack)", len(stack)
     return (len(stack) == 0)
 
 
-testLines =  ['1{2}3']
-#, '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
+testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
 for line in testLines:
     print line, ":", checkParentheses(line)
 
