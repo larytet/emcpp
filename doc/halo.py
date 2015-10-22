@@ -61,7 +61,7 @@ def checkParentheses(s):
     return (len(stack) == 0)
 
 
-testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{", "", "z([{}-()]{a})", "[(]"]
+testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{", "", "[(]", "z([{}-()]{a})", "[(]"]
 for line in testLines:
-    print line, ":", checkParentheses(line)
+    print "'", line, "'", ":", checkParentheses(line)
 
