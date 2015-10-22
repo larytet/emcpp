@@ -23,18 +23,24 @@ def isMatch(stack, ch):
         stackTop = stack[-1]
         if (stackTop != '{'):
             return False
+        else:
+            stack.pop()
     elif (ch == ')'):
         if (len(stack) == 0):
             return False
         stackTop = stack[-1]
         if (stackTop != '('):
             return False
+        else:
+            stack.pop()
     elif (ch == ']'):
         if (len(stack) == 0):
             return False
         stackTop = stack[-1]
         if (stackTop != '['):
             return False
+        else:
+            stack.pop()
     else:
         return None
     return True
@@ -48,8 +54,7 @@ def checkParentheses(s):
         else:
             res = isMatch(stack, ch)
             if (res == True):
-                if (len(stack) > 0):
-                    stack.pop()
+                pass
             elif (res == False):
                 return False
 
