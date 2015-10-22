@@ -16,7 +16,7 @@ check("z([{}-()]{a})") -> true
 check("") -> true
 '''
 
-def isMatch(stack, ch):
+def rmMatch(stack, ch):
     if (ch == '}'):
         if (len(stack) == 0):
             return False
@@ -52,7 +52,7 @@ def checkParentheses(s):
         if ((ch == '{') or (ch == '[') or (ch == '(')):
             stack.append(ch)
         else:
-            res = isMatch(stack, ch)
+            res = rmMatch(stack, ch)
             if (res == True):
                 pass
             elif (res == False):
