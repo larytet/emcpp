@@ -268,3 +268,75 @@ CGpio::CGpio( char gpioGroup,  U8 gpioNum )
 	setInput();
 }
 
+
+
+
+Problem
+===========
+Simplify the implementation below as much as you can. 
+Even better if you can also improve performance as part of the simplification!
+FYI: This code is over 35 lines and over 300 tokens, but it can be written in
+5 lines and in less than 60 tokens.
+
+#include <stdlib.h>
+char *func(char *s, char a, char b)
+{
+    char *aptr;
+    char *bptr;
+    char *res;
+    int i;
+    if (s[0] == '\0')
+    {
+        if ((a == '\0') || (b == '\0'))
+            return &(s[0]);
+        else
+            return NULL;
+    }
+    i = 0;
+    aptr = NULL;
+    bptr = NULL;
+    while (aptr == NULL && bptr == NULL)
+    {
+        if (s[i] == a)
+            aptr = s+i;
+        if (s[i] == b)
+            bptr = s+i;
+        if (s[i] == '\0')
+        {
+            if ((aptr != s+i) && (bptr != s+i))
+            return NULL;
+        }
+        i++;
+    }
+
+    if (aptr == NULL)
+        res = bptr;    
+    else if (bptr == NULL)
+        res = aptr;        
+    else if (aptr < bptr)
+        res = aptr;
+    else if (bptr < aptr)
+        res = bptr;
+    else
+        res = aptr;
+
+    return res;
+}
+
+
+char *func_v2(char *s, char a, char b)
+{
+	char *aptr = NULL;
+	char *bptr = NULL;
+	while (aptr == NULL && bptr == NULL && (*s || !a || !b)  )
+	{
+		if (*s == a) aptr = s;
+		if (*s == b) bptr = s;
+		s++;
+	}
+	if (aptr != NULL) return aptr;
+	if (bptr != NULL) return bptr;
+	return NULL;
+}
+
+
