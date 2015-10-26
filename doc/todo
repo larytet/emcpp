@@ -207,3 +207,64 @@ void read(fd, buffer)
 Tip: maintane a list of output fds where the latest used output moves to the end of the list.
 
 
+class CGpio
+{
+public:
+
+	//! Create GPIO
+	//!
+	//! \arg gpioGroup	- GPIO group (i.e. 'A', 'B', etc)
+	//! \arg gpioNum	- GPIO number within the group (0..31)
+	CGpio( char gpioGroup,  U8 gpioNum );
+
+	//! Close the GPIO
+	virtual ~CGpio();
+
+	//! Set GPIO direction to input
+	void setInput( void );
+
+	//! Set GPIO direction to output
+	void setOutput( void );
+
+	//! Set GPIO direction to output with initial value
+	void setOutput( U8 value);
+
+	//! Write GPIO value
+	//!
+	//! \arg value - 0 or 1
+	void write( U8 value );
+
+	// Read GPIO value
+	//!
+	//! \return 0 or 1
+	U8 read( void );
+
+private:
+
+	// Memory mapped IO
+	U8* m_memMapIo;
+
+	// Mask of the pin in registers
+	U32 m_pinMask;
+};
+CGpio::CGpio( char gpioGroup,  U8 gpioNum )
+{
+	// Map the IO region if was not done so before
+	if ( !CMemMap::isMapped( g_memMap ) )
+	{
+		CMemMap::mapRegion( g_memMap );
+	}
+
+	// Get pointer to relevant IO registers
+	m_memMapIo = (U8*)g_memMap.m_vmAddress + (PIO_BASE & PIO_MAP_MASK) + (0x200 * (gpioGroup-'A'));
+
+	// Get pin mask
+	m_pinMask = BIT(gpioNum);
+
+	// Enable IO
+	IO_REG(GPIO_ENABLE) = m_pinMask;
+
+	// Set as input by default
+	setInput();
+}
+
