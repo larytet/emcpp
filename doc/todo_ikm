@@ -1,36 +1,144 @@
 
 http://wenku.baidu.com/view/dd71846cb84ae45c3b358c6c.html
 
-Question 4: Which of the following statements correctly describe the code below in  C ++?  #define language 437 // Line 1 #if language <400  #undef language // Line 2 #else // Line 3 #define language 850 // Line 4 #ifdef language // Line 5    printf ("% d", language); // Line 6 #endif #endif A.  An error or warning will occur on Line 6 because a macro can not be used as  part of a preprocessor directive. B.  An error or warning will occur on Line 2 because #undef is not a valid preprocessor directive. C.  An error or warning will occur on Line 4 because language has already been defined. D.  If Line 1 is changed to #define language 300, Line 6 will print "850". E.  An error or warning will occur on Line 3 because #else can only be used as the last conditional in the chai
+Which of the following statements correctly describe the code below in  C ++?  
+#define language 437 // Line 1 
+#if language <400  
+#undef language // Line 2 
+#else // Line 3 
+#define language 850 // Line 4 
+#ifdef language // Line 5    
+printf ("% d", language); // Line 6 
+#endif 
+#endif 
+
+A.  An error or warning will occur on Line 6 because a macro can not be used as  part of a preprocessor directive. 
+B.  An error or warning will occur on Line 2 because #undef is not a valid preprocessor directive. 
+C.  An error or warning will occur on Line 4 because language has already been defined. 
+D.  If Line 1 is changed to #define language 300, Line 6 will print "850". 
+E.  An error or warning will occur on Line 3 because #else can only be used as the last conditional in the chain
 
 
 
-Question 5: Which of the following statements regarding the benefits of using template  functions over preprocessor #define macros are correct? A.  A preprocessor macro expansion can not work when user-defined types are passed to it as arguments. B.  Since the preprocessor does the macro expansion and not the compiler, the build process It takes a longer period of time. C.  While expanding #define macros, the preprocessor does no type checking on the arguments to the macro. D.  A preprocessor macro expansion incurs a performance overhead at runtime. E.  It is simple to step into a template function code during the debugging process.
+Which of the following statements regarding the benefits of using template  functions over preprocessor #define macros are correct? 
+
+A.  A preprocessor macro expansion can not work when user-defined types are passed to it as arguments. 
+B.  Since the preprocessor does the macro expansion and not the compiler, the build process It takes a longer period of time. 
+C.  While expanding #define macros, the preprocessor does no type checking on the arguments to the macro. 
+D.  A preprocessor macro expansion incurs a performance overhead at runtime. 
+E.  It is simple to step into a template function code during the debugging process.
 
 
 
-Question 6: Which of the following are container adapters in the STL (Standard Template  Library) in C ++? 
+Which of the following are container adapters in the STL (Standard Template  Library) in C ++? 
  undefined
- A.  list  B.  map  C.  stack  D.  queue  E.  deque Answer: C D
+A.  list  
+B.  map  
+C.  stack  
+D.  queue  
+E.  deque
 
 
 
-Question 7: Which of the following correctly identify benefits of the getline () member  function for cin over the extraction operator in C ++?    A.  The getline () function by default, accepts whitespace, and returns on seeing the \ N character, whereas the extraction operator returns when it encounters any whitespace character.  B.  Delimiters indicating end of input can be specified to the getline () function, whereas the extraction operator has no such facility.  C.  The getline () function can be overloaded to accept different argument types, whereas the extraction operator can not be overloaded.  D.  The number of bytes to read can be specified to the getline () function, whereas it can not be done with the extraction operator.  E.  The getline () function can be used like a manipulator with cin, whereas the extraction operator can not be used as a manipulator.
+Which of the following correctly identify benefits of the getline () member  function for cin over the extraction operator in C ++?    
+A.  The getline () function by default, accepts whitespace, and returns on seeing the \ N character, whereas the extraction operator returns when it encounters any whitespace character.  
+B.  Delimiters indicating end of input can be specified to the getline () function, whereas the extraction operator has no such facility.  
+C.  The getline () function can be overloaded to accept different argument types, whereas the extraction operator can not be overloaded.  
+D.  The number of bytes to read can be specified to the getline () function, whereas it can not be done with the extraction operator.  
+E.  The getline () function can be used like a manipulator with cin, whereas the extraction operator can not be used as a manipulator.
 
 
 Question 8: In which of the following scenarios is a Copy Constructor called or  invoked?    A.  When no conversion function exists for converting the class object to another class object  B.  When an existing object is assigned an object of its own class  C.  When a function receives as an argument, an object of the class, by value  D.  When a function returns an object of the class by value  E.  When creating an object and initializing it with an object of its own class Answer: B C D E
 
 
-Question 9: Which of the following statements correctly describe the results of  executing the code below in C ++?   #include <iostream> using namespace std;   class ExBase {  private:     static int stat; public:     static int GetStat () {return stat;} };   int ExBase :: stat = 25;
-class ExDer1: public ExBase {  public:     friend int Der1Fn () {return ExBase :: stat;} };   class ExDer2: public ExBase {};   class ExDer: public ExDer1, public ExDer2 {};    A.  int main () {      ExDer d;      cout << d.Der1Fn () << endl; }   will result in an ambiguity error from the compiler.  B.  int main () {      ExDer d;      cout << d.GetStat () << endl; }  will display an output as "25."  C.  int main () {      cout << ExDer1 :: GetStat () << endl; }  will result in an ambiguity error from the compiler.  D.  class ExDer1: public ExBase {  public:     friend int Der1Fn () {return ExBase :: stat;} };  will result in an access error from the compiler.  E.  int main () {      cout << ExDer1 :: ExBase :: GetStat () << endl; }  will display an output as "25." 
+Which of the following statements correctly describe the results of  executing the code below in C ++?   
+#include <iostream> using namespace std;   
+class ExBase { 
+ private:     
+static int stat; 
+public:     
+static int GetStat () {return stat;} 
+};   
+int ExBase :: stat = 25;
+class ExDer1: public ExBase {  
+public:     
+friend int Der1Fn () {return ExBase :: stat;} 
+};   
+class ExDer2: public ExBase {};   
+class ExDer: public ExDer1, public ExDer2 {};    
+
+A.  int main () 
+{      
+ExDer d;      
+cout << d.Der1Fn () << endl; 
+}  
+ will result in an ambiguity error from the compiler.  
+B.  int main ()
+ {      ExDer d;     
+ cout << d.GetStat () << endl; 
+}  
+will display an output as "25."  
+C.  int main () 
+{     
+ cout << ExDer1 :: GetStat () << endl; 
+}  
+will result in an ambiguity error from the compiler.  
+D.  class ExDer1: public ExBase 
+{ 
+ public:     friend int Der1Fn () {return ExBase :: stat;} 
+};  
+will result in an access error from the compiler.  
+E.  int main () {      
+cout << ExDer1 :: ExBase :: GetStat () << endl; 
+}  
+will display an output as "25." 
 
 
+Question 7: Which of the following correctly identify benefits of the getline() member  function for cin over the extraction operator in C++?    
+A.  The getline() function by default, accepts whitespace, and returns on seeing the \n character, whereas the extraction operator returns when it encounters any whitespace character.  
+B.  Delimiters indicating end of input can be specified to the getline() function, whereas the extraction operator has no such facility.  
+C.  The getline() function can be overloaded to accept different argument types, whereas the extraction operator cannot be overloaded.  
+D.  The number of bytes to read can be specified to the getline() function, whereas it cannot be done with the extraction operator.  
+E.  The getline() function can be used like a manipulator with cin, whereas the extraction operator cannot be used as a manipulator.
 
 
-Question 10: Given the following program snippet, what can we conclude about the  use of dynamic_cast in C ++?   #include <iostream> #include <memory>  
+Question 10: Given the following program snippet, what can we conclude about the  use of dynamic_cast in C ++?   
+#include <iostream> #include <memory>  
 
-// Someone else's code, eg library class IGlyph {  public:      virtual ~ IGlyph () {}      virtual std :: string Text () = 0;     virtual IIcon * Icon () = 0;     // ... };   class IWidgetSelector {  public:      virtual ~ IWidgetSelector () {}           virtual void AddItem (IGlyph *) = 0;     virtual IGlyph * Selection () = 0; };    // Your code  class MyItem: public IGlyph {  public:      virtual std :: string Text ()     {          return this-> text;     }       virtual IIcon * Icon ()     {          return this-> icon.get ();     }           void Activate ()     {          std :: cout << "My Item Activated" << std :: endl;     }           std :: string text;     std :: auto_ptr <IIcon> icon; };   void SpiffyForm :: OnDoubleClick (IWidgetSelector * ws) {      IGlyph * gylph = ws-> Selection ();      MyItem * item = dynamic_cast <MyItem *> (gylph);     if (item)          item-> Activate ();}
-A.  The dynamic_cast ought to be a reinterpret_cast since the concrete type is unknown.   B.  The dynamic_cast is unnecessary since we know that the concrete type returned by IWidgetSelector :: Selection () must be a MyItem object.   C.  The dynamic_cast is redundant, the programmer can invoke Activate directly, eg ws-> Selection () -> Activate ();   D.  The dynamic_cast is necessary since we can not know for certain what concrete type is returned by IWidgetSelector :: Selection ().   E.  A polymorphic_cast should be used in place of the dynamic_cast.
+// Someone else's code, eg library 
+class IGlyph {  
+public:      
+virtual ~ IGlyph () {}      
+virtual std :: string Text () = 0;     
+virtual IIcon * Icon () = 0;     
+// ... 
+};   
+
+class IWidgetSelector 
+{  
+public:      
+virtual ~ IWidgetSelector () {}           
+virtual void AddItem (IGlyph *) = 0;     
+virtual IGlyph * Selection () = 0; 
+};    
+// Your code  
+class MyItem: public IGlyph 
+{  
+public:      
+virtual std :: string Text () {return this-> text;}
+virtual IIcon * Icon () {          return this-> icon.get ();     }           
+void Activate () {std :: cout << "My Item Activated" << std :: endl;     }           
+std :: string text;     
+std :: auto_ptr <IIcon> icon; };   
+void SpiffyForm :: OnDoubleClick (IWidgetSelector * ws) {      IGlyph * gylph = ws-> Selection ();      
+MyItem * item = dynamic_cast <MyItem *> (gylph);     
+if (item)          item-> Activate ();
+}
+A.  The dynamic_cast ought to be a reinterpret_cast since the concrete type is unknown.   
+B.  The dynamic_cast is unnecessary since we know that the concrete type returned by IWidgetSelector :: Selection () must be a MyItem object.   
+C.  The dynamic_cast is redundant, the programmer can invoke Activate directly, eg ws-> Selection () -> Activate ();   
+D.  The dynamic_cast is necessary since we can not know for certain what concrete type is returned by IWidgetSelector :: Selection ().   
+E.  A polymorphic_cast should be used in place of the dynamic_cast.
 
 
 
