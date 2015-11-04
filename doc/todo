@@ -359,12 +359,10 @@ int swap_5_7(int arg)
    return (RES[arg-5]);
 }
 
-
 int swap_5_7(int arg)
 {
    return (arg+((x & 2) >> 1)*(-1));
 }
-
 
 int swap_5_7(int arg)
 {
