@@ -342,3 +342,21 @@ char *func_v2(char *s, char a, char b)
 
 Write a function which accepts one of the two integers 5 and 7 and returns the second integer.
 The programming language does not have conditions if ... else Suggest at least 3 different solutions
+
+int swap_5_7(int arg)
+{
+   return (35/arg);
+}
+
+int swap_5_7(int arg)
+{
+   return arg ^ 0x02;
+}
+
+int swap_5_7(int arg)
+{
+   static int const RES[] = {7,0,5}
+   return (RES[arg-5]);
+}
+
+
