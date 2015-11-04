@@ -360,3 +360,7 @@ int swap_5_7(int arg)
 }
 
 
+int swap_5_7(int arg)
+{
+   return (arg+((x & 2) >> 1)*(-1));
+}
