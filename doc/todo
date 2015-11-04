@@ -364,3 +364,11 @@ int swap_5_7(int arg)
 {
    return (arg+((x & 2) >> 1)*(-1));
 }
+
+
+int swap_5_7(int arg)
+{
+   return (5-arg)+7;
+}
+
+
