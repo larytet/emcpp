@@ -376,6 +376,7 @@ Height (square of) of the bar is R^2-x^2. Nuymber of bars is N.
 
 Frog jumps from stone to stone or can jump over one stone (2 stones distance). 
 Write a function which returns number of ways the frog can cross X stones
+See http://www.careercup.com/question?id=9707061
 
 Print all 1000 digits numbers 
 
