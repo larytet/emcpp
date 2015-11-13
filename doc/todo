@@ -371,8 +371,14 @@ int swap_5_7(int arg)
 }
 
 
-Calculate Pi with complecity N 
-Frog jumps from stone to stone
+Calculate Pi with complecity O(N). Tip: divide the circle by N vertical bars. 
+Height (square of) of the bar is R^2-x^2. Nuymber of bars is N. 
+
+Frog jumps from stone to stone or can jump over one stone (2 stones distance). 
+Write a function which returns number of ways the frog can cross X stones
+
 Print all 1000 digits numbers 
+
 Difference between float and double
+
 Implement macro offsetof()
