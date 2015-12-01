@@ -384,3 +384,6 @@ Print all 1000 digits numbers
 Difference between float and double
 
 Implement macro offsetof()
+
+How kernel knows thread ID of the calling thread?
+Tip - structure thread_info is stored on the stack of the thread.
