@@ -1,3 +1,4 @@
+
 https://graphics.stanford.edu/~seander/bithacks.html
 http://www.careercup.com/
 http://www.poemofquotes.com/funny-quotes/computer-nerds.php
@@ -387,3 +388,64 @@ Implement macro offsetof()
 
 How kernel knows thread ID of the calling thread?
 Tip - structure thread_info is stored on the stack of the thread.
+
+
+
+How the following code can cause an exception:
+
+float get(obj* v, bool* ok) {
+  float c;
+  if(v->valid) {
+    *ok = true;
+    c = v->a + v->b;
+  }
+  else {
+   *ok = false; //not ok, so don't expect anything from c
+  }
+  return c;
+}
+Tip:Signalling NaN
+
+
+"They pretend to pay us, and we pretend to work." C++ pretends to provide an object-oriented data model, C++ programmers pretend to respect it, and everyone pretends that the code will work. 
+
+
+What is "kernel markers" in the Linux kernel?
+
+
+Purpose of immediate values
+
+An immediate value is used to compile into the kernel variables that sit within
+the instruction stream. They are meant to be rarely updated but read often.
+Using immediate values for these variables will save cache lines.
+This infrastructure is specialized in supporting dynamic patching of the values
+in the instruction stream when multiple CPUs are running without disturbing the
++normal system behavior.
+
+Compiling code meant to be rarely enabled at runtime can be done using
+if (unlikely(imv_read(var))) as condition surrounding the code. The
+smallest data type required for the test (an 8 bits char) is preferred, since
+some architectures, such as powerpc, only allow up to 16 bits immediate values.
+
+What is "mcount" and flag --pg in gcc?
+
+
+What does the following C code
+
+include <stdio.h>
+
+int main()
+{
+        int a,b,c;
+        int l = ({a=0;b=1;c=2;});
+        printf("l=%d\r\n", l);
+}
+
+
+what is wrong with the following macro. Moshik wrote "Bugfix: The moron who wrote actual code that runs inside assert statements should be beaten..."
+#define AZ(foo)        do { assert((foo) == 0); } while (0)
+Mooshik code
+#define AZ(foo)        do { if ((foo) != 0) printf("assert"); } while (0)
+
+
+
