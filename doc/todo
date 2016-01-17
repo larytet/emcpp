@@ -456,3 +456,23 @@ Provide example of imperative and declarative programming languages
 
 
 strncpy or strlcpy or s_strncpy?
+
+
+Under what circumstances the following C code can casue sgementation fault exception 
+
+/* main.c */
+
+int main()
+{
+	printf("%s\n", get_hello());
+}
+
+
+/* hello.c */
+const char *get_hello()
+{
+	return "Hello, world";
+}
+
+
+Tip: on 64 bits architecture w/o a prototype return code of get_hello() is assumed "int" which is wrong. 
