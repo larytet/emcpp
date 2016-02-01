@@ -476,3 +476,15 @@ const char *get_hello()
 
 
 Tip: on 64 bits architecture w/o a prototype return code of get_hello() is assumed "int" which is wrong. 
+
+
+What the following code does and how it does 
+
+template <typename T, size_t S> char (&m_h( T (&)[S]))[S];
+#define m(pArray) sizeof(m_h(pArray))
+
+int main ()
+{
+	int a[3];
+	printf("%d\n", m(a));
+}
