@@ -488,3 +488,12 @@ int main ()
 	int a[3];
 	printf("%d\n", m(a));
 }
+
+
+Flipping a coin 3 times, and given your opponent has chosen HHH, if you choose THH in return, on average you are 7 times more likely to win. For HHT 3 time more likely.   
+Tip Penney Ante: Counterintuitive
+Probabilities in Coin Tossing
+https://lnkd.in/biVqAqF
+Another form of a question Suppose you were to keepflipping a coin until it landed either HTHHT
+or HHHHH on five consecutive flips. Which of these two sequences
+would you predict would occur first?
