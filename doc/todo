@@ -15,7 +15,7 @@ I was allowed total 160 minutes for this. Naturally I entered Google.com.
 In less than 5 minutes I have discovered solutions for all three. 
 By my estimation 160 minutes were barely enough to translate the solution in Java - the one I found - to C and run unitest 
 and see if it works. I personally know people who work in the middle management positions. These are smart guys, but they are not there. 
-They are not and never was able to find a solution for these kind of problems, neither implement a solution in this kind of time. 
+They are not and never was able to find a solution for these kind of problems, neither implement a solution with such time constrain. 
 
 
 One writing thread, N reading threads. In between a queue of messages. 
