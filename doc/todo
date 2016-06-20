@@ -501,10 +501,9 @@ And follow up question Which would be the most likely result, HH or HT, if you k
 coin until you got one or the other?
 
 
-A hare and a tortoise move toward to each other. Rabbit starts and covers 1/2 of the way, tortoise is next and covers 1/4 (half of the rest). Rabbit follows with half of the rest or 1/8 of the total. 
+A hare and a tortoise move toward to each other. Hare starts and covers 1/2 of the way, tortoise is next and covers 1/4 (half of the rest). Rabbit follows with half of the rest or 1/8 of the total. 
 Where do they meet?
-Answer: 1/3. Every unit of time they both cover 3 small intervals - 2 intervals hare and 1 interval tortoise. 
-What happens if instead of half a way hare and tortoise move 1/3 of the way? Each time they cover 1 + 3 intervals 
+Answer: 1/3 - sum of 1/2,1/8,1/32,1/128 
 
 write implementation of sprintf for %d argument - access to the stack
 
