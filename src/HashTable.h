@@ -45,7 +45,8 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len, uint_
 }
 
 /**
- * A simple hashable object for testing purposes
+ * A simple generic hashable object for testing purposes
+ * Data can be uint32_t or a UNICODE_STRING
  */
 template<typename Data, typename Key> class HashObject
 {
@@ -70,4 +71,5 @@ public:
 	}
 
 };
+
 
