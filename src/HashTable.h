@@ -15,6 +15,10 @@ public:
 		return 0;
 	}
 
+	/**
+	 * Bob Jenkins hash function
+	 * http://burtleburtle.net/bob/hash/doobs.html
+	 */
 	uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len, uint_fast32_t seed = 0)
 	{
 		uint_fast32_t   hash, i;
