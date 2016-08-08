@@ -113,7 +113,7 @@ protected:
  * using of the hash table for simple C structures.
  *
  * A memory allocator is a template argument. The hash table requires that the Allocator implements
- * static methods alloc() and free(). For example, TrivialAllocator
+ * static methods alloc() and free(). For example, AllocatorTrivial
  *
  * Mutual exclusion is a template argument. The hash table calls constructor of the Lock() class
  * for the critical sections. This is tricky - see example of a dummy lock further in this file.
@@ -134,8 +134,9 @@ protected:
  * - There not many different mutex objects and they can be implemented as a constructor/destructor
  * - Hash function is good and the hash table is large to avoid collisions of the hash
  *
- * Example of usage
- * HashTable<void*, PWCHAR, >
+ * Example of usage:
+ * typedef HashTable<void*, PWCHAR, LockDummy, AllocatorTrivial> MyHashTable;
+ * MyHashTable *myHashTable = MyHashTable::create("myHashTable", 1024);
  *
  */
 template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable: HashTableBase
@@ -268,7 +269,7 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len,
 /**
  * A trivial allocator for testing
  */
-class TrivialAllocator
+class AllocatorTrivial
 {
     static void *alloc(uint_fast32_t size)
     {
