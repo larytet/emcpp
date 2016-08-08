@@ -138,11 +138,11 @@ protected:
  *
  * struct MyHashObject
  * {
- *   static bool equal(const void *, const void*);
- *   static const uint_fast32_t hash(const void*)
+ *   static bool equal(const char*, const char*);
+ *   static const uint_fast32_t hash(const char*)
  * };
  *
- * typedef HashTable<struct MyHashObject*, void*, LockDummy, AllocatorTrivial> MyHashTable;
+ * typedef HashTable<struct MyHashObject*, char*, LockDummy, AllocatorTrivial> MyHashTable;
  * MyHashTable *myHashTable = MyHashTable::create("myHashTable", 1024);
  *
  */
