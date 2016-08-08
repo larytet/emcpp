@@ -238,7 +238,7 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len,
 }
 
 /**
- * A simple implementation of an allocator for testing
+ * A trivial allocator for testing
  * purposes
  */
 class TrivialAllocator
