@@ -50,7 +50,7 @@ public:
     struct Statistics *getStatistics() const;
     void resetStatistics()
     {
-    	memset(&statistics, 0, sizeof(struct Statistics));
+    	memset(&statistics, 0, sizeof(statistics));
     }
 
 private:
