@@ -188,4 +188,39 @@ public:
 
 };
 
+/**
+ * Simple synchronization object for testing
+ */
+class SynchroObjectDummy {
 
+    SynchroObjectDummy() {};
+
+public:
+
+    static inline void get() {
+    }
+
+    static inline void release() {
+    }
+
+};
+
+/**
+ * Simple lock object for testing purposes
+ */
+template<typename Mutex> class Lock {
+
+public:
+    inline Lock() {
+        Mutex::get();
+    }
+
+    inline ~Lock() {
+        Mutex::release();
+    }
+};
+
+/**
+ * Instantiate a new type - lock which does nothing
+ */
+typedef Lock<SynchroObjectDummy> LockDummy;
