@@ -11,6 +11,18 @@ public:
 
 	struct Statistics
 	{
+		uint64_t insertTotal;
+		uint64_t insertHashCollision;
+		uint64_t insertOk;
+		uint64_t insertFailed;
+
+		uint64_t searchTotal;
+		uint64_t searchOk;
+		uint64_t searchFailed;
+
+		uint64_t removeTotal;
+		uint64_t removeOk;
+		uint64_t removeFailed;
 	};
 
     uint_fast32_t getSize() const
@@ -44,9 +56,10 @@ public:
     static const int HASH_TABLES_COUNT;
 
     /**
-     * All hash tables created in the system. I am not protecting access
+     * List of all hash tables created in the system. I am not protecting access
      * to this global variable with a mutex. It is not crucial for execution
      * and should be modified only on power up
+     * Check this object to see the debug information in one convenient place
      */
     static HashTableBase *HashTables[HASH_TABLES_COUNT];
 
@@ -120,18 +133,30 @@ public:
     bool insert(const Key &key, const Object object)
     {
     	bool result = true;
+
+    	Lock lock();
+    	statistics.insertTotal++;
+
     	return result;
     }
 
     bool remove(const Key &key)
     {
     	bool result = true;
+
+    	Lock lock();
+    	statistics.removeTotal++;
+
     	return result;
     }
 
-    bool find(const Key &key, Object &object) const
+    bool search(const Key &key, Object &object) const
     {
     	bool result = true;
+
+    	Lock lock();
+    	statistics.searchTotal++;
+
     	return result;
     }
 
