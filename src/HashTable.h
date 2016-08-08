@@ -1,13 +1,16 @@
 #pragma once
 
-
+/**
+ * I am keeping an array of objects of this type for debug purposes
+ * All hash tables in the system are supposed to inherit this class and call
+ * registerTable() API
+ */
 class HashTableBase
 {
 public:
 
 	struct Statistics
 	{
-
 	};
 
     uint_fast32_t getSize() const
@@ -15,7 +18,10 @@ public:
     	return size;
     }
 
-    uint_fast32_t getCount() const;
+    uint_fast32_t getCount() const
+    {
+    	return count;
+    }
 
     bool isEmpty() const
     {
@@ -38,9 +44,27 @@ public:
     static const int HASH_TABLES_COUNT;
 
     /**
-     * All hash tables created in the system
+     * All hash tables created in the system. I am not protecting access
+     * to this global variable with a mutex. It is not crucial for execution
+     * and should be modified only on power up
      */
     static HashTableBase *HashTables[HASH_TABLES_COUNT];
+
+protected:
+    const char *name;
+    uint_fast32_t size;
+    uint_fast32_t count;
+    Statistics statistics;
+
+    HashTableBase()
+    {
+    	registerTable(this);
+    }
+
+    ~HashTableBase()
+    {
+    	unregisterTable(this);
+    }
 
     static void registerTable(HashTableBase *hashTable)
     {
@@ -65,10 +89,6 @@ public:
     	}
     }
 
-protected:
-    const char *name;
-    uint_fast32_t size;
-    Statistics statistics;
 };
 
 
@@ -137,7 +157,6 @@ public:
     {
     	void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
     	HashTable *hashTable = new(hashTableMemory) HashTable(name, size);
-    	registerTable(hashTable);
     	return hashTable;
     }
 
@@ -147,7 +166,6 @@ public:
      */
     static void destroy(HashTable *hashTable)
     {
-    	unregisterTable(hashTable);
     	hashTable->~HashTable();
     	Allocator::free(hashTable);
     }
