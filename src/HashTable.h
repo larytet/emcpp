@@ -1,8 +1,10 @@
 #pragma once
 
-template<typename Key> class HashObject
+
+template<typename Data, typename Key> class HashObject
 {
 public:
+	Data data;
 	Key key;
 
 	const Key &getKey() const
@@ -36,7 +38,7 @@ public:
 	}
 };
 
-template<typename ObjectType, typename Key, typename Lock> class HashTable
+template<typename Object, typename Key, typename Lock> class HashTable
 {
 public:
 
