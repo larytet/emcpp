@@ -88,6 +88,10 @@ public:
     	return hashTable;
     }
 
+    /**
+     * Because the hash table is created using a placement operator new[]
+     * I need function destroy which can take care of the cleanup
+     */
     static void destroy(HashTable *hashTable)
     {
     	hashTable->~HashTable();
