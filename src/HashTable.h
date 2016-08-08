@@ -119,6 +119,7 @@ public:
     {
     	void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
     	HashTable *hashTable = new(hashTableMemory) HashTable(name, size);
+    	registerTable(hashTable);
     	return hashTable;
     }
 
@@ -128,6 +129,7 @@ public:
      */
     static void destroy(HashTable *hashTable)
     {
+    	unregisterTable(hashTable);
     	hashTable->~HashTable();
     	Allocator::free(hashTable);
     }
