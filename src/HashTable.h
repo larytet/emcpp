@@ -291,6 +291,11 @@ public:
     Data data;
     Key key;
 
+    const bool &equal(Key key1, Key key2) const
+    {
+        return key1 == key2;
+    }
+
     const Key &getKey() const
     {
         return key;
