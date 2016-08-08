@@ -5,6 +5,11 @@ template<typename Object, typename Key, typename Lock> class HashTable
 {
 public:
 
+	struct Statistics
+	{
+
+	};
+
     HashTable()
     {
     }
@@ -13,9 +18,20 @@ public:
     {
     }
 
+    /**
+     * Add a new entry to the hash table.
+     * The function can fail if a collision happens and simple linear search fails as well
+     */
     bool insert(const Key &key, const Object object);
     bool remove(const Key &key);
     bool find(const Key &key, Object &object) const;
+
+    /**
+     * Call the function if size/count ration is below two
+     * or you are getting collisions often
+     * @param size - new size of the hash table
+     */
+    bool rehash(const uint_fast32_t size);
 
     uint_fast32_t size() const;
     uint_fast32_t count() const;
@@ -24,7 +40,12 @@ public:
     	return (count() == 0);
     }
 
+    struct Statistics *getStatistics() const;
+
 private:
+
+    const char *name;
+    Statistics statistics;
 };
 
 template<typename Object, typename Key, typename Lock> inline HashTable<
