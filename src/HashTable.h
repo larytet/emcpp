@@ -14,8 +14,11 @@ public:
     }
 
     bool insert(const Key &key, const Object &object);
+    bool remove(const Key &key);
     bool find(const Key &key, Object &object) const;
 
+    uint_fast32_t size() const;
+    uint_fast32_t count() const;
 
 private:
 };
