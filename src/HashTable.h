@@ -306,7 +306,7 @@ public:
         return sizeof(Key);
     }
 
-    static const uint_fast32_t &hash(const Key &key)
+    static const uint_fast32_t hash(const Key &key)
     {
         uint_fast32_t result = one_at_a_time(&key, sizeof(Key));
         return result;
