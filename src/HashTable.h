@@ -32,12 +32,45 @@ public:
     	memset(&statistics, 0, sizeof(statistics));
     }
 
+    /**
+     * Maximum number of hash tables objects accessible by debug
+     */
+    static const int HASH_TABLES_COUNT;
+
+    /**
+     * All hash tables created in the system
+     */
+    static HashTableBase *HashTables[HASH_TABLES_COUNT];
+
+    static void registerTable(HashTableBase *hashTable)
+    {
+    	for (int i = 0;i < HASH_TABLES_COUNT;i++)
+    	{
+    		if (HashTables[i] == nullptr)
+    		{
+    			HashTables[i] = hashTable;
+    			break;
+    		}
+    	}
+    }
+
+    static void unregisterTable(HashTableBase *hashTable)
+    {
+    	for (int i = 0;i < HASH_TABLES_COUNT;i++)
+    	{
+    		if (HashTables[i] == hashTable)
+    		{
+    			HashTables[i] = nullptr;
+    		}
+    	}
+    }
 
 protected:
     const char *name;
     uint_fast32_t size;
     Statistics statistics;
 };
+
 
 /**
  * Following assumptions:
