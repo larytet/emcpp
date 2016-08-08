@@ -288,12 +288,16 @@ class TrivialAllocator
 template<typename Data, typename Key> class HashObject
 {
 public:
-    Data data;
-    Key key;
 
     static bool equal(const Key &key1, const Key &key2)
     {
         return key1 == key2;
+    }
+
+    static const uint_fast32_t hash(const Key &key)
+    {
+        uint_fast32_t result = one_at_a_time(&key, sizeof(Key));
+        return result;
     }
 
     const Key &getKey() const
@@ -306,12 +310,10 @@ public:
         return sizeof(Key);
     }
 
-    static const uint_fast32_t hash(const Key &key)
-    {
-        uint_fast32_t result = one_at_a_time(&key, sizeof(Key));
-        return result;
-    }
 
+private:
+    Data data;
+    Key key;
 };
 
 /**
