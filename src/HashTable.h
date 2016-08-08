@@ -1,6 +1,26 @@
 #pragma once
 
 
+template<typename Object, typename Key, typename Lock> class HashTable
+{
+public:
+
+    HashTable()
+    {
+    }
+
+    ~HashTable()
+    {
+    }
+
+    bool insert(const Key &key, const Object &object);
+    bool find(const Key &key, Object &object) const;
+
+
+private:
+};
+
+
 /**
  * Bob Jenkins hash function
  * http://burtleburtle.net/bob/hash/doobs.html
@@ -35,26 +55,16 @@ public:
 		return key;
 	}
 
-	const uint64_t &hash() const
+	const uint_fast32_t getKeySize() const
 	{
-		return 0;
+		return sizeof(Key);
+	}
+
+	const uint_fast32_t &hash() const
+	{
+		uint_fast32_t result = one_at_a_time(&key, sizeof(Key));
+		return result;
 	}
 
 };
 
-template<typename Object, typename Key, typename Lock> class HashTable
-{
-public:
-
-    HashTable()
-    {
-
-    }
-
-    ~HashTable()
-    {
-    }
-
-
-private:
-};
