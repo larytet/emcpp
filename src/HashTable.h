@@ -10,7 +10,9 @@ public:
 
 	};
 
-    HashTable()
+    HashTable(const char *name, uint_fast32_t size) :
+    	name(name),
+		size(size)
     {
     }
 
@@ -33,11 +35,16 @@ public:
      */
     bool rehash(const uint_fast32_t size);
 
-    uint_fast32_t size() const;
-    uint_fast32_t count() const;
+    uint_fast32_t getSize() const
+    {
+    	return size;
+    }
+
+    uint_fast32_t getCount() const;
+
     bool isEmpty() const
     {
-    	return (count() == 0);
+    	return (getCount() == 0);
     }
 
     struct Statistics *getStatistics() const;
@@ -45,6 +52,7 @@ public:
 private:
 
     const char *name;
+    uint_fast32_t size;
     Statistics statistics;
 };
 
