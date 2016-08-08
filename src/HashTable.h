@@ -124,13 +124,15 @@ protected:
  *
  * Key is a type of the key. An example of a a key type is PCWCHAR. Hash table hashes the key and the
  * result is used as an index in the hash table. The hash table can not store two objects with the
- * same key.
- *
+ * same key. If a hash collision the insert/search APIs will try next entry in the hash table.
+ * The assumption is that collisions are very rare. For example, hash function for file paths can
+ * tested and, if necessary, tuned, in the initialization time.
  *
  * Following assumptions:
  * - There are not many different memory allocators in the system. Allocators can be classes with static methods
  * - Hash table can be allocated dynamically in the initialization time
  * - There not many different mutex objects and they can be implemented as a constructor/destructor
+ * - Hash function is good and the hash table is large to avoid collisions of the hash
  */
 template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable: HashTableBase
 {
