@@ -197,7 +197,7 @@ public:
     /**
      * Call the function if size/count ration is below two
      * or you are getting collisions often. Will allocate space for the
-     * hash table, copy the data to the new table.
+     * hash table, rehash the objects and copy the data to the new table.
      * @param size - new size of the hash table
      */
     bool rehash(const uint_fast32_t size)
@@ -211,6 +211,8 @@ public:
      * non paged memory, pined in cache, etc.
      * It is impossible to declare a static object of type HashTable. All objects
      * should be allocated dynamically using create() API.
+     * @param name - used for debug to distinguish between objects of the same hash table class
+     * @param size - initial size of the table
      */
     static HashTable *create(const char *name, uint_fast32_t size)
     {
