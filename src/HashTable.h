@@ -1,7 +1,7 @@
 #pragma once
 
 
-template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable
+class HashTableBase
 {
 public:
 
@@ -10,19 +10,53 @@ public:
 
 	};
 
-	/**
-	 * Dynamic allocation of the hash table
-	 */
-    HashTable(const char *name, uint_fast32_t size) :
-    	name(name),
-		size(size)
+    uint_fast32_t getSize() const
     {
-        static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
-    	resetStatistics();
+    	return size;
     }
+
+    uint_fast32_t getCount() const;
+
+    bool isEmpty() const
+    {
+    	return (getCount() == 0);
+    }
+
+    struct Statistics *getStatistics() const
+    {
+    	return &statistics;
+    }
+
+    void resetStatistics()
+    {
+    	memset(&statistics, 0, sizeof(statistics));
+    }
+
+
+protected:
+    const char *name;
+    uint_fast32_t size;
+    Statistics statistics;
+};
+
+/**
+ * Following assumptions:
+ * - There are not many different memory allocators in the system. Allocators can be classes with static methods
+ * - Hash table can be allocated dynamically in the initialization time
+ */
+template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable : HashTableBase
+{
+public:
+
+	struct Statistics
+	{
+
+	};
+
 
     ~HashTable()
     {
+    	table = Allocator::free(table);
     }
 
     /**
@@ -41,29 +75,34 @@ public:
      */
     bool rehash(const uint_fast32_t size);
 
-    uint_fast32_t getSize() const
+    static HashTable *create(const char *name, uint_fast32_t size)
     {
-    	return size;
+    	void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
+    	HashTable *hashTable = new(hashTableMemory) HashTable(name, size);
+    	return hashTable;
     }
 
-    uint_fast32_t getCount() const;
-
-    bool isEmpty() const
+    static void destroy(HashTable *hashTable)
     {
-    	return (getCount() == 0);
-    }
-
-    struct Statistics *getStatistics() const;
-    void resetStatistics()
-    {
-    	memset(&statistics, 0, sizeof(statistics));
+    	hashTable->~HashTable();
+    	Allocator::free(hashTable);
     }
 
 private:
 
-    const char *name;
-    uint_fast32_t size;
-    Statistics statistics;
+	/**
+	 * Dynamic allocation of the hash table
+	 */
+    HashTable(const char *name, uint_fast32_t size) :
+    	name(name),
+		size(size)
+    {
+        static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
+    	resetStatistics();
+    	table = Allocator::alloc(sizeof(Object)*size);
+    }
+
+    Object *table;
 };
 
 #if 0
@@ -99,12 +138,12 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len, uint_
  */
 class TrivialAllocator
 {
-	void *allocate(uint_fast32_t size)
+	void *alloc(uint_fast32_t size)
 	{
 		return new uint8_t[](size);
 	}
 
-	void release(void *ptr)
+	void free(void *ptr)
 	{
 		delete[] ptr;
 	}
