@@ -122,7 +122,7 @@ protected:
  * Object is a type of the objects (pointers or integral types) stored in the hash table, For example,
  * PCUNICODE_STRING.
  *
- *
+ * Key is a type of the key. An example of a a key type is PCWCHAR.
  *
  * Following assumptions:
  * - There are not many different memory allocators in the system. Allocators can be classes with static methods
