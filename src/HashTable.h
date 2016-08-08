@@ -113,7 +113,7 @@ protected:
  * using of the hash table for simple C structures.
  *
  * A memory allocator is a template argument. The hash table requires that the Allocator implements
- * static methods alloc() and free().
+ * static methods alloc() and free(). For example, TrivialAllocator
  *
  * Mutual exclusion is a template argument. The hash table calls constructor of the Lock() class
  * for the critical sections. This is tricky - see example of a dummy lock further in this file.
