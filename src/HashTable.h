@@ -19,6 +19,10 @@ public:
 
     uint_fast32_t size() const;
     uint_fast32_t count() const;
+    bool isEmpty() const
+    {
+    	return (count() == 0);
+    }
 
 private:
 };
@@ -46,7 +50,7 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len, uint_
 
 /**
  * A simple generic hashable object for testing purposes
- * Data can be uint32_t or a UNICODE_STRING
+ * Type Data can be uint32_t or a UNICODE_STRING
  */
 template<typename Data, typename Key> class HashObject
 {
