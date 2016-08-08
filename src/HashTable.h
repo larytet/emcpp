@@ -135,7 +135,14 @@ protected:
  * - Hash function is good and the hash table is large to avoid collisions of the hash
  *
  * Example of usage:
- * typedef HashTable<void*, PWCHAR, LockDummy, AllocatorTrivial> MyHashTable;
+ *
+ * struct MyHashObject
+ * {
+ *   static bool equal(const void *, const void*);
+ *   static const uint_fast32_t hash(const void*)
+ * };
+ *
+ * typedef HashTable<struct MyHashObject*, void*, LockDummy, AllocatorTrivial> MyHashTable;
  * MyHashTable *myHashTable = MyHashTable::create("myHashTable", 1024);
  *
  */
