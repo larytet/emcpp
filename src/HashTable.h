@@ -106,6 +106,24 @@ protected:
 };
 
 /**
+ * This class contains the core logic for the hash table
+ * The API will fail compilation for objects larger than the system pointer size. The application
+ * is supposed to insert pointers to objects and not the objects themselves, The idea is that
+ * correct and efficient deep copy of an object requires a copy constructor. This would prevent
+ * using of the hash table for simple C structures.
+ *
+ * A memory allocator is a template argument. The hash table requires that the Allocator implements
+ * static methods alloc() and free().
+ *
+ * Mutual exclusion is a template argument. The hash table calls constructor of the Lock() class
+ * for the critical sections. This is tricky - see example of a dummy lock further in this file.
+ * If you do not need mutual exclusion you can use LockDummy class.
+ *
+ * Object is a type of the objects (pointers or integral types) stored in the hash table, For example,
+ * PCUNICODE_STRING.
+ *
+ *
+ *
  * Following assumptions:
  * - There are not many different memory allocators in the system. Allocators can be classes with static methods
  * - Hash table can be allocated dynamically in the initialization time
