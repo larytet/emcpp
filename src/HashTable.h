@@ -97,9 +97,23 @@ public:
      * Add a new entry to the hash table.
      * The function can fail if a collision happens and simple linear search fails as well
      */
-    bool insert(const Key &key, const Object object);
-    bool remove(const Key &key);
-    bool find(const Key &key, Object &object) const;
+    bool insert(const Key &key, const Object object)
+    {
+    	bool result = true;
+    	return result;
+    }
+
+    bool remove(const Key &key)
+    {
+    	bool result = true;
+    	return result;
+    }
+
+    bool find(const Key &key, Object &object) const
+    {
+    	bool result = true;
+    	return result;
+    }
 
     /**
      * Call the function if size/count ration is below two
@@ -107,7 +121,11 @@ public:
      * hash table, copy the data to the new table.
      * @param size - new size of the hash table
      */
-    bool rehash(const uint_fast32_t size);
+    bool rehash(const uint_fast32_t size)
+    {
+    	bool result = true;
+    	return result;
+    }
 
     /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
