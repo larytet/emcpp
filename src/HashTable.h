@@ -75,6 +75,12 @@ public:
      */
     bool rehash(const uint_fast32_t size);
 
+    /**
+     * Hash tables can be allocated in different types of memory. For example paged memory,
+     * non paged memory, pined in cache, etc.
+     * It is impossible to declare a static object of type HashTable. All objects
+     * should be allocated dynamically using create() API.
+     */
     static HashTable *create(const char *name, uint_fast32_t size)
     {
     	void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
