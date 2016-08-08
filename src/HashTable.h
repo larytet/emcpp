@@ -30,7 +30,7 @@ private:
 template<typename Object, typename Key, typename Lock> inline HashTable<
         Object, Key, Lock>::HashTable()
 {
-    static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integer types or pointers");
+    static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
 }
 
 
