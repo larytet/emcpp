@@ -1,7 +1,7 @@
 #pragma once
 
 
-template<typename Object, typename Key, typename Lock> class HashTable
+template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable
 {
 public:
 
@@ -10,10 +10,15 @@ public:
 
 	};
 
+	/**
+	 * Dynamic allocation of the hash table
+	 */
     HashTable(const char *name, uint_fast32_t size) :
     	name(name),
 		size(size)
     {
+        static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
+    	resetStatistics();
     }
 
     ~HashTable()
@@ -30,7 +35,8 @@ public:
 
     /**
      * Call the function if size/count ration is below two
-     * or you are getting collisions often
+     * or you are getting collisions often. Will allocate space for the
+     * hash table, copy the data to the new table.
      * @param size - new size of the hash table
      */
     bool rehash(const uint_fast32_t size);
@@ -60,12 +66,12 @@ private:
     Statistics statistics;
 };
 
-template<typename Object, typename Key, typename Lock> inline HashTable<
-        Object, Key, Lock>::HashTable()
+#if 0
+template<typename Object, typename Key, typename Lock, typename Allocator> inline HashTable<
+        Object, Key, Lock, Allocator>::HashTable()
 {
-    static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
 }
-
+#endif
 
 /**
  * Bob Jenkins hash function
@@ -86,6 +92,19 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len, uint_
 	hash += (hash << 15);
 	return hash;
 }
+
+class TrivialAllocator
+{
+	void *allocate(uint_fast32_t size)
+	{
+		return new uint8_t[](size);
+	}
+
+	void release(void *ptr)
+	{
+		delete[] ptr;
+	}
+};
 
 /**
  * A simple generic hashable object for testing purposes
