@@ -120,7 +120,7 @@ protected:
  * If you do not need mutual exclusion you can use LockDummy class.
  *
  * Object is a type of the objects (pointers or integral types) stored in the hash table,
- * Class Object shall implement static methods getKey(), getKeySize(), hash().
+ * Class Object shall implement static methods equal(Key key1, Key key2), hash(const Object&).
  *
  * Key is a type of the key. An example of a a key type is PCWCHAR. Hash table hashes the key and the
  * result is used as an index in the hash table. The hash table can not store two objects with the
@@ -291,7 +291,7 @@ public:
     Data data;
     Key key;
 
-    const bool &equal(Key key1, Key key2) const
+    static bool equal(const Key &key1, const Key &key2)
     {
         return key1 == key2;
     }
@@ -306,7 +306,7 @@ public:
         return sizeof(Key);
     }
 
-    const uint_fast32_t &hash() const
+    static const uint_fast32_t &hash(const Key &key)
     {
         uint_fast32_t result = one_at_a_time(&key, sizeof(Key));
         return result;
