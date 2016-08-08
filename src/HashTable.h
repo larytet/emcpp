@@ -243,12 +243,12 @@ static inline uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len,
  */
 class TrivialAllocator
 {
-    void *alloc(uint_fast32_t size)
+    static void *alloc(uint_fast32_t size)
     {
         return new uint8_t[](size);
     }
 
-    void free(void *ptr)
+    static void free(void *ptr)
     {
         delete[] ptr;
     }
