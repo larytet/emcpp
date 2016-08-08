@@ -122,9 +122,9 @@ protected:
  * Object is a type of the objects (pointers or integral types) stored in the hash table,
  * Class Object shall implement static methods equal(Key key1, Key key2), hash(const Object&).
  *
- * Key is a type of the key. An example of a a key type is PCWCHAR. Hash table hashes the key and the
+ * Key is a type of the key. An example of a key type is PCWCHAR. Hash table hashes the key and the
  * result is used as an index in the hash table. The hash table can not store two objects with the
- * same key. If a hash collision the insert/search APIs will try next entry in the hash table.
+ * same key. If a hash collision happens the insert/search APIs will try next entry in the hash table.
  * The assumption is that collisions are very rare. For example, hash function for file paths can
  * tested and, if necessary, tuned, in the initialization time.
  *
