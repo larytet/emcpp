@@ -193,7 +193,7 @@ public:
         Allocator::free(hashTable);
     }
 
-private:
+protected:
 
     /**
      * Dynamic allocation of the hash table
