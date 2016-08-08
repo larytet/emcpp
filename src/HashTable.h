@@ -13,6 +13,7 @@ public:
     {
         uint64_t insertTotal;
         uint64_t insertHashCollision;
+        uint64_t insertMaxSearch;
         uint64_t insertOk;
         uint64_t insertFailed;
 
