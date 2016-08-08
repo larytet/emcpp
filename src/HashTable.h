@@ -119,8 +119,8 @@ protected:
  * for the critical sections. This is tricky - see example of a dummy lock further in this file.
  * If you do not need mutual exclusion you can use LockDummy class.
  *
- * Object is a type of the objects (pointers or integral types) stored in the hash table, For example,
- * PCUNICODE_STRING.
+ * Object is a type of the objects (pointers or integral types) stored in the hash table,
+ * Class Object shall implement static methods getKey(), getKeySize(), hash().
  *
  * Key is a type of the key. An example of a a key type is PCWCHAR. Hash table hashes the key and the
  * result is used as an index in the hash table. The hash table can not store two objects with the
@@ -133,6 +133,10 @@ protected:
  * - Hash table can be allocated dynamically in the initialization time
  * - There not many different mutex objects and they can be implemented as a constructor/destructor
  * - Hash function is good and the hash table is large to avoid collisions of the hash
+ *
+ * Example of usage
+ * HashTable<void*, PWCHAR, >
+ *
  */
 template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable: HashTableBase
 {
