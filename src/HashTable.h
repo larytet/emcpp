@@ -182,7 +182,6 @@ public:
         if (!result)
         {
             insertResult = INSERT_COLLISION;
-            static const int MAX_COLLISIONS = 3;
             for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
             {
                 statistics.insertHashCollision++;
@@ -287,6 +286,8 @@ public:
 
 protected:
 
+    static const int MAX_COLLISIONS = 3;
+
     static uint_fast32_t getIndex(const Object object)
     {
         uint_fast32_t hash = Object::hash(object);
@@ -302,7 +303,7 @@ protected:
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         resetStatistics();
-        table = Allocator::alloc(sizeof(Object) * size);
+        table = Allocator::alloc(sizeof(Object) * (size+MAX_COLLISIONS));
     }
 
     ~HashTable()
