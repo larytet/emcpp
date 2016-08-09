@@ -169,12 +169,12 @@ public:
     };
 
     /**
-     * Add a new entry to the hash table.
+     * Add a new entry (a pointer to) to the hash table.
      * The function can fail if a collision happens and simple linear search fails as well
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key &key, const Object &object)
+    enum InsertResult insert(const Key &key, const Object object)
     {
         InsertResult insertResult = insert(key, object, this->table, getSize(), &statistics, &count);
         return insertResult;
