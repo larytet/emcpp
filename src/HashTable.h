@@ -193,7 +193,7 @@ public:
      * or you are getting collisions often or you tune the hash function
      * in run-time. The function will allocate space for the
      * hash table, rehash the objects and copy the data to the new table.
-     * If you are planning to use the function often make sure that you
+     * If you are planning to use the function often it makes sense to
      * cache the hash of the object or use very fast hash function
      * @param size - new size of the hash table
      */
