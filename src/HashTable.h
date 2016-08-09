@@ -259,12 +259,12 @@ public:
     bool rehash(const uint_fast32_t size)
     {
         bool result = true;
-        Object *newTable = Allocator::alloc(sizeof(Object) * (size+MAX_COLLISIONS));
+        Object *newTable = allocateTable(size);
 
         Lock lock();
 
         Object *object = &table[0];
-        for (int i = 0;i < getRealSize();i++)
+        for (int i = 0;i < getAllocatedSize(getSize());i++)
         {
             if (object != nullptr)
             {
@@ -273,7 +273,7 @@ public:
             }
             object++;
         }
-        Allocator::free(this->table);
+        freeTable(this->table);
         this->table = newTable;
 
         return result;
@@ -329,17 +329,28 @@ protected:
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         resetStatistics();
-        table = Allocator::alloc(sizeof(Object) * (size+MAX_COLLISIONS));
+        table = allocateTable(size);
     }
 
     ~HashTable()
     {
-        Allocator::free(table);
+        freeTable(table);
     }
 
-    uint_fast32_t getRealSize()
+    static uint_fast32_t getAllocatedSize(uint_fast32_t size)
     {
-        return getSize() + MAX_COLLISIONS;
+        return size + MAX_COLLISIONS;
+    }
+
+    static Object *allocateTable(uint_fast32_t size)
+    {
+        Object *table = Allocator::alloc(sizeof(Object) * getAllocatedSize(size));
+        return table;
+    }
+
+    static void freeTable(Object *table)
+    {
+        Allocator::free(table);
     }
 
     static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics)
