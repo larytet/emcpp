@@ -269,7 +269,7 @@ public:
             if (object != nullptr)
             {
                 const Key key = object->getKey();
-                result = result && insert(key, object, newTable, statistics);
+                result = insert(key, object, newTable, statistics) && result;
             }
             object++;
         }
