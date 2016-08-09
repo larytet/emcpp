@@ -111,7 +111,7 @@ protected:
  * This class contains the core logic for the hash table
  *
  * Object is a type of the objects (pointers or integral types) stored in the hash table,
- * Class Object shall implement static methods equal(Key key1, Key key2), hash(const Object&).
+ * Class Object shall implement static methods equal(const Object&, const Object&), hash(const Key &key).
  * The API will fail compilation for objects larger than the system pointer size. The application
  * is supposed to insert pointers to objects and not the objects themselves, The idea is that
  * correct and efficient deep copy of an object requires a copy constructor. This would prevent
@@ -142,7 +142,7 @@ protected:
  *
  * struct MyHashObject
  * {
- *   static bool equal(const char*, const char*);
+ *   static bool equal(const struct MyHashObject*, struct MyHashObject*);
  *   static const uint_fast32_t hash(const char*)
  * };
  *
@@ -355,9 +355,9 @@ template<typename Data, typename Key> class HashObject
 {
 public:
 
-    static bool equal(const Key &key1, const Key &key2)
+    static bool equal(const HashObject &o1, const HashObject &o2)
     {
-        return key1 == key2;
+        return (o1.key == o2.key);
     }
 
     static const uint_fast32_t hash(const Key &key)
