@@ -169,15 +169,15 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key const *key, const Object object)
+    enum InsertResult insert(const Key key, const Object object)
     {
         InsertResult insertResult = insert(key, object, this->table, this->statistics);
         return insertResult;
     }
 
-    bool remove(const Key &key);
+    bool remove(const Key key);
 
-    bool search(const Key &key, Object &object) const;
+    bool search(const Key key, Object object) const;
 
     /**
      * Call the function if size/count ratio is below 2
@@ -264,14 +264,14 @@ protected:
         Allocator::free(table);
     }
 
-    static enum InsertResult insert(const Key const *key, const Object object, Object *table, Statistics &statistics);
+    static enum InsertResult insert(const Key key, const Object object, Object *table, Statistics &statistics);
 
     Object *table;
 };
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
 enum HashTable<Object, Key, Lock, Allocator>::InsertResult
-HashTable<Object, Key, Lock, Allocator>::insert(const Key const *key, const Object object, Object *table, Statistics &statistics)
+HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object object, Object *table, Statistics &statistics)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
@@ -321,7 +321,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key const *key, const Obje
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
+bool HashTable<Object, Key, Lock, Allocator>::remove(const Key key)
 {
     bool result = false;
 
@@ -360,7 +360,7 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &object) const
+bool HashTable<Object, Key, Lock, Allocator>::search(const Key key, Object object) const
 {
     bool result = true;
 
