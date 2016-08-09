@@ -175,77 +175,9 @@ public:
         return insertResult;
     }
 
-    bool remove(const Key &key)
-    {
-        bool result = false;
+    bool remove(const Key &key);
 
-        Lock lock();
-
-        statistics.removeTotal++;
-        uint_fast32_t index = getIndex(key);
-        Object *storedObject = &this->table[index];
-        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
-        {
-            if (*storedObject != nullptr)
-            {
-                result = Object::equal(storedObject->getKey(), key);
-                if (result)
-                {
-                    statistics.removeOk++;
-                    *storedObject = nullptr;
-                    result = true;
-                }
-                else
-                {
-                    statistics.removeCollision++;
-                }
-            }
-            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-        }
-
-        if (!result)
-        {
-            statistics.removeFailed++;
-        }
-
-
-        return result;
-    }
-
-    bool search(const Key &key, Object &object) const
-    {
-        bool result = true;
-
-        Lock lock();
-        statistics.searchTotal++;
-
-        uint_fast32_t index = getIndex(key);
-        Object *storedObject = &this->table[index];
-        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
-        {
-            if (*storedObject != nullptr)
-            {
-                result = Object::equal(storedObject->getKey(), key);
-                if (result)
-                {
-                    statistics.searchOk++;
-                    result = true;
-                }
-                else
-                {
-                    statistics.removeCollision++;
-                }
-            }
-            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-        }
-
-        if (!result)
-        {
-            statistics.searchFailed++;
-        }
-
-        return result;
-    }
+    bool search(const Key &key, Object &object) const;
 
     /**
      * Call the function if size/count ratio is below two
@@ -256,29 +188,7 @@ public:
      * cache the hash of the object or use very fast hash function
      * @param size - new size of the hash table
      */
-    bool rehash(const uint_fast32_t size)
-    {
-        bool result = true;
-        Object *newTable = allocateTable(size);
-
-        Lock lock();
-
-        Object *object = &table[0];
-        for (int i = 0;i < getAllocatedSize(getSize());i++)
-        {
-            if (object != nullptr)
-            {
-                const Key key = object->getKey();
-                InsertResult insertResult = insert(key, object, newTable, statistics);
-                result = (insertResult == INSERT_DONE) && result;
-            }
-            object++;
-        }
-        freeTable(this->table);
-        this->table = newTable;
-
-        return result;
-    }
+    bool rehash(const uint_fast32_t size);
 
     bool rehash()
     {
@@ -406,12 +316,104 @@ protected:
     Object *table;
 };
 
-#if 0
-template<typename Object, typename Key, typename Lock, typename Allocator> inline HashTable<
-Object, Key, Lock, Allocator>::HashTable()
+template<typename Object, typename Key, typename Lock, typename Allocator>
+bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 {
+    bool result = false;
+
+    Lock lock();
+
+    statistics.removeTotal++;
+    uint_fast32_t index = getIndex(key);
+    Object *storedObject = &this->table[index];
+    for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+    {
+        if (*storedObject != nullptr)
+        {
+            result = Object::equal(storedObject->getKey(), key);
+            if (result)
+            {
+                statistics.removeOk++;
+                *storedObject = nullptr;
+                result = true;
+            }
+            else
+            {
+                statistics.removeCollision++;
+            }
+        }
+        storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+    }
+
+    if (!result)
+    {
+        statistics.removeFailed++;
+    }
+
+
+    return result;
 }
-#endif
+
+template<typename Object, typename Key, typename Lock, typename Allocator>
+bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &object) const
+{
+    bool result = true;
+
+    Lock lock();
+    statistics.searchTotal++;
+
+    uint_fast32_t index = getIndex(key);
+    Object *storedObject = &this->table[index];
+    for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+    {
+        if (*storedObject != nullptr)
+        {
+            result = Object::equal(storedObject->getKey(), key);
+            if (result)
+            {
+                statistics.searchOk++;
+                result = true;
+            }
+            else
+            {
+                statistics.removeCollision++;
+            }
+        }
+        storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+    }
+
+    if (!result)
+    {
+        statistics.searchFailed++;
+    }
+
+    return result;
+}
+
+template<typename Object, typename Key, typename Lock, typename Allocator>
+bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size) const
+{
+    bool result = true;
+    Object *newTable = allocateTable(size);
+
+    Lock lock();
+
+    Object *object = &table[0];
+    for (int i = 0;i < getAllocatedSize(getSize());i++)
+    {
+        if (object != nullptr)
+        {
+            const Key key = object->getKey();
+            InsertResult insertResult = insert(key, object, newTable, statistics);
+            result = (insertResult == INSERT_DONE) && result;
+        }
+        object++;
+    }
+    freeTable(this->table);
+    this->table = newTable;
+
+    return result;
+}
 
 /**
  * Bob Jenkins hash function
