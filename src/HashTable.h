@@ -131,7 +131,7 @@ protected:
  * Following assumptions:
  * - There are not many different memory allocators in the system. It is possible to implement an
  * allocator as a classes with static methods
- * - Hash table should be allocated dynamically in the initialization time. No staticly allocated
+ * - Hash table should be allocated dynamically in the initialization time. No statically allocated
  * objects are allowed.
  * - There not many different mutex objects and they can be implemented as a constructor/destructor
  * - Hash function is good and the hash table is large enough to avoid collisions of the hash
@@ -155,6 +155,8 @@ public:
     /**
      * Add a new entry to the hash table.
      * The function can fail if a collision happens and simple linear search fails as well
+     * If the function fails often the application is expected to call rehash for a larger
+     * table/different hash function
      */
     bool insert(const Key &key, const Object object)
     {
