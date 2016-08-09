@@ -156,7 +156,7 @@ protected:
  *   MyHashTable::destroy(hashTable);
  *
  */
-template<typename Object, typename Key, typename Lock, typename Allocator> class HashTable: HashTableBase
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator> class HashTable: HashTableBase
 {
 public:
 
@@ -280,9 +280,9 @@ protected:
     Table table;
 };
 
-template<typename Object, typename Key, typename Lock, typename Allocator>
-enum HashTable<Object, Key, Lock, Allocator>::InsertResult
-HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object *object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object *object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
@@ -331,8 +331,8 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object *ob
     return insertResult;
 }
 
-template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key &key)
 {
     bool result = false;
 
@@ -370,8 +370,8 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
     return result;
 }
 
-template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, const Object **object)
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, const Object **object)
 {
     bool result = true;
 
@@ -407,8 +407,8 @@ bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, const Objec
     return result;
 }
 
-template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fast32_t size)
 {
     bool result = true;
     Object *newTable = allocateTable(size);
