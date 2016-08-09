@@ -338,6 +338,7 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
             if (result)
             {
                 statistics.removeOk++;
+                this->count--;
                 *storedObject = nullptr;
                 result = true;
             }
