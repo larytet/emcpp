@@ -187,8 +187,9 @@ public:
     }
 
     /**
-     * Call the function if size/count ration is below two
-     * or you are getting collisions often. Will allocate space for the
+     * Call the function if size/count ratio is below two
+     * or you are getting collisions often or you tune the hash function
+     * in run-time. The function will allocate space for the
      * hash table, rehash the objects and copy the data to the new table.
      * @param size - new size of the hash table
      */
