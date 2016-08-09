@@ -269,7 +269,8 @@ public:
             if (object != nullptr)
             {
                 const Key key = object->getKey();
-                result = insert(key, object, newTable, statistics) && result;
+                InsertResult insertResult = insert(key, object, newTable, statistics);
+                result = (insertResult == INSERT_DONE) && result;
             }
             object++;
         }
