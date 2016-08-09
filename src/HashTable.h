@@ -174,8 +174,9 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key &key, const Object *object)
+    enum InsertResult insert(const Key &key, const Object &object)
     {
+        static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         InsertResult insertResult = insert(key, object, this->table, getSize(), &statistics, &count);
         return insertResult;
     }
@@ -185,7 +186,7 @@ public:
     /**
      * Get a stored pointer from the hash table
      */
-    bool search(const Key &key, const Object **object);
+    bool search(const Key &key, Object *object);
 
     /**
      * Call the function if size/count ratio is below 2
@@ -235,7 +236,7 @@ protected:
 
     static uint_fast32_t getIndex(const Key &key, uint_fast32_t size)
     {
-        uint_fast32_t hash = Object::hash(key);
+        uint_fast32_t hash = Hash::hash(key);
         uint_fast32_t index = hash % size;
         return index;
     }
@@ -261,12 +262,12 @@ protected:
         return size + MAX_COLLISIONS;
     }
 
-    typedef const Object *TableEntry;
+    typedef Object TableEntry;
     typedef TableEntry *Table;
 
     static Table allocateTable(uint_fast32_t size)
     {
-        Table table = (Table)Allocator::alloc(sizeof(Object*) * getAllocatedSize(size));
+        Table table = (Table)Allocator::alloc(sizeof(TableEntry*) * getAllocatedSize(size));
         return table;
     }
 
@@ -275,14 +276,14 @@ protected:
         Allocator::free((void*)table);
     }
 
-    static enum InsertResult insert(const Key &key, const Object *object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
+    static enum InsertResult insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
 
     Table table;
 };
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
-HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object *object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
@@ -306,7 +307,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 break;
             }
 
-            result = Object::equal(Object::getKey(**tableEntry), key);
+            result = Comparator::equal(*tableEntry, key);
             if (result)
             {
                 insertResult = INSERT_DUPLICATE;
@@ -345,7 +346,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
     {
         if (*tableEntry != nullptr)
         {
-            result = Object::equal(Object::getKey(**tableEntry), key);
+            result = Comparator::equal(*tableEntry, key);
             if (result)
             {
                 statistics.removeOk++;
@@ -371,7 +372,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
-bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, const Object **object)
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object)
 {
     bool result = true;
 
@@ -384,7 +385,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
     {
         if (*tableEntry != nullptr)
         {
-            result = Object::equal(Object::getKey(**tableEntry), key);
+            result = Comparator::equal(*tableEntry, key);
             if (result)
             {
                 statistics.searchOk++;
@@ -420,7 +421,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uin
     {
         if (tableEntry != nullptr)
         {
-            const Key key = Object::getKey(*tableEntry);
+            const Key &key = Hash::getKey(*tableEntry);
             InsertResult insertResult = insert(key, *tableEntry, newTable, size, statistics);
             result = (insertResult == INSERT_DONE) && result;
         }

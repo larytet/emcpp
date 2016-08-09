@@ -1008,31 +1008,31 @@ static void hashTableTest(void)
             this->name = name;
         }
 
-        static bool equal(const char *s1, const char *s2)
+        static bool equal(struct MyHashObject *object, const char *name)
         {
-            bool result = strcmp(s1, s2);
+            bool result = strcmp(object->name, name);
             return (result == 0);
         }
 
-        static const char* getKey(const struct MyHashObject &object)
+        static const char* getKey(const struct MyHashObject *object)
         {
-            return (object.name);
+            return (object->name);
         }
 
-        static const uint_fast32_t hash(const char *s)
+        static const uint_fast32_t hash(const char *name)
         {
-            uint_fast32_t result = one_at_a_time((uint8_t*)s, strlen(s));
+            uint_fast32_t result = one_at_a_time((uint8_t*)name, strlen(name));
             return result;
         }
         const char *name;
     };
 
-    typedef HashTable<struct MyHashObject, const char*, LockDummy, AllocatorTrivial> MyHashTable;
+    typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
-    hashTable->insert(o1.getKey(o1), &o1);
-    const MyHashObject *pO1;
-    hashTable->search(o1.getKey(o1), &pO1);
+    hashTable->insert(o1.getKey(&o1), &o1);
+    MyHashObject *pO1;
+    hashTable->search(o1.getKey(&o1), &pO1);
     MyHashTable::destroy(hashTable);
 }
 #endif
