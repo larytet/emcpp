@@ -13,6 +13,8 @@ public:
     {
         uint64_t insertTotal;
         uint64_t insertHashCollision;
+        uint64_t insertDuplicate;
+        uint64_t insertHashMaxCollision;
         uint64_t insertMaxSearch;
         uint64_t insertOk;
         uint64_t insertFailed;
@@ -152,20 +154,63 @@ template<typename Object, typename Key, typename Lock, typename Allocator> class
 {
 public:
 
+    enum InsertResult
+    {
+        INSERT_DONE,
+        INSERT_COLLISION,
+        INSERT_DUPLICATE,
+        INSERT_FAILED
+    };
+
     /**
      * Add a new entry to the hash table.
      * The function can fail if a collision happens and simple linear search fails as well
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    bool insert(const Key &key, const Object object)
+    InsertResult insert(const Key &key, const Object object, )
     {
-        bool result = true;
+        InsertResult insertResult = INSERT_FAILED;
+        bool result = false;
 
         Lock lock();
         statistics.insertTotal++;
+        uint_fast32_t hash = Object::hash(object);
+        uint_fast32_t index = hash % getSize();
+        static const int MAX_COLLISIONS = 3;
+        Object *storedObject = nullptr;
+        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+        {
+            storedObject = &table[index];
+            if (*storedObject == nullptr)
+            {
+                result = true;
+                break;
+            }
+            statistics.insertHashCollision++;
 
-        return result;
+            result = Object::equal(*storedObject, object);
+            if (result)
+            {
+                insertResult = INSERT_DUPLICATE;
+                statistics.insertDuplicate++;
+                result = false;
+                break;
+            }
+        }
+
+        if (result)
+        {
+            insertResult = INSERT_DONE;
+            *storedObject = object;
+        }
+        else
+        {
+            statistics.insertHashMaxCollision++;
+            insertResult = INSERT_COLLISION;
+        }
+
+        return insertResult;
     }
 
     bool remove(const Key &key)
