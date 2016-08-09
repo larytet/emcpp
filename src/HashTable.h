@@ -174,6 +174,7 @@ public:
         bool result = false;
 
         Lock lock();
+
         statistics.insertTotal++;
         uint_fast32_t hash = Object::hash(object);
         uint_fast32_t index = hash % getSize();
@@ -218,6 +219,7 @@ public:
         bool result = true;
 
         Lock lock();
+
         statistics.removeTotal++;
 
         return result;
