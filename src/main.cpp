@@ -1031,6 +1031,8 @@ static void hashTableTest(void)
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
     hashTable->insert(o1.getKey(o1), &o1);
+    const MyHashObject *pO1;
+    hashTable->search(o1.getKey(o1), &pO1);
     MyHashTable::destroy(hashTable);
 }
 #endif

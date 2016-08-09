@@ -182,7 +182,7 @@ public:
 
     bool remove(const Key &key);
 
-    bool search(const Key &key, Object **object) const;
+    bool search(const Key &key, const Object **object);
 
     /**
      * Call the function if size/count ratio is below 2
@@ -368,14 +368,14 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object **object) const
+bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, const Object **object)
 {
     bool result = true;
 
     Lock lock;
     statistics.searchTotal++;
 
-    uint_fast32_t index = getIndex(key);
+    uint_fast32_t index = getIndex(key, getSize());
     TableEntry *tableEntry = &this->table[index];
     for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
     {
