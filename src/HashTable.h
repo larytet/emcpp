@@ -260,14 +260,21 @@ public:
     {
         bool result = true;
         Object *newTable = Allocator::alloc(sizeof(Object) * (size+MAX_COLLISIONS));
+
+        Lock lock();
+
         Object *o = &table[0];
         for (int i = 0;i < getSize()+MAX_COLLISIONS;i++)
         {
             if (o != nullptr)
             {
-                insert
+                const Key key = o->getKey();
+                result = result && insert(key, o, newTable, statistics);
             }
         }
+        Allocator::free(this->table);
+        this->table = newTable;
+
         return result;
     }
 
