@@ -27,7 +27,7 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 9
+#define EXAMPLE 10
 
 #if EXAMPLE != 6
 #include "Lock.h"
@@ -44,6 +44,9 @@ using namespace std;
 #include "FixedPoint.h"
 #endif
 
+#if (EXAMPLE == 10)
+#include "HashTable.h"
+#endif
 
 /**
  * Dummy lock
@@ -990,6 +993,35 @@ static int itoa(int value, char *s, int size)
 
 }
 
+#if (EXAMPLE == 10)
+static void hashTableTest(void)
+{
+    struct MyHashObject
+    {
+        MyHashObject(const char *name)
+        {
+            this->name = name;
+        }
+
+        static bool equal(const char *s1, const char *s2)
+        {
+            bool result = strcmp(s1, s2);
+            return (result == 0);
+        }
+
+        static const uint_fast32_t hash(const char *s)
+        {
+            uint_fast32_t result = one_at_a_time((uint8_t*)s, strlen(s));
+            return result;
+        }
+        const char *name;
+    };
+
+    typedef HashTable<struct MyHashObject*, char*, LockDummy, AllocatorTrivial> MyHashTable;
+    MyHashTable *myHashTable = MyHashTable::create("myHashTable", 1024);
+}
+#endif
+
 int main()
 {
     vector<int> testArray = {1234, 123456,1234567,12345678};
@@ -1035,7 +1067,7 @@ int main()
     testStlArray();
     struct timespec t2, t3;
     double dt1;
-    clock_gettime(CLOCK_MONOTONIC,  &t2);
+//    clock_gettime(CLOCK_MONOTONIC,  &t2);
     //testCyclicBuffer1();
     // testPipeline();
 //    testDummyLock1();
@@ -1046,7 +1078,7 @@ int main()
     // testOpenMPLoop();
     // testOpenMP();
      //testLockOmp();
-    clock_gettime(CLOCK_MONOTONIC,  &t3);
+//    clock_gettime(CLOCK_MONOTONIC,  &t3);
     dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
     cout << "time:  " << dt1 << endl;
 
