@@ -391,7 +391,7 @@ bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &obj
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size) const
+bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
 {
     bool result = true;
     Object *newTable = allocateTable(size);
