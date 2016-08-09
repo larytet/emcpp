@@ -76,6 +76,7 @@ protected:
     HashTableBase() : count(0)
     {
         registerTable(this);
+        resetStatistics();
     }
 
     ~HashTableBase()
