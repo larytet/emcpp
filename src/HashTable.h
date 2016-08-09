@@ -264,57 +264,61 @@ protected:
         Allocator::free(table);
     }
 
-    static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics)
-    {
-        InsertResult insertResult = INSERT_FAILED;
-        bool result = false;
-
-        Lock lock();
-
-        statistics.insertTotal++;
-        uint_fast32_t index = getIndex(key);
-        Object *storedObject = &this->table[index];
-        result = (storedObject == nullptr);
-        if (!result)
-        {
-            insertResult = INSERT_COLLISION;
-            for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
-            {
-                statistics.insertHashCollision++;
-                storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-                if (*storedObject == nullptr)
-                {
-                    result = true;
-                    break;
-                }
-
-                result = Object::equal(storedObject->getKey(), object.getKey());
-                if (result)
-                {
-                    insertResult = INSERT_DUPLICATE;
-                    statistics.insertDuplicate++;
-                    result = false;
-                    break;
-                }
-            }
-        }
-
-        if (result)
-        {
-            insertResult = INSERT_DONE;
-            *storedObject = object;
-            this->count++;
-        }
-        else
-        {
-            statistics.insertHashMaxCollision++;
-        }
-
-        return insertResult;
-    }
+    static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics);
 
     Object *table;
 };
+
+template<typename Object, typename Key, typename Lock, typename Allocator>
+enum HashTable<Object, Key, Lock, Allocator>::InsertResult
+HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object object, Object *table, Statistics &statistics)
+{
+    InsertResult insertResult = INSERT_FAILED;
+    bool result = false;
+
+    Lock lock();
+
+    statistics.insertTotal++;
+    uint_fast32_t index = getIndex(key);
+    Object *storedObject = &this->table[index];
+    result = (storedObject == nullptr);
+    if (!result)
+    {
+        insertResult = INSERT_COLLISION;
+        for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
+        {
+            statistics.insertHashCollision++;
+            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+            if (*storedObject == nullptr)
+            {
+                result = true;
+                break;
+            }
+
+            result = Object::equal(storedObject->getKey(), object.getKey());
+            if (result)
+            {
+                insertResult = INSERT_DUPLICATE;
+                statistics.insertDuplicate++;
+                result = false;
+                break;
+            }
+        }
+    }
+
+    if (result)
+    {
+        insertResult = INSERT_DONE;
+        *storedObject = object;
+        this->count++;
+    }
+    else
+    {
+        statistics.insertHashMaxCollision++;
+    }
+
+    return insertResult;
+}
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
 bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
