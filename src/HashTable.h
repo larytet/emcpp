@@ -239,6 +239,7 @@ protected:
             name(name), size(size)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
+        static_assert(sizeof(Key) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         resetStatistics();
         table = allocateTable(size);
     }
