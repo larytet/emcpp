@@ -271,6 +271,7 @@ public:
                 const Key key = o->getKey();
                 result = result && insert(key, o, newTable, statistics);
             }
+            o++;
         }
         Allocator::free(this->table);
         this->table = newTable;
