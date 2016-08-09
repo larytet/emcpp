@@ -171,50 +171,7 @@ public:
      */
     enum InsertResult insert(const Key &key, const Object object)
     {
-        InsertResult insertResult = INSERT_FAILED;
-        bool result = false;
-
-        Lock lock();
-
-        statistics.insertTotal++;
-        uint_fast32_t index = getIndex(key);
-        Object *storedObject = &this->table[index];
-        result = (storedObject == nullptr);
-        if (!result)
-        {
-            insertResult = INSERT_COLLISION;
-            for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
-            {
-                statistics.insertHashCollision++;
-                storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-                if (*storedObject == nullptr)
-                {
-                    result = true;
-                    break;
-                }
-
-                result = Object::equal(storedObject->getKey(), object.getKey());
-                if (result)
-                {
-                    insertResult = INSERT_DUPLICATE;
-                    statistics.insertDuplicate++;
-                    result = false;
-                    break;
-                }
-            }
-        }
-
-        if (result)
-        {
-            insertResult = INSERT_DONE;
-            *storedObject = object;
-            this->count++;
-        }
-        else
-        {
-            statistics.insertHashMaxCollision++;
-        }
-
+        InsertResult insertResult = insert(key, object, this->table, this->statistics);
         return insertResult;
     }
 
@@ -302,6 +259,15 @@ public:
     bool rehash(const uint_fast32_t size)
     {
         bool result = true;
+        Object *newTable = Allocator::alloc(sizeof(Object) * (size+MAX_COLLISIONS));
+        Object *o = &table[0];
+        for (int i = 0;i < getSize()+MAX_COLLISIONS;i++)
+        {
+            if (o != nullptr)
+            {
+                insert
+            }
+        }
         return result;
     }
 
@@ -363,6 +329,54 @@ protected:
         Allocator::free(table);
     }
 
+    static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics)
+    {
+        InsertResult insertResult = INSERT_FAILED;
+        bool result = false;
+
+        Lock lock();
+
+        statistics.insertTotal++;
+        uint_fast32_t index = getIndex(key);
+        Object *storedObject = &this->table[index];
+        result = (storedObject == nullptr);
+        if (!result)
+        {
+            insertResult = INSERT_COLLISION;
+            for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
+            {
+                statistics.insertHashCollision++;
+                storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+                if (*storedObject == nullptr)
+                {
+                    result = true;
+                    break;
+                }
+
+                result = Object::equal(storedObject->getKey(), object.getKey());
+                if (result)
+                {
+                    insertResult = INSERT_DUPLICATE;
+                    statistics.insertDuplicate++;
+                    result = false;
+                    break;
+                }
+            }
+        }
+
+        if (result)
+        {
+            insertResult = INSERT_DONE;
+            *storedObject = object;
+            this->count++;
+        }
+        else
+        {
+            statistics.insertHashMaxCollision++;
+        }
+
+        return insertResult;
+    }
 
     Object *table;
 };
