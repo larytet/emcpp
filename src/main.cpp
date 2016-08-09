@@ -19,7 +19,9 @@
 #include <memory>
 
 #include <stdarg.h>
+#ifndef __APPLE__
 #include <omp.h>
+#endif
 
 #include <sys/time.h>
 using namespace std;
@@ -27,9 +29,9 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 9
+#define EXAMPLE 10
 
-#if EXAMPLE != 6
+#if (EXAMPLE != 6) && (EXAMPLE != 10)
 #include "Lock.h"
 #include "CyclicBuffer.h"
 #include "CyclicBufferSimple.h"
@@ -44,6 +46,11 @@ using namespace std;
 #include "FixedPoint.h"
 #endif
 
+#if (EXAMPLE == 10)
+#include "HashTable.h"
+#endif
+
+#if (EXAMPLE != 10)
 
 /**
  * Dummy lock
@@ -989,9 +996,55 @@ static int itoa(int value, char *s, int size)
     }
 
 }
+#endif
+
+#if (EXAMPLE == 10)
+static void hashTableTest(void)
+{
+    struct MyHashObject
+    {
+        MyHashObject(const char *name)
+        {
+            this->name = name;
+        }
+
+        static bool equal(struct MyHashObject *object, const char *name)
+        {
+            bool result = strcmp(object->name, name);
+            return (result == 0);
+        }
+
+        static const char* getKey(const struct MyHashObject *object)
+        {
+            return (object->name);
+        }
+
+        static const uint_fast32_t hash(const char *name)
+        {
+            uint_fast32_t result = one_at_a_time((uint8_t*)name, strlen(name));
+            return result;
+        }
+        const char *name;
+    };
+
+    typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
+    MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
+    MyHashObject o1("o1");
+    hashTable->insert(o1.getKey(&o1), &o1);
+    MyHashObject *pO1;
+    hashTable->search(o1.getKey(&o1), &pO1);
+    MyHashTable::destroy(hashTable);
+}
+#endif
 
 int main()
 {
+#if (EXAMPLE == 10)
+    hashTableTest();
+#endif
+
+#if (EXAMPLE != 10)
+
     vector<int> testArray = {1234, 123456,1234567,12345678};
     for (int i : testArray)
     {
@@ -1035,7 +1088,7 @@ int main()
     testStlArray();
     struct timespec t2, t3;
     double dt1;
-    clock_gettime(CLOCK_MONOTONIC,  &t2);
+//    clock_gettime(CLOCK_MONOTONIC,  &t2);
     //testCyclicBuffer1();
     // testPipeline();
 //    testDummyLock1();
@@ -1046,10 +1099,10 @@ int main()
     // testOpenMPLoop();
     // testOpenMP();
      //testLockOmp();
-    clock_gettime(CLOCK_MONOTONIC,  &t3);
+//    clock_gettime(CLOCK_MONOTONIC,  &t3);
     dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
     cout << "time:  " << dt1 << endl;
-
+#endif
     return 0;
 
 }
