@@ -191,6 +191,8 @@ public:
      * or you are getting collisions often or you tune the hash function
      * in run-time. The function will allocate space for the
      * hash table, rehash the objects and copy the data to the new table.
+     * If you are planning to use the function often make sure that you
+     * cache the hash of the object and use very fast hash function
      * @param size - new size of the hash table
      */
     bool rehash(const uint_fast32_t size)
