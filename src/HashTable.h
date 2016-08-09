@@ -107,10 +107,6 @@ protected:
 
 /**
  * This class contains the core logic for the hash table
- * The API will fail compilation for objects larger than the system pointer size. The application
- * is supposed to insert pointers to objects and not the objects themselves, The idea is that
- * correct and efficient deep copy of an object requires a copy constructor. This would prevent
- * using of the hash table for simple C structures.
  *
  * A memory allocator is a template argument. The hash table requires that the Allocator implements
  * static methods alloc() and free(). For example, AllocatorTrivial
@@ -121,6 +117,10 @@ protected:
  *
  * Object is a type of the objects (pointers or integral types) stored in the hash table,
  * Class Object shall implement static methods equal(Key key1, Key key2), hash(const Object&).
+ * The API will fail compilation for objects larger than the system pointer size. The application
+ * is supposed to insert pointers to objects and not the objects themselves, The idea is that
+ * correct and efficient deep copy of an object requires a copy constructor. This would prevent
+ * using of the hash table for simple C structures.
  *
  * Key is a type of the key. An example of a key type is PCWCHAR. Hash table hashes the key and the
  * result is used as an index in the hash table. The hash table can not store two objects with the
