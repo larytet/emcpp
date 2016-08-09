@@ -171,7 +171,7 @@ public:
      */
     enum InsertResult insert(const Key key, const Object object)
     {
-        InsertResult insertResult = insert(key, object, this->table, this->statistics);
+        InsertResult insertResult = insert(key, object, this->table, this);
         return insertResult;
     }
 
@@ -235,11 +235,12 @@ protected:
     /**
      * Dynamic allocation of the hash table
      */
-    HashTable(const char *name, uint_fast32_t size) :
-            name(name), size(size)
+    HashTable(const char *name, uint_fast32_t size)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         static_assert(sizeof(Key) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
+        this->name = name;
+        this->size = size;
         resetStatistics();
         table = allocateTable(size);
     }
@@ -265,22 +266,23 @@ protected:
         Allocator::free(table);
     }
 
-    static enum InsertResult insert(const Key key, const Object object, Object *table, Statistics &statistics);
+    static enum InsertResult insert(const Key key, const Object object, Object *table, HashTable *hashTabe);
 
     Object *table;
 };
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
 enum HashTable<Object, Key, Lock, Allocator>::InsertResult
-HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object object, Object *table, Statistics &statistics)
+HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object object, Object *table, HashTable *hashTable)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
 
+    Statistics &statistics = hashTable->statistics;
     Lock lock();
 
     statistics.insertTotal++;
-    uint_fast32_t index = getIndex(key);
+    uint_fast32_t index = hashTable->getIndex(key);
     Object *storedObject = &this->table[index];
     result = (storedObject == nullptr);
     if (!result)
@@ -410,7 +412,7 @@ bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
         if (object != nullptr)
         {
             const Key key = object->getKey();
-            InsertResult insertResult = insert(key, object, newTable, statistics);
+            InsertResult insertResult = insert(key, object, newTable, this);
             result = (insertResult == INSERT_DONE) && result;
         }
         object++;
