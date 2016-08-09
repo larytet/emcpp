@@ -19,7 +19,9 @@
 #include <memory>
 
 #include <stdarg.h>
+#ifndef __APPLE__
 #include <omp.h>
+#endif
 
 #include <sys/time.h>
 using namespace std;
