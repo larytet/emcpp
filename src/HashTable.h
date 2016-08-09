@@ -264,7 +264,7 @@ public:
         Lock lock();
 
         Object *object = &table[0];
-        for (int i = 0;i < getSize()+MAX_COLLISIONS;i++)
+        for (int i = 0;i < getRealSize();i++)
         {
             if (object != nullptr)
             {
@@ -335,6 +335,11 @@ protected:
     ~HashTable()
     {
         Allocator::free(table);
+    }
+
+    uint_fast32_t getRealSize()
+    {
+        return getSize() + MAX_COLLISIONS;
     }
 
     static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics)
