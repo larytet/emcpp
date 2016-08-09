@@ -44,7 +44,7 @@ public:
         return (getCount() == 0);
     }
 
-    struct Statistics *getStatistics() const
+    const struct Statistics *getStatistics() const
     {
         return &statistics;
     }
@@ -57,7 +57,7 @@ public:
     /**
      * Maximum number of hash tables objects accessible by debug
      */
-    static const int HASH_TABLES_COUNT;
+    static const int HASH_TABLES_COUNT = 32;
 
     /**
      * List of all hash tables created in the system. I am not protecting access
@@ -225,7 +225,7 @@ protected:
 
     static const int MAX_COLLISIONS = 3;
 
-    static uint_fast32_t getIndex(const Key &key)
+    uint_fast32_t getIndex(const Key &key) const
     {
         uint_fast32_t hash = Object::hash(key);
         uint_fast32_t index = hash % getSize();

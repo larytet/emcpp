@@ -31,7 +31,7 @@ using namespace std;
 #define PERFORMANCE_LOOPS (1000*1000*1000)
 #define EXAMPLE 10
 
-#if EXAMPLE != 6
+#if (EXAMPLE != 6) && (EXAMPLE != 10)
 #include "Lock.h"
 #include "CyclicBuffer.h"
 #include "CyclicBufferSimple.h"
