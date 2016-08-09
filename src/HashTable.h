@@ -168,7 +168,7 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key &key, const Object object, )
+    enum InsertResult insert(const Key &key, const Object object)
     {
         InsertResult insertResult = INSERT_FAILED;
         bool result = false;
@@ -176,9 +176,8 @@ public:
         Lock lock();
 
         statistics.insertTotal++;
-        uint_fast32_t hash = Object::hash(object);
-        uint_fast32_t index = hash % getSize();
-        Object *storedObject = &table[index];
+        uint_fast32_t index = getIndex(object);
+        Object *storedObject = &this->table[index];
         result = (storedObject == nullptr);
         if (!result)
         {
@@ -187,7 +186,7 @@ public:
             for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
             {
                 statistics.insertHashCollision++;
-                storedObject = &table[index+collisions];
+                storedObject++;
                 if (*storedObject == nullptr)
                 {
                     result = true;
@@ -209,6 +208,7 @@ public:
         {
             insertResult = INSERT_DONE;
             *storedObject = object;
+            this->count++;
         }
         else
         {
@@ -286,6 +286,13 @@ public:
     }
 
 protected:
+
+    static uint_fast32_t getIndex(const Object object)
+    {
+        uint_fast32_t hash = Object::hash(object);
+        uint_fast32_t index = hash % getSize();
+        return index;
+    }
 
     /**
      * Dynamic allocation of the hash table
