@@ -40,6 +40,11 @@ public:
         uint64_t removeOk;
         uint64_t removeCollision;
         uint64_t removeFailed;
+
+        uint64_t rehashTotal;
+        uint64_t rehashFailed;
+        uint64_t rehashDone;
+        uint64_t rehashCollision;
     };
 
     uint_fast32_t getSize() const
@@ -221,6 +226,17 @@ public:
     {
         void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
         HashTable *hashTable = new (hashTableMemory) HashTable(name, size);
+        if (hashTable == nullptr)
+        {
+            return nullptr;
+        }
+        Table table = allocateTable(size);
+        if (table == nullptr)
+        {
+            Allocator::free((void *)hashTable);
+            return nullptr;
+        }
+        hashTable->table = table;
         return hashTable;
     }
 
@@ -231,6 +247,7 @@ public:
     static void destroy(HashTable *hashTable)
     {
         hashTable->~HashTable();
+        freeTable(hashTable->table);
         Allocator::free((void *)hashTable);
     }
 
@@ -253,13 +270,12 @@ protected:
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         this->name = name;
         this->size = size;
+        this->table = nullptr;
         resetStatistics();
-        table = allocateTable(size);
     }
 
     ~HashTable()
     {
-        freeTable(table);
     }
 
     static uint_fast32_t getAllocatedSize(uint_fast32_t size)
@@ -450,8 +466,15 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
 {
     enum InsertResult rehashResult = INSERT_DONE;
     Object *newTable = allocateTable(size);
+    if (newTable == nullptr)
+    {
+        Lock lock;
+        statistics.rehashFailed++;
+        return INSERT_FAILED;
+    }
 
     Lock lock;
+    statistics.rehashTotal++;
 
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
@@ -461,7 +484,12 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
             const Key &key = Hash::getKey(*tableEntry);
             InsertResult insertResult = insert(key, *tableEntry, newTable, size, statistics);
             if (insertResult != INSERT_DONE)
-                rehashResult =  insertResult;
+            {
+                rehashResult = insertResult;
+                statistics.rehashCollision++;
+            }
+            else
+                statistics.rehashDone++;
         }
         tableEntry++;
     }
