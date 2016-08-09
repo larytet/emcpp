@@ -141,6 +141,12 @@ protected:
  *
  * Example of usage:
  *
+ *   struct MyHashObject
+ *   {
+ *       static bool equal(const char *s1, const char *s2);
+ *       static const char* getKey(struct MyHashObject &object);
+ *       static const uint_fast32_t hash(const char *s);
+ *   };
  *    typedef HashTable<struct MyHashObject, const char*, LockDummy, AllocatorTrivial> MyHashTable;
  *    MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
  *    MyHashObject o1("o1");
