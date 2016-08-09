@@ -4,7 +4,7 @@
  * Maximum number of hash tables objects accessible by debug
  */
 static const int HASH_TABLES_COUNT = 32;
-
+class HashTableBase;
 /**
  * List of all hash tables created in the system. I am not protecting access
  * to this global variable with a mutex. It is not crucial for execution
