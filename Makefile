@@ -19,11 +19,14 @@ OBJDUMP         := $(CROSS)objdump
 SIZE            := $(CROSS)size
 
 
+# Add -fopenmp for OMP
+
 $(TARGET):	$(OBJS) Makefile src/Memory.h
-	$(CXX) -o $(TARGET) -fopenmp $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET)  $(OBJS) $(LIBS)
+	
 	
 $(TARGET).s:	$(TARGET)
-	$(OBJDUMP) -S --disassemble $(TARGET) > $(TARGET).s
+	echo $(OBJDUMP) -S --disassemble $(TARGET) > $(TARGET).s
 
 all:	$(TARGET) $(TARGET).s
 
