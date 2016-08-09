@@ -305,7 +305,8 @@ protected:
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
-HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object, uint_fast32_t maxSize)
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object,
+        uint_fast32_t maxSize)
 {
     InsertResult insertResult;
     do
@@ -333,7 +334,9 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
-HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object,
+        Table table, uint_fast32_t size,
+        Statistics *statistics, uint_fast32_t *count)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
