@@ -279,7 +279,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object &ob
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
 
-    Lock lock();
+    Lock lock;
 
     statistics->insertTotal++;
     uint_fast32_t index = getIndex(key, size);
@@ -328,7 +328,7 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 {
     bool result = false;
 
-    Lock lock();
+    Lock lock;
 
     statistics.removeTotal++;
     uint_fast32_t index = getIndex(key);
@@ -367,7 +367,7 @@ bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &obj
 {
     bool result = true;
 
-    Lock lock();
+    Lock lock;
     statistics.searchTotal++;
 
     uint_fast32_t index = getIndex(key);
@@ -404,7 +404,7 @@ bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
     bool result = true;
     Object *newTable = allocateTable(size);
 
-    Lock lock();
+    Lock lock;
 
     Object *object = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
