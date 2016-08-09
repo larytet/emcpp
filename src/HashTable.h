@@ -159,7 +159,12 @@ public:
 
     ~HashTable()
     {
-        table = Allocator::free(table);
+        Allocator::free(table);
+    }
+
+    HashTable()
+    {
+        table = Allocator::alloc(sizeof(Object) * size);
     }
 
     /**
