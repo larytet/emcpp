@@ -168,7 +168,7 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    InsertResult insert(const Key &key, const Object object, )
+    enum InsertResult insert(const Key &key, const Object object, )
     {
         InsertResult insertResult = INSERT_FAILED;
         bool result = false;
