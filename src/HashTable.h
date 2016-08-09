@@ -169,15 +169,15 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key key, const Object object)
+    enum InsertResult insert(const Key &key, const Object &object)
     {
         InsertResult insertResult = insert(key, object, this->table, getSize(), &statistics, &count);
         return insertResult;
     }
 
-    bool remove(const Key key);
+    bool remove(const Key &key);
 
-    bool search(const Key key, Object object) const;
+    bool search(const Key &key, Object &object) const;
 
     /**
      * Call the function if size/count ratio is below 2
@@ -237,8 +237,6 @@ protected:
      */
     HashTable(const char *name, uint_fast32_t size)
     {
-        static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
-        static_assert(sizeof(Key) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         this->name = name;
         this->size = size;
         resetStatistics();
@@ -255,25 +253,28 @@ protected:
         return size + MAX_COLLISIONS;
     }
 
-    static Object *allocateTable(uint_fast32_t size)
+    typedef Object *TableEntry;
+    typedef TableEntry *Table;
+
+    static Table allocateTable(uint_fast32_t size)
     {
-        Object *table = Allocator::alloc(sizeof(Object) * getAllocatedSize(size));
+        Table table = (Table)Allocator::alloc(sizeof(Object*) * getAllocatedSize(size));
         return table;
     }
 
-    static void freeTable(Object *table)
+    static void freeTable(Table table)
     {
         Allocator::free(table);
     }
 
-    static enum InsertResult insert(const Key key, const Object object, Object *table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
+    static enum InsertResult insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
 
-    Object *table;
+    Table table;
 };
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
 enum HashTable<Object, Key, Lock, Allocator>::InsertResult
-HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object object, Object *table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
+HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
@@ -282,7 +283,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object obje
 
     statistics->insertTotal++;
     uint_fast32_t index = getIndex(key, size);
-    Object *storedObject = &table[index];
+    Object *storedObject = table[index];
     result = (storedObject == nullptr);
     if (!result)
     {
@@ -291,13 +292,13 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object obje
         {
             statistics->insertHashCollision++;
             storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-            if (*storedObject == nullptr)
+            if (storedObject == nullptr)
             {
                 result = true;
                 break;
             }
 
-            result = Object::equal(storedObject->getKey(), object.getKey());
+            result = Object::equal(Object::getKey(*storedObject), Object::getKey(*storedObject));
             if (result)
             {
                 insertResult = INSERT_DUPLICATE;
@@ -323,7 +324,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object obje
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::remove(const Key key)
+bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 {
     bool result = false;
 
@@ -362,7 +363,7 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key key)
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
-bool HashTable<Object, Key, Lock, Allocator>::search(const Key key, Object object) const
+bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &object) const
 {
     bool result = true;
 
