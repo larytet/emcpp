@@ -67,8 +67,6 @@ public:
         memset(&statistics, 0, sizeof(statistics));
     }
 
-
-
 protected:
     const char *name;
     uint_fast32_t size;
