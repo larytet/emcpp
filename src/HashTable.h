@@ -218,7 +218,7 @@ public:
     static void destroy(HashTable *hashTable)
     {
         hashTable->~HashTable();
-        Allocator::free(hashTable);
+        Allocator::free((void *)hashTable);
     }
 
 protected:
@@ -264,7 +264,7 @@ protected:
 
     static void freeTable(Table table)
     {
-        Allocator::free(table);
+        Allocator::free((void*)table);
     }
 
     static enum InsertResult insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
@@ -458,7 +458,7 @@ public:
 
     static void free(void *ptr)
     {
-        delete[] ptr;
+        delete[] (uint8_t*)ptr;
     }
 };
 
