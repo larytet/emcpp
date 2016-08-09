@@ -263,15 +263,15 @@ public:
 
         Lock lock();
 
-        Object *o = &table[0];
+        Object *object = &table[0];
         for (int i = 0;i < getSize()+MAX_COLLISIONS;i++)
         {
-            if (o != nullptr)
+            if (object != nullptr)
             {
-                const Key key = o->getKey();
-                result = result && insert(key, o, newTable, statistics);
+                const Key key = object->getKey();
+                result = result && insert(key, object, newTable, statistics);
             }
-            o++;
+            object++;
         }
         Allocator::free(this->table);
         this->table = newTable;
