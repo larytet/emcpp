@@ -50,6 +50,8 @@ using namespace std;
 #include "HashTable.h"
 #endif
 
+#if (EXAMPLE != 10)
+
 /**
  * Dummy lock
  */
@@ -994,6 +996,7 @@ static int itoa(int value, char *s, int size)
     }
 
 }
+#endif
 
 #if (EXAMPLE == 10)
 static void hashTableTest(void)
@@ -1037,6 +1040,9 @@ int main()
 #if (EXAMPLE == 10)
     hashTableTest();
 #endif
+
+#if (EXAMPLE != 10)
+
     vector<int> testArray = {1234, 123456,1234567,12345678};
     for (int i : testArray)
     {
@@ -1094,7 +1100,7 @@ int main()
 //    clock_gettime(CLOCK_MONOTONIC,  &t3);
     dt1 = (t3.tv_sec - t2.tv_sec) + (double) (t3.tv_nsec - t2.tv_nsec) * 1e-9;
     cout << "time:  " << dt1 << endl;
-
+#endif
     return 0;
 
 }

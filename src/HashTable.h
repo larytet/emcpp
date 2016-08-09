@@ -479,9 +479,9 @@ public:
         return result;
     }
 
-    static const Key &getKey()
+    static const Key getKey(HashObject object)
     {
-        return key;
+        return object.key;
     }
 
     const uint_fast32_t getKeySize() const
