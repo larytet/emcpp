@@ -1009,6 +1009,11 @@ static void hashTableTest(void)
             return (result == 0);
         }
 
+        static char* getKey(struct MyHashObject &object)
+        {
+            return (object.name);
+        }
+
         static const uint_fast32_t hash(const char *s)
         {
             uint_fast32_t result = one_at_a_time((uint8_t*)s, strlen(s));
@@ -1018,7 +1023,13 @@ static void hashTableTest(void)
     };
 
     typedef HashTable<struct MyHashObject*, char*, LockDummy, AllocatorTrivial> MyHashTable;
-    MyHashTable *myHashTable = MyHashTable::create("myHashTable", 1024);
+    MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
+    MyHashObject o1("o1");
+    MyHashObject o2("o2");
+    MyHashObject o3("o3");
+    MyHashObject o4("o4");
+    hashTable->insert(o1.name, &o1);
+    MyHashTable::destroy(hashTable);
 }
 #endif
 
