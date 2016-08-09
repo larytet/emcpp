@@ -144,15 +144,15 @@ protected:
  *
  *   struct MyHashObject
  *   {
- *       MyHashObject(const char *name);
- *       static bool equal(const char *s1, const char *s2);
- *       static const char* getKey(const struct MyHashObject &object);
- *       static const uint_fast32_t hash(const char *s);
+ *       static bool equal(struct MyHashObject *object, const char *name)
+ *       static const char* getKey(const struct MyHashObject *object)
+ *       static const uint_fast32_t hash(const char *name)
  *   };
- *   typedef HashTable<struct MyHashObject, const char*, LockDummy, AllocatorTrivial> MyHashTable;
+ *
+ *   typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
  *   MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
  *   MyHashObject o1("o1");
- *   hashTable->insert(&o1.getKey(o1), &o1);
+ *   hashTable->insert(o1.getKey(&o1), &o1);
  *   MyHashTable::destroy(hashTable);
  *
  */
