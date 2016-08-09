@@ -411,16 +411,16 @@ bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
 
     Lock lock;
 
-    Object *object = &table[0];
+    TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
-        if (object != nullptr)
+        if (tableEntry != nullptr)
         {
-            const Key key = object->getKey();
-            InsertResult insertResult = insert(key, object, newTable, size, statistics);
+            const Key key = Object::getKey(*tableEntry);
+            InsertResult insertResult = insert(key, *tableEntry, newTable, size, statistics);
             result = (insertResult == INSERT_DONE) && result;
         }
-        object++;
+        tableEntry++;
     }
     freeTable(this->table);
     this->table = newTable;
