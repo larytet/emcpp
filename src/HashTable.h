@@ -185,7 +185,7 @@ public:
             for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
             {
                 statistics.insertHashCollision++;
-                storedObject++;
+                storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
                 if (*storedObject == nullptr)
                 {
                     result = true;
