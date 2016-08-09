@@ -176,7 +176,7 @@ public:
         Lock lock();
 
         statistics.insertTotal++;
-        uint_fast32_t index = getIndex(object);
+        uint_fast32_t index = getIndex(key);
         Object *storedObject = &this->table[index];
         result = (storedObject == nullptr);
         if (!result)
@@ -224,6 +224,8 @@ public:
         Lock lock();
 
         statistics.removeTotal++;
+        uint_fast32_t index = getIndex(object);
+        Object *storedObject = &this->table[index];
 
         return result;
     }
@@ -288,9 +290,9 @@ protected:
 
     static const int MAX_COLLISIONS = 3;
 
-    static uint_fast32_t getIndex(const Object object)
+    static uint_fast32_t getIndex(const Key &key)
     {
-        uint_fast32_t hash = Object::hash(object);
+        uint_fast32_t hash = Object::hash(key);
         uint_fast32_t index = hash % getSize();
         return index;
     }
