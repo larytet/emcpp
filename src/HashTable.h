@@ -25,6 +25,7 @@ public:
 
         uint64_t removeTotal;
         uint64_t removeOk;
+        uint64_t removeCollision;
         uint64_t removeFailed;
     };
 
@@ -142,7 +143,7 @@ protected:
  *
  * struct MyHashObject
  * {
- *   static bool equal(const struct MyHashObject*, struct MyHashObject*);
+ *   static bool equal(const char*, const char*);
  *   static const uint_fast32_t hash(const char*)
  * };
  *
@@ -192,7 +193,7 @@ public:
                     break;
                 }
 
-                result = Object::equal(*storedObject, object);
+                result = Object::equal(storedObject->getKey(), object.getKey());
                 if (result)
                 {
                     insertResult = INSERT_DUPLICATE;
@@ -219,13 +220,37 @@ public:
 
     bool remove(const Key &key)
     {
-        bool result = true;
+        bool result = false;
 
         Lock lock();
 
         statistics.removeTotal++;
-        uint_fast32_t index = getIndex(object);
+        uint_fast32_t index = getIndex(key);
         Object *storedObject = &this->table[index];
+        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+        {
+            if (*storedObject != nullptr)
+            {
+                result = Object::equal(storedObject->getKey(), key);
+                if (result)
+                {
+                    statistics.removeOk++;
+                    *storedObject = nullptr;
+                    result = true;
+                }
+                else
+                {
+                    statistics.removeCollision++;
+                }
+            }
+            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+        }
+
+        if (!result)
+        {
+            statistics.removeFailed++;
+        }
+
 
         return result;
     }
@@ -369,9 +394,9 @@ template<typename Data, typename Key> class HashObject
 {
 public:
 
-    static bool equal(const HashObject &o1, const HashObject &o2)
+    static bool equal(const Key &key1, const Key &key2)
     {
-        return (o1.key == o2.key);
+        return (key1 == key2);
     }
 
     static const uint_fast32_t hash(const Key &key)
@@ -380,7 +405,7 @@ public:
         return result;
     }
 
-    const Key &getKey() const
+    static const Key &getKey()
     {
         return key;
     }
