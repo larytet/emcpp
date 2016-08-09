@@ -73,7 +73,7 @@ protected:
     uint_fast32_t count;
     Statistics statistics;
 
-    HashTableBase()
+    HashTableBase() : count(0)
     {
         registerTable(this);
     }
