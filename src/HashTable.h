@@ -129,7 +129,8 @@ protected:
  * tested and, if necessary, tuned, in the initialization time.
  *
  * Following assumptions:
- * - There are not many different memory allocators in the system. Allocators can be classes with static methods
+ * - There are not many different memory allocators in the system. It is possible to implement an
+ * allocator as a classes with static methods
  * - Hash table can be allocated dynamically in the initialization time
  * - There not many different mutex objects and they can be implemented as a constructor/destructor
  * - Hash function is good and the hash table is large enough to avoid collisions of the hash
