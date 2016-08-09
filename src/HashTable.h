@@ -288,11 +288,13 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
 
-    Lock lock;
 
-    statistics->insertTotal++;
     uint_fast32_t index = getIndex(key, size);
     TableEntry *tableEntry = &table[index];
+
+    Lock lock;
+    statistics->insertTotal++;
+
     result = (*tableEntry == nullptr);
     if (!result)
     {
