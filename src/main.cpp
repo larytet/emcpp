@@ -1014,7 +1014,7 @@ static void hashTableTest(void)
             return (result == 0);
         }
 
-        static const char* getKey(struct MyHashObject &object)
+        static const char* getKey(const struct MyHashObject &object)
         {
             return (object.name);
         }

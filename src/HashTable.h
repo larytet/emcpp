@@ -145,7 +145,7 @@ protected:
  *   {
  *       MyHashObject(const char *name);
  *       static bool equal(const char *s1, const char *s2);
- *       static const char* getKey(struct MyHashObject &object);
+ *       static const char* getKey(const struct MyHashObject &object);
  *       static const uint_fast32_t hash(const char *s);
  *   };
  *   typedef HashTable<struct MyHashObject, const char*, LockDummy, AllocatorTrivial> MyHashTable;
