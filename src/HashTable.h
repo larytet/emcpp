@@ -152,21 +152,6 @@ template<typename Object, typename Key, typename Lock, typename Allocator> class
 {
 public:
 
-    struct Statistics
-    {
-
-    };
-
-    ~HashTable()
-    {
-        Allocator::free(table);
-    }
-
-    HashTable()
-    {
-        table = Allocator::alloc(sizeof(Object) * size);
-    }
-
     /**
      * Add a new entry to the hash table.
      * The function can fail if a collision happens and simple linear search fails as well
@@ -250,6 +235,12 @@ protected:
         resetStatistics();
         table = Allocator::alloc(sizeof(Object) * size);
     }
+
+    ~HashTable()
+    {
+        Allocator::free(table);
+    }
+
 
     Object *table;
 };
