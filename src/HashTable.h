@@ -182,6 +182,9 @@ public:
 
     bool remove(const Key &key);
 
+    /**
+     * Get a stored pointer from the hash table
+     */
     bool search(const Key &key, const Object **object);
 
     /**
