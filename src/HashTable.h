@@ -199,6 +199,12 @@ public:
         return result;
     }
 
+    bool rehash()
+    {
+        bool result = rehash(this->getSize());
+        return result;
+    }
+
     /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
      * non paged memory, pined in cache, etc.
