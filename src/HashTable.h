@@ -258,7 +258,7 @@ protected:
         return size + MAX_COLLISIONS;
     }
 
-    typedef Object *TableEntry;
+    typedef const Object *TableEntry;
     typedef TableEntry *Table;
 
     static Table allocateTable(uint_fast32_t size)
@@ -288,22 +288,22 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object &ob
 
     statistics->insertTotal++;
     uint_fast32_t index = getIndex(key, size);
-    Object *storedObject = table[index];
-    result = (storedObject == nullptr);
+    TableEntry *tableEntry = &table[index];
+    result = (*tableEntry == nullptr);
     if (!result)
     {
         insertResult = INSERT_COLLISION;
         for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
         {
             statistics->insertHashCollision++;
-            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-            if (storedObject == nullptr)
+            tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+            if (*tableEntry == nullptr)
             {
                 result = true;
                 break;
             }
 
-            result = Object::equal(Object::getKey(*storedObject), Object::getKey(*storedObject));
+            result = Object::equal(Object::getKey(**tableEntry), key);
             if (result)
             {
                 insertResult = INSERT_DUPLICATE;
@@ -317,7 +317,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object &ob
     if (result)
     {
         insertResult = INSERT_DONE;
-        *storedObject = object;
+        *tableEntry = &object;
         (*count)++;
     }
     else
