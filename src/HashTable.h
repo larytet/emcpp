@@ -169,7 +169,7 @@ public:
      * If the function fails often the application is expected to call rehash for a larger
      * table/different hash function
      */
-    enum InsertResult insert(const Key &key, const Object object)
+    enum InsertResult insert(const Key const *key, const Object object)
     {
         InsertResult insertResult = insert(key, object, this->table, this->statistics);
         return insertResult;
@@ -264,14 +264,14 @@ protected:
         Allocator::free(table);
     }
 
-    static enum InsertResult insert(const Key &key, const Object object, Object *table, Statistics &statistics);
+    static enum InsertResult insert(const Key const *key, const Object object, Object *table, Statistics &statistics);
 
     Object *table;
 };
 
 template<typename Object, typename Key, typename Lock, typename Allocator>
 enum HashTable<Object, Key, Lock, Allocator>::InsertResult
-HashTable<Object, Key, Lock, Allocator>::insert(const Key &key, const Object object, Object *table, Statistics &statistics)
+HashTable<Object, Key, Lock, Allocator>::insert(const Key const *key, const Object object, Object *table, Statistics &statistics)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;

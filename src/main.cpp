@@ -1003,15 +1003,15 @@ static void hashTableTest(void)
             this->name = name;
         }
 
-        static bool equal(const char *s1, const char *s2)
+        static bool equal(const char **s1, const char **s2)
         {
-            bool result = strcmp(s1, s2);
+            bool result = strcmp(*s1, *s2);
             return (result == 0);
         }
 
-        static char* getKey(struct MyHashObject &object)
+        static char** getKey(struct MyHashObject &object)
         {
-            return (object.name);
+            return (&object.name);
         }
 
         static const uint_fast32_t hash(const char *s)
@@ -1025,7 +1025,7 @@ static void hashTableTest(void)
     typedef HashTable<struct MyHashObject*, char*, LockDummy, AllocatorTrivial> MyHashTable;
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
-    hashTable->insert(o1.name, &o1);
+    hashTable->insert(o1.getKey(o1), &o1);
     MyHashTable::destroy(hashTable);
 }
 #endif
