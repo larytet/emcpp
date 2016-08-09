@@ -1025,9 +1025,6 @@ static void hashTableTest(void)
     typedef HashTable<struct MyHashObject*, char*, LockDummy, AllocatorTrivial> MyHashTable;
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
-    MyHashObject o2("o2");
-    MyHashObject o3("o3");
-    MyHashObject o4("o4");
     hashTable->insert(o1.name, &o1);
     MyHashTable::destroy(hashTable);
 }
