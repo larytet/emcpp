@@ -1,6 +1,19 @@
 #pragma once
 
 /**
+ * Maximum number of hash tables objects accessible by debug
+ */
+static const int HASH_TABLES_COUNT = 32;
+
+/**
+ * List of all hash tables created in the system. I am not protecting access
+ * to this global variable with a mutex. It is not crucial for execution
+ * and should be modified only on power up
+ * Check this object to see the debug information in one convenient place
+ */
+static HashTableBase *HashTables[HASH_TABLES_COUNT];
+
+/**
  * I am keeping an array of objects of this type for debug purposes
  * All hash tables in the system are supposed to inherit this class and call
  * registerTable() API
@@ -54,18 +67,7 @@ public:
         memset(&statistics, 0, sizeof(statistics));
     }
 
-    /**
-     * Maximum number of hash tables objects accessible by debug
-     */
-    static const int HASH_TABLES_COUNT = 32;
 
-    /**
-     * List of all hash tables created in the system. I am not protecting access
-     * to this global variable with a mutex. It is not crucial for execution
-     * and should be modified only on power up
-     * Check this object to see the debug information in one convenient place
-     */
-    static HashTableBase *HashTables[HASH_TABLES_COUNT];
 
 protected:
     const char *name;
