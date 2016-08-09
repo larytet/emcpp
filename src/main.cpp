@@ -1032,6 +1032,9 @@ static void hashTableTest(void)
 
 int main()
 {
+#if (EXAMPLE == 10)
+    hashTableTest();
+#endif
     vector<int> testArray = {1234, 123456,1234567,12345678};
     for (int i : testArray)
     {
