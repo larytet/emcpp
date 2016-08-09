@@ -337,17 +337,17 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
 
     statistics.removeTotal++;
     uint_fast32_t index = getIndex(key);
-    Object *storedObject = &this->table[index];
+    TableEntry *tableEntry = &this->table[index];
     for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
     {
-        if (*storedObject != nullptr)
+        if (*tableEntry != nullptr)
         {
-            result = Object::equal(storedObject->getKey(), key);
+            result = Object::equal(Object::getKey(**tableEntry), key);
             if (result)
             {
                 statistics.removeOk++;
                 this->count--;
-                *storedObject = nullptr;
+                *tableEntry = nullptr;
                 result = true;
             }
             else
@@ -355,7 +355,7 @@ bool HashTable<Object, Key, Lock, Allocator>::remove(const Key &key)
                 statistics.removeCollision++;
             }
         }
-        storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+        tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
     }
 
     if (!result)
@@ -381,7 +381,7 @@ bool HashTable<Object, Key, Lock, Allocator>::search(const Key &key, Object &obj
     {
         if (*tableEntry != nullptr)
         {
-            result = Object::equal(Object::getKey(*tableEntry), key);
+            result = Object::equal(Object::getKey(**tableEntry), key);
             if (result)
             {
                 statistics.searchOk++;
