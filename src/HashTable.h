@@ -178,25 +178,30 @@ public:
         statistics.insertTotal++;
         uint_fast32_t hash = Object::hash(object);
         uint_fast32_t index = hash % getSize();
-        static const int MAX_COLLISIONS = 3;
-        Object *storedObject = nullptr;
-        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+        Object *storedObject = &table[index];
+        result = (storedObject == nullptr);
+        if (!result)
         {
-            storedObject = &table[index];
-            if (*storedObject == nullptr)
+            insertResult = INSERT_COLLISION;
+            static const int MAX_COLLISIONS = 3;
+            for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
             {
-                result = true;
-                break;
-            }
-            statistics.insertHashCollision++;
+                statistics.insertHashCollision++;
+                storedObject = &table[index+collisions];
+                if (*storedObject == nullptr)
+                {
+                    result = true;
+                    break;
+                }
 
-            result = Object::equal(*storedObject, object);
-            if (result)
-            {
-                insertResult = INSERT_DUPLICATE;
-                statistics.insertDuplicate++;
-                result = false;
-                break;
+                result = Object::equal(*storedObject, object);
+                if (result)
+                {
+                    insertResult = INSERT_DUPLICATE;
+                    statistics.insertDuplicate++;
+                    result = false;
+                    break;
+                }
             }
         }
 
@@ -208,7 +213,6 @@ public:
         else
         {
             statistics.insertHashMaxCollision++;
-            insertResult = INSERT_COLLISION;
         }
 
         return insertResult;
