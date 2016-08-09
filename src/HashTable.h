@@ -262,6 +262,31 @@ public:
         Lock lock();
         statistics.searchTotal++;
 
+        uint_fast32_t index = getIndex(key);
+        Object *storedObject = &this->table[index];
+        for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
+        {
+            if (*storedObject != nullptr)
+            {
+                result = Object::equal(storedObject->getKey(), key);
+                if (result)
+                {
+                    statistics.searchOk++;
+                    result = true;
+                }
+                else
+                {
+                    statistics.removeCollision++;
+                }
+            }
+            storedObject++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
+        }
+
+        if (!result)
+        {
+            statistics.searchFailed++;
+        }
+
         return result;
     }
 
