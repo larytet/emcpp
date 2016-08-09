@@ -312,7 +312,7 @@ HashTable<Object, Key, Lock, Allocator>::insert(const Key key, const Object obje
     {
         insertResult = INSERT_DONE;
         *storedObject = object;
-        *count++;
+        (*count)++;
     }
     else
     {
@@ -430,9 +430,9 @@ bool HashTable<Object, Key, Lock, Allocator>::rehash(const uint_fast32_t size)
 static uint_fast32_t one_at_a_time(uint8_t *key, uint_fast32_t len,
         uint_fast32_t seed = 0)
 {
-    uint_fast32_t hash, i;
+    uint_fast32_t hash = seed;
 
-    for (uint_fast32_t hash = 0, i = 0; i < len; ++i)
+    for (uint_fast32_t i = 0; i < len; ++i)
     {
         hash += key[i];
         hash += (hash << 10);
@@ -451,7 +451,7 @@ class AllocatorTrivial
 {
     static void *alloc(uint_fast32_t size)
     {
-        return new uint8_t[](size);
+        return new uint8_t[size];
     }
 
     static void free(void *ptr)
