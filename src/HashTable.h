@@ -201,11 +201,11 @@ public:
      * cache the hash of the object or use very fast hash function
      * @param size - new size of the hash table
      */
-    bool rehash(const uint_fast32_t size);
+    enum InsertResult rehash(const uint_fast32_t size);
 
-    bool rehash()
+    enum InsertResult rehash()
     {
-        bool result = rehash(this->getSize());
+        enum InsertResult result = rehash(this->getSize());
         return result;
     }
 
@@ -301,7 +301,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             {
                 uint_fast32_t newSize = 2 * getSize();
                 if (newSize > maxSize) newSize = maxSize;
-                rehash(newSize);
+                insertResult = rehash(newSize);
             }
             else
             {
@@ -445,9 +445,10 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
-bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fast32_t size)
+enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fast32_t size)
 {
-    bool result = true;
+    enum InsertResult rehashResult = INSERT_DONE;
     Object *newTable = allocateTable(size);
 
     Lock lock;
@@ -455,11 +456,12 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uin
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
-        if (tableEntry != nullptr)
+        if (*tableEntry != nullptr)
         {
             const Key &key = Hash::getKey(*tableEntry);
             InsertResult insertResult = insert(key, *tableEntry, newTable, size, statistics);
-            result = (insertResult == INSERT_DONE) && result;
+            if (insertResult != INSERT_DONE)
+                rehashResult =  insertResult;
         }
         tableEntry++;
     }
@@ -467,7 +469,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uin
     this->table = newTable;
     this->size = size;
 
-    return result;
+    return rehashResult;
 }
 
 /**
