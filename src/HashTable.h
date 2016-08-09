@@ -180,6 +180,11 @@ public:
         return insertResult;
     }
 
+    /**
+     * Insert with automatic call to rehash if the table is getting too small
+     */
+    enum InsertResult insert(const Key &key, const Object &object, uint_fast32_t maxSize);
+
     bool remove(const Key &key);
 
     /**
@@ -280,6 +285,35 @@ protected:
 
     Table table;
 };
+
+
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object, uint_fast32_t maxSize)
+{
+    InsertResult insertResult;
+    do
+    {
+        insertResult = insert(key, object);
+        if (insertResult == INSERT_COLLISION)
+        {
+            if (getSize() < maxSize)
+            {
+                uint_fast32_t newSize = 2 * getSize();
+                if (newSize > maxSize) newSize = maxSize;
+                rehash(newSize);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    while (insertResult != INSERT_DONE);
+
+    return insertResult;
+}
+
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
