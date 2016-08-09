@@ -288,7 +288,7 @@ protected:
 
     static Table allocateTable(uint_fast32_t size)
     {
-        Table table = (Table)Allocator::alloc(sizeof(TableEntry*) * getAllocatedSize(size));
+        Table table = (Table)Allocator::alloc(sizeof(TableEntry) * getAllocatedSize(size));
         return table;
     }
 
