@@ -180,7 +180,7 @@ public:
     bool search(const Key &key, Object &object) const;
 
     /**
-     * Call the function if size/count ratio is below two
+     * Call the function if size/count ratio is below 2
      * or you are getting collisions often or you tune the hash function
      * in run-time. The function will allocate space for the
      * hash table, rehash the objects and copy the data to the new table.
