@@ -1036,9 +1036,10 @@ static void hashTableTest(void)
     MyHashObject o1("o1");
     cout << "Insert " << __LINE__ << " " << &o1 << endl;
     hashTable->insert(o1.getKey(&o1), &o1);
-    MyHashObject *pO1;
+    MyHashObject *po1;
     cout << "Search " << __LINE__ << endl;
-    hashTable->search(o1.getKey(&o1), &pO1);
+    hashTable->search(o1.getKey(&o1), &po1);
+    cout << "Search done " << po1->name << endl;
     cout << "Destroy " << __LINE__ << endl;
     MyHashTable::destroy(hashTable);
 }
