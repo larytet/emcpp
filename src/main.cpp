@@ -999,41 +999,57 @@ static int itoa(int value, char *s, int size)
 #endif
 
 #if (EXAMPLE == 10)
+struct MyHashObject
+{
+    MyHashObject(const char *name)
+    {
+        this->name = name;
+    }
+
+    static bool equal(struct MyHashObject *object, const char *name)
+    {
+        bool result = strcmp(object->name, name);
+        return (result == 0);
+    }
+
+    static const char* getKey(const struct MyHashObject *object)
+    {
+        return (object->name);
+    }
+
+    static const uint_fast32_t hash(const char *name)
+    {
+        uint_fast32_t len = strlen(name);
+        uint_fast32_t result = one_at_a_time((uint8_t*)name, len);
+        return result;
+    }
+    const char *name;
+};
+typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
+
 static void hashTableTest(void)
 {
-    struct MyHashObject
-    {
-        MyHashObject(const char *name)
-        {
-            this->name = name;
-        }
-
-        static bool equal(struct MyHashObject *object, const char *name)
-        {
-            bool result = strcmp(object->name, name);
-            return (result == 0);
-        }
-
-        static const char* getKey(const struct MyHashObject *object)
-        {
-            return (object->name);
-        }
-
-        static const uint_fast32_t hash(const char *name)
-        {
-            uint_fast32_t result = one_at_a_time((uint8_t*)name, strlen(name));
-            return result;
-        }
-        const char *name;
-    };
-
-    typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
-    hashTable->insert(o1.getKey(&o1), &o1);
-    MyHashObject *po1;
-    hashTable->search(o1.getKey(&o1), &po1);
-    MyHashTable::destroy(hashTable);
+    MyHashObject o2("o2");
+    MyHashObject o3("o3");
+    MyHashObject o4("o4");
+    MyHashObject o5("o5");
+    MyHashObject o6("o6");
+    MyHashObject myHashObjects[] = {o1, o2, o3, o4, o5, o6};
+    MyHashObject *o = &myHashObjects[0];
+    for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
+    {
+        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o);
+        if (insertResult != MyHashTable::INSERT_DONE)
+        {
+            cout << "insert failed " << i << ",collisions=" << (hashTable->getStatistics())->insertHashCollision << endl;
+        }
+        o++;
+    }
+    //MyHashObject *po1;
+    //hashTable->search(o1.getKey(&o1), &po1);
+    //MyHashTable::destroy(hashTable);
 }
 #endif
 

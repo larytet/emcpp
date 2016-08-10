@@ -163,7 +163,8 @@ protected:
  *   MyHashTable::destroy(hashTable);
  *
  */
-template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator> class HashTable: HashTableBase
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+class HashTable: public HashTableBase
 {
 public:
 
