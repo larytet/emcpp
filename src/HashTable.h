@@ -185,6 +185,7 @@ public:
         return insertResult;
     }
 
+
     /**
      * Insert with automatic call to rehash if the table is getting too small
      */
@@ -194,8 +195,10 @@ public:
 
     /**
      * Get a stored pointer from the hash table
+     * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table does
+     * have collisions (statistics.insertCollision == 0)
      */
-    bool search(const Key &key, Object *object);
+    bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
     /**
      * Call the function if size/count ratio is below 2
@@ -438,7 +441,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
-bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object)
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object, bool skipKeyCompare=false)
 {
     bool result = true;
 
@@ -451,7 +454,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
     {
         if (*tableEntry != nullptr)
         {
-            result = Comparator::equal(*tableEntry, key);
+            result = (skipKeyCompare || Comparator::equal(*tableEntry, key));
             if (result)
             {
                 statistics.searchOk++;
