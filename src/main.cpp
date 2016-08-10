@@ -1001,6 +1001,7 @@ static int itoa(int value, char *s, int size)
 #if (EXAMPLE == 10)
 static void hashTableTest(void)
 {
+    cout << __LINE__ << endl;
     struct MyHashObject
     {
         MyHashObject(const char *name)
@@ -1010,7 +1011,9 @@ static void hashTableTest(void)
 
         static bool equal(struct MyHashObject *object, const char *name)
         {
+            cout << __FUNCTION__ << __LINE__ << " " << object << endl;
             bool result = strcmp(object->name, name);
+            cout << __FUNCTION__ << __LINE__ << endl;
             return (result == 0);
         }
 
@@ -1028,17 +1031,22 @@ static void hashTableTest(void)
     };
 
     typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
+    cout << "Creating table" << endl;
     MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
     MyHashObject o1("o1");
+    cout << "Insert " << __LINE__ << " " << &o1 << endl;
     hashTable->insert(o1.getKey(&o1), &o1);
     MyHashObject *pO1;
+    cout << "Search " << __LINE__ << endl;
     hashTable->search(o1.getKey(&o1), &pO1);
+    cout << "Destroy " << __LINE__ << endl;
     MyHashTable::destroy(hashTable);
 }
 #endif
 
 int main()
 {
+    cout << __LINE__ << endl;
 #if (EXAMPLE == 10)
     hashTableTest();
 #endif
