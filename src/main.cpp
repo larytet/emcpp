@@ -1047,8 +1047,21 @@ static void hashTableTest(void)
         }
         o++;
     }
-    //MyHashObject *po1;
-    //hashTable->search(o1.getKey(&o1), &po1);
+    o = &myHashObjects[0];
+    for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
+    {
+        MyHashObject *po;
+        bool searchResult = hashTable->search(o->getKey(o), &po);
+        if (!searchResult)
+        {
+            cout << "search failed " << i << ",key" << o->getKey(o) << endl;
+        }
+        else
+        {
+            cout << "found " << i << ",key" << o->getKey(o) << endl;
+        }
+        o++;
+    }
     //MyHashTable::destroy(hashTable);
 }
 #endif
