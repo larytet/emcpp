@@ -446,7 +446,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
-bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object, bool skipKeyCompare=false)
+bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object, bool skipKeyCompare)
 {
     bool result = true;
 
