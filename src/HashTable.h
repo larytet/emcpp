@@ -196,6 +196,8 @@ public:
 
     bool remove(const Key &key);
 
+    void removeAll();
+
     /**
      * Get a stored pointer from the hash table
      * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table
@@ -410,6 +412,15 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+void HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::removeAll()
+{
+    uint_fast32_t bytes = getAllocatedSize(size) * sizeof(TableEntry);
+    memset(table, 0, bytes);
+    this->count = 0;
+    this->collisionsNow = 0;
+}
+
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key &key)
 {
     bool result = false;
@@ -536,7 +547,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
         if (*tableEntry != nullptr)
         {
             const Key &key = Hash::getKey(*tableEntry);
-            InsertResult insertResult = insert(key, *tableEntry, newTable, size, statistics);
+            InsertResult insertResult = insert(key, *tableEntry, newTable, size, *this);
             if (insertResult != INSERT_DONE)
             {
                 rehashResult = insertResult;

@@ -1037,13 +1037,14 @@ static void hashTableTest(void)
     MyHashObject o5("o5");
     MyHashObject o6("o6");
     MyHashObject myHashObjects[] = {o1, o2, o3, o4, o5, o6};
+    const MyHashTable::Statistics *statistics = (hashTable->getStatistics());
     MyHashObject *o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
         MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o);
         if (insertResult != MyHashTable::INSERT_DONE)
         {
-            cout << "insert failed " << i << ",collisions=" << (hashTable->getStatistics())->insertHashCollision << endl;
+            cout << "insert failed " << i << ",collisions=" << statistics->insertHashCollision << endl;
         }
         o++;
     }
@@ -1063,6 +1064,18 @@ static void hashTableTest(void)
         }
         o++;
     }
+    hashTable->removeAll();
+    o = &myHashObjects[0];
+    for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
+    {
+        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o, 32);
+        if (insertResult != MyHashTable::INSERT_DONE)
+        {
+            cout << "insert failed " << i << ",collisions=" << statistics->insertHashCollision << endl;
+        }
+        o++;
+    }
+    cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << endl;
     //MyHashTable::destroy(hashTable);
 }
 #endif
