@@ -46,6 +46,8 @@ public:
         uint64_t rehashFailed;
         uint64_t rehashDone;
         uint64_t rehashCollision;
+
+        uint64_t collisionsNow;
     };
 
     uint_fast32_t getSize() const
@@ -197,7 +199,7 @@ public:
     /**
      * Get a stored pointer from the hash table
      * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table
-     * does not have collisions (statistics.insertCollision == 0)
+     * does not have collisions (statistics.collisionsNow == 0)
      */
     bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
@@ -370,6 +372,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
         {
             statistics->insertHashCollision++;
+            statistics->collisionsNow++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
             if (*tableEntry == nullptr)
             {
@@ -423,6 +426,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
                 this->count--;
                 *tableEntry = nullptr;
                 result = true;
+                statistics.collisionsNow -= collisions;
             }
             else
             {
@@ -519,6 +523,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     Lock lock;
     statistics.rehashTotal++;
 
+    statistics.collisionsNow = 0;
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
