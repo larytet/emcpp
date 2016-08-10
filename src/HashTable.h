@@ -527,6 +527,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     statistics.rehashTotal++;
 
     this->collisionsNow = 0;
+    this->count = 0;
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
