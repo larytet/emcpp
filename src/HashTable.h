@@ -545,9 +545,9 @@ template<typename Data, typename Key> class HashObject
 {
 public:
 
-    static bool equal(const Key &key1, const Key &key2)
+    static bool equal(HashObject *object, const Key key)
     {
-        return (key1 == key2);
+        return (key == object->getKey(object));
     }
 
     static const uint_fast32_t hash(const Key &key)
@@ -556,9 +556,9 @@ public:
         return result;
     }
 
-    static const Key getKey(HashObject object)
+    static const Key &getKey(HashObject *object)
     {
-        return object.key;
+        return object->key;
     }
 
     const uint_fast32_t getKeySize() const
