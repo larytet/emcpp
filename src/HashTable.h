@@ -197,29 +197,6 @@ public:
      */
     bool search(const Key &key, Object *object);
 
-    enum GetNextResult
-    {
-        GETNEXT_FAILED,
-        GETNEXT_OK,
-        GETNEXT_END_TABLE
-    };
-    enum GetNextResult getNext(uint_fast32_t index, Object *object)
-    {
-        enum GetNextResult result = GETNEXT_END_TABLE;
-        TableEntry tableEntry = &table[index];
-        for (uint_fast32_t i = index;i < getAllocatedSize(getSize());i++)
-        {
-            if (*tableEntry != nullptr)
-            {
-                *object = *tableEntry;
-                result = GETNEXT_OK;
-                break;
-            }
-            tableEntry++;
-        }
-        return result;
-    }
-
     /**
      * Call the function if size/count ratio is below 2
      * or you are getting collisions often or you tune the hash function
@@ -236,6 +213,16 @@ public:
         enum InsertResult result = rehash(this->getSize());
         return result;
     }
+
+    enum GetNextResult
+    {
+        GETNEXT_FAILED,
+        GETNEXT_OK,
+        GETNEXT_END_TABLE
+    };
+
+    enum GetNextResult getNext(uint_fast32_t index, Object *object);
+
 
     /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
@@ -481,6 +468,26 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
 
     return result;
 }
+
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::GetNextResult
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t index, Object *object)
+{
+    enum GetNextResult result = GETNEXT_END_TABLE;
+    TableEntry tableEntry = &table[index];
+    for (uint_fast32_t i = index;i < getAllocatedSize(getSize());i++)
+    {
+        if (*tableEntry != nullptr)
+        {
+            *object = *tableEntry;
+            result = GETNEXT_OK;
+            break;
+        }
+        tableEntry++;
+    }
+    return result;
+}
+
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
