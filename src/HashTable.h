@@ -264,9 +264,6 @@ protected:
     typedef Object TableEntry;
     typedef TableEntry *Table;
 
-    /**
-     * Dynamic allocation of the hash table
-     */
     HashTable(const char *name, uint_fast32_t size, Table table)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
