@@ -473,6 +473,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
                 statistics.searchOk++;
                 *object = *tableEntry;
                 result = true;
+                break;
             }
             else
             {
