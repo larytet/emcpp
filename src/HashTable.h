@@ -184,7 +184,6 @@ public:
      */
     enum InsertResult insert(const Key &key, const Object &object)
     {
-        cout << __LINE__ << " " << this->table[1] << endl;
         InsertResult insertResult = insert(key, object, this->table, getSize(), &statistics, &count);
         return insertResult;
     }
@@ -293,9 +292,6 @@ protected:
         this->size = size;
         this->table = table;
         resetStatistics();
-        uint_fast32_t bytes = getAllocatedSize(getSize()) * sizeof(TableEntry);
-        cout << __FUNCTION__ << __LINE__ << " " << bytes << endl;
-        memset(table, 0, bytes);
     }
 
     ~HashTable()
@@ -309,7 +305,9 @@ protected:
 
     static Table allocateTable(uint_fast32_t size)
     {
-        Table table = (Table)Allocator::alloc(sizeof(TableEntry) * getAllocatedSize(size));
+        uint_fast32_t bytes = getAllocatedSize(size) * sizeof(TableEntry);
+        Table table = (Table)Allocator::alloc(bytes);
+        memset(table, 0, bytes);
         return table;
     }
 
@@ -362,23 +360,18 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
 
-    cout << __FUNCTION__ << __LINE__ << endl;
-
     uint_fast32_t index = getIndex(key, size);
     TableEntry *tableEntry = &table[index];
 
     Lock lock;
     statistics->insertTotal++;
 
-    cout << __FUNCTION__ << __LINE__ << " " << *tableEntry << " " << index << endl;
     result = (*tableEntry == nullptr);
     if (!result)
     {
-        cout << __FUNCTION__ << __LINE__ << endl;
         insertResult = INSERT_COLLISION;
         for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
         {
-            cout << __FUNCTION__ << __LINE__ << endl;
             statistics->insertHashCollision++;
             statistics->collisionsNow++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
@@ -388,23 +381,17 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 break;
             }
 
-            cout << __FUNCTION__ << __LINE__ << endl;
             result = Comparator::equal(*tableEntry, key);
             if (result)
             {
-                cout << __FUNCTION__ << __LINE__ << endl;
                 insertResult = INSERT_DUPLICATE;
                 statistics->insertDuplicate++;
                 result = false;
-                cout << __FUNCTION__ << __LINE__ << endl;
                 break;
             }
-            cout << __FUNCTION__ << __LINE__ << endl;
         }
-        cout << __FUNCTION__ << __LINE__ << endl;
     }
 
-    cout << __FUNCTION__ << __LINE__ << endl;
     if (result)
     {
         insertResult = INSERT_DONE;
@@ -416,7 +403,6 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         statistics->insertHashMaxCollision++;
     }
 
-    cout << __FUNCTION__ << __LINE__ << endl;
     return insertResult;
 }
 
