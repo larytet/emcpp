@@ -46,8 +46,6 @@ public:
         uint64_t rehashFailed;
         uint64_t rehashDone;
         uint64_t rehashCollision;
-
-        uint64_t collisionsNow;
     };
 
     uint_fast32_t getSize() const
@@ -80,6 +78,7 @@ protected:
     uint_fast32_t size;
     uint_fast32_t count;
     Statistics statistics;
+    uint64_t collisionsNow; // Number of collisions in the table
 
     HashTableBase() : count(0)
     {
@@ -184,7 +183,7 @@ public:
      */
     enum InsertResult insert(const Key &key, const Object &object)
     {
-        InsertResult insertResult = insert(key, object, this->table, getSize(), &statistics, &count);
+        InsertResult insertResult = insert(key, object, this->table, getSize(), *this);
         return insertResult;
     }
 
@@ -199,7 +198,7 @@ public:
     /**
      * Get a stored pointer from the hash table
      * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table
-     * does not have collisions (statistics.collisionsNow == 0)
+     * does not have collisions (this->collisionsNow == 0)
      */
     bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
@@ -316,7 +315,9 @@ protected:
         Allocator::free((void*)table);
     }
 
-    static enum InsertResult insert(const Key &key, const Object &object, Table table, uint_fast32_t size, Statistics *statistics, uint_fast32_t *count);
+    static enum InsertResult insert(const Key &key, const Object &object,
+            Table table, uint_fast32_t size,
+            HashTable &hashTable);
 
     Table table;
 };
@@ -355,13 +356,14 @@ template<typename Object, typename Key, typename Lock, typename Allocator, typen
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
 HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object,
         Table table, uint_fast32_t size,
-        Statistics *statistics, uint_fast32_t *count)
+        HashTable &hashTable)
 {
     InsertResult insertResult = INSERT_FAILED;
     bool result = false;
 
     uint_fast32_t index = getIndex(key, size);
     TableEntry *tableEntry = &table[index];
+    Statistics *statistics = &hashTable.statistics;
 
     Lock lock;
     statistics->insertTotal++;
@@ -373,7 +375,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
         {
             statistics->insertHashCollision++;
-            statistics->collisionsNow++;
+            hashTable.collisionsNow++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
             if (*tableEntry == nullptr)
             {
@@ -396,7 +398,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     {
         insertResult = INSERT_DONE;
         *tableEntry = object;
-        (*count)++;
+        hashTable.count++;
     }
     else
     {
@@ -427,7 +429,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
                 this->count--;
                 *tableEntry = nullptr;
                 result = true;
-                statistics.collisionsNow -= collisions;
+                this->collisionsNow -= collisions;
             }
             else
             {
@@ -524,7 +526,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     Lock lock;
     statistics.rehashTotal++;
 
-    statistics.collisionsNow = 0;
+    this->collisionsNow = 0;
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
