@@ -1051,14 +1051,15 @@ static void hashTableTest(void)
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
         MyHashObject *po;
-        bool searchResult = hashTable->search(o->getKey(o), &po);
+        const char *key = o->getKey(o);
+        bool searchResult = hashTable->search(key, &po);
         if (!searchResult)
         {
-            cout << "search failed " << i << ",key" << o->getKey(o) << endl;
+            cout << "search failed " << i << ",key" << key << endl;
         }
         else
         {
-            cout << "found " << i << ",key" << o->getKey(o) << endl;
+            cout << "found " << i << ",key" << key << endl;
         }
         o++;
     }
