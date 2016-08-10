@@ -216,7 +216,7 @@ public:
 
     /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
-     * non paged memory, pined in cache, etc.
+     * non paged memory, in cache, etc.
      * It is impossible to declare a static object of type HashTable. All objects
      * should be allocated dynamically using create() API.
      * @param name - used for debug to distinguish between objects of the same hash table class
