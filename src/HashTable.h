@@ -224,19 +224,18 @@ public:
      */
     static HashTable *create(const char *name, uint_fast32_t size)
     {
-        void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
-        HashTable *hashTable = new (hashTableMemory) HashTable(name, size);
-        if (hashTable == nullptr)
-        {
-            return nullptr;
-        }
         Table table = allocateTable(size);
         if (table == nullptr)
         {
-            Allocator::free((void *)hashTable);
             return nullptr;
         }
-        hashTable->table = table;
+        void *hashTableMemory = Allocator::alloc(sizeof(HashTable));
+        if (hashTableMemory == nullptr)
+        {
+            Allocator::free((void *)table);
+            return nullptr;
+        }
+        HashTable *hashTable = new (hashTableMemory) HashTable(name, size, table);
         return hashTable;
     }
 
@@ -262,15 +261,18 @@ protected:
         return index;
     }
 
+    typedef Object TableEntry;
+    typedef TableEntry *Table;
+
     /**
      * Dynamic allocation of the hash table
      */
-    HashTable(const char *name, uint_fast32_t size)
+    HashTable(const char *name, uint_fast32_t size, Table table)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         this->name = name;
         this->size = size;
-        this->table = nullptr;
+        this->table = table;
         resetStatistics();
     }
 
@@ -282,9 +284,6 @@ protected:
     {
         return size + MAX_COLLISIONS;
     }
-
-    typedef Object TableEntry;
-    typedef TableEntry *Table;
 
     static Table allocateTable(uint_fast32_t size)
     {
