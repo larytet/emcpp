@@ -35,6 +35,7 @@ public:
         uint64_t searchTotal;
         uint64_t searchOk;
         uint64_t searchFailed;
+        uint64_t searchSkipCompare;
 
         uint64_t removeTotal;
         uint64_t removeOk;
@@ -454,7 +455,11 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
     {
         if (*tableEntry != nullptr)
         {
-            result = (skipKeyCompare || Comparator::equal(*tableEntry, key));
+            result = skipKeyCompare;
+            if (!result)
+                result = Comparator::equal(*tableEntry, key);
+            else
+                statistics.searchSkipCompare++;
             if (result)
             {
                 statistics.searchOk++;
