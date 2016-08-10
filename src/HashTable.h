@@ -226,7 +226,7 @@ public:
      * @param index - use zero to get the first stored object
      * @param object - set to the next stored object if getNext returns Ok
      */
-    enum GetNextResult getNext(uint_fast32_t index, Object *object);
+    enum GetNextResult getNext(uint_fast32_t &index, Object *object);
 
 
     /**
@@ -476,7 +476,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::GetNextResult
-HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t index, Object *object)
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t &index, Object *object)
 {
     enum GetNextResult result = GETNEXT_END_TABLE;
     TableEntry tableEntry = &table[index];
@@ -485,6 +485,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t
         if (*tableEntry != nullptr)
         {
             *object = *tableEntry;
+            index = i;
             result = GETNEXT_OK;
             break;
         }
