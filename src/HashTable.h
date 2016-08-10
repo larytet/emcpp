@@ -197,6 +197,29 @@ public:
      */
     bool search(const Key &key, Object *object);
 
+    enum GetNextResult
+    {
+        GETNEXT_FAILED,
+        GETNEXT_OK,
+        GETNEXT_END_TABLE
+    };
+    enum GetNextResult getNext(uint_fast32_t index, Object *object)
+    {
+        enum GetNextResult result = GETNEXT_END_TABLE;
+        TableEntry tableEntry = &table[index];
+        for (uint_fast32_t i = index;i < getAllocatedSize(getSize());i++)
+        {
+            if (*tableEntry != nullptr)
+            {
+                *object = *tableEntry;
+                result = GETNEXT_OK;
+                break;
+            }
+            tableEntry++;
+        }
+        return result;
+    }
+
     /**
      * Call the function if size/count ratio is below 2
      * or you are getting collisions often or you tune the hash function
