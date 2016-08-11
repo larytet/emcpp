@@ -340,7 +340,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     do
     {
         insertResult = insert(key, object);
-        if (insertResult == INSERT_COLLISION)
+        if ((insertResult == INSERT_COLLISION) || (this->collisionsNow > 0))
         {
             if (getSize() < maxSize)
             {
