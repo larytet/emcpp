@@ -97,6 +97,11 @@ public:
         return &statistics;
     }
 
+    const uint_fast32_t getCollisionsNow() const
+    {
+        return collisionsNow;
+    }
+
     void resetStatistics()
     {
         memset(&statistics, 0, sizeof(statistics));
@@ -337,10 +342,15 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         uint_fast32_t maxSize)
 {
     InsertResult insertResult;
+    bool inserted = false;
     do
     {
-        insertResult = insert(key, object);
-        if ((insertResult == INSERT_COLLISION) || (this->collisionsNow > 0))
+        if (!inserted)
+        {
+            insertResult = insert(key, object);
+            inserted = (insertResult == INSERT_DONE);
+        }
+        if (this->collisionsNow > 0)
         {
             if (getSize() < maxSize)
             {
@@ -353,7 +363,6 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 if (rehashResult != INSERT_DONE)
                 {
                     insertResult = rehashResult;
-                    break;
                 }
             }
             else
@@ -362,7 +371,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             }
         }
     }
-    while (insertResult != INSERT_DONE);
+    while ((insertResult != INSERT_DONE) || (this->collisionsNow > 0));
 
     return insertResult;
 }
@@ -556,6 +565,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
 
     this->collisionsNow = 0;
     this->count = 0;
+    this->statistics.insertHashCollision = 0;
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {

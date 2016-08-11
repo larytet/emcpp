@@ -1070,14 +1070,14 @@ static void hashTableTest(void)
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
-        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o, 128);
+        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o, 1024);
         if (insertResult != MyHashTable::INSERT_DONE)
         {
             cout << "insert failed " << i << ",collisions=" << statistics->insertHashCollision << endl;
         }
         o++;
     }
-    cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << endl;
+    cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << ",colINow=" << hashTable->getCollisionsNow() << endl;
     cout << "Step4" << endl;
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
