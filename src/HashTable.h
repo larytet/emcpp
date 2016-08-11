@@ -23,6 +23,15 @@
  *   MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
  *   MyHashObject o1("o1");
  *   hashTable->insert(o1.getKey(&o1), &o1);
+ *   uint_fast32_t index = 0;
+ *   struct MyHashObject *pMyHashObject;
+ *   while (hashTable->getNext(index, &pMyHashObject) != MyHashTable::GETNEXT_END_TABLE)
+ *   {
+ *       cout << MyHashObject::getKey(pMyHashObject) << endl;
+ *       index++;
+ *   }
+ *
+ *
  *   MyHashTable::destroy(hashTable);
  *
  */
@@ -112,7 +121,7 @@ protected:
     uint_fast32_t size;
     uint_fast32_t count;
     Statistics statistics;
-    uint64_t collisionsNow; // Number of collisions in the table
+    uint_fast32_t collisionsNow; // Number of collisions in the table
 
     HashTableBase() : count(0)
     {
@@ -364,6 +373,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 {
                     insertResult = rehashResult;
                 }
+                cout << "this->collisionsNow=" << this->collisionsNow << endl;
             }
             else
             {
@@ -531,7 +541,7 @@ enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::GetNextResult
 HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t &index, Object *object)
 {
     enum GetNextResult result = GETNEXT_END_TABLE;
-    TableEntry tableEntry = &table[index];
+    TableEntry *tableEntry = &table[index];
     for (uint_fast32_t i = index;i < getAllocatedSize(getSize());i++)
     {
         if (*tableEntry != nullptr)

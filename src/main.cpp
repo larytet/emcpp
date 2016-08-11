@@ -1029,7 +1029,7 @@ typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial
 
 static void hashTableTest(void)
 {
-    MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
+    MyHashTable *hashTable = MyHashTable::create("myHashTable", 16);
     MyHashObject o1("o1");
     MyHashObject o2("o2");
     MyHashObject o3("o3");
@@ -1042,7 +1042,7 @@ static void hashTableTest(void)
     MyHashObject *o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
-        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o);
+        MyHashTable::InsertResult insertResult = hashTable->insert(MyHashObject::getKey(o), o);
         if (insertResult != MyHashTable::INSERT_DONE)
         {
             cout << "insert failed " << i << ",collisions=" << statistics->insertHashCollision << endl;
@@ -1054,7 +1054,7 @@ static void hashTableTest(void)
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
         MyHashObject *po;
-        const char *key = o->getKey(o);
+        const char *key = MyHashObject::getKey(o);
         bool searchResult = hashTable->search(key, &po);
         if (!searchResult)
         {
@@ -1070,20 +1070,24 @@ static void hashTableTest(void)
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
-        MyHashTable::InsertResult insertResult = hashTable->insert(o->getKey(o), o, 1024);
+        MyHashTable::InsertResult insertResult = hashTable->insert(MyHashObject::getKey(o), o, 1024);
         if (insertResult != MyHashTable::INSERT_DONE)
         {
             cout << "insert failed " << i << ",collisions=" << statistics->insertHashCollision << endl;
+        }
+        else
+        {
+            cout << "insert Ok " << i << ",collisionsNow=" << hashTable->getCollisionsNow() << endl;
         }
         o++;
     }
     cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << ",colINow=" << hashTable->getCollisionsNow() << endl;
     cout << "Step4" << endl;
     o = &myHashObjects[0];
+    MyHashObject *po;
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
-        MyHashObject *po;
-        const char *key = o->getKey(o);
+        const char *key = MyHashObject::getKey(o);
         bool searchResult = hashTable->search(key, &po);
         if (!searchResult)
         {
@@ -1093,6 +1097,12 @@ static void hashTableTest(void)
         {
         }
         o++;
+    }
+    uint_fast32_t index = 0;
+    while (hashTable->getNext(index, &po) != MyHashTable::GETNEXT_END_TABLE)
+    {
+        cout << "getNext " << " key" << MyHashObject::getKey(po) << endl;
+        index++;
     }
     MyHashTable::destroy(hashTable);
 }
