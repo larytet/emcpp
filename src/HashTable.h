@@ -116,12 +116,18 @@ public:
         memset(&statistics, 0, sizeof(statistics));
     }
 
+    void setResizeFactor(uint_fast32_t factor)
+    {
+        this->resizeFactor = factor;
+    }
+
 protected:
     const char *name;
     uint_fast32_t size;
     uint_fast32_t count;
     Statistics statistics;
     uint_fast32_t collisionsInTheTable; // Number of collisions in the table
+    uint_fast32_t resizeFactor;
 
     HashTableBase() : count(0)
     {
@@ -210,11 +216,10 @@ public:
 
     /**
      * Insert with automatic call to rehash if the table is getting too small. Tries to avoid
-     * collisions at cost of larger table
+     * collisions at cost of larger table. See setResizeFactor()
      * @param maxSize - maximum size for the table
-     * @param factor try to increase by factor percents if a hash collision
      */
-    enum InsertResult insert(const Key &key, const Object &object, uint_fast32_t maxSize, uint_fast32_t factor = 30);
+    enum InsertResult insert(const Key &key, const Object &object, uint_fast32_t maxSize);
 
     bool remove(const Key &key);
 
@@ -351,7 +356,7 @@ protected:
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
 HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key, const Object &object,
-        uint_fast32_t maxSize, uint_fast32_t factor)
+        uint_fast32_t maxSize)
 {
     InsertResult insertResult;
     bool inserted = false;
@@ -366,7 +371,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         {
             if (getSize() < maxSize)
             {
-                uint_fast32_t newSize = (getSize() * (100+factor))/100;
+                uint_fast32_t newSize = (getSize() * (100+this->resizeFactor))/100;
                 if (newSize == getSize())
                 {
                     newSize++;
