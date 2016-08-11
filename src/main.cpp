@@ -1038,6 +1038,7 @@ static void hashTableTest(void)
     MyHashObject o6("o6");
     MyHashObject myHashObjects[] = {o1, o2, o3, o4, o5, o6};
     const MyHashTable::Statistics *statistics = (hashTable->getStatistics());
+    cout << "Step1" << endl;
     MyHashObject *o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
@@ -1048,6 +1049,7 @@ static void hashTableTest(void)
         }
         o++;
     }
+    cout << "Step2" << endl;
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
@@ -1060,11 +1062,11 @@ static void hashTableTest(void)
         }
         else
         {
-            cout << "found " << i << ",key" << key << endl;
         }
         o++;
     }
     hashTable->removeAll();
+    cout << "Step3" << endl;
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
     {
@@ -1076,7 +1078,23 @@ static void hashTableTest(void)
         o++;
     }
     cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << endl;
-    //MyHashTable::destroy(hashTable);
+    cout << "Step4" << endl;
+    o = &myHashObjects[0];
+    for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
+    {
+        MyHashObject *po;
+        const char *key = o->getKey(o);
+        bool searchResult = hashTable->search(key, &po);
+        if (!searchResult)
+        {
+            cout << "search failed " << i << ",key" << key << endl;
+        }
+        else
+        {
+        }
+        o++;
+    }
+    MyHashTable::destroy(hashTable);
 }
 #endif
 

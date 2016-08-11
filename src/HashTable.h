@@ -345,8 +345,16 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             if (getSize() < maxSize)
             {
                 uint_fast32_t newSize = 2 * getSize();
-                if (newSize > maxSize) newSize = maxSize;
-                insertResult = rehash(newSize);
+                if (newSize > maxSize)
+                {
+                    newSize = maxSize;
+                }
+                InsertResult rehashResult = rehash(newSize);
+                if (rehashResult != INSERT_DONE)
+                {
+                    insertResult = rehashResult;
+                    break;
+                }
             }
             else
             {
@@ -470,7 +478,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key &key, Object *object, bool skipKeyCompare)
 {
-    bool result = true;
+    bool result = false;
 
     Lock lock;
     statistics.searchTotal++;
