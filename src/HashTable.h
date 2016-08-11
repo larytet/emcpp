@@ -6,15 +6,15 @@
  * objects are allowed. For example application can not create a hash table which is an automatic
  * variable in the function main().
  * - There not many different mutex objects. A mutex can be implemented as a constructor/destructor
- * - Hash function is good and the hash table is large enough to avoid (or mostly) collisions of the hash
+ * - Hash function is good and the hash table is large enough to avoid (mostly) collisions of the hash
  *
  * Example of usage:
  *
  *   struct MyHashObject
  *   {
- *       static bool equal(struct MyHashObject *object, const char *name)
- *       static const char* getKey(const struct MyHashObject *object)
- *       static const uint_fast32_t hash(const char *name)
+ *       static bool equal(struct MyHashObject *object, const char *name);
+ *       static const char* getKey(const struct MyHashObject *object);
+ *       static const uint_fast32_t hash(const char *name);
  *   };
  *
  *   typedef HashTable<struct MyHashObject*, const char*, LockDummy,
