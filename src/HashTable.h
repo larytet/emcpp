@@ -414,6 +414,8 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 void HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::removeAll()
 {
+    Lock lock;
+
     uint_fast32_t bytes = getAllocatedSize(size) * sizeof(TableEntry);
     memset(table, 0, bytes);
     this->count = 0;
