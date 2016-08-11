@@ -1,3 +1,32 @@
+/**
+ * Following assumptions:
+ * - There are not many different memory allocators in the system. It is possible to implement an
+ * allocator as a class with static methods
+ * - Hash table should be allocated dynamically in the initialization time. No statically allocated
+ * objects are allowed. For example application can not create a hash table which is an automatic
+ * variable in the function main().
+ * - There not many different mutex objects. A mutex can be implemented as a constructor/destructor
+ * - Hash function is good and the hash table is large enough to avoid (or mostly) collisions of the hash
+ *
+ * Example of usage:
+ *
+ *   struct MyHashObject
+ *   {
+ *       static bool equal(struct MyHashObject *object, const char *name)
+ *       static const char* getKey(const struct MyHashObject *object)
+ *       static const uint_fast32_t hash(const char *name)
+ *   };
+ *
+ *   typedef HashTable<struct MyHashObject*, const char*, LockDummy,
+ *                      AllocatorTrivial, struct MyHashObject,
+ *                      struct MyHashObject> MyHashTable;
+ *   MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
+ *   MyHashObject o1("o1");
+ *   hashTable->insert(o1.getKey(&o1), &o1);
+ *   MyHashTable::destroy(hashTable);
+ *
+ */
+
 #pragma once
 
 /**
@@ -138,30 +167,6 @@ protected:
  * same key. If a hash collision happens the insert/search APIs will try next entry in the hash table.
  * The assumption is that collisions are very rare. For example, hash function for file paths can be
  * tested and, if necessary, tuned, in the initialization time.
- *
- * Following assumptions:
- * - There are not many different memory allocators in the system. It is possible to implement an
- * allocator as a classes with static methods
- * - Hash table should be allocated dynamically in the initialization time. No statically allocated
- * objects are allowed.
- * - There not many different mutex objects and they can be implemented as a constructor/destructor
- * - Hash function is good and the hash table is large enough to avoid collisions of the hash
- *
- * Example of usage:
- *
- *   struct MyHashObject
- *   {
- *       static bool equal(struct MyHashObject *object, const char *name)
- *       static const char* getKey(const struct MyHashObject *object)
- *       static const uint_fast32_t hash(const char *name)
- *   };
- *
- *   typedef HashTable<struct MyHashObject*, const char*, LockDummy, AllocatorTrivial, struct MyHashObject, struct MyHashObject> MyHashTable;
- *   MyHashTable *hashTable = MyHashTable::create("myHashTable", 3);
- *   MyHashObject o1("o1");
- *   hashTable->insert(o1.getKey(&o1), &o1);
- *   MyHashTable::destroy(hashTable);
- *
  */
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 class HashTable: public HashTableBase
