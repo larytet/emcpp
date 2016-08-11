@@ -1077,11 +1077,11 @@ static void hashTableTest(void)
         }
         else
         {
-            cout << "insert Ok " << i << ",collisionsNow=" << hashTable->getCollisionsNow() << endl;
+            cout << "insert Ok " << i << ",collisionsNow=" << hashTable->getCollisionsInTheTable() << endl;
         }
         o++;
     }
-    cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << ",colINow=" << hashTable->getCollisionsNow() << endl;
+    cout << "Table size=" << hashTable->getSize() << ",collisions=" << statistics->insertHashCollision << ",colINow=" << hashTable->getCollisionsInTheTable() << endl;
     cout << "Step4" << endl;
     o = &myHashObjects[0];
     MyHashObject *po;

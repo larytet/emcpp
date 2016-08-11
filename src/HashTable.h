@@ -106,9 +106,9 @@ public:
         return &statistics;
     }
 
-    const uint_fast32_t getCollisionsNow() const
+    const uint_fast32_t getCollisionsInTheTable() const
     {
-        return collisionsNow;
+        return collisionsInTheTable;
     }
 
     void resetStatistics()
@@ -121,7 +121,7 @@ protected:
     uint_fast32_t size;
     uint_fast32_t count;
     Statistics statistics;
-    uint_fast32_t collisionsNow; // Number of collisions in the table
+    uint_fast32_t collisionsInTheTable; // Number of collisions in the table
 
     HashTableBase() : count(0)
     {
@@ -220,7 +220,7 @@ public:
     /**
      * Get a stored pointer from the hash table
      * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table
-     * does not have collisions (this->collisionsNow == 0)
+     * does not have collisions (this->collisionsInTheTable == 0)
      */
     bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
@@ -359,7 +359,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             insertResult = insert(key, object);
             inserted = (insertResult == INSERT_DONE);
         }
-        if (this->collisionsNow > 0)
+        if (this->collisionsInTheTable > 0)
         {
             if (getSize() < maxSize)
             {
@@ -373,7 +373,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 {
                     insertResult = rehashResult;
                 }
-                cout << "this->collisionsNow=" << this->collisionsNow << endl;
+                cout << "this->collisionsInTheTable=" << this->collisionsInTheTable << endl;
             }
             else
             {
@@ -381,7 +381,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             }
         }
     }
-    while ((insertResult != INSERT_DONE) || (this->collisionsNow > 0));
+    while ((insertResult != INSERT_DONE) || (this->collisionsInTheTable > 0));
 
     return insertResult;
 }
@@ -410,7 +410,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         for (int collisions = 1;collisions < MAX_COLLISIONS;collisions++)
         {
             statistics->insertHashCollision++;
-            hashTable.collisionsNow++;
+            hashTable.collisionsInTheTable++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
             if (*tableEntry == nullptr)
             {
@@ -451,7 +451,7 @@ void HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::removeAll()
     uint_fast32_t bytes = getAllocatedSize(size) * sizeof(TableEntry);
     memset(table, 0, bytes);
     this->count = 0;
-    this->collisionsNow = 0;
+    this->collisionsInTheTable = 0;
 }
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
@@ -475,7 +475,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
                 this->count--;
                 *tableEntry = nullptr;
                 result = true;
-                this->collisionsNow -= collisions;
+                this->collisionsInTheTable -= collisions;
             }
             else
             {
@@ -573,7 +573,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     Lock lock;
     statistics.rehashTotal++;
 
-    this->collisionsNow = 0;
+    this->collisionsInTheTable = 0;
     this->count = 0;
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
