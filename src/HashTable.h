@@ -106,6 +106,11 @@ public:
         return &statistics;
     }
 
+    /**
+     * After a number of inserts it makes sense to check the number of
+     * collisions in the table. Large number of collisions will
+     * impact search performance and can cause an insert to fail
+     */
     const uint_fast32_t getCollisionsInTheTable() const
     {
         return collisionsInTheTable;
@@ -116,6 +121,13 @@ public:
         memset(&statistics, 0, sizeof(statistics));
     }
 
+    /**
+     * Set a resize factor used by the insert with automatic resize.
+     * Default value is 50(%). Factor zero (0%) will mean that insert()
+     * will try to add one entry to the table size.
+     * Trade off here is memory usage efficiency and number of iterations
+     * of rehashing.
+     */
     void setResizeFactor(uint_fast32_t factor)
     {
         this->resizeFactor = factor;
@@ -240,6 +252,13 @@ public:
      * hash table, rehash the objects and copy the data to the new table.
      * If you are planning to use the function often it makes sense to
      * cache the hash of the object or use very fast hash function
+     *
+     * The function copies the data from an old table to a newly allocated
+     * table. It means that for the time of resizing there are two
+     * tables are allocated in the same time. The tables keep only
+     * pointers. Even a table which contains lot of elements has relatively
+     * small footprint. Typical size/count ratio is between 3 and 5
+     *
      * @param size - new size of the hash table
      */
     enum InsertResult rehash(const uint_fast32_t size);
@@ -361,6 +380,12 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
 {
     InsertResult insertResult;
     bool inserted = false;
+    /**
+     * If a table does not have collisions it does not mean that I can insert an entry.
+     * I will try to insert an entry first and check the return code.
+     * Resize the table if needed. Ensure that after resizing there is no collisions in
+     * the table.
+     */
     do
     {
         if (!inserted)

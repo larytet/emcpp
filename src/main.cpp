@@ -1066,6 +1066,7 @@ static void hashTableTest(void)
         o++;
     }
     hashTable->removeAll();
+    hashTable->setResizeFactor(0);
     cout << "Step3" << endl;
     o = &myHashObjects[0];
     for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
