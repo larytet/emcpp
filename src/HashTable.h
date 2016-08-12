@@ -291,6 +291,15 @@ public:
 
 
     /**
+     * By default the table assumes that nullptr means that the entry is not
+     * occupied
+     * Frequently used values are -1, zero, nullptr
+     */
+    void setIllegalValue(const Object value)
+    {
+        this->illegalValue = value;
+    }
+    /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
      * non paged memory, in cache, etc.
      * It is impossible to declare a static object of type HashTable. All objects
@@ -346,6 +355,7 @@ protected:
         this->name = name;
         this->size = size;
         this->table = table;
+        this->illegalValue = nullptr;
         resetStatistics();
     }
 
@@ -376,6 +386,7 @@ protected:
             HashTable &hashTable);
 
     Table table;
+    TableEntry illegalValue;
 };
 
 
@@ -450,7 +461,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     Lock lock;
     statistics->insertTotal++;
 
-    result = (*tableEntry == nullptr);
+    result = (*tableEntry == this->illegalValue);
     if (!result)
     {
         insertResult = INSERT_COLLISION;
@@ -459,7 +470,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             statistics->insertHashCollision++;
             hashTable.collisionsInTheTable++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-            if (*tableEntry == nullptr)
+            if (*tableEntry == this->illegalValue)
             {
                 result = true;
                 break;
@@ -513,14 +524,14 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
     TableEntry *tableEntry = &this->table[index];
     for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
     {
-        if (*tableEntry != nullptr)
+        if (*tableEntry != this->illegalValue)
         {
             result = Comparator::equal(*tableEntry, key);
             if (result)
             {
                 statistics.removeOk++;
                 this->count--;
-                *tableEntry = nullptr;
+                *tableEntry = this->illegalValue;
                 result = true;
                 this->collisionsInTheTable -= collisions;
             }
@@ -553,7 +564,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
     TableEntry *tableEntry = &this->table[index];
     for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
     {
-        if (*tableEntry != nullptr)
+        if (*tableEntry != this->illegalValue)
         {
             result = skipKeyCompare;
             if (!result)
@@ -591,7 +602,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t
     TableEntry *tableEntry = &table[index];
     for (uint_fast32_t i = index;i < getAllocatedSize(getSize());i++)
     {
-        if (*tableEntry != nullptr)
+        if (*tableEntry != this->illegalValue)
         {
             *object = *tableEntry;
             index = i;
@@ -625,7 +636,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     TableEntry *tableEntry = &table[0];
     for (int i = 0;i < getAllocatedSize(getSize());i++)
     {
-        if (*tableEntry != nullptr)
+        if (*tableEntry != this->illegalValue)
         {
             const Key &key = Hash::getKey(*tableEntry);
             InsertResult insertResult = insert(key, *tableEntry, newTable, size, *this);
