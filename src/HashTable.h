@@ -236,6 +236,10 @@ public:
     /**
      * Insert with automatic call to rehash if the table is getting too small. Tries to avoid
      * collisions at cost of larger table. See setResizeFactor()
+     *
+     * The function is not safe. Making the table smaller can cause dropping
+     * of stored elements
+     *
      * @param maxSize - maximum size for the table
      */
     enum InsertResult insert(const Key &key, const Object &object, uint_fast32_t maxSize);
@@ -252,6 +256,9 @@ public:
     bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
     /**
+     * The function is not safe. Making the table smaller can cause dropping
+     * of stored elements
+     *
      * Call the function if size/count ratio is below 2
      * or you are getting collisions often or you tune the hash function
      * in run-time. The function will allocate space for the
@@ -626,6 +633,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
     if (newTable == nullptr)
     {
         Lock lock;
+        statistics.rehashTotal++;
         statistics.rehashFailed++;
         return INSERT_FAILED;
     }
