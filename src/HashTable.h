@@ -276,6 +276,12 @@ public:
      */
     enum InsertResult rehash(const uint_fast32_t size);
 
+    /**
+     * Safe version of the rehash() - copy data from the table "src"
+     * to the table "dst"
+     */
+    static enum InsertResult rehash(const HashTable *src, HashTable *dst);
+
     enum InsertResult rehash()
     {
         enum InsertResult result = rehash(this->getSize());
@@ -295,7 +301,7 @@ public:
      * @param index - use zero to get the first stored object
      * @param object - set to the next stored object if getNext returns Ok
      */
-    enum GetNextResult getNext(uint_fast32_t &index, Object *object);
+    enum GetNextResult getNext(uint_fast32_t &index, Object *object) const;
 
 
     /**
@@ -605,7 +611,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::search(const Key
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::GetNextResult
-HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t &index, Object *object)
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t &index, Object *object) const
 {
     enum GetNextResult result = GETNEXT_END_TABLE;
     TableEntry *tableEntry = &table[index];
@@ -623,6 +629,25 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::getNext(uint_fast32_t
     return result;
 }
 
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const HashTable *src, HashTable *dst)
+{
+    enum InsertResult rehashResult = INSERT_DONE;
+    uint_fast32_t index = 0;
+    TableEntry entry;
+    while (src->getNext(index, &entry) != HashTable::GETNEXT_END_TABLE)
+    {
+        enum InsertResult insertResult = dst->insert(Hash::getKey(entry), entry);
+        if (insertResult != INSERT_DONE)
+        {
+            rehashResult = INSERT_FAILED;
+            break;
+        }
+        index++;
+    }
+    return rehashResult;
+}
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
 enum HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::InsertResult

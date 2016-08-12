@@ -1105,7 +1105,22 @@ static void hashTableTest(void)
         cout << "getNext " << " key" << MyHashObject::getKey(po) << endl;
         index++;
     }
+
+    cout << "Step5" << endl;
+    MyHashTable *hashTable2 = MyHashTable::create("myHashTable2", 128);
+    MyHashTable::InsertResult insertResult = MyHashTable::rehash(hashTable, hashTable2);
+    if (insertResult != MyHashTable::INSERT_DONE)
+    {
+        cout << "Rehash failed " << endl;
+    }
+    index = 0;
+    while (hashTable2->getNext(index, &po) != MyHashTable::GETNEXT_END_TABLE)
+    {
+        cout << "getNext " << " key" << MyHashObject::getKey(po) << endl;
+        index++;
+    }
     MyHashTable::destroy(hashTable);
+    MyHashTable::destroy(hashTable2);
 }
 #endif
 
