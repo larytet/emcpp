@@ -86,11 +86,17 @@ public:
         uint64_t rehashCollision;
     };
 
+    /**
+     * Maxim number of elements that can be stored in the table
+     */
     uint_fast32_t getSize() const
     {
         return size;
     }
 
+    /**
+     * Number of occupied entries in the table
+     */
     uint_fast32_t getCount() const
     {
         return count;
