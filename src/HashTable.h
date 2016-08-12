@@ -385,6 +385,10 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 {
                     insertResult = rehashResult;
                 }
+                if (rehashResult == INSERT_FAILED)  // something very wrong, allocation problems?
+                {
+                    break;
+                }
                 cout << "this->collisionsInTheTable=" << this->collisionsInTheTable << endl;
             }
             else
