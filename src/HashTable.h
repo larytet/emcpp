@@ -129,7 +129,8 @@ protected:
     uint_fast32_t collisionsInTheTable; // Number of collisions in the table
     uint_fast32_t resizeFactor;
 
-    HashTableBase() : count(0)
+    HashTableBase(const char *name)
+        : name(name), size(0), count(0), resizeFactor(50)
     {
         registerTable(this);
         resetStatistics();
@@ -314,7 +315,7 @@ protected:
     typedef Object TableEntry;
     typedef TableEntry *Table;
 
-    HashTable(const char *name, uint_fast32_t size, Table table)
+    HashTable(const char *name, uint_fast32_t size, Table table) : HashTableBase(name)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "HashTable is intended to work only with integral types or pointers");
         this->name = name;
