@@ -299,6 +299,7 @@ public:
     {
         this->illegalValue = value;
     }
+
     /**
      * Hash tables can be allocated in different types of memory. For example paged memory,
      * non paged memory, in cache, etc.
@@ -461,7 +462,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
     Lock lock;
     statistics->insertTotal++;
 
-    result = (*tableEntry == this->illegalValue);
+    result = (*tableEntry == hashTable.illegalValue);
     if (!result)
     {
         insertResult = INSERT_COLLISION;
@@ -470,7 +471,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
             statistics->insertHashCollision++;
             hashTable.collisionsInTheTable++;
             tableEntry++;                   // I can do this - table contains (size+MAX_COLLISIONS) entries
-            if (*tableEntry == this->illegalValue)
+            if (*tableEntry == hashTable.illegalValue)
             {
                 result = true;
                 break;
