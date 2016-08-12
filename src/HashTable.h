@@ -389,7 +389,6 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                 {
                     break;
                 }
-                cout << "this->collisionsInTheTable=" << this->collisionsInTheTable << endl;
             }
             else
             {
