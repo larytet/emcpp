@@ -283,7 +283,8 @@ public:
     };
 
     /**
-     * Access the objects stored in the table
+     * Access the objects stored in the table. The elements in the hash table are not
+     * stored in any particular order
      * @param index - use zero to get the first stored object
      * @param object - set to the next stored object if getNext returns Ok
      */
