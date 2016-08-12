@@ -652,7 +652,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::rehash(const uint_fas
             InsertResult insertResult = insert(key, *tableEntry, newTable, size, *this);
             if (insertResult != INSERT_DONE)
             {
-                rehashResult = insertResult;
+                rehashResult = INSERT_FAILED;
                 statistics.rehashCollision++;
             }
             else
