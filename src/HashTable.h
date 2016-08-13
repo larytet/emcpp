@@ -87,7 +87,7 @@ public:
     };
 
     /**
-     * Maxim number of elements that can be stored in the table
+     * Maximum number of elements that can be stored in the table
      */
     uint_fast32_t getSize() const
     {
@@ -129,7 +129,7 @@ public:
 
     /**
      * Set a resize factor used by the insert with automatic resize.
-     * Default value is 50(%). Factor zero (0%) will mean that insert()
+     * Default value is 50(%). Factor zero (0%) means that insert()
      * will try to add one entry to the table size.
      * Trade off here is memory usage efficiency and number of iterations
      * of rehashing.
