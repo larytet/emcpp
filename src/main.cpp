@@ -1119,6 +1119,23 @@ static void hashTableTest(void)
         cout << "getNext " << " key" << MyHashObject::getKey(po) << endl;
         index++;
     }
+    cout << "Step6" << endl;
+    o = &myHashObjects[0];
+    for (int i = 0;i < sizeof(myHashObjects)/sizeof(MyHashObject);i++)
+    {
+        bool res = hashTable2->remove(o->getKey(o));
+        if (!res)
+        {
+            cout << "remove failed " << o->getKey(o) << endl;
+        }
+        o++;
+    }
+    index = 0;
+    while (hashTable2->getNext(index, &po) != MyHashTable::GETNEXT_END_TABLE)
+    {
+        cout << "getNext " << " key" << MyHashObject::getKey(po) << endl;
+        index++;
+    }
     MyHashTable::destroy(hashTable);
     MyHashTable::destroy(hashTable2);
 }

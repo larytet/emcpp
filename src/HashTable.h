@@ -535,7 +535,7 @@ bool HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::remove(const Key
     Lock lock;
 
     statistics.removeTotal++;
-    uint_fast32_t index = getIndex(key);
+    uint_fast32_t index = getIndex(key, getSize());
     TableEntry *tableEntry = &this->table[index];
     for (int collisions = 0;collisions < MAX_COLLISIONS;collisions++)
     {
