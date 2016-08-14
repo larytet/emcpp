@@ -61,8 +61,6 @@ protected:
     {
         removeRegistration(this);
     }
-
-
 };
 
 /**

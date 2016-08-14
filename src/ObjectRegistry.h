@@ -27,6 +27,31 @@ public:
             }
         }
     }
+    enum GetNextResult
+    {
+        GETNEXT_FAILED,
+        GETNEXT_OK,
+        GETNEXT_END_TABLE
+    };
+
+
+    static enum GetNextResult getNext(uint_fast32_t &index, Object *o)
+    {
+        enum GetNextResult result = GETNEXT_END_TABLE;
+        Object *entry = &registry[index];
+        for (uint_fast32_t i = index;i < Size;i++)
+        {
+            if (*entry != nullptr)
+            {
+                *o = *entry;
+                index = i;
+                result = GETNEXT_OK;
+                break;
+            }
+            entry++;
+        }
+        return result;
+    }
 
 protected:
     static Object registry[Size];
