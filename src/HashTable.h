@@ -459,7 +459,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
                     break;
                 }
             }
-            else
+            else // Reached maximum size
             {
                 break;
             }
