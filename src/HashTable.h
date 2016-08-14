@@ -38,25 +38,16 @@
 
 #pragma once
 
-/**
- * Maximum number of hash tables objects accessible by debug
- */
-static const int HASH_TABLES_COUNT = 32;
+#include "ObjectRegistery.h"
+
 class HashTableBase;
-/**
- * List of all hash tables created in the system. I am not protecting access
- * to this global variable with a mutex. It is not crucial for execution
- * and should be modified only on power up
- * Check this object to see the debug information in one convenient place
- */
-static HashTableBase *HashTables[HASH_TABLES_COUNT];
 
 /**
  * I am keeping an array of objects of this type for debug purposes
  * All hash tables in the system are supposed to inherit this class and call
  * registerTable() API
  */
-class HashTableBase
+class HashTableBase : ObjectRegistry<HashTableBase*, 32>
 {
 public:
 
@@ -150,38 +141,14 @@ protected:
     HashTableBase(const char *name)
         : name(name), size(0), count(0), resizeFactor(50)
     {
-        registerTable(this);
+        addRegistration(this);
         resetStatistics();
     }
 
     ~HashTableBase()
     {
-        unregisterTable(this);
+        removeRegistration(this);
     }
-
-    static void registerTable(HashTableBase *hashTable)
-    {
-        for (int i = 0; i < HASH_TABLES_COUNT; i++)
-        {
-            if (HashTables[i] == nullptr)
-            {
-                HashTables[i] = hashTable;
-                break;
-            }
-        }
-    }
-
-    static void unregisterTable(HashTableBase *hashTable)
-    {
-        for (int i = 0; i < HASH_TABLES_COUNT; i++)
-        {
-            if (HashTables[i] == hashTable)
-            {
-                HashTables[i] = nullptr;
-            }
-        }
-    }
-
 };
 
 /**
