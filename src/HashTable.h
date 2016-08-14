@@ -396,6 +396,8 @@ protected:
         Allocator::free((void*)table);
     }
 
+    static uint_fast32_t applyResizeFactor(uint_fast32_t size, uint_fast32_t maxSize);
+
     static enum InsertResult insert(const Key &key, const Object &object,
             Table table, uint_fast32_t size,
             HashTable &hashTable);
@@ -403,6 +405,23 @@ protected:
     Table table;
     TableEntry illegalValue;
 };
+
+
+template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
+uint_fast32_t
+HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::applyResizeFactor(uint_fast32_t size, uint_fast32_t maxSize)
+{
+    uint_fast32_t newSize = (getSize() * (100+this->resizeFactor))/100;
+    if (newSize == getSize())
+    {
+        newSize++;
+    }
+    if (newSize > maxSize)
+    {
+        newSize = maxSize;
+    }
+    return newSize;
+}
 
 
 template<typename Object, typename Key, typename Lock, typename Allocator, typename Hash, typename Comparator>
@@ -429,15 +448,7 @@ HashTable<Object, Key, Lock, Allocator, Hash, Comparator>::insert(const Key &key
         {
             if (getSize() < maxSize)
             {
-                uint_fast32_t newSize = (getSize() * (100+this->resizeFactor))/100;
-                if (newSize == getSize())
-                {
-                    newSize++;
-                }
-                if (newSize > maxSize)
-                {
-                    newSize = maxSize;
-                }
+                uint_fast32_t newSize = applyResizeFactor(size, maxSize);
                 InsertResult rehashResult = rehash(newSize);
                 if (rehashResult != INSERT_DONE)
                 {
