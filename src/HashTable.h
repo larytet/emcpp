@@ -38,7 +38,7 @@
 
 #pragma once
 
-#include "ObjectRegistery.h"
+#include "ObjectRegistry.h"
 
 class HashTableBase;
 
