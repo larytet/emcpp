@@ -4,26 +4,14 @@
 
 #pragma once
 
-/**
- * Maximum number of LinkedList objects accessible by debug
- */
-static const int LINKED_LISTS_COUNT = 32;
-class LinkedListBase;
-
-/**
- * List of all hash tables created in the system. I am not protecting access
- * to this global variable with a mutex. It is not crucial for execution
- * and should be modified only on power up
- * Check this object to see the debug information in one convenient place
- */
-static LinkedListBase *LinkedLists[LINKE_LISTS_COUNT];
+#include "ObjectRegistry.h"
 
 /**
  * I am keeping an array of objects of this type for debug purposes
  * All linked lisst in the system are supposed to inherit this class and call
  * registerTable() API
  */
-class LinkedListBase
+class LinkedListBase : ObjectRegistry<LinkedListBase*, 32>
 {
 public:
 
@@ -65,37 +53,15 @@ protected:
     LinkedListBase(const char *name)
         : name(name), scount(0)
     {
-        registerTable(this);
+        addRegistration(this);
         resetStatistics();
     }
 
     ~LinkedListBase()
     {
-        unregisterTable(this);
+        removeRegistration(this);
     }
 
-    static void registerList(LinkedListBase *linkedList)
-    {
-        for (int i = 0; i < LINKED_LISTS_COUNT; i++)
-        {
-            if (LinkedLists[i] == nullptr)
-            {
-                LinkedLists[i] = linkedList;
-                break;
-            }
-        }
-    }
-
-    static void unregisterList(LinkedListBase *linkedList)
-    {
-        for (int i = 0; i < LINKED_LISTS_COUNT; i++)
-        {
-            if (LinkedLists[i] == linkedList)
-            {
-                LinkedLists[i] = nullptr;
-            }
-        }
-    }
 
 };
 
