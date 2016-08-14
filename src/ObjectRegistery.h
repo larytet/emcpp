@@ -4,7 +4,7 @@ template<typename Object, int Size>
 class ObjectRegistry
 {
 public:
-    void addRegistration(Object o)
+    static void addRegistration(Object o)
     {
         static_assert(sizeof(Object) <= sizeof(uintptr_t), "ObjectRegistry is intended to work only with pointers");
         for (int i = 0; i < Size; i++)
@@ -17,7 +17,7 @@ public:
         }
     }
 
-    void removeRegistration(Object o)
+    static void removeRegistration(Object o)
     {
         for (int i = 0; i < Size; i++)
         {
@@ -29,5 +29,5 @@ public:
     }
 
 protected:
-    Object registry[Size];
+    static Object registry[Size];
 };
