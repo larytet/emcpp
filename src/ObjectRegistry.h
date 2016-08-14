@@ -27,6 +27,7 @@ public:
             }
         }
     }
+
     enum GetNextResult
     {
         GETNEXT_FAILED,
