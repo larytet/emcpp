@@ -643,3 +643,7 @@ Add following entry in /etc/fstab
 LABEL=/home /home ext3 acl 1 2
 Now remount /home partition with acl option.
 mount -t ext3 -o acl /dev/sda3 /home
+
+
+
+What is the smallest number divisible by 225 that consists of all 1's and 0's?
