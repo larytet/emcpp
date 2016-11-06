@@ -342,6 +342,7 @@ char *func_v2(char *s, char a, char b)
 	return NULL;
 }
 
+Structured bindings, coroutines, concepts, modules
 
 Write a function which accepts one of the two integers 5 and 7 and returns the second integer.
 The programming language does not have conditions if ... else Suggest at least 3 different solutions
