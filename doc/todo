@@ -648,3 +648,6 @@ mount -t ext3 -o acl /dev/sda3 /home
 
 
 What is the smallest number divisible by 225 that consists of all 1's and 0's?
+
+
+Name most popular non-SQL data bases? What non-SQL DBs come with a modern OS?
