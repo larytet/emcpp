@@ -451,7 +451,7 @@ Mooshik code
 
 
 When pselect() as compared to select() should be used?
-
+Tip https://jineshkj.wordpress.com/2008/02/02/why-pselect/
 
 Provide example of imperative and declarative programming languages
 
