@@ -651,3 +651,57 @@ What is the smallest number divisible by 225 that consists of all 1's and 0's?
 
 
 Name most popular non-SQL data bases? What non-SQL DBs come with a modern OS?
+
+
+Fibonacci numbers
+* Iterations O(n)
+* Binet's formula O(1) - any problems here?
+* O(log n) solution based on matrix
+Tip
+template<typename Element>
+struct mat2
+{
+	Element elements[2][2];
+};
+ 
+template<typename Element>
+constexpr mat2<Element> operator * (mat2<Element> const & a_, mat2<Element> const & b_)
+{
+	auto const & a = a_.elements;
+	auto const & b = b_.elements;
+	return mat2<Element>{{
+		{a[0][0] * b[0][0] + a[0][1] * b[1][0], a[0][0] * b[0][1] + a[0][1] * b[1][1]},
+		{a[1][0] * b[0][0] + a[1][1] * b[1][0], a[1][0] * b[0][1] + a[1][1] * b[1][1]}
+	}};
+}
+ 
+template<typename Element>
+constexpr mat2<Element> mat_pow(mat2<Element> m, unsigned n)
+{
+	if(!n)
+		return mat2<Element>{{{1,0},{0,1}}};
+	--n;
+ 
+	auto r = m;
+	while(n)
+	{
+		if(n & 1)
+			r = r * m;
+		m = m * m;
+		n >>= 1;
+	}
+	return r;
+}
+ 
+template<typename Integer>
+constexpr Integer fib(unsigned n)
+{
+	constexpr auto a = mat2<Integer>{{{1,1},{1,0}}};
+	auto an = mat_pow(a, n);
+	return an.elements[1][0];
+}
+Tip:
+http://s.wordpress.com/latex.php?latex=%5Cdisplaystyle%20%5Cleft%28%5Cbegin%7Barray%7D%7Bcc%7D1%20%26%201%20%5C%5C%201%20%26%200%20%5Cend%7Barray%7D%5Cright%29%5En%5Cleft%28%5Cbegin%7Barray%7D%7Bc%7D1%5C%5C0%5Cend%7Barray%7D%5Cright%29%3D%5Cleft%28%5Cbegin%7Barray%7D%7Bc%7DF_%7Bn%2B1%7D%5C%5CF_n%5Cend%7Barray%7D%5Cright%29&bg=202020&fg=bebebe&s=0  
+http://wordpress.electric-snow.net/2016/05/31/fibonacci-youre-also-doing-it-wrong/
+
+
