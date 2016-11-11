@@ -715,4 +715,13 @@ JaneStreet
 6) Assume the number is no longer uniform between [0,1000], but rather Gaussian, with mean 500 and standard deviation 100. The calculations are messy to do by hand, but what would be your intuition on how much to bid?  
 7) If you could choose a multiplier for the pay out on the above question, what would it be and why?  
  
+1) 50% 
+2) 50% 
+3) 50%  
+4) B=0 
+5) B=800 
+6) B around 600  
+7) Seemed like a risk tolerance question, so I left my multiplier at 1.
+
+
  
