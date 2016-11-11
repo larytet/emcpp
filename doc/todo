@@ -705,3 +705,14 @@ http://s.wordpress.com/latex.php?latex=%5Cdisplaystyle%20%5Cleft%28%5Cbegin%7Bar
 http://wordpress.electric-snow.net/2016/05/31/fibonacci-youre-also-doing-it-wrong/
 
 
+JaneStreet
+
+1)Probability of number of even heads after tossing 4 fair coins.  
+2)Probability of number of even heads after tossing 100 fair coins.  
+3)Probability of number of even heads after tossing 99 fair coins and one weighted coin. 
+4)Say we have a chest with X dollars, where X is a number between [0,1000]. You bid B. If B is higher than X, then you get 1.5X (but you pay B). If B is less or equal to X, then nothing happens. What is your bid?  
+5) Assume now that the number is between [800,1000]. How much do you bid?  
+6) Assume the number is no longer uniform between [0,1000], but rather Gaussian, with mean 500 and standard deviation 100. The calculations are messy to do by hand, but what would be your intuition on how much to bid?  
+7) If you could choose a multiplier for the pay out on the above question, what would it be and why?  
+ 
+ 
