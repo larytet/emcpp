@@ -264,7 +264,7 @@ public:
 
     /**
      * Access the objects stored in the table. The elements in the hash table are not
-     * stored in any particular order.
+     * stored in any particular order. See also setIllegalValue()
      *
      * Performance of the function depends on the number of removed elements (empty entry)
      * in the table. Skipping an empty entry takes time - branch, cache miss, etc.
