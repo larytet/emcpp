@@ -215,7 +215,8 @@ public:
     /**
      * Get a stored pointer from the hash table
      * @param skipKeyCompare - set to true to save CPU cycles. Works well if the hash table
-     * does not have collisions (this->collisionsInTheTable == 0)
+     * does not have collisions (this->collisionsInTheTable == 0) and comparison is not a
+     * trivial funciton
      */
     bool search(const Key &key, Object *object, bool skipKeyCompare=false);
 
