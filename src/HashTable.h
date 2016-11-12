@@ -266,6 +266,8 @@ public:
      *
      * Performance of the function depends on the number of removed elements (empty entry)
      * in the table. Skipping an empty entry takes time - branch, cache miss, etc.
+     * If the table is empty the function will run through all the elements before it
+     * returns GETNEXT_FAILED
      *
      * @param index - use zero to get the first stored object
      * @param object - set to the next stored object if getNext returns Ok
