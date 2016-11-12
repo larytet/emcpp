@@ -204,9 +204,6 @@ public:
      * Insert with automatic call to rehash if the space is running low. Tries to avoid
      * collisions at cost of larger table. See setResizeFactor()
      *
-     * The function is not safe. Making the table smaller can cause dropping
-     * of stored elements
-     *
      * @param maxSize - maximum size for the table
      */
     enum InsertResult insert(const Key &key, const Object &object, uint_fast32_t maxSize);
