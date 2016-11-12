@@ -270,7 +270,7 @@ public:
      * returns GETNEXT_FAILED
      *
      * @param index - use zero to get the first stored object
-     * @param object - set to the next stored object if getNext returns Ok
+     * @param object - the next stored object if getNext returns Ok
      */
     enum GetNextResult getNext(uint_fast32_t &index, Object *object) const;
 
