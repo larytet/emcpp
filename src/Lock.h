@@ -29,6 +29,11 @@ public:
 
 /**
  * Instantiate a new type - lock which does nothing
+ * Usage:
+ * void lockTest()
+ * {
+ *    LockDummy lock();
+ * }
  */
 typedef Lock<SynchroObjectDummy> LockDummy;
 
