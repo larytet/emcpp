@@ -753,3 +753,16 @@ int main() {
 }
 
 Tip: stack modification using malloca
+
+What this code does
+#if (__COUNTER__ == 0)
+#include <stdio.h>
+int main() {
+  #include __FILE__
+  return 0;
+}
+#elif (__COUNTER__ < 300)
+printf("%d\n", __COUNTER__ / 3);
+#include __FILE__
+#endif
+
