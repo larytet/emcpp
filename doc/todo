@@ -734,3 +734,22 @@ so, (1/2)*(1-p) +(1/2)*p =1/2
 No. So given the answer in 6, you have a positive EV, but there is a lot of downrisk. For instance if X=0, then you lose the 600 bid, but that will happen almost never (being 5 standard deviations away from the mean is really small). So if you play this game a lot of times, you expect to win money. Assume you can only play it once: How much would you choose your multiplier? (you need to say it before the experiment, so if you choose 1000 multiplier, and X = 200 (in which case your gain is 200*1.5-600=-300), then you actually lose 300K)
 Actually 600 is a pretty good guess. The EV is roughly 90 according to the computer (much better than having a bid of 500 or 700). We will see what happens.
 https://www.wolframalpha.com/input/?i=int+of+(1.5x-B)+e%5E(+-+(x-500)+%5E2%2F20000)+(1%2F(100+*+sqrt(2+*+pi)))++from+x+%3D+0+to+B+for+B+%3D+600
+
+
+What the following function does
+#include <iostream>
+#include <stdlib.h>
+int num;
+void(**rptr)();
+void foo() {
+  if(num >= 100) exit(0);
+  std::cout << ++num << std::endl;
+  *rptr++ = foo;
+}
+int main() {
+  rptr = (void(**)())alloca(sizeof(*rptr) * 200) - 1;
+  foo();
+  return 0;
+}
+
+Tip: stack modification using malloca
