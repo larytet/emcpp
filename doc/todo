@@ -766,3 +766,18 @@ printf("%d\n", __COUNTER__ / 3);
 #include __FILE__
 #endif
 
+#include <iostream>
+#include <stdlib.h>
+int main() {
+  int x = 0;
+  x |= !fork() << 0;
+  x |= !fork() << 1;
+  x |= !fork() << 2;
+  x |= !fork() << 3;
+  x |= !fork() << 4;
+  x |= !fork() << 5;
+  x |= !fork() << 6;
+  if(1 <= x && x <= 100) std::cout << x << std::endl;
+  return 0;
+}
+
