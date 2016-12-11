@@ -781,3 +781,45 @@ int main() {
   return 0;
 }
 
+
+Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+#!/usr/bin/env python
+
+count_3 = 0
+count_5 = 0
+for i in range(100):
+    if (count_3 == 3) and (count_5 == 5):
+        print i,"FizzBuzz"
+	count_3 = 0
+	count_5 = 0
+    elif (count_3 == 3):
+        print i,"Fizz"
+	count_3 = 0
+    elif (count_5 == 5):
+        print i,"Buzz"
+	count_5 = 0
+    else:
+        print i
+    count_3 = count_3 + 1
+    count_5 = count_5 + 1
+
+
+Explain how shared memory works. A good candidate will know details like why pointers are stored as offsets and how to protect memory regions using semaphores. They should also know some of the common applications, e.g. in implementing databases.
+What happens on a system call? A good answer will include a description of processor interrupts and how the hardware handles them, scheduling decisions, marshaling parameters, etc. (For embedded programmers a question dealing with concurrent operations can be substituted.)
+How do you reverse the bits in an int? A good solution to this problem will take fewer operations than the number of bits being flipped.
+Where can data be stored? E.g. stack, heap, data segment, embedded in an opcode, etc.
+
+
+
+Assuming following test.cpp file
+int main()
+{
+  int *a = 0;
+  *a = 5;
+  return 0; 
+}
+what will produce the following command and why
+g++ test.cpp -o test -std=c++11 -Wall ;./test 
+If the code fails (segfault?) is there anyway to fix the code and avoid the failure?
+
+
