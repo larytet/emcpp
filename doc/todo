@@ -822,4 +822,5 @@ what will produce the following command and why
 g++ test.cpp -o test -std=c++11 -Wall ;./test 
 If the code fails (segfault?) is there anyway to fix the code and avoid the failure?
 
+https://en.wikibooks.org/wiki/More_C++_Idioms More C++ Idioms
 
