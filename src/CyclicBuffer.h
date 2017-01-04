@@ -140,7 +140,7 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
-    this->index = increment(this->index);
+    this->index = cyclicBuffer.increment(this->index);
     return *this;
 }
 
@@ -154,22 +154,22 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() {
-    return data[index];
+    return cyclicBuffer.data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() const {
-    return data[index];
+    return cyclicBuffer.data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() {
-    return data[index];
+    return cyclicBuffer.data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() const {
-    return data[index];
+    return cyclicBuffer.data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
@@ -181,19 +181,19 @@ CyclicBuffer<ObjectType, Lock, Size>::begin() {
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::begin() const {
-    return iterator(head);
+    return iterator(*this, head);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::end() {
-    return iterator(tail);
+    return iterator(*this, tail);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::end() const {
-    return iterator(tail);
+    return iterator(*this, tail);
 }
 
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
