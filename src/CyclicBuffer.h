@@ -121,14 +121,14 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(size_t index) {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-bool CyclicBuffer<
-ObjectType, Lock, Size>::iterator::operator==(const iterator & iter) const {
+bool
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator==(const iterator & iter) const {
 
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-bool CyclicBuffer<
-ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter) const {
+bool
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter) const {
 
 }
 
