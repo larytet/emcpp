@@ -32,7 +32,9 @@ public:
     inline iterator begin() const;
     inline iterator end();
     inline iterator end() const;
+
 private:
+
     void errorOverflow() {
     }
 
