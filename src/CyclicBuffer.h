@@ -135,13 +135,13 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
 
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
 
 }
