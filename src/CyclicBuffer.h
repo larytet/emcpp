@@ -120,9 +120,8 @@ ObjectType, Lock, Size>::increment(size_t index) {
 
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(CyclicBuffer& cyclicBuffer, size_t index) {
-    this->cyclicBuffer = cyclicBuffer;
-    this->index = index;
+CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(CyclicBuffer& cyclicBuffer, size_t index)
+    : cyclicBuffer(cyclicBuffer), index(index) {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
@@ -175,7 +174,7 @@ const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() co
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::begin() {
-    return iterator(head);
+    return iterator(*this, head);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>

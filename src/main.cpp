@@ -236,6 +236,11 @@ int testCyclicBuffer() {
         myCyclicBuffer.add(i);
     }
 
+    for(auto iter = myCyclicBuffer.begin(); iter != myCyclicBuffer.end(); ++iter) {
+        cout << (int) *iter << endl;
+    }
+
+
     while (!myCyclicBuffer.isEmpty()) {
         uint8_t val;
         myCyclicBuffer.remove(val);
