@@ -29,7 +29,7 @@ using namespace std;
 
 #define PERFORMANCE 0
 #define PERFORMANCE_LOOPS (1000*1000*1000)
-#define EXAMPLE 10
+#define EXAMPLE 1
 
 #if (EXAMPLE != 6) && (EXAMPLE != 10)
 #include "Lock.h"
@@ -1193,7 +1193,7 @@ int main()
     struct timespec t2, t3;
     double dt1;
 //    clock_gettime(CLOCK_MONOTONIC,  &t2);
-    //testCyclicBuffer1();
+    testCyclicBuffer();
     // testPipeline();
 //    testDummyLock1();
 //    testHardwareTimers();
