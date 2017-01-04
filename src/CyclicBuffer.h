@@ -16,9 +16,10 @@ public:
 
     class iterator
     {
+        CyclicBuffer& cyclicBuffer;
         size_t index;
     public:
-        inline iterator(size_t index);
+        inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator & iter) const;
         inline bool operator!=(const iterator & iter) const;
         inline iterator & operator++();
@@ -119,7 +120,8 @@ ObjectType, Lock, Size>::increment(size_t index) {
 
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(size_t index) {
+CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(CyclicBuffer& cyclicBuffer, size_t index) {
+    this->cyclicBuffer = cyclicBuffer;
     this->index = index;
 }
 
@@ -138,29 +140,36 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
-
+    this->index = increment(this->index);
+    return *this;
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
-
+    iterator temp(*this);
+    operator++();
+    return temp;
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() {
+    return data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() const {
+    return data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() {
+    return data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() const {
+    return data[index];
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
