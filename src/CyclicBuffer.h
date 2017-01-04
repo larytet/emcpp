@@ -14,6 +14,24 @@ public:
     inline bool remove(ObjectType &object);
     inline bool getHead(ObjectType &object);
 
+    class iterator
+    {
+        size_t index;
+    public:
+        inline iterator(size_t index);
+        inline bool operator==(const iterator & iter) const;
+        inline bool operator!=(const iterator & iter) const;
+        inline iterator & operator++();
+        inline iterator operator++(int);
+        inline ObjectType & operator*();
+        inline ObjectType operator*() const;
+        inline ObjectType operator->();
+        inline const ObjectType operator->() const;
+    };
+    inline iterator begin();
+    inline iterator begin() const;
+    inline iterator end();
+    inline iterator end() const;
 private:
     void errorOverflow() {
     }
@@ -95,6 +113,76 @@ ObjectType, Lock, Size>::increment(size_t index) {
     } else {
         return 0;
     }
+}
+
+
+template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
+ObjectType, Lock, Size>::iterator(size_t index) {
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+bool CyclicBuffer<
+ObjectType, Lock, Size>::iterator::operator==(const iterator & iter) const {
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+bool CyclicBuffer<
+ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter) const {
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+CyclicBuffer<ObjectType, Lock, Size>::iterator
+& CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+CyclicBuffer<ObjectType, Lock, Size>::iterator
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+ObjectType & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() {
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() const {
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() {
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() const {
+}
+
+
+template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
+ObjectType, Lock, Size>::iterator CyclicBuffer<
+ObjectType, Lock, Size>::begin() {
+    return iterator(head);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
+ObjectType, Lock, Size>::iterator CyclicBuffer<
+ObjectType, Lock, Size>::begin() const {
+    return iterator(head);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
+ObjectType, Lock, Size>::iterator CyclicBuffer<
+ObjectType, Lock, Size>::end() {
+    return iterator(tail);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
+ObjectType, Lock, Size>::iterator CyclicBuffer<
+ObjectType, Lock, Size>::end() const {
+    return iterator(tail);
 }
 
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
