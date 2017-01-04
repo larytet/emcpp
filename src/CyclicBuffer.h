@@ -163,25 +163,25 @@ const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() co
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::begin() {
     return iterator(head);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::begin() const {
     return iterator(head);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::end() {
     return iterator(tail);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::end() const {
     return iterator(tail);
 }
