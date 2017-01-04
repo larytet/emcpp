@@ -522,12 +522,13 @@ void testOpenMpReduction(void) {
     }
     cout << a << endl;
 }
-
+#if 0
 void testLockOmp() {
     {
         LockOmp();
     }
 }
+#endif
 
 volatile uint8_t myArray[(size_t)8*1024*1024];
 uint_fast32_t testOpenMPLoop() {

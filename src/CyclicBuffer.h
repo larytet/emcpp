@@ -116,8 +116,8 @@ ObjectType, Lock, Size>::increment(size_t index) {
 }
 
 
-template<typename ObjectType, typename Lock, std::size_t Size> CyclicBuffer<
-ObjectType, Lock, Size>::iterator(size_t index) {
+template<typename ObjectType, typename Lock, std::size_t Size>
+CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(size_t index) {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>

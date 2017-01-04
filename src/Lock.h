@@ -38,7 +38,7 @@ public:
 typedef Lock<SynchroObjectDummy> LockDummy;
 
 
-
+#if 0
 class SynchroObjectOmpLock {
 public:
     static inline void get();
@@ -75,3 +75,4 @@ SynchroObjectOmpLock::~SynchroObjectOmpLock() {
  * Instantiate a new type - lock which does nothing
  */
 typedef Lock<SynchroObjectOmpLock> LockOmp;
+#endif
