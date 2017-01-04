@@ -1149,6 +1149,8 @@ static void hashTableTest(void)
 
 int main()
 {
+    testCyclicBuffer();
+
 #if (EXAMPLE == 10)
     hashTableTest();
 #endif
@@ -1199,7 +1201,6 @@ int main()
     struct timespec t2, t3;
     double dt1;
 //    clock_gettime(CLOCK_MONOTONIC,  &t2);
-    testCyclicBuffer();
     // testPipeline();
 //    testDummyLock1();
 //    testHardwareTimers();
