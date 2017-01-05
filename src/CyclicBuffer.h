@@ -31,6 +31,8 @@ public:
         inline size_t operator-(const iterator& iter) const;
         inline iterator & operator++();
         inline iterator operator++(int);
+        inline iterator & operator--();
+        inline iterator operator--(int);
         inline ObjectType & operator*();
         inline ObjectType operator*() const;
         inline ObjectType operator->();
@@ -54,6 +56,7 @@ private:
     }
 
     inline size_t increment(size_t index);
+    inline size_t decrement(size_t index);
     inline size_t increment(size_t index, size_t value);
     inline size_t decrement(size_t index, size_t value);
 
@@ -132,6 +135,15 @@ ObjectType, Lock, Size>::increment(size_t index) {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size> size_t CyclicBuffer<
+ObjectType, Lock, Size>::decrement(size_t index) {
+    if (index > 0) {
+        return (index - 1);
+    } else {
+        return Size - 1;
+    }
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size> size_t CyclicBuffer<
 ObjectType, Lock, Size>::increment(size_t index, size_t value) {
     index = (index + value) % Size;
     if (value < 1*Size) {   // Fast operation for most likely case of a small value
@@ -188,6 +200,21 @@ typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
     iterator temp(*this);
     temp.operator++();
+    return temp;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator&
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator--() {
+    this->index = cyclicBuffer.decrement(this->index);
+    return *this;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator--(int) {
+    iterator temp(*this);
+    temp.operator--();
     return temp;
 }
 
