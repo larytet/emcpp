@@ -25,6 +25,7 @@ public:
         typedef size_t difference_type;
         typedef ObjectType value_type;
 
+        inline iterator(const iterator& iter);
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator& iter) const;
         inline bool operator!=(const iterator& iter) const;
@@ -174,6 +175,11 @@ ObjectType, Lock, Size>::decrement(size_t index, size_t value) {
 template<typename ObjectType, typename Lock, std::size_t Size>
 CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(CyclicBuffer& cyclicBuffer, size_t index)
     : cyclicBuffer(cyclicBuffer), index(index) {
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(const iterator& iter)
+    : cyclicBuffer(iter.cyclicBuffer), index(iter.index) {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
