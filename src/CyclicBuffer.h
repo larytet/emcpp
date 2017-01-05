@@ -21,8 +21,9 @@ public:
         CyclicBuffer& cyclicBuffer;
         size_t index;
     public:
-        typedef CyclicBuffer::difference_type difference_type;
-        typedef typename CyclicBuffer::value_type value_type;
+        typedef std::random_access_iterator_tag iterator_category;
+        typedef size_t difference_type;
+        typedef ObjectType value_type;
 
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator & iter) const;
