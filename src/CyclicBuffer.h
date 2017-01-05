@@ -26,8 +26,9 @@ public:
         typedef ObjectType value_type;
 
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
-        inline bool operator==(const iterator & iter) const;
-        inline bool operator!=(const iterator & iter) const;
+        inline bool operator==(const iterator& iter) const;
+        inline bool operator!=(const iterator& iter) const;
+        inline size_t operator-(const iterator& iter) const;
         inline iterator & operator++();
         inline iterator operator++(int);
         inline ObjectType & operator*();
@@ -266,6 +267,16 @@ template<typename ObjectType, typename Lock, std::size_t Size>
 typename CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::end() const {
     return iterator(*this, tail);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+size_t
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator-(const iterator& iter) const {
+    if (this->index < iter.index) {
+        return (iter.index - this->index);
+    } else {
+        return (Size - this->index + iter.index);
+    }
 }
 
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
