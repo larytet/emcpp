@@ -19,6 +19,8 @@ public:
         CyclicBuffer& cyclicBuffer;
         size_t index;
     public:
+        typedef typename size_t difference_type;
+
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator & iter) const;
         inline bool operator!=(const iterator & iter) const;
@@ -28,6 +30,10 @@ public:
         inline ObjectType operator*() const;
         inline ObjectType operator->();
         inline const ObjectType operator->() const;
+        iterator operator+(difference_type n);
+        iterator &operator+=(difference_type n);
+        iterator operator-(difference_type n);
+        iterator &operator-=(difference_type n);
     };
     inline iterator begin();
     inline iterator begin() const;
@@ -137,8 +143,8 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator!=(const iterator & iter
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-typename CyclicBuffer<ObjectType, Lock, Size>::iterator
-& CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator&
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++() {
     this->index = cyclicBuffer.increment(this->index);
     return *this;
 }
@@ -149,6 +155,34 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator++(int) {
     iterator temp(*this);
     operator++();
     return temp;
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator+(difference_type n)
+{
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator&
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator+=(difference_type n)
+{
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator-(difference_type n)
+{
+
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+typename CyclicBuffer<ObjectType, Lock, Size>::iterator&
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator-=(difference_type n)
+{
+
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
