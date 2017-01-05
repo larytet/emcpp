@@ -309,10 +309,10 @@ CyclicBuffer<ObjectType, Lock, Size>::end() {
 template<typename ObjectType, typename Lock, std::size_t Size>
 size_t
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator-(const iterator& iter) const {
-    if (this->index < iter.index) {
-        return (iter.index - this->index);
+    if (this->index >= iter.index) {
+        return (this->index - iter.index);
     } else {
-        return (Size - this->index + iter.index);
+        return (Size + this->index - iter.index);
     }
 }
 
