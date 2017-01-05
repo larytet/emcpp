@@ -301,6 +301,12 @@ int testCyclicBuffer2() {
             cout << (int) val << " ";
         }
         cout << endl;
+
+        cout << "Test iterator" << endl;
+        for(auto iter = myCyclicBuffer.begin(); iter != myCyclicBuffer.end(); ++iter) {
+            cout << (int) *iter << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
