@@ -34,13 +34,12 @@ public:
         inline bool operator!=(const iterator& iter) const;
         inline size_t operator-(const iterator& iter) const;
         inline iterator& operator=(const iterator& iter);
-        inline iterator & operator++();
+        inline iterator& operator++();
         inline iterator operator++(int);
-        inline iterator & operator--();
+        inline iterator& operator--();
         inline iterator operator--(int);
-        inline ObjectType & operator*();
-        inline ObjectType operator->();
-        inline const ObjectType operator->() const;
+        inline ObjectType& operator*();
+        inline ObjectType& operator->();
         iterator operator+(size_t n);
         iterator &operator+=(size_t n);
         iterator operator-(size_t n);
@@ -293,12 +292,7 @@ ObjectType & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() {
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() {
-    return cyclicBuffer.data[index];
-}
-
-template<typename ObjectType, typename Lock, std::size_t Size>
-const ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() const {
+ObjectType& CyclicBuffer<ObjectType, Lock, Size>::iterator::operator->() {
     return cyclicBuffer.data[index];
 }
 
