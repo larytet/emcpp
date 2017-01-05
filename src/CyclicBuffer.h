@@ -39,7 +39,6 @@ public:
         inline iterator & operator--();
         inline iterator operator--(int);
         inline ObjectType & operator*();
-        inline ObjectType operator*() const;
         inline ObjectType operator->();
         inline const ObjectType operator->() const;
         iterator operator+(size_t n);
@@ -290,11 +289,6 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::operator-=(size_t n)
 
 template<typename ObjectType, typename Lock, std::size_t Size>
 ObjectType & CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() {
-    return cyclicBuffer.data[index];
-}
-
-template<typename ObjectType, typename Lock, std::size_t Size>
-ObjectType CyclicBuffer<ObjectType, Lock, Size>::iterator::operator*() const {
     return cyclicBuffer.data[index];
 }
 
