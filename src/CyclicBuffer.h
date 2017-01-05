@@ -191,8 +191,7 @@ typename CyclicBuffer<ObjectType, Lock, Size>::iterator&
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator=(const iterator& iter) {
     this->index = iter.index;
     this->cyclicBuffer = iter.cyclicBuffer;
-    iterator temp(*this);
-    return temp;
+    return *this;
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
