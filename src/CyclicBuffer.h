@@ -13,13 +13,16 @@ public:
     inline bool add(const ObjectType object);
     inline bool remove(ObjectType &object);
     inline bool getHead(ObjectType &object);
+    typedef size_t difference_type;
+    typedef ObjectType value_type;
 
     class iterator
     {
         CyclicBuffer& cyclicBuffer;
         size_t index;
     public:
-        typedef typename size_t difference_type;
+        typedef CyclicBuffer::difference_type difference_type;
+        typedef typename CyclicBuffer::value_type value_type;
 
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator & iter) const;
