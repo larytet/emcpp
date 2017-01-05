@@ -28,9 +28,11 @@ public:
         inline iterator(const iterator& iter);
         inline iterator(CyclicBuffer& cyclicBuffer, size_t index);
         inline bool operator==(const iterator& iter) const;
+        inline bool operator>=(const iterator& iter) const;
+        inline bool operator<(const iterator& iter) const;
+        inline bool operator>(const iterator& iter) const;
         inline bool operator!=(const iterator& iter) const;
         inline size_t operator-(const iterator& iter) const;
-        inline iterator & operator=(const iterator& iter) const;
         inline iterator operator=(const iterator& iter) const;
         inline iterator & operator++();
         inline iterator operator++(int);
@@ -185,16 +187,10 @@ CyclicBuffer<ObjectType, Lock, Size>::iterator::iterator(const iterator& iter)
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator&
+CyclicBuffer<ObjectType, Lock, Size>::iterator
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator=(const iterator& iter) const {
     this->index = iter.index;
     this->cyclicBuffer = iter.cyclicBuffer;
-    return *this;
-}
-
-template<typename ObjectType, typename Lock, std::size_t Size>
-CyclicBuffer<ObjectType, Lock, Size>::iterator
-CyclicBuffer<ObjectType, Lock, Size>::iterator::operator=(const iterator& iter) const {
     iterator temp(*this);
     return temp;
 }
@@ -203,6 +199,24 @@ template<typename ObjectType, typename Lock, std::size_t Size>
 bool
 CyclicBuffer<ObjectType, Lock, Size>::iterator::operator==(const iterator & iter) const {
     return (iter.index == this->index);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+bool
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator>=(const iterator& iter) const {
+    return (iter.index >= this->index);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+bool
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator<(const iterator& iter) const {
+    return (iter.index < this->index);
+}
+
+template<typename ObjectType, typename Lock, std::size_t Size>
+bool
+CyclicBuffer<ObjectType, Lock, Size>::iterator::operator>(const iterator& iter) const {
+    return (iter.index > this->index);
 }
 
 template<typename ObjectType, typename Lock, std::size_t Size>
