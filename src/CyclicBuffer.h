@@ -13,8 +13,6 @@ public:
     inline bool add(const ObjectType object);
     inline bool remove(ObjectType &object);
     inline bool getHead(ObjectType &object);
-    typedef size_t difference_type;
-    typedef ObjectType value_type;
 
     class iterator
     {
@@ -22,6 +20,8 @@ public:
         size_t index;
     public:
         typedef std::random_access_iterator_tag iterator_category;
+        typedef ObjectType* pointer;
+        typedef ObjectType& reference;
         typedef size_t difference_type;
         typedef ObjectType value_type;
 
