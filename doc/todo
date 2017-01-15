@@ -1,4 +1,5 @@
 
+
 https://graphics.stanford.edu/~seander/bithacks.html
 http://www.careercup.com/
 http://www.poemofquotes.com/funny-quotes/computer-nerds.php
@@ -823,4 +824,16 @@ g++ test.cpp -o test -std=c++11 -Wall ;./test
 If the code fails (segfault?) is there anyway to fix the code and avoid the failure?
 
 https://en.wikibooks.org/wiki/More_C++_Idioms More C++ Idioms
+
+
+
+What are the important high level features of C++ that distinguish it from other high level languages?
+Why could the C standard library function qsort() be slower than the C++ STL std::sort() even if they used the exact same algorithm?
+Explain when and why parameters to a function should be passed as const reference.
+RAII/Deterministic destruction.
+Type safe genericity.
+Compile time meta-programming.
+Because the compare function is indirectly called via a pointer.
+When they are not primitive types, and are larger than the size of a pointer. Why? Because it avoids copying of data.
+
 
