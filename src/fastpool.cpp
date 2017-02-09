@@ -47,7 +47,7 @@ uint32_t *fastPoolAllocate()
         return &fastPoolData[blockOffset];
     }
 
-    return nullptr;
+    return NULL;
 }
 
 void fastPoolFree(uint32_t *block)

@@ -941,9 +941,9 @@ void testFastSum(int delta, int *result, int count) {
 
 class LazyInitialization {
     static LazyInitialization *getInstance() {
-        if (instance == nullptr) {
+        if (instance == NULL) {
             MutexAB m;
-            if (instance == nullptr) {
+            if (instance == NULL) {
                 instance = new LazyInitialization();
             }
         }
@@ -954,9 +954,9 @@ private:
     static atomic<LazyInitialization*> instance;
 };
 
-//LazyInitialization *LazyInitialization::instance = nullptr;
+//LazyInitialization *LazyInitialization::instance = NULL;
 
-atomic<LazyInitialization*> LazyInitialization::instance(nullptr);
+atomic<LazyInitialization*> LazyInitialization::instance(NULL);
 
 #include <vector>
 #include <string>

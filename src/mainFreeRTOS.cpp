@@ -234,7 +234,7 @@ protected:
 };
 
 template<typename JobType>
-JobThread<JobType>::JobThread() : job(nullptr) {
+JobThread<JobType>::JobThread() : job(NULL) {
     static const char *name = "a job";
     vSemaphoreCreateBinary(this->signal);
     void *pMainLoop = (void*)&JobThread<JobType>::mainLoop;
@@ -254,10 +254,10 @@ template<typename JobType>
 void JobThread<JobType>::mainLoop() {
     while (true) {
         xSemaphoreTake(signal, portMAX_DELAY);
-        if (job != nullptr) {
+        if (job != NULL) {
             job->run();
         }
-        job = nullptr;
+        job = NULL;
     }
 }
 
@@ -266,7 +266,7 @@ void JobThread<JobType>::mainLoop() {
 template<typename ObjectType, typename Lock> class CyclicBufferDynamic {
 public:
 
-    inline CyclicBufferDynamic(size_t size, void *address=nullptr);
+    inline CyclicBufferDynamic(size_t size, void *address=NULL);
 
     ~CyclicBufferDynamic() {
     }
@@ -298,7 +298,7 @@ template<typename ObjectType, typename Lock> inline CyclicBufferDynamic<
     this->head = 0;
     this->tail = 0;
     this->size = size;
-    if (address != nullptr) {
+    if (address != NULL) {
         this->data = new (address) ObjectType[size];
     }
     else {
