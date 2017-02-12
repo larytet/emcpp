@@ -846,3 +846,27 @@ In the 1950's von Neumann was employed as a consultant to review proposed and on
 
 http://stackoverflow.com/questions/75538/hidden-features-of-c
 #define locked(mutex) if(MutexLocker const& lock = MutexLocker(mutex)) {lock is visible} else {lock is visible}
+
+
+struct A {
+protected:
+    int a;
+};
+
+struct B : A {
+    static int get(A &x) { return x.*(&B::a); }
+};
+
+struct C : A { };
+
+
+int main()
+{
+        struct B b;
+        struct C c;
+        B::get(c);
+        return 1;
+}
+
+
+
