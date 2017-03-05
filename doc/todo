@@ -923,3 +923,13 @@ What pmap does?
 WHat is ppoll/epoll ?  
 
 
+
+struct dodgy {~dodgy() {throw "Don't do this!";}};
+
+try {
+    dodgy d;
+    throw 1;
+} catch (...) {
+    // Never reached: destroying `d` killed the program.
+}
+ in C++11, destructors are implicitly declared noexcept unless you provide an explicit exception specifier. 
