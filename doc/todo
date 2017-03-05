@@ -933,3 +933,30 @@ try {
     // Never reached: destroying `d` killed the program.
 }
  in C++11, destructors are implicitly declared noexcept unless you provide an explicit exception specifier. 
+
+
+How to access a private field in the object of precompiled class
+class A
+{
+public:
+  A() {}
+private:
+  int private_field;
+}
+
+Expected answer:
+class B
+{
+  B() {}
+  int get_field() {return private_field;}
+private:
+  int private_field;
+}
+
+void main()
+{
+  A *a = new A()
+  B *b = (B*)a;
+  b->get_field();
+}
+
