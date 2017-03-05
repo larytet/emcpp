@@ -872,3 +872,53 @@ int main()
 
 
 
+Sent
+
+unsigne char sz = 150;
+for (unsigned char i = 0;i < 2*sz;i++)
+{
+  // how may time the loop will run
+} 
+
+
+
+What is wrong with the following code
+class A 
+{
+public:
+  A()
+ ~A()
+  virtual void print() = 0
+
+}
+
+
+class B : public A
+{
+public:
+  B() {p = new char[10];}
+  virtual ~B() {delete [] p;}
+  void print() {cout << p};
+  char *p;
+}
+
+void main()
+{
+  A *a = new B();
+  delete a;
+}
+
+
+How GCC implements multiple inheritance?
+
+Design pattern facade?
+
+Three STL basic principles?
+
+What allows a generic algorithm to be used for an STL container? 
+
+Why shmat for 2GB can fail on 32 bits CPU?  (Tip EXTSHM=ON, https://linux.die.net/man/2/setrlimit)
+
+  
+
+
