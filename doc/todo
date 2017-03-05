@@ -919,6 +919,7 @@ What allows a generic algorithm to be used for an STL container?
 
 Why shmat for 2GB can fail on 32 bits CPU?  (Tip EXTSHM=ON, https://linux.die.net/man/2/setrlimit)
 
-  
+What pmap does?
+WHat is ppoll/epoll ?  
 
 
