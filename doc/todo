@@ -959,4 +959,30 @@ void main()
   B *b = (B*)a;
   b->get_field();
 }
+def is_list(o):
+    try:
+        if len(o) >= 0:
+            return True
+        return False
+    except:
+        return False
+    
+def flat_list(lgr, o, nesting=0):
+    '''
+    The function flattens nested lists
+    @param lgr: debug info
+    @param o: an integer or a list  of integers
+    @param nesting: debug information  
+    '''
+    l = []
+    if is_list(o):
+        for element in o: 
+            l_temp = flat_list(element, nesting+1)
+            l.extend(l_temp)
+            lgr.debug("extend list={orig}, delta={result}".format(l, l_temp)) 
+        return l;
+    else:
+        l.append(o)
+        lgr.debug("append list={orig}, o={obj}".format(l, o)) 
+        return l
 
