@@ -986,7 +986,8 @@ def flat_list(lgr, o, nesting=0):
         lgr.debug("append list={orig}, o={obj}".format(l, o)) 
         return l
 
-Or just 
+Or just (assuming the same nestng level) y
+`
 my_nested_list = [['a', 'b'], ['c', 'd']]
 sum(my_nested_list, [])
 Produces  ['a', 'b', 'c', 'd']
