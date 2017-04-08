@@ -958,7 +958,9 @@ void main()
   A *a = new A()
   B *b = (B*)a;
   b->get_field();
-}
+}a
+
+# Use isinstance(test_list,list) here 
 def is_list(o):
     try:
         if len(o) >= 0:
@@ -992,6 +994,8 @@ my_nested_list = [['a', 'b'], ['c', 'd']]
 sum(my_nested_list, [])
 Produces  ['a', 'b', 'c', 'd']
 
+
+See also http://stackoverflow.com/questions/12472338/flattening-a-list-recursively
 
 
 
