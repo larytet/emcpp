@@ -986,3 +986,41 @@ def flat_list(lgr, o, nesting=0):
         lgr.debug("append list={orig}, o={obj}".format(l, o)) 
         return l
 
+
+
+
+
+Tip: http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+def mark(quotes):
+    entry_p = exit_p = 0
+    for i in range(len(quotes)):
+        min = entry_p
+        max = exit_p
+        quote = quotes[i]
+        if quote > quotes[max]:
+            max = i
+        if (quote < quotes[min]):
+            min = i
+        
+        print "max", max, "min", min, "i", i 
+        if max > min:
+            entry_p = min
+            exit_p = max
+    
+    return (entry_p, exit_p)
+
+test_arrays = [("Linear", [0,1,2,3,4], (0, 4) ),
+               ("empty", [] , (0,0)),
+               ("single wave", [0, 1, 2, 1, 0], (0, 2) ),
+               ("double wave", [0, 1, 2, 1, 2, 1, 0], (0, 2) ),
+               ("double wave higher high", [0, 1, 2, 0, 1, 2, 3, 1, 0] , (0, 6)),
+               ("double wave lower low", [1, 2, 1, 0, 2] , (3, 4)),
+               ("double wave hh ll", [1, 2, 3, 0, 1, 4, 0] , (3, 5)),
+               ]
+               
+for name, data, expected_result in test_arrays:
+    entry_p, exit_p = mark(data)
+    if (entry_p, exit_p) != expected_result:
+        print "Error", "name", name, "entry=", entry_p, "exit", exit_p
+
+
