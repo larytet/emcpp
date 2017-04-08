@@ -991,6 +991,40 @@ def flat_list(lgr, o, nesting=0):
 
 
 Tip: http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+
+
+
+def mark2(arr):
+    max_diff = arr[1] - arr[0];
+    entry_p = exit_p = 0
+    i = 0
+    j = 0
+    for i in range(len(arr)):
+        for j in range (i+1, len(arr)):
+            if(arr[j] - arr[i] > max_diff):   
+                max_diff = arr[j] - arr[i];
+                entry_p = i
+                exit_p = j
+    return (entry_p, exit_p)
+ 
+test_arrays = [("Linear", [0,1,2,3,4], (0, 4) ),
+               #("empty", [] , (0,0)),
+               ("single wave", [0, 1, 2, 1, 0], (0, 2) ),
+               ("double wave", [0, 1, 2, 1, 2, 1, 0], (0, 2) ),
+               ("double wave higher high", [0, 1, 2, 0, 1, 2, 3, 1, 0] , (0, 6)),
+               ("double wave lower low", [1, 2, 1, 0, 2] , (3, 4)),
+               ("double wave hh ll", [1, 2, 3, 0, 1, 4, 0] , (3, 5)),
+               ]
+               
+for name, data, expected_result in test_arrays:
+    entry_p, exit_p = mark2(data)
+    if (entry_p, exit_p) != expected_result:
+        print "Error", "name", name, "entry=", entry_p, "exit", exit_p
+    else:
+        print "Good!", "name", name, "entry=", entry_p, "exit", exit_p
+
+
+
 def mark(quotes):
     entry_p = exit_p = 0
     for i in range(len(quotes)):
