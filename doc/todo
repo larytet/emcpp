@@ -1078,4 +1078,73 @@ if(x == 1) {
   x = 1; 
 } 
 
+
 Comment in the code: And further into the darkness we go
+
+
+IF TIMEDIFF >=5
+  SAY "THE SYSTEM IS FUCKED, PLEASE BEAR WITH US"
+  SLEEP(10)
+ENDIF
+
+JEHOV - it creates the world
+
+
+found in the patch for alarm in Android 5.0.2 :
+
+"The man bent over his hourglass, 
+A programmer of sorts. The day was green.
+They said, "You have a blue hourglass,
+You do not fire alarms when they're asked."
+The man replied, "Alarms as they're asked
+are changed within the blue hourglass."
+And they said then, "But fire, you must
+Alarms beyond us, yet themselves,
+Alarms within the blue hourglass
+That trigger exactly when they're asked."
+
+Source: 0ac9664 - platform/frameworks/base - Git at Google
+
+“Fork is rather simple, once you get the hang of it, but the memory management can be a bitch.”
+
+ IN NO EVENT SHALL Bill Paul OR THE VOICES IN HIS HEAD BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+
+ /* You are not expected to understand this. */
+
+//When I wrote this, only God and I understood what I was doing 
+//Now, God only knows
+
+
+// 
+// Dear maintainer:
+// 
+// Once you are done trying to 'optimize' this routine, 
+// and have realized what a terrible mistake that was,
+// please increment the following counter as a warning 
+// to the next guy: 
+// 
+// total_hours_wasted_here = 42 
+//
+
+
+Catch (Exception e) {
+ //who cares?
+}
+
+// I dedicate all this code, all my work, to my wife, Darlene, who will 
+// have to support me and our three children and the dog once it gets 
+// released into the public.
+
+
+long long ago; /* in a galaxy far far away */
+
+/* If it was hard to write, it should be hard to read - good luck */
+
+; THIS CODE IS CURSED.
+
+Exception up = new Exception("Something is really wrong.");
+throw up;  //ha ha
+
+options.BatchSize = 300; //Madness? THIS IS SPARTA!
+
+
