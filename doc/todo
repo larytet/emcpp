@@ -1072,3 +1072,9 @@ for name, data, expected_result in test_arrays:
         print "Error", "name", name, "entry=", entry_p, "exit", exit_p
 
 
+Joke
+int x = 0; //initialize x to 0
+if(x == 1) {
+  x = 1; 
+} 
+
