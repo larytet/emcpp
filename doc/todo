@@ -1148,3 +1148,10 @@ throw up;  //ha ha
 options.BatchSize = 300; //Madness? THIS IS SPARTA!
 
 
+// In about 26 years, at 05:45:35 GMT on Fri, December 24th, 2038, this function will break by adding another digit to it's return value.
+ 
+// To fix it, change the "36,1295" on this line to "0,35".
+ 
+// That will buy you a couple thousand years until 15:21:35 GMT on Sat, 05 Apr 4453.
+// By then, we may need to seriously consider upgrading this program software to avoid having it become obsolete.
+
