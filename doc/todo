@@ -1163,3 +1163,10 @@ void foo(char *s) {
 }
 
 
+What is wrong with the C code 
+#include <stdio.h>
+int main(char *argc, int argv) (
+    print("Hello World");
+)
+
+Tip: argumenst of main(), brackets, print()
