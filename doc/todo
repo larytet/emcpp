@@ -1,3 +1,5 @@
+Switch to a unitest framework https://github.com/catchorg/Catch2
+
 Fixes: 
 
 	replace "interger types" by "integral types" 
