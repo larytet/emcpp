@@ -2148,22 +2148,13 @@ I don’t think you can skate on 66.7 percentile time multiplied by t
 , as that’s just an expected value. You need the cumulative distribution so you can apply the in-cast reasoning to all the nodes in the final rank.
 
 Yuck.
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
 
+
+Athena: describe the backend of the URL shortener service
+* Amount of data in the store if we keep the data for 5 years, get 10M queries/hour, 1M queries/hour are "create"
+* What is the size of the short URL
+* Consider single point of failure, what can be done about it?
+* Generate URLs which are hard to predict?
+* Latency constraints?
+* Time of propagation of the newly added URL in the system
+*  
