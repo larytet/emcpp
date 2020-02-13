@@ -2201,3 +2201,9 @@ Please write the task under Linux dev environment.
 Please do expect high rate of requests and requests arriving in parallel.
 Please write all errors/logs to stdout/stderr.
 Program should be submitted as a complete runnable unit with instructions how to build and run it (including the source code). You can use Github but please make the repo private in this case.  
+
+    Build a map where a key is a sorted English word and a value is a list of all valid permutations - complexity O(N*lnN), size is O(i*N) where 0 < i < 1
+    Using the first map build the second map where a key is an English word and a value is a list of valid permutations - complexity O(N*lnN),  memory is O(k*N) where k is a constant 1< k < 3 (estimated)
+    Drop the first map. The second map will fit in the RAM. 
+    Lookup is O(1)
+    If we want to fit the map in the CPU data cache we need sharding and multiple machines.
