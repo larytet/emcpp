@@ -2207,3 +2207,8 @@ Program should be submitted as a complete runnable unit with instructions how to
     Drop the first map. The second map will fit in the RAM. 
     Lookup is O(1)
     If we want to fit the map in the CPU data cache we need sharding and multiple machines.
+
+
+
+Two objects get a reference to each other, move data from the other to itself. How a deadlock can be avoided?
+Answer: add ID to the mutex, lock mutexes in the order of IDs
