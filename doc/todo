@@ -2212,3 +2212,12 @@ Program should be submitted as a complete runnable unit with instructions how to
 
 Two objects get a reference to each other, move data from the other to itself. How a deadlock can be avoided?
 Answer: add ID to the mutex, lock mutexes in the order of IDs
+
+
+
+Given a series of share prices, for example 1,2,3,1,3,4, find number of buy&sell deals maximizing the profit
+In the example above the answer will be 2 deals: buy for 1, sell for 3 (profit is 2) and buy for 1, sell for 4 (profit is 3) for 
+total profit 5
+Complexit O(n). Buy when the price is at local minimum, sell when the price just before a directional change from going up to 
+going down.
+
