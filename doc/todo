@@ -2222,5 +2222,7 @@ Complexit O(n). Buy when the price is at local minimum, sell when the price just
 going down.
 
 
-Coffee machine Coffee, Tea, Random - put labels correcrtly
+Coffee machine Coffee, Tea, Random. All labels are wrong. Put labels correcrtly. Tip: press the button labeled Random - should be Tea or Coffee.
+
 A human cell http://www.digizyme.com/cst_landscapes.html?fbclid=IwAR0m0Md7juU0NSg8Lc1JBglCNo3mdmQIzLL0MvLW296dHK-R_3ngZWgWtmY
+Draw a straight line on a display void draw(x1,y1,x2,y2). Tip: three check possibiliies (x+1,y),(x,y+1),(x+1,y+1) calculate minimum distance from the (x2,y2)
