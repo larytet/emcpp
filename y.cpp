@@ -3,6 +3,8 @@
 #include <sstream>
 #include <algorithm> 
 #include <tuple> 
+#include <iostream>
+#include <unordered_map>
 
 typedef std::vector<int> VertexIDs;
 std::vector<int> readInput() 
@@ -30,11 +32,11 @@ int main()
     std::unordered_map<std::string, std::string> edges;
     // populate the map of edges
     for(std::vector<int>::size_type i = 0; i != vertexIDs.size(); i+= 3) {
-        v0 = vertexIDs[i];
-        v1 = vertexIDs[i+1];
-        v2 = vertexIDs[i+2];
-        int triangle = {v0, v1, v2}; 
-        sort(triangle, triangle + 3);
+        auto v0 = vertexIDs[i];
+        auto v1 = vertexIDs[i+1];
+        auto v2 = vertexIDs[i+2];
+        int triangle[3] = {v0, v1, v2}; 
+        std::sort(triangle, triangle + 3);
         edge0 = std::make_tuple(triangle[0], triangle[1]);
         edge1 = std::make_tuple(triangle[1], triangle[2]);
         edge2 = std::make_tuple(triangle[2], triangle[0]);
