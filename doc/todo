@@ -2226,3 +2226,46 @@ Coffee machine Coffee, Tea, Random. All labels are wrong. Put labels correcrtly.
 
 A human cell http://www.digizyme.com/cst_landscapes.html?fbclid=IwAR0m0Md7juU0NSg8Lc1JBglCNo3mdmQIzLL0MvLW296dHK-R_3ngZWgWtmY
 Draw a straight line on a display void draw(x1,y1,x2,y2). Tip: three check possibiliies (x+1,y),(x,y+1),(x+1,y+1) calculate minimum distance from the (x2,y2)
+
+
+Print all floating numbers 
+for (i = 0;i < (1 << 31)-1;i++) {
+   // Shortcut:I do not avoid NaN values 
+   auto val = *(float*)(&i);
+   printf("%f", val)
+}
+
+
+Clairlabs:
+
+Find number of areas filled with ones in a mattix. 
+Breadth first search 
+func visitNeighbour(neighbour,color int) bool {
+   if map[neighbour] == 0 {
+       return False
+   }
+   map[neighbour] = color
+   return True
+}
+
+func visitNeighbours(neighbour, color int) {
+   for _, neighbour := getAllNeighbours(neighbour) {
+   	belongs := visitNeighbour(neighbour,color)
+	if belongs {
+		visitNeighbours(neighbour,color)
+	}
+   }
+}
+
+color := 2
+for row := 0;row <rows;row ++ {
+	for col := 0;col <cols;col ++ {
+		neighbour := Neighbour{row, col}
+		if map[neighbour] != 0 {
+			continue
+		}
+		visitNeighbours(neighbour, color)
+		color++
+	}
+}
+fmt.print("%d", color-2)
