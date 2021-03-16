@@ -2321,3 +2321,14 @@ Write an efficient algorithm for the following assumptions:
         N is an integer within the range [1..100,000];
         each element of array A is an integer within the range [−1,000,000..1,000,000].
 
+
+What files from the list A,B should be compiled if 
+Filename Changed dependcies
+A         1        C,D
+B         0        E
+C         0        E
+D         1        C
+E         1        None
+
+O(N^2), can be reduced to roughly O(N) by collecting pathes in the traverese, use bits
+
