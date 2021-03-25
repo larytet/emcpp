@@ -2332,3 +2332,10 @@ E         1        None
 
 O(N^2), can be reduced to roughly O(N) by collecting pathes in the traverese, use bits
 
+Implement midpoint calculaiton
+func midpoint(a, b int) int {
+    if a > b {
+       a, b = b, a
+    }
+    return a + (b - a)/2
+}
