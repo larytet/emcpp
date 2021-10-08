@@ -2339,3 +2339,9 @@ func midpoint(a, b int) int {
     }
     return a + (b - a)/2
 }
+
+
+ClearCo
+
+A social network keeping scores of people. Calculate the average score of second degree neighbours of a given person.
+How to scale?
