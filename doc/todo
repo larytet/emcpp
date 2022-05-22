@@ -2356,3 +2356,8 @@ Devalore  https://godbolt.org/z/Td1GTx5Pe
 		        print("%d", array[i]);  // what will happen here? 
 	    	}
 	}
+
+
+https://stackoverflow.com/questions/22775500/is-there-any-raii-file-handle-already-implemented
+RAII file handle
+std::unique_ptr<FILE, int (*)(FILE *)> f(fopen("myfile.txt", "a"), fclose);
