@@ -1,0 +1,362 @@
+
+http://wenku.baidu.com/view/dd71846cb84ae45c3b358c6c.html
+
+Which of the following statements correctly describe the code below in  C ++?  
+#define language 437 // Line 1 
+#if language <400  
+#undef language // Line 2 
+#else // Line 3 
+#define language 850 // Line 4 
+#ifdef language // Line 5    
+printf ("% d", language); // Line 6 
+#endif 
+#endif 
+
+A.  An error or warning will occur on Line 6 because a macro can not be used as  part of a preprocessor directive. 
+B.  An error or warning will occur on Line 2 because #undef is not a valid preprocessor directive. 
+C.  An error or warning will occur on Line 4 because language has already been defined. 
+D.  If Line 1 is changed to #define language 300, Line 6 will print "850". 
+E.  An error or warning will occur on Line 3 because #else can only be used as the last conditional in the chain
+
+
+
+Which of the following statements regarding the benefits of using template  functions over preprocessor #define macros are correct? 
+
+A.  A preprocessor macro expansion can not work when user-defined types are passed to it as arguments. 
+B.  Since the preprocessor does the macro expansion and not the compiler, the build process It takes a longer period of time. 
+C.  While expanding #define macros, the preprocessor does no type checking on the arguments to the macro. 
+D.  A preprocessor macro expansion incurs a performance overhead at runtime. 
+E.  It is simple to step into a template function code during the debugging process.
+
+
+
+Which of the following are container adapters in the STL (Standard Template  Library) in C ++? 
+ undefined
+A.  list  
+B.  map  
+C.  stack  
+D.  queue  
+E.  deque
+
+
+
+Which of the following correctly identify benefits of the getline () member  function for cin over the extraction operator in C ++?    
+A.  The getline () function by default, accepts whitespace, and returns on seeing the \ N character, whereas the extraction operator returns when it encounters any whitespace character.  
+B.  Delimiters indicating end of input can be specified to the getline () function, whereas the extraction operator has no such facility.  
+C.  The getline () function can be overloaded to accept different argument types, whereas the extraction operator can not be overloaded.  
+D.  The number of bytes to read can be specified to the getline () function, whereas it can not be done with the extraction operator.  
+E.  The getline () function can be used like a manipulator with cin, whereas the extraction operator can not be used as a manipulator.
+
+
+Question 8: In which of the following scenarios is a Copy Constructor called or  invoked?    A.  When no conversion function exists for converting the class object to another class object  B.  When an existing object is assigned an object of its own class  C.  When a function receives as an argument, an object of the class, by value  D.  When a function returns an object of the class by value  E.  When creating an object and initializing it with an object of its own class Answer: B C D E
+
+
+Which of the following statements correctly describe the results of  executing the code below in C ++?   
+#include <iostream> using namespace std;   
+class ExBase { 
+ private:     
+static int stat; 
+public:     
+static int GetStat () {return stat;} 
+};   
+int ExBase :: stat = 25;
+class ExDer1: public ExBase {  
+public:     
+friend int Der1Fn () {return ExBase :: stat;} 
+};   
+class ExDer2: public ExBase {};   
+class ExDer: public ExDer1, public ExDer2 {};    
+
+A.  int main () 
+{      
+ExDer d;      
+cout << d.Der1Fn () << endl; 
+}  
+ will result in an ambiguity error from the compiler.  
+B.  int main ()
+ {      ExDer d;     
+ cout << d.GetStat () << endl; 
+}  
+will display an output as "25."  
+C.  int main () 
+{     
+ cout << ExDer1 :: GetStat () << endl; 
+}  
+will result in an ambiguity error from the compiler.  
+D.  class ExDer1: public ExBase 
+{ 
+ public:     friend int Der1Fn () {return ExBase :: stat;} 
+};  
+will result in an access error from the compiler.  
+E.  int main () {      
+cout << ExDer1 :: ExBase :: GetStat () << endl; 
+}  
+will display an output as "25." 
+
+
+Question 7: Which of the following correctly identify benefits of the getline() member  function for cin over the extraction operator in C++?    
+A.  The getline() function by default, accepts whitespace, and returns on seeing the \n character, whereas the extraction operator returns when it encounters any whitespace character.  
+B.  Delimiters indicating end of input can be specified to the getline() function, whereas the extraction operator has no such facility.  
+C.  The getline() function can be overloaded to accept different argument types, whereas the extraction operator cannot be overloaded.  
+D.  The number of bytes to read can be specified to the getline() function, whereas it cannot be done with the extraction operator.  
+E.  The getline() function can be used like a manipulator with cin, whereas the extraction operator cannot be used as a manipulator.
+
+
+Question 10: Given the following program snippet, what can we conclude about the  use of dynamic_cast in C ++?   
+#include <iostream> #include <memory>  
+
+// Someone else's code, eg library 
+class IGlyph {  
+public:      
+virtual ~ IGlyph () {}      
+virtual std :: string Text () = 0;     
+virtual IIcon * Icon () = 0;     
+// ... 
+};   
+
+class IWidgetSelector 
+{  
+public:      
+virtual ~ IWidgetSelector () {}           
+virtual void AddItem (IGlyph *) = 0;     
+virtual IGlyph * Selection () = 0; 
+};    
+// Your code  
+class MyItem: public IGlyph 
+{  
+public:      
+virtual std :: string Text () {return this-> text;}
+virtual IIcon * Icon () {          return this-> icon.get ();     }           
+void Activate () {std :: cout << "My Item Activated" << std :: endl;     }           
+std :: string text;     
+std :: auto_ptr <IIcon> icon; };   
+void SpiffyForm :: OnDoubleClick (IWidgetSelector * ws) {      IGlyph * gylph = ws-> Selection ();      
+MyItem * item = dynamic_cast <MyItem *> (gylph);     
+if (item)          item-> Activate ();
+}
+A.  The dynamic_cast ought to be a reinterpret_cast since the concrete type is unknown.   
+B.  The dynamic_cast is unnecessary since we know that the concrete type returned by IWidgetSelector :: Selection () must be a MyItem object.   
+C.  The dynamic_cast is redundant, the programmer can invoke Activate directly, eg ws-> Selection () -> Activate ();   
+D.  The dynamic_cast is necessary since we can not know for certain what concrete type is returned by IWidgetSelector :: Selection ().   
+E.  A polymorphic_cast should be used in place of the dynamic_cast.
+
+
+
+Question 11: Which of the following statements describe the result when standard  new can not allocate the requested storage in C ++ (Note:? older compilers may not implement standard behavior).    A.  It throws a bad_alloc exception.  B.  It returns null.  C.  It returns silently with no effect on the expression.  D.  It throws an insufficient_memory exception.  E.  It logs an error message to the mem_err.log file.
+
+
+
+Question 12: In C ++, which of the following is the best declaration for an overloaded  operator [] to allow read-only access (and only read-only access) to the data?   template <typename T> class MyArray {      // Declaration goes here };    A.  T & operator [] (size_t i);  B.  const T & operator [] (size_t i);  C.  const T & operator [] (size_t i) const;  D.  T & operator [] (size_t i) const;  E.  T & operator [] (const size_t i); Answer: C
+
+
+uestion 13: Which of the following declarations of function main are standard or  standard conforming extensions? (Please note that some compilers accept ill-formed main declarations, these should be considered incorrect).    A.  int main ()  B.  void main (char * argv [], int argc)  C.  int main (int argc, char * argv [])  D.  void main ()  E.  int main (int argc, char * argv [], char * arge []) Answer: C 
+
+
+
+uestion 14: What is the correct declaration for a file stream insertion operator  for a class my_stuff :: my_class as indicated in the C ++ code snippet below?   #include <fstream>   namespace my_stuff {      class my_class     {      public:         int i;     };       // Declaration goes here   } // Ns my_stuff    A.  std :: ofstream & operator << (std :: ofstream & ofs, const my_class &);  B.  const my_class & operator << (const my_class &)  C.  std :: fstream & operator << (std :: fstream & fs, const my_class &)  D.  std :: ifstream & operator << (std :: ifstream & ifs, const my_class &)  E.  void operator << (const my_class &)
+
+
+on 15: Which of the following statements describe the results of executing  the code snippet below in C ++?   int var = 1; void main () {      int i = i; }    A.  The i within main will have an undefined value.  B.  The compiler will allow this statement, but the linker will not be able to resolve the declaration of i.   C.  The i within main will have a value of 1.  D.  The compiler will not allow this statement.  E.  The result is compiler-dependent.
+
+
+tion 16: Which of the following methods can a developer use to override the default  terminate () function in C ++?    A.  Write the terminate () function with two int arguments.  B.  Write the terminate () function with a runtime_error argument.  C.  Pass the address of the overriding function to the set_terminate () function.  D.  Write the terminate () function with one int argument.  E.  Write the terminate () function with a runtime_exception argument.
+
+
+
+ich of the following identify const-correctness failures in the C ++ 
+program below?   template <typename T> class MyArray {  public:      MyArray ();      MyArray (MyArray & copy);      MyArray & operator = (MyArray & copy);     // ... };   class MyData {  public:      MyData (MyArray <int> & x, MyArray <int> & y);     // ...      const MyArray <int> & x ();     const MyArray <int> & y (); };   MyArray <int> read_data (int *, char **); void make_changes (MyData * edit);   int main (int argc, char * argv []) {      const MyArray <int> read_x = read_data (& argc, argv);     const MyArray <int> read_y = read_data (& argc, argv);           MyData user_data (read_x, read_y);     MyData edit_buffer (user_data);     make_changes (& edit_buffer); }    A.  MyData (MyArray <int> & x, MyArray <int> & y); should be MyData (const MyArray <int> & x, const MyArray <int> & y);  B.  MyArray & operator = (MyArray & copy); should be const MyArray & operator = (const MyArray & copy);  C.  void make_changes (MyData * edit); should be void make_changes (const MyData * edit);  D.  MyArray (MyArray & copy); should be MyArray (const MyArray & copy);  E.  const MyArray & operator = (const MyArray & copy); should be const MyArray & operator = (const MyArray & copy) const;
+
+
+
+
+uestion 18: In the given C ++ code snippet, which of the following statements correctly  identify how Mon of enum DOW can be assigned to a variable named var?   void main () 
+{     const int Mon = 1, Tue = 2;     enum DOW {Mon = 11, Tue = 12};    ...    A.  The variable var will have to be of type enum DOW, and then defined as:   var = Mon;  B.  Mon of enum DOW can not be assigned because the compiler will give a redefinition error.   C.  Since enum DOW has been declared and defined later, it will be pushed onto the stack later, but will be accessed first. Hence, the scope resolution operator is not required and var will be assigned as:    var = Mon;  D.  Since Mon is of type enum DOW, var will be assigned as:   var = DOW :: Mon;  E.  The variable var must be of type const int, and then it can be assigned as:   var = static_cast <const int> (Mon);
+
+
+stion 19: Which of the following are not pre-processor directives in C ++?     A.  #ifndef  B.  #ifdef  C.  #elif  D.  #define  E.  #extern
+
+
+stion 20: Which allocator member function do standard containers use to acquire  storage for their elements in C ++?    A.  std :: allocator <> :: allocate (size_t)  B.  std :: allocator <> :: malloc (int)  C.  std :: allocator <> :: make (size_t)  D.  std :: allocator <> :: new (size_t)  E.  std :: allocator <> :: acquire (size_t)
+
+
+estion 21: Which of the following statements provide a valid reason not to use  RTTI for distributed (ie networked between different platforms) applications in C ++?    A.  RTTI does not have standardized run-time behavior.  B.  RTTI uses too much memory.  C.  RTTI is too slow.  D.  RTTI's performance is unpredictable / non-deterministic.  E.  RTTI frequently fails to function correctly at run-time.
+
+
+Question 22: Which of the following functions of the ifstream class can be used  to determine the current position of the stream's get pointer in C ++?    A.  void tellg (pos_type &)  B.  pos_type tellg ()  C.  pos_type tellp ()  D.  void tellp (pos_type &)  E.  void seekg (pos_type &)
+
+
+Question 23: Which of the following C ++ keywords are designed to speed up execution  of a C ++ function?    A.  friend  B.  static  C.  extern  D.  inline  E.  member 
+
+
+
+Question 24: Which of the following template declarations provide the correct syntax  to write a template class   template <class T> class Derived;   that has to inherit from another template class   template <class T> class Base ;?    A.  template <class T, class Q> class Derived <Q>: public Base <T>     where Q can be used as the templatized type for class Derived.  B.  template <class T, class Q> class Derived: public Base      where Q can be used as the templatized type for class Derived.  C.  template <class T, class Q> class Derived: public Base <T>     where Q can be used as the templatized type for class Derived.  D.  template <class T, class Q> class Derived <Q>: public Base     where Q can be used as the templatized type for class Derived.  E.  template <class Q> class Derived <Q>: public Base
+
+
+
+Question 25: For the code snippet below, which of the following statements provide  the correct order of constructor calls when object obj is created in main ()?   class Base {      public:      Base () {cout << "In Base Ctor \ n"; }       class Nest     {          public: 
+        Nest () {cout << "In Nest Ctor \ n";}     };    };   class Derive: public Base {      public:             Derive () {cout << "In Derive Ctor \ n";} };   void main () {      Derive obj; }    A.  Base constructor Derive constructor  B.  Base constructor Derive constructor Nest constructor  C.  Base constructor Nest constructor Derive constructor  D.  Nest constructor Base constructor Derive constructor  E.  Derive constructor Base constructor Nest constructor
+
+Question 26: Which of the following options describe the expected overhead for a  class that has 5 virtual functions?    A.  Every object of the class holds the address of a structure holding the addresses of the 5 virtual functions.   B.  Every object of the class holds the addresses of the 5 virtual functions.  C.  Every object of the class holds the address of the first virtual function, and each function in turn holds the address of the next virtual function.   D.  Every object of the class holds the address of a link list object that holds the addresses of the virtual functions.   E.  Every object of the class holds the address of the class declaration in memory, through which the virtual function calls are resolved.
+
+
+Question 27: Which of the following reasons describe why a destructor can not throw  an exception in C ++?    A.  It can invoke the terminate () handler.  B.  Since the object is being destroyed, it is illogical to throw an exception then. 
+ C.  The C ++ language does not permit it; a throw statement in a destructor will be caught as an error by the compiler.   D.  A destructor may be invoked as a result of stack unwinding while an exception It is being handled.   E.  A destructor in C ++ can not implement a try ... catch block.
+
+
+
+Question 28: Which of the following statements accurately describe the new [] operator  in C ++?    A.  It calls the class default constructor for each element of the array.  B.  It calls the class copy constructor for each element of the array.  C.  It calls operator new [] (size_t).  D.  It calls operator new [] (size_t, int).  E.  It stores the number of objects allocated. 
+
+
+Question 29:. The C ++ code below generates a compiler error Which of the following  solutions can be used to correctly access the member named nested?   class SomeClass {      public:          int data;     protected:          class Nest         {              public:              int nested;         };     public:          static Nest * createNest () {return new Nest;} };   void use_someclass () {      SomeClass :: Nest * nst = SomeClass :: createNest ();     nst-> nested = 5; }    A.  Make function void use_someclass () a friend of class SomeClass.  B.  Make the function createNest () a non-static function of SomeClass.  C.  Declare the class Nest in public scope of class SomeClass.  D.  Make the object nst a reference object, and make the function createNest () return a Nest &.   E.  Derive a class from SomeClass. Make the object nst a derived class pointer so that it can access SomeClass's protected declarations.
+
+
+Question 30: What is the order of destructor calls for an object of class Y inherited  from class X that has an object of class A as data member of class Y in C ++?  
+ A.  ~ Y () ~ X () ~ A ()   B.  ~ X () ~ A () ~ Y ()   C.  ~ Y () ~ A () ~ X ()   D.  ~ A () ~ Y () ~ X ()   E.  ~ X () ~ Y () ~ A ()
+
+
+Question 31: A C ++ developer wants to handle a static_cast <char *> () operation for  the class String shown below. Which of the following options are valid declarations that will accomplish this task?   class String { public:    // ...     // Declaration goes here };    A.  char * operator ();  B.  char * operator char * ();  C.  String operator char * ();  D.  operator char * ();  E.  char * operator String ();
+
+
+Question 32: In C ++, there is a standard global object wcin of type wistream What.  is the template type of the wistream typedef?  A.  std :: basic_istream <wchar_t, char_traits <wchar_t>>  B.  std :: basic_istream <char, char_traits <char>>  C.  std :: istream <char, char_traits <char>>  D.  std :: istream <wchar_t, char_traits <wchar_t>>  E.  std :: wistream <char, char_traits <char>>
+
+
+Question 33: How can a C ++ developer use the placement new syntax to make new allocate an object of class SomeClass at a particular memory address stored in a pointer type variable named pmem?    A.  new SomeClass (pmem);  B.  new (pmem) SomeClass;  C.  new pmem SomeClass;  D.  new SomeClass pmem;  E.  new (pmem, SomeClass);
+
+
+Question 34: Under which of the following conditions will a C ++ developer use  polymorphism?    A.  When there is a looping construct that uses a continue more than once  B.  When there is a need for the code written today to call code written tomorrow  C.  When there is a need to check for the type of an object to determine which function must be called   D.  When there is a need to check the value of a variable to determine which of two or more functions to call   E.  When there is a need to modify the existing interface of a class
+
+
+Question 35: Protected, or private, inheritance, as opposed to public inheritance,  models which type of relationship in C ++?    A.  Has-a  B.  Is-implemented-in-terms-of  C.  Was-a  D.  Can-only-have-one-of  E.  Shares-a-relationship-with 
+
+
+
+Question 36: Which of the following statements regarding functions' default arguments  in C ++ are correct?    A.  Default arguments can not be of pointer type.  B.  Default arguments can not be of a user-defined type.  C.  Default arguments can never precede non-default arguments.  D.  Default arguments exist in the global heap and not on the function's stack.  E.  Default arguments are not considered for generating the function's signature
+
+
+Question 37: In C ++, which of the following statements regarding the code below are  valid?   #include <iostream>   class Outer {     int m_o;    public:     class Inner    {        int m_i;       public:          Inner () {}          Inner (Outer m_outer, int x)         {             m_outer.m_o = x;         }    };    
+   Outer (int y)    {         m_inner.m_i = y;    }     void Display ()    {         using namespace std;        cout << m_o << endl              << M_inner.m_i << endl;    }     Inner m_inner; };   void main () {     Outer objOut (10);     Outer :: Inner objIn (objOut, 5);    objOut.Display (); }    A.  The output will be:     5     10  B.  Outer class can not access its nested class's private members.  C.  The relationship between class Inner and class Outer is not valid C ++ syntax.  D.  Inner class can not access its containing class's private members.  E.  The output will be:     10     5
+
+
+
+Question 38: What is the output of the program below in C ++?    #include <iostream> using namespace std;   class Object {  public:      Object () {}           void Print () const     {          cout << "const" << endl;     }       void Print ()     {          cout << "mutable" << endl;     } 
+};   void print_obj (const Object & obj) {      obj.Print (); }   int main () {      Object obj1;     const Object obj2;      Object * const pobj1 = & obj1;           print_obj (obj1);     print_obj (obj2);           obj1.Print ();     obj2.Print ();           pobj1-> Print ();       return 0; }    A.  const const mutable const const  B.  const const mutable const mutable  C.  mutable const mutable const mutable  D.  Undefined behavior  E.  Fails to compile
+
+
+
+Question 39: Which of the following are possible outputs of the C ++ code below?    #include <iostream>   class TestPrint {  public: 
+      void Print ()     {          std :: cout << "TestPrint" << std :: endl;     }       void Print () const     {          std :: cout << "const TestPrint" << std :: endl;     }       void Print () volatile     {          std :: cout << "volatile TestPrint" << std :: endl;     }       void Print () const volatile     {          std :: cout << "const volatile TestPrint" << std :: endl;     } };    int main (int argc, char * argv []) {      TestPrint normal_test;     normal_test.Print ();       const TestPrint const_test;     const_test.Print ();       volatile TestPrint volatile_test;     volatile_test.Print ();       const volatile TestPrint const_volatile_test;     const_volatile_test.Print (); }    A.  TestPrint const TestPrint  const volatile TestPrint const volatile TestPrint  B.  TestPrint  const volatile TestPrint const volatile TestPrint const volatile TestPrint  C.  TestPrint const TestPrint volatile TestPrint 
+const volatile TestPrint  D.  TestPrint TestPrint TestPrint TestPrint  E.  TestPrint  const volatile TestPrint volatile TestPrint  const volatile TestPrint
+
+
+Question 40: In the declaration below, p is a pointer to an array of 5 int pointers:    int * (* p) [5];   Which of the following statements can be used to allocate memory for the first dimension in order to make p an array of 3 arrays of 5 pointers to type int?     A.  p = new int [3] [5] *;  B.  p = new int (*) [3] [5];  C.  p = new int [3] * [5];  D.  p = new int * [3] [5];  E.  p = new int (* [3]) [5];
+
+
+
+Question 41: Which of the following operators must be overloaded by function objects  in the Standard Template Library?    A.  operator + ()  B.  operator ++ ()  C.  operator == ()  D.  operator () ()  E.  operator [] ()
+
+
+
+
+
+Question 42: A C ++ developer wants to explicitly specialize the template function  below for the char * type:   template <class T> void fn (T a) {...}   Which of the following methods can the developer use to carry out this specialization?    A.  void fn <char *> (char * a) {...}  B.  template <> void fn <char *> (char * a) {...}  C.  void fn <char *> (T a) {...}  D.  template <class T> void fn (char * a) {...}  E.  template <class T> void fn <char *> (T a) {...}
+
+
+
+Question 43: Which of the following define valid string constants in C ++?     A.  #define MESSAGE "Whoever said that you could run this program" & 
+"I must not have known what you'd do."  B.  #define GREETING = "Hello!"  C.  #define MESSAGE = "This is a long message, but I know you have" #define MESSAGE = MESSAGE + "plenty of time to read it."  D.  #define ERROR_MSG "You did something very very wrong and now the \ program will terminate. "  E.  #define MESSAGE "Hello" #concat MESSAGE & #UserName
+
+
+Question 44: What member function of std :: fstream could a C ++ developer invoke in  order to change the target output filebuf of the fstream?    A.  setbuffer  B.  setfilebuf  C.  rdbuf  D.  filebuf  E.  streambuf
+
+
+
+Question 45: Which of the following options are returned by the typeid operator in  C ++?   A.  A reference to a const std :: type_info object  B.  A const std :: type_info object  C.  A const reference to a const std :: type_info object  D.  A reference to a std :: type_info object  E.  A const reference to a std :: type_info object
+
+
+Question 46: Which of the following statements describe correct methods of handling  C ++ exceptions?    A.  Once an exception is thrown, the compiler unwinds the heap, freeing any memory dynamically allocated within the block from which the exception was thrown.   B.  In a hierarchy of exception classes, the order of handling exceptions can be from the most specific class to the most general class.   C.  If an exception is caught by its address or pointer, it is the responsibility of the thrower to release the memory occupied by the exception.   D.  Catching an exception by reference is preferable to catching it by value.  E.  To write an exception handler, it is essential to know the concrete class of exception to catch.
+
+Question 47: Which of the following statements correctly describe functions of the  endl manipulator for the ostream object cout in C ++?    A.  It only flushes the standard output stream.  B.  It puts a newline character into the standard output stream and flushes the standard output stream.   C.  It puts an end-of-output character into the standard output stream.  D.  It only puts a newline character into the standard output stream.  E.  It indicates end-of-output and closes the standard output stream.
+
+
+Question 48: In C ++, which of the following statements accurately describe a base  class destructor calling a virtual function override of a derived class?    A.  The base class destructor calls the virtual function override of the derived class through the vtable.   B.  The base class destructor can not call the virtual function override of the derived class because the derived class portion of the data may be in an undefined state.   C.  The base class destructor calls the virtual function of the base class and not of the derived class.   D.  The C ++ compiler maintains the overridden virtual function pointers in a separate structure when it sees the call in a destructor. The call is then resolved through this structure.   E.  The language does not permit calling a virtual function override in either a constructor or the destructor of the base class.
+
+
+Question 1: Which of the following expression (s) will not cause an error when used  to replace the ***** in the C ++ code excerpt below?   #include <iostream>   class Outer {  public:     static int m_Out;    class Inner    {        public:          static int m_In;         void Display ();    }; };   int Outer :: m_Out = 10;  int Outer :: Inner :: m_In = 25;   void Outer :: Inner :: Display () {std :: cout << m_Out << std :: endl;}   void main () {     Outer objOut;     Outer :: Inner objIn;    ***** }    A. objOut.m_In;    B. objIn.m_Out     C. objIn.Display ();    D. objIn.Outer :: m_Out    E. objOut.Inner :: m_In;
+
+
+Question 2: Which of the following statements accurately describe unary operator  overloading in C ++?    A. A unary operator can be overloaded with one parameter when the operator function It is a class member.     B. A unary operator can be overloaded with one parameter when the operator function It is free standing function (not a class member).     C. A unary operator can only be overloaded if the operator function is a class member.    D. A unary operator can be overloaded with no parameters when the operator function It is a class member.     E. A unary operator can be overloaded with no parameters when the operator function It is a free standing function (not a class member). 
+
+
+
+Question 3: Which of the following statements describe the result when standard new  can not allocate the requested storage in C ++ (Note:? older compilers may not implement standard behavior).    A. It throws an insufficient_memory exception.    B. It returns null.     C. It throws a bad_alloc exception.     D. It returns silently with no effect on the expression.    E. logs an error message to the mem_err.log file.
+
+
+
+Question 4: Which of the following correctly identify benefits of the getline () member  function for cin over the extraction operator in C ++?    A. The number of bytes to read can be specified to the getline () function, whereas it can not be done with the extraction operator.     B. Delimiters indicating end of input can be specified to the getline () function, whereas the extraction operator has no such facility.     C. The getline () function by default, accepts whitespace, and returns on seeing the \ n character, whereas the extraction operator returns when encounters any whitespace character.     D. The getline () function can be overloaded to accept different argument types, whereas the extraction operator can not be overloaded.     E. The getline () function can be used like a manipulator with cin, whereas the extraction operator can not be used as a manipulator. 
+
+
+
+Question 7: Which of the following functions of the ifstream class can be used to  determine the current position of the stream's get pointer in C ++?   A. pos_type tellg ()     B. void tellp (pos_type &)    C. void tellg (pos_type &)    D. pos_type tellp ()     E. void seekg (pos_type &)
+
+
+
+Question 8: In which of the following situations is the unexpected () handler called 
+in C ++?    A. When a function throws an exception of an undefined type     B. When an appropriate catch block is not present in the calling function to catch an exception thrown by the called function     C. When the stack gets corrupted during unwinding as a result of a thrown exception    D. When a function that has an "exception specification" throws an exception not listed in that specification.     E. When a constructor throws an exception
+
+
+
+Question 11: Which of the following statements correctly describe the results of  executing the code below in C ++?   #include <iostream> using namespace std;   class ExBase {  private:     static int stat; public:     static int GetStat () {return stat;} };   int ExBase :: stat = 25;   class ExDer1: public ExBase {  public:     friend int Der1Fn () {return ExBase :: stat;} };   class ExDer2: public ExBase {};   class ExDer: public ExDer1, public ExDer2 {};   A. int main () {      cout << ExDer1 :: GetStat () << endl; }  will result in an ambiguity error from the compiler.    B. class ExDer1: public ExBase {  public:     friend int Der1Fn () {return ExBase :: stat;} };  will result in an access error from the compiler.    C. int main () {      ExDer d; 
+    cout << d.Der1Fn () << endl; }   will result in an ambiguity error from the compiler.    D. int main () {      ExDer d;      cout << d.GetStat () << endl; }  will display an output as "25".    E. int main () {      cout << ExDer1 :: ExBase :: GetStat () << endl; }  will display an output as "25".
+
+
+
+Question 22: In the given C ++ code snippet, which of the following statements correctly  identify how Mon of enum DOW can be assigned to a variable named var?   void main () {     const int Mon = 1, Tue = 2;     enum DOW {Mon = 11, Tue = 12};    ...    A. Mon of enum DOW can not be assigned because the compiler will give a redefinition error.     B. The variable var will have to be of type enum DOW, and then defined as:   var = Mon;     C. Since Mon is of type enum DOW, var will be assigned as:   var = DOW :: Mon;     D. Since enum DOW has been declared and defined later, it will be pushed onto the stack later, but will be accessed first. Hence, the scope resolution operator is not required and var will be assigned as:    var = Mon;     E. The variable var must be of type const int, and then it can be assigned as:   var = static_cast <const int> (Mon); 
+
+
+Question 23: Protected, or private, inheritance, as opposed to public inheritance,  models which type of relationship in C ++?   A. Can-only-have-one-of    B. Has-a     C. Is-implemented-in-terms-of    D. Was-a   
+ E. Shares-a-relationship-with
+
+
+Question 29: Which of the following reasons describe why a destructor can not throw  an exception in C ++?    A. The C ++ language does not permit it; a throw statement in a destructor will be caught as an error by the compiler.     B. A destructor may be invoked as a result of stack unwinding while an exception It is being handled.     C. It can invoke the terminate () handler.     D. Since the object is being destroyed, it is illogical to throw an exception then.    E. A destructor in C ++ can not implement a try ... catch block. 
+
+
+Question 30: In C ++, there is a standard global object wcin of type wistream What.  is the template type of the wistream typedef?    A. std :: basic_istream <char, char_traits <char>>    B. std :: istream <wchar_t, char_traits <wchar_t>>     C. std :: basic_istream <wchar_t, char_traits <wchar_t>>    D. std :: istream <char, char_traits <char>>    E. std :: wistream <char, char_traits <char>>   
+
+
+Question 32:. The C ++ code below generates a compiler error Which of the following  solutions can be used to correctly access the member named nested?   class SomeClass {      public:          int data;     protected:          class Nest         {              public:              int nested;         };     public:          static Nest * createNest () {return new Nest;} };   void use_someclass () {      SomeClass :: Nest * nst = SomeClass :: createNest ();     nst-> nested = 5; }    A. Make function void use_someclass () a friend of class SomeClass.     B. Make the object nst a reference object, and make the function createNest () return a Nest &.     C. Declare the class Nest in public scope of class SomeClass.   
+ D. Make the function createNest () a non-static function of SomeClass.     E. Derive a class from SomeClass. Make the object nst a derived class pointer so that it can access SomeClass's protected declarations.
+
+
+
+Question 34: Which of the following define valid string constants in C ++?    A. #define MESSAGE = "This is a long message, but I know you have" #define MESSAGE = MESSAGE + "plenty of time to read it."     B. #define ERROR_MSG "You did something very very wrong and now the \ program will terminate. "     C. #define GREETING = "Hello!"     D. #define MESSAGE "Whoever said that you could run this program" & "I must not have known what you'd do."    E. #define MESSAGE "Hello" #concat MESSAGE & #UserName 
+
+
+
+Question 35: Which allocator member function do standard containers use to acquire  storage for their elements in C ++?   A. std :: allocator <> :: make (size_t)    B. std :: allocator <> :: new (size_t)    C. std :: allocator <> :: malloc (int)     D. std :: allocator <> :: allocate (size_t)    E. std :: allocator <> :: acquire (size_t)
+
+
+Question 36: A class der inherits from class base and the functions are defined in  the code below:   void SomeFunc (base & b) {...} void SomeFunc (base b) {...} void SomeFunc (der & b) {...} void SomeFunc (der b) {...}   void main () {  der d;  SomeFunc (d); }   In the call to SomeFunc (d), which of the following overloads of the SomeFunc function will be executed in C ++?    A. void SomeFunc (base & b) {...}     B. The compiler will generate an ambiguous call error.    C. void SomeFunc (der & b) {...}    D. void SomeFunc (base b) {...}    E. void SomeFunc (der b) {...} 
+
+
+
+
+Question 37: In the declaration below, p is a pointer to an array of 5 int pointers:    int * (* p) [5];   Which of the following statements can be used to allocate memory for the first dimension in order to make p an array of 3 arrays of 5 pointers to type int?    A. p = new int (*) [3] [5];    B. p = new int [3] * [5];    C. p = new int * [3] [5];    D. p = new int [3] [5] *;    E. p = new int (* [3]) [5];
+
+
+Question 39: Which of the following statements correctly describe functions of the  endl manipulator for the ostream object cout in C ++?    A. It puts an end-of-output character into the standard output stream.    B. only flushes the standard output stream.     C. It only puts a newline character into the standard output stream.    D. It puts a newline character into the standard output stream and flushes the standard output stream.     E. indicates end-of-output and closes the standard output stream. 
+
+
+Question 42: Under which of the following conditions will a C ++ developer use  polymorphism?    A. When there is a need for the code written today to call code written tomorrow    B. When there is a looping construct that uses a continue more than once    C. When there is a need to check for the type of an object to determine which function must be called     D. When there is a need to check the value of a variable to determine which of two or more functions to call     E. When there is a need to modify the existing interface of a class 
+
+
+Question 44: A C ++ developer wants to explicitly specialize the template function  below for the char * type:   template <class T> void fn (T a) {...}   Which of the following methods can the developer use to carry out this specialization?   A. template <class T> void fn (char * a) {...}    B. template <> void fn <char *> (char * a) {...}    C. void fn <char *> (T a) {...}     D. void fn <char *> (char * a) {...}     E. template <class T> void fn <char *> (T a) {...} 
+
+
+Question 45: Which of the following classes must be instantiated so that the object  can be used both for reading and writing to the same file in C ++?  
+ A. stream    B. ofstream    C. fstream    D. ifstream    E. iostream   
+
+
+Question 46: The code below generates the compiler error "'Derived :: data' is  ambiguous ". In C ++, which of the following steps can be taken to rectify it so that obj has only one instance of data?   class Base {      public:     int data; };   class DerivedOne: public Base {};   class DerivedTwo: public Base {};   class Derived: public DerivedOne, public DerivedTwo {};   void main () {      Derived obj;     obj.data = 5; }    A. Inherit class Derived from DerivedOne and DerivedTwo as virtual public DerivedOne and virtual public DerivedTwo.     B. Inherit classes DerivedOne and DerivedTwo from Base as virtual public Base.    C. Inherit classes DerivedOne and DerivedTwo from Base as public virtual Base.    D. Inherit class Derived from DerivedOne and DerivedTwo as public virtual DerivedOne and public virtual DerivedTwo.     E. Inherit either class DerivedOne or class DerivedTwo from Base as virtual public Base
+
+
+Question 48: Which of the following statements correctly describe the C ++ language  and its libraries?    A. It is possible to declare a function pointer to the constructor of a C ++ class.    B. Though one can override the << operator of the ostream class, it is not possible to do so for the ofstream class because it does not use a buffered output stream.     C. The C ++ language does not have built in features for persisting or serializing objects to disk and back.     D. It is not possible to declare a pointer to a private data member of a C ++ class.    E. If the << operator of the ostream class has been templatized, it can not be specialized.

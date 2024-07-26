@@ -1,0 +1,2363 @@
+Switch to a unitest framework https://github.com/catchorg/Catch2
+
+Fixes: 
+
+	replace "interger types" by "integral types" 
+	"I could pointers" by "I could use pointers"
+
+More questions http://quiz.geeksforgeeks.org/
+Online assembler
+https://godbolt.org/g/H0xWSk
+
+Another library https://github.com/etlcpp/etl
+
+https://graphics.stanford.edu/~seander/bithacks.html
+http://www.careercup.com/
+http://www.poemofquotes.com/funny-quotes/computer-nerds.php
+http://mithileshjoshi.blogspot.co.il/2015/08/every-programmers-see-at-1-time.html
+C++ guidelines https://isocpp.org/blog/2015/09/bjarne-stroustrup-announces-cpp-core-guidelines
+http://jeffe.cs.illinois.edu/teaching/algorithms/
+
+
+http://puddleofriddles.blogspot.co.il/2011/07/basketball-riddle.html
+http://yosefk.com/c++fqa/  Why not C++
+
+A large FQA https://yosefk.com/c++fqa/
+https://www.youtube.com/watch?v=KAWA1DuvCnQ
+
+C built in functions http://www.delorie.com/gnu/docs/gcc/gcc_81.html  
+Things like __builtin_constant_p
+
+https://www.tutorialspoint.com/computer_graphics/circle_generation_algorithm.htm
+https://cs.chromium.org/chromium/src/chrome/browser/ui/cocoa/tabs/tab_strip_controller.mm?l=1099
+http://members.chello.at/~easyfilter/bresenham.html
+https://qr.ae/TUtAQC
+https://en.wikipedia.org/wiki/Stable_marriage_problem#Applications
+http://cecas.clemson.edu/~ahoover/ece854/refs/Gonze-ViterbiAlgorithm.pdf
+http://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm
+https://www.toptal.com/algorithms/shazam-it-music-processing-fingerprinting-and-recognition
+http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html
+http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html
+http://sergematovic.tripod.com/rsa1.html
+http://stackoverflow.com/questions/14252806/where-can-i-find-a-simple-easy-to-understand-implementation-of-an-lr1-parse
+
+General programming https://youtu.be/fhOHn9TClXY
+https://www.quantamagazine.org/bongard-problems-and-scientific-discovery-20170608/
+
+
+    Being really good at C++ is like being really good at using rocks to sharpen sticks. – Thant Tessman
+    Arguing that Java is better than C++ is like arguing that grasshoppers taste better than tree bark. – Thant Tessman
+    There are only two things wrong with C++: The initial concept and the implementation. – Bertrand Meyer
+    C++ has its place in the history of programming languages. Just as Caligula has his place in the history of the Roman Empire. – Robert Firth
+    C++ is history repeated as tragedy. Java is history repeated as farce. – Scott McKay
+    C++ is like jamming a helicopter inside a Miata and expecting some sort of improvement. – Drew Olbrich
+    C++ is the only current language making COBOL look good. – Bertrand Meyer
+    C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows away your whole leg. – Bjarne Stroustrup
+    C++: Simula in wolf’s clothing. – Bjarne Stroustrup
+    C++ will do for C what Algol-68 did for Algol. – David L Jones
+    Historically, languages designed for other people to use have been bad: Cobol, PL/I, Pascal, Ada, C++. The good languages have been those that were designed for their own creators: C, Perl, Smalltalk, Lisp. – Paul Graham
+    I consider C++ the most significant technical hazard to the survival of your project and do so without apologies. – Alistair Cockburn
+    If C++ has taught me one thing, it’s this: Just because the system is consistent doesn’t mean it’s not the work of Satan. – Andrew Plotkin
+    If you think C++ is not overly complicated, just what is a protected abstract virtual base pure virtual private destructor and when was the last time you needed one? – Tom Cargill
+    I invented the term Object-Oriented, and I can tell you I did not have C++ in mind. – Alan Kay
+    It has been discovered that C++ provides a remarkable facility for concealing the trival details of a program – such as where its bugs are. – David Keppel
+    Java is, in many ways, C++–. – Michael Feldman
+    Java, the best argument for Smalltalk since C++. – Frank Winkler
+    PL/I and Ada started out with all the bloat, were very daunting languages, and got bad reputations (deservedly). C++ has shown that if you slowly bloat up a language over a period of years, people don’t seem to mind as much. – James Hague
+    The last good thing written in C++ was the Pachelbel Canon. – Jerry Olson
+    To me C++ seems to be a language that has sacrificed orthogonality and elegance for random expediency. – Meilir Page-Jones
+    Whenever the C++ language designers had two competing ideas as to how they should solve some problem, they said, “OK, we’ll do them both”. So the language is too baroque for my taste. – Donald E Knuth
+    Within C++, there is a much smaller and cleaner language struggling to get out. – Bjarne Stroustrup
+    {Major-Willard} C++ damages the brain … – EWD
+    C++ is the best example of second-system effect since OS/360. – Henry Spencer
+    C++ is an insult to the human brain – Niklaus Wirth
+    All new features added to C++ are intended to fix previously new features added to C++ – David Jameson
+    C++: glacial compiles, insane complexity, impenetrable errors, laughable cross-platform compat, basically useless tools. – Aaron Boodman
+    Life is too long to know C++ well. – Erik Naggum
+    If you like C++, you don’t know C++. There’s a mutual exclusion going on here, and I’ve yet to see a counter-example other than possibly a few of the members of the standards committee. – ssylvan in reddit.
+    *Oh, definitely. C++ may not be the worst programming language ever created, but without a doubt it’s the worst ever to be taken seriously. – Mason Wheeler
+    C++ is to C as Lung Cancer is to Lung.
+    I think maybe the guy who invented C++ doesn’t know the difference between increment and excrement. – smcameron
+    C++ is more of a rube-goldberg type thing full of high-voltages, large chain-driven gears, sharp edges, exploding widgets, and spots to get your fingers crushed. And because of it’s complexity many (if not most) of it’s users don’t know how it works, and can’t tell ahead of time what’s going to cause them to loose an arm. – Grant Edwards
+    C++: an octopus made by nailing extra legs onto a dog. – Steve Taylor
+    I believe C++ instills fear in programmers, fear that the interaction of some details causes unpredictable results. Its unmanageable complexity has spawned more fear-preventing tools than any other language, but the solution should have been to create and use a language that does not overload the whole goddamn human. – Erik Naggum
+    I may be biased, but I tend to find a much lower tendency among female programmers to be dishonest about their skills, and thus do not say they know C++ when they are smart enough to realize that that would be a lie for all but perhaps 5 people on this planet. – Erik Naggum
+    C++ is a language strongly optimized for liars and people who go by guesswork and ignorance. – Erik Naggum
+    c++ is a pile of crap. – Theo de Raadt
+    With C++, it’s possible to make code that isn’t understandable by anyone, with C, this is very hard. – Mike Abrash
+    Whenever I solve a difficult problem with C++, I feel like I’ve won a bar fight. – Michael Fogus
+    C is C++ without the BS. – SocialPhatology
+    [keeping somebody] from using C++ makes me feel like I saved a life – aiju
+    C++ is probably the only language where the error [message] can be longer than the program – aiju
+
+
+A set of questions https://www.quora.com/What-are-some-arcane-C-syntaxes-or-features-that-many-programmers-are-not-familiar-with
+
+Embedded http://kvasir.io/  and meta-programming https://github.com/edouarda/brigand  another presentation https://www.youtube.com/watch?v=AKAYc9ZFBhk
+
+Here is a first hand story. Some time ago I applied for a job at an algo trading shop. Before they started any interview process I was asked to 
+write in real-time online environment programming (C/C++) solution for 3 non-trivial algorithmic problems. 
+I was allowed total 160 minutes for this. Naturally I entered Google.com. 
+In less than 5 minutes I have discovered solutions for all three. 
+By my estimation 160 minutes were barely enough to translate the solution in Java - the one I found - to C and run unitest 
+and see if it works. I personally know people who work in the middle management positions. These are smart guys, but they are not there. 
+They are not and never was able to find a solution for these kind of problems, neither implement a solution with such time constrain. 
+
+
+One writing thread, N reading threads. In between a queue of messages. 
+How to implement a synchronization message - a message which will be processed only after all reading threads
+complet their work.
+
+Travel single linked list in the reverse order. Tip switch direction of the links - O(n) Check that the question is not 
+duplicated.
+
+
+Block diagram for the bakcup system which target backup of the virtual machines - scalable, reliable. 
+How many threads should be in the backup? Tip: if the CPU/IO is not a bottleneck and networking 
+is the main bottleneck (typical) two thread read/write should be sufficient
+to move the data between network interfaces
+How to scale the system while keeping the united frontend/management system?
+What is the performance of the modern I/O? Tip: consider 128 DDR bus. 
+When the CPU will be a bottleneck? Tip: deduplication, real time compression
+
+Different between mutex and a binary semaphore? Tip: mutex is context aware. Only a thread which locks a mutex can free the mutex.
+The mutext owner can enter the critical section protected by the mutex multiple times. 
+
+There is a single writer and multiple reader threads. How to implement a mutex protected a data base? 
+Tip: in Linux you can use a conditional variable.
+Tip2: a global variable discribes a state of the data base - writing, reading. Before a thread enters the critical section it shall check 
+and probably modify the state. The test-modify operation shall be atomic.
+
+    
+
+Implemet three functions which manipulate a binary tree:
+
+void insert(node **root, int val)
+node *delete(node *root, int val)
+void print(node *root)
+
+
+You have a storage (a hard disk) and two or more servers which can access the storage concurrently. A block write/read is an atomic operation. 
+How mutex can be implemented? Tip: https://en.wikipedia.org/wiki/Peterson%27s_algorithm
+https://en.wikipedia.org/wiki/Lamport%27s_bakery_algorithm
+
+Implement lock/unlock for N threads, two atomic memory locations. You can assume there is a special managemt thread.
+
+tid is threadId
+
+int S1, S2;
+
+void Lock(int tid)
+{
+	while (S2 != tid)
+	{
+		S1 = tid;
+	}
+}
+
+void management()
+{
+	while (true)
+	{
+		if ((S2 == 0) && (S1 != 0))
+		{
+			S2 = S1;
+			S1 = 0;
+		}
+	}
+}
+
+void Unlock(int tid)
+{
+	if (tid == S2)
+		S2 = 0;
+}
+
+// Implement following class
+class Bandwidth
+{
+ 	void notify(unsigned);
+	unsiged byetsPerSecond();
+	const unsigned WINDOW_SIZE = 500; //ms
+}
+
+// Assume that exists function
+extern unsigned getTimeMs();
+
+
+The system has two inpiuts and four outputs. Implement a thrad which reads the inputs and write outputs. 
+Insure fairness between the outputs. You have following functions
+void select(fdW[], fdR[])
+bool isReady(fd)
+void write(fd, buffer)
+void read(fd, buffer)
+
+Tip: maintane a list of output fds where the latest used output moves to the end of the list.
+
+
+
+class Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in parent" << endl; 
+} 
+}; 
+
+class Child : public Base 
+{ 
+public : 
+virtual void X() 
+{ 
+cout << "X in child" << endl; 
+} 
+
+void Y() 
+{ 
+cout << " Y in child" << endl; 
+} 
+}; 
+
+
+int main() 
+{ 
+Child c; 
+Base b = c; 
+b.X();	
+
+Base *ptr = new Child(); 
+ptr->X();	// how is this call different from "b.X()" 
+return 0; 
+} 
+
+Output : 
+X in parent 
+X in child
+
+
+Implement a thread pool 
+
+Implement a timer using hash table, hash key is based on the expiration tick
+
+
+
+Real programmers do not comment their code. It was hard to write, it should be hard to understand.
+
+Programer needs job, Willing to do Windows.
+
+
+     
+
+Hello
+
+-Assume most recent language standard are available (ES5, SE8, C11, C++11...).
+- We expect good performance.
+- If missing more requirements details, just make reasonable assumptions of
+  your own.
+- Solution must be simple and compact.
+  No defensive coding, no comments, no unrequested features.
+  Only one file 10-20 lines of code
+- Work only inside Google Docs: no external editor/IDE/debugger, no copy-paste
+  to/from such an editor. We must see the flow of how you write the code.
+
+Implement function check (text) which checks whether brackets within text are
+correctly nested. You need to consider brackets of three kinds: (), [], {}.
+
+
+Examples:
+    
+check("a(b)") -> true
+check("[{}]") -> true
+check("[(]") -> false
+check("}{") -> false
+check("z([{}-()]{a})") -> true
+check("") -> true
+
+
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+def checkP1arentheses(s):
+    stack = []
+    openningP1arentheses = ['{', '[', '('] 
+    closingP1arentheses = ['}', ']', ')'] 
+    pairs = {'}':'{', ']':'[', ')':'('}
+    for ch in s:
+        if ch in openningP1arentheses:
+            stack.append(ch)
+        elif (ch in closingP1arentheses):
+            if (len(stack) == 0):
+                return False
+            translatedCh = pairs[ch]
+            stackTop = stack[-1]
+            if (stackTop == translatedCh):
+                stack.pop()
+            else:
+                return False
+                
+    return (len(stack) == 0)
+
+
+testLines =  ['1{2}3', '1(2)3', '1[2]3', '1[2(3)4]5', '1{2(3}4)5', "1}2{3", "1{"]
+for line in testLines:
+    print line, ":", checkP1arentheses(line)
+
+
+
+// Implement following class
+class Bandwidth
+{
+        void notify(unsigned);
+        unsiged byetsPerSecond();
+        const unsigned WINDOW_SIZE = 500; //ms
+}
+
+// Assume that exists function
+extern unsigned getTimeMs();
+
+Deliver packets from one side to another side of the cloud and feed the packets to the processing server at fixed latency. 
+
+
+The system has two inpiuts and four outputs. Implement a thrad which reads the inputs and write outputs.
+Insure fairness between the outputs. You have following functions
+void select(fdW[], fdR[])
+bool isReady(fd)
+void write(fd, buffer)
+void read(fd, buffer)
+
+Tip: maintane a list of output fds where the latest used output moves to the end of the list.
+
+
+class CGpio
+{
+public:
+
+	//! Create GPIO
+	//!
+	//! \arg gpioGroup	- GPIO group (i.e. 'A', 'B', etc)
+	//! \arg gpioNum	- GPIO number within the group (0..31)
+	CGpio( char gpioGroup,  U8 gpioNum );
+
+	//! Close the GPIO
+	virtual ~CGpio();
+
+	//! Set GPIO direction to input
+	void setInput( void );
+
+	//! Set GPIO direction to output
+	void setOutput( void );
+
+	//! Set GPIO direction to output with initial value
+	void setOutput( U8 value);
+
+	//! Write GPIO value
+	//!
+	//! \arg value - 0 or 1
+	void write( U8 value );
+
+	// Read GPIO value
+	//!
+	//! \return 0 or 1
+	U8 read( void );
+
+private:
+
+	// Memory mapped IO
+	U8* m_memMapIo;
+
+	// Mask of the pin in registers
+	U32 m_pinMask;
+};
+CGpio::CGpio( char gpioGroup,  U8 gpioNum )
+{
+	// Map the IO region if was not done so before
+	if ( !CMemMap::isMapped( g_memMap ) )
+	{
+		CMemMap::mapRegion( g_memMap );
+	}
+
+	// Get pointer to relevant IO registers
+	m_memMapIo = (U8*)g_memMap.m_vmAddress + (PIO_BASE & PIO_MAP_MASK) + (0x200 * (gpioGroup-'A'));
+
+	// Get pin mask
+	m_pinMask = BIT(gpioNum);
+
+	// Enable IO
+	IO_REG(GPIO_ENABLE) = m_pinMask;
+
+	// Set as input by default
+	setInput();
+}
+
+
+
+
+Problem
+===========
+Simplify the implementation below as much as you can. 
+Even better if you can also improve performance as part of the simplification!
+FYI: This code is over 35 lines and over 300 tokens, but it can be written in
+5 lines and in less than 60 tokens.
+
+#include <stdlib.h>
+char *func(char *s, char a, char b)
+{
+    char *aptr;
+    char *bptr;
+    char *res;
+    int i;
+    if (s[0] == '\0')
+    {
+        if ((a == '\0') || (b == '\0'))
+            return &(s[0]);
+        else
+            return NULL;
+    }
+    i = 0;
+    aptr = NULL;
+    bptr = NULL;
+    while (aptr == NULL && bptr == NULL)
+    {
+        if (s[i] == a)
+            aptr = s+i;
+        if (s[i] == b)
+            bptr = s+i;
+        if (s[i] == '\0')
+        {
+            if ((aptr != s+i) && (bptr != s+i))
+            return NULL;
+        }
+        i++;
+    }
+
+    if (aptr == NULL)
+        res = bptr;    
+    else if (bptr == NULL)
+        res = aptr;        
+    else if (aptr < bptr)
+        res = aptr;
+    else if (bptr < aptr)
+        res = bptr;
+    else
+        res = aptr;
+
+    return res;
+}
+
+
+char *func_v2(char *s, char a, char b)
+{
+	char *aptr = NULL;
+	char *bptr = NULL;
+	while (aptr == NULL && bptr == NULL && (*s || !a || !b)  )
+	{
+		if (*s == a) aptr = s;
+		if (*s == b) bptr = s;
+		s++;
+	}
+	if (aptr != NULL) return aptr;
+	if (bptr != NULL) return bptr;
+	return NULL;
+}
+
+Structured bindings, coroutines, concepts, modules
+
+Write a function which accepts one of the two integers 5 and 7 and returns the second integer.
+The programming language does not have conditions if ... else Suggest at least 3 different solutions
+
+int swap_5_7(int arg)
+{
+   return (35/arg);
+}
+
+int swap_5_7(int arg)
+{
+   return arg ^ 0x02;
+}
+
+int swap_5_7(int arg)
+{
+   static int const RES[] = {7,0,5}
+   return (RES[arg-5]);
+}
+
+int swap_5_7(int arg)
+{
+   return (arg+((x & 2) >> 1)*(-1));
+}
+
+int swap_5_7(int arg)
+{
+   return (5-arg)+7;
+}
+
+
+Calculate Pi with complecity O(N). Tip: divide the circle by N vertical bars. 
+Height (square of) of the bar is R^2-x^2. Nuymber of bars is N. 
+
+Frog jumps from stone to stone or can jump over one stone (2 stones distance). 
+Write a function which returns number of ways the frog can cross X stones
+See http://www.careercup.com/question?id=9707061
+
+Print all 1000 digits numbers 
+
+Difference between float and double
+
+Implement macro offsetof()
+
+How kernel knows thread ID of the calling thread?
+Tip - structure thread_info is stored on the stack of the thread.
+
+
+
+How the following code can cause an exception:
+
+float get(obj* v, bool* ok) {
+  float c;
+  if(v->valid) {
+    *ok = true;
+    c = v->a + v->b;
+  }
+  else {
+   *ok = false; //not ok, so don't expect anything from c
+  }
+  return c;
+}
+Tip:Signalling NaN
+
+
+"They pretend to pay us, and we pretend to work." C++ pretends to provide an object-oriented data model, C++ programmers pretend to respect it, and everyone pretends that the code will work. 
+
+
+What is "kernel markers" in the Linux kernel?
+
+
+Purpose of immediate values
+
+An immediate value is used to compile into the kernel variables that sit within
+the instruction stream. They are meant to be rarely updated but read often.
+Using immediate values for these variables will save cache lines.
+This infrastructure is specialized in supporting dynamic patching of the values
+in the instruction stream when multiple CPUs are running without disturbing the
++normal system behavior.
+
+Compiling code meant to be rarely enabled at runtime can be done using
+if (unlikely(imv_read(var))) as condition surrounding the code. The
+smallest data type required for the test (an 8 bits char) is preferred, since
+some architectures, such as powerpc, only allow up to 16 bits immediate values.
+
+What is "mcount" and flag --pg in gcc?
+
+
+What does the following C code
+
+include <stdio.h>
+
+int main()
+{
+        int a,b,c;
+        int l = ({a=0;b=1;c=2;});
+        printf("l=%d\r\n", l);
+}
+
+
+what is wrong with the following macro. Moshik wrote "Bugfix: The moron who wrote actual code that runs inside assert statements should be beaten..."
+#define AZ(foo)        do { assert((foo) == 0); } while (0)
+Mooshik code
+#define AZ(foo)        do { if ((foo) != 0) printf("assert"); } while (0)
+
+
+
+When pselect() as compared to select() should be used?
+Tip https://jineshkj.wordpress.com/2008/02/02/why-pselect/
+
+Provide example of imperative and declarative programming languages
+
+
+strncpy or strlcpy or s_strncpy?
+
+
+Under what circumstances the following C code can casue sgementation fault exception 
+
+/* main.c */
+
+int main()
+{
+	printf("%s\n", get_hello());
+}
+
+
+/* hello.c */
+const char *get_hello()
+{
+	return "Hello, world";
+}
+
+
+Tip: on 64 bits architecture w/o a prototype return code of get_hello() is assumed "int" which is wrong. 
+
+
+What the following code does and how it does 
+
+template <typename T, size_t S> char (&m_h( T (&)[S]))[S];
+#define m(pArray) sizeof(m_h(pArray))
+
+int main ()
+{
+	int a[3];
+	printf("%d\n", m(a));
+}
+
+
+Flipping a coin 3 times, and given your opponent has chosen HHH, if you choose THH in return, on average you are 7 times more likely to win. For HHT 3 time more likely.   
+Tip Penney Ante: Counterintuitive
+Probabilities in Coin Tossing
+https://lnkd.in/biVqAqF
+Another form of a question Suppose you were to keepflipping a coin until it landed either HTHHT
+or HHHHH on five consecutive flips. Which of these two sequences
+would you predict would occur first?
+And follow up question Which would be the most likely result, HH or HT, if you kept flipping a
+coin until you got one or the other?
+
+
+A hare and a tortoise move toward to each other. Hare starts and covers 1/2 of the way, tortoise is next and covers 1/4 (half of the rest). Rabbit follows with half of the rest or 1/8 of the total. 
+Where do they meet?
+Answer: 1/3 - sum of 1/2,1/8,1/32,1/128 
+
+write implementation of sprintf for %d argument - access to the stack
+
+two glasses wine and water. one sppon of water from the water glass to the wine glass. after that one spoon from the wine glass to the glass of water. Does have a glass of water contain more wine than the glass of wine contains of water
+https://en.wikipedia.org/wiki/Wine/water_mixing_problem
+
+
+https://projecteuler.net/archives Write code which solves porblems 25,46,50
+
+
+
+
+1.What is LILO?
+• LILO is Linux Loader is a boot loader for Linux. It is used to load Linux into the memory and start the Operating system. LILO can be configured to boot other operating systems as well. LILO is customizable, which means that if the default configuration is not correct, it can be changed. Config file for LILO is lilo.conf.
+• LILO is also a code snippet which loads PC BIOS into the main memory at the time of starting the computer system. It handles the following tasks:
+-Locating Linux kernel
+-Identifying other supporting programs and loading them in the memory
+-Starting Kernel
+• The selection of various kernel images and boot routines is supported by LILO. For this reason, it is known as boot manager.
+2.You wish to print a file ‘draft’ with 60 lines on a page. What command would you use?
+The command used: pr -l60 draft
+– The default page length when using pr is 66 lines.
+– The -l option specifies a different length.
+3.What is LD_LIBRARY_PATH?
+• LD_LIBRARY_PATH is an environment variable. It is used for debugging a new library or a non-standard library. It is also used to identify what directories need to be searched. Path to search for directories needs to given.
+• The variable can be set using setenv—LD_LIBRARY_PATH–$PATH
+• It is used to search for the shared objects / dynamic libraries by the operating system for extendable functionality at runtime.
+4.Name a service that you should disable (which acts both as Web and FTP Server) on a Linux Server.
+The finger service should be disabled because a remote user can get important information about the system by using that command.
+5.What does Sar provide? Where are Sar logs stored?
+Sar collects, reports, or saves system activity information, sar serves to log and evaluate a variety of information regarding system activity. With performance problems, sar also permits retroactive analysis of the load values for various sub-systems (CPUs, memory, disks, interrupts, network interfaces and so forth) and limitation of problems in this manner. If CPU utilization is near 100 % (user + nice + system), the workload sampled is CPU-bound.
+By default, log files of Sar command is located at /var/log/sa/sadd file, where dd parameter indicates the current day.
+6.How to check Memory stats and CPU stats as a Linux admin?
+Using ‘free’ & ‘vmstat’ command, we can display the physical and virtual memory statistics, respectively. With the help of ‘sar’ command, we can see the CPU utilization & other stats.
+7.How to reduce or shrink the size of LVM partition?
+Below are the logical steps to reduce size of LVM partition :
+-Unmount the filesystem using unmount command,
+– Use resize2fs command , e.g resiz2fs /dev/mapper/myvg-mylv 10G
+-Now use the lvreduce command as lvreduce -L 10G /dev/mapper/myvg-mylv
+The above Command will shrink the size LVM partition and fixes the filesystem size to 10GB.
+8.What are the different modes of Network bonding in Linux?
+Below are list of modes used in Network Bonding:
+• balance-rr or 0 – round-robin mode for fault tolerance and load balancing.
+• active-backup or 1 – Sets active-backup mode for fault tolerance.
+• balance-xor or 2 – Sets an XOR (exclusive-or) mode for fault tolerance and load balancing.
+• broadcast or 3 – Sets a broadcast mode for fault tolerance. All transmissions are sent on all slave interfaces.
+• 802.3ad or 4 – Sets an IEEE 802.3ad dynamic link aggregation mode. Creates aggregation groups that share the same speed & duplex settings.
+• balance-tlb or 5 – Sets a Transmit Load Balancing (TLB) mode for fault tolerance & load balancing.
+• balance-alb or 6 – Sets an Active Load Balancing (ALB) mode for fault tolerance & load balancing.
+9.How to check and verify the status of the bond interface?
+Using the command ‘cat /proc/net/bonding/bond0,’ we can check what mode is enabled and what LAN cards are used in this bond. In this example, we have one one bond interface. However, we can have multiple bond interfaces like bond1, bond2 and so on.
+10.How can you enhance the security of password file?
+Linux keep user account information in a text file called /etc/passwd. This file also stores one way encrypted password. It is accessed by several tools to get user information, which is a security risk, so file need to ‘Word Readable.’ To minimize the security risk, you can use shadow password format. This method saves account information in regular file /etc/passwd. However, the password is stored as a single “x” character (not actually stored in this file). A second file, called “/etc/shadow” contains encrypted password as well as other information such as account or password expiration values, etc. The /etc/shadow file is readable only by the root account and is therefore less of a security risk
+11.What command can you use to make a tape archive file of a /home directory and send it to the /dev/tape device?
+The correct command is tar -cvf /dev/tape /home.
+The -xvf option is used to extract files from an archive.
+12.Suppose your FTP Server is hacked and the entire server needs to be restored. How should you restore the original kernel system files?
+You cannot restore the entire operating system from tape backup device. So you should reinstall the core operating system, and then restore system configuration files and user data from tape backup device.
+13.Why should you avoid Telnet to administer a Linux system remotely?
+Telnet uses most insecure method for communication. It sends data across the network in plain text format and anybody can easily find out the password using the network tool. In the case of Telnet, these include the passing of login credentials in plain text, which means anyone running a sniffer on your network can find the information he needs to take control of a device in a few seconds by eavesdropping on a Telnet login session.
+14.What is Puppet Server?
+Puppet is an open-source & enterprise software for configuration management toll in UNIX like operating system. Puppet is an IT automation software that is used to push configuration to its clients (puppet agents) using code. Puppet code can do multiple tasks from installing new software to checking file permissions to updating user accounts.
+15.What is the difference between Cron and Anacron?
+a) Minimum granularity with Cron is minute while it is in days with Anacron.
+b) Cron job can be scheduled by any normal user while Anacron can be scheduled only by the super user (the superuser is a special user account used for system administration. Depending on the operating system (OS), the actual name of this account might be root,administrator, admin or supervisor)
+c) Cron expects the system to be up and running while the Anacron doesn’t expect the system to be up and running all the time. In case of Anacron, if a job is scheduled and the system is down that time, it will execute the job as soon as the system is up and running.
+d) Cron is ideal for servers while Anacron is ideal for desktops and laptops.
+e) Cron should be used when you want a job to be executed at a particular hour and minute while Anacron should be used in when the job can be executed irrespective of the hour and minute.
+16.What command is used to check the number of files, disk space and each user’s defined quota?
+repquota command is used to check the status of the user’s quota along with the disk space and number of files used.
+This command gives a summary of the user’s quota that how much space and files are left for the user. Each user has a defined quota in Linux. This is done mainly for the security as some users have only limited access to files. This provides a security to the files from unwanted access. The quota can be given to a single user or to a group of users.
+17.What is the name and path of the main system log?
+By default, the main system log is ‘/var/log/messages’. This file contains all the messages and the script written by the user. By default, all scripts are saved in this file. This is the standard system log file, which contains messages from all system software, non-kernel boot issues, and messages that go to ‘dmesg’. dmesg is a system file that is written upon system boot.
+18.Can Linux computer be made a router so that several machines may share a single Internet connection? How?
+Yes, a Linux machine can be made a router. This is called “IP Masquerade.” IP Masquerade is a networking function in Linux similar to the one-to-many (1: Many) NAT (Network Address Translation) servers found in many commercial firewalls and network routers. The IP Masquerade feature allows other “internal” computers connected to this Linux box (via PPP, Ethernet, etc.) to also reach the Internet as well. Linux IP Masquerading allows this functionality even if the internal computers do not have IP addresses.
+The IP masquerading can be done by the following steps: 
+• The Linux PC must have an internet connection and a connection to LAN. Typically, the Linux PC has two network interfaces-an Ethernet card for the LAN and a dial-up PPP connection to the Internet (through an ISP).
+• All other systems on your LAN use the Linux PC as the default gateway for TCP/IP networking. Use the same ISP-provided DNS addresses on all systems.
+• Enable IP forwarding in the kernel. By default the IP forwarding is not enabled. To ensure that IP forwarding is enabled when you reboot your system, place this command in the /etc/rc.d/rc.local file.
+• Run /sbin/iptables-the IP packet filter administration program-to set up the rules that enable the Linux PC to masquerade for your LAN.
+19.How to change window manager by editing your home directory?
+“/.xinitrc file” allows changing the window manager we want to use when logging into X from that account. The dot in the file name shows you that the file is a hidden file and doesn’t show when you do a normal directory listing. For setting a window manager we have to save a command in this file. The syntax of command is: exec windowmanager. After this, save the file. Next time when you run a startx a new window manager will open and become default.
+The commands for starting some popular window managers and desktop environments are:
+-KDE = startkde
+-Gnome = gnome-session
+-Blackbox = blackbox
+-FVWM = fvwm
+-Window Maker = wmaker
+-IceWM = icewm
+20.How shadow passwords are given by in Linux?
+pwconv command is used for giving shadow passwords. Shadow passwords are given for better system security. The pwconv command creates the file /etc/shadow and changes all passwords to ‘x’ in the /etc/passwd file. First, entries in the shadowed file which don’t exist in the main file are removed. Then, shadowed entries which don’t have `x’ as the password in the main file are updated. Any missing shadowed entries are added. Finally, passwords in the main file are replaced with `x’. These programs can be used for initial conversion as well to update the shadowed file if the main file is edited by hand.
+21.What daemon is used for scheduling of the commands?
+The crontab command is used for scheduling of the commands to run at a later time.
+SYNTAX
+crontab [ -u user ] file
+crontab [ -u user ] { -l | -r | -e }
+Options
+-l List – display the current crontab entries.
+-r Remove the current crontab.
+-e Edit the current crontab using the editor specified by the VISUAL or EDITOR environment variables.
+When user exits from the editor, the modified crontab will be installed automatically. Each user can have their own crontab, and though these are files in /var, they are not intended to be edited directly.
+If the –u option is given than the crontab gives the name of the user whose crontab is to be tweaked. If it is given without this then it will display the crontab of the user who is executing the command.
+22.What shell does a Linux Administrator assign to a POP3 mail-only account?
+POP3 mail only account is assigned to the /bin/false shell. However, assigning bash shell to a POP3 mail only gives user login access, which is avoided. /bin/nologin can also be used. This shell is provided to the user when we don’t want to give shell access to the user. The user cannot access the shell and it rejects shell login on the server as in Telnet. It is mainly for the security of the shells.
+POP3 is basically used for downloading mail to mail program. So for illegal downloading of emails on the shell, this account is assigned to the /bin/false shell or /bin/nologin. These both shells are same as they both do the same work of rejecting the user login to the shell. The main difference between these two shells is that false shell shows the incorrect code and any unusual coding when user login to it. But the nologin shell simply tells that no such account is available. So nologin shell is used often in Linux.
+23.If a volume group named VG0 already exists and we need to extend this volume group up to 4GB. How will you do it?
+• Firstly create Physical volume (/dev/sda7) of size 4GB.
+• Now run following command.
+vgextend VG0 /dev/sda7
+24.Is there any relation between modprobe.conf file and network devices?
+Yes, this file assigns a kernel module to each network device.
+For Example:-
+[root@localhost ~]# cat /etc/modprobe.conf
+alias eth0 b44
+Here, b44 is the kernel module for network device eth0.
+We can confirm whether this module “b44” is present or not by the following command
+[root@localhost ~]# lsmod |grep b44
+b44 29005 0
+25.What is YUM?
+YUM stands for Yellow dog Updater, Modified because it is based on YUP, the Yellow dog Updater. Where does the name Yellow dog come from? Yellow Dog is a version of Linux for the Power Architecture hardware and is RPM-based, just like Red Hat Enterprise Linux and Fedora. YUP, and later YUM, were written by the Linux community as a way to maintain an RPM-based system
+26.What is the role of “Kudzu”?
+Kudzu is used to detect new Hardware. RedHat Linux runs a hardware discoverer, named kudzu. When attempting to identify a serial port Kudzu resets the serial port. This stops the serial console. Kudzu is configured from the file/etc/sysconfig/kudzu.
+Kudzu can be prevented from resetting hardware, by setting the configuration parameter SAFE to yes.
+27.What is the difference between ext2 and ext3 file systems?
+• The ext3 file system is an enhanced version of the ext2 file system.
+• The most important difference between Ext2 and Ext3 is that Ext3 supports journaling.
+• After an unexpected power failure or system crash (also called an unclean system shutdown), each mounted ext2 file system on the machine must be checked for consistency by the e2fsck program. This is a time-consuming process and during this time, any data on the volumes is unreachable.
+• The journaling provided by the ext3 file system means that this sort of file system check is no longer necessary after an unclean system shutdown. The only time a consistency check occurs using ext3 is in certain rare hardware failure cases, such as hard drive failures. The time to recover an ext3 file system after an unclean system shutdown does not depend on the size of the file system or the number of files. Rather, it depends on the size of the journal used to maintain consistency. The default journal size takes almost a second to recover, depending on the speed of the hardware.
+28.Explain /proc filesystem?
+/proc is a virtual file system that provides detailed information about Linux kernel, hardware and running processes. Files under /proc directory named as Virtual files.
+Since /proc contains virtual files, it is called virtual file system. These virtual files have unique qualities. Most of them are listed as zero bytes in size.
+Virtual files such as /proc/interrupts, /proc/meminfo, /proc/mounts, and /proc/partitions provide an up-to-the-moment glimpse of the system’s hardware. Others: /proc/filesystems file and the /proc/sys/ directory provide system configuration information and interfaces.
+29.How do you create ext4 file system?
+# mke2fs -t ext4 /dev/DEV
+30.How to Enable ACLs for /home partition?
+Add following entry in /etc/fstab
+LABEL=/home /home ext3 acl 1 2
+Now remount /home partition with acl option.
+mount -t ext3 -o acl /dev/sda3 /home
+
+
+
+What is the smallest number divisible by 225 that consists of all 1's and 0's?
+
+
+Name most popular non-SQL data bases? What non-SQL DBs come with a modern OS?
+
+
+Fibonacci numbers
+* Iterations O(n)
+* Binet's formula O(1) - any problems here?
+* O(log n) solution based on matrix
+Tip
+template<typename Element>
+struct mat2
+{
+	Element elements[2][2];
+};
+ 
+template<typename Element>
+constexpr mat2<Element> operator * (mat2<Element> const & a_, mat2<Element> const & b_)
+{
+	auto const & a = a_.elements;
+	auto const & b = b_.elements;
+	return mat2<Element>{{
+		{a[0][0] * b[0][0] + a[0][1] * b[1][0], a[0][0] * b[0][1] + a[0][1] * b[1][1]},
+		{a[1][0] * b[0][0] + a[1][1] * b[1][0], a[1][0] * b[0][1] + a[1][1] * b[1][1]}
+	}};
+}
+ 
+template<typename Element>
+constexpr mat2<Element> mat_pow(mat2<Element> m, unsigned n)
+{
+	if(!n)
+		return mat2<Element>{{{1,0},{0,1}}};
+	--n;
+ 
+	auto r = m;
+	while(n)
+	{
+		if(n & 1)
+			r = r * m;
+		m = m * m;
+		n >>= 1;
+	}
+	return r;
+}
+ 
+template<typename Integer>
+constexpr Integer fib(unsigned n)
+{
+	constexpr auto a = mat2<Integer>{{{1,1},{1,0}}};
+	auto an = mat_pow(a, n);
+	return an.elements[1][0];
+}
+Tip:
+http://s.wordpress.com/latex.php?latex=%5Cdisplaystyle%20%5Cleft%28%5Cbegin%7Barray%7D%7Bcc%7D1%20%26%201%20%5C%5C%201%20%26%200%20%5Cend%7Barray%7D%5Cright%29%5En%5Cleft%28%5Cbegin%7Barray%7D%7Bc%7D1%5C%5C0%5Cend%7Barray%7D%5Cright%29%3D%5Cleft%28%5Cbegin%7Barray%7D%7Bc%7DF_%7Bn%2B1%7D%5C%5CF_n%5Cend%7Barray%7D%5Cright%29&bg=202020&fg=bebebe&s=0  
+http://wordpress.electric-snow.net/2016/05/31/fibonacci-youre-also-doing-it-wrong/
+
+
+JaneStreet
+
+1)Probability of number of even heads after tossing 4 fair coins.  
+2)Probability of number of even heads after tossing 100 fair coins.  
+3)Probability of number of even heads after tossing 99 fair coins and one weighted coin. 
+4)Say we have a chest with X dollars, where X is a number between [0,1000]. You bid B. If B is higher than X, then you get 1.5X (but you pay B). If B is less or equal to X, then nothing happens. What is your bid?  
+5) Assume now that the number is between [800,1000]. How much do you bid?  
+6) Assume the number is no longer uniform between [0,1000], but rather Gaussian, with mean 500 and standard deviation 100. The calculations are messy to do by hand, but what would be your intuition on how much to bid?  
+7) If you could choose a multiplier for the pay out on the above question, what would it be and why?  
+ 
+1) 50% 
+2) 50% 
+3) 50%  
+4) B=0 
+5) B=800 
+6) B around 600  
+7) Seemed like a risk tolerance question, so I left my multiplier at 1.
+
+Let your unfair coin be H with probability p, and T with probability (1-p).  
+ 
+Then: P(Even number of H)= P( on the fair coins even number of H | unfair = T)*P(unfair = T)+P(on the fair coins odd number of H | unfair = H)*P(unfair = H) 
+ 
+so, (1/2)*(1-p) +(1/2)*p =1/2 
+
+No. So given the answer in 6, you have a positive EV, but there is a lot of downrisk. For instance if X=0, then you lose the 600 bid, but that will happen almost never (being 5 standard deviations away from the mean is really small). So if you play this game a lot of times, you expect to win money. Assume you can only play it once: How much would you choose your multiplier? (you need to say it before the experiment, so if you choose 1000 multiplier, and X = 200 (in which case your gain is 200*1.5-600=-300), then you actually lose 300K)
+Actually 600 is a pretty good guess. The EV is roughly 90 according to the computer (much better than having a bid of 500 or 700). We will see what happens.
+https://www.wolframalpha.com/input/?i=int+of+(1.5x-B)+e%5E(+-+(x-500)+%5E2%2F20000)+(1%2F(100+*+sqrt(2+*+pi)))++from+x+%3D+0+to+B+for+B+%3D+600
+
+
+What the following function does
+#include <iostream>
+#include <stdlib.h>
+int num;
+void(**rptr)();
+void foo() {
+  if(num >= 100) exit(0);
+  std::cout << ++num << std::endl;
+  *rptr++ = foo;
+}
+int main() {
+  rptr = (void(**)())alloca(sizeof(*rptr) * 200) - 1;
+  foo();
+  return 0;
+}
+
+Tip: stack modification using malloca
+
+What this code does
+#if (__COUNTER__ == 0)
+#include <stdio.h>
+int main() {
+  #include __FILE__
+  return 0;
+}
+#elif (__COUNTER__ < 300)
+printf("%d\n", __COUNTER__ / 3);
+#include __FILE__
+#endif
+
+#include <iostream>
+#include <stdlib.h>
+int main() {
+  int x = 0;
+  x |= !fork() << 0;
+  x |= !fork() << 1;
+  x |= !fork() << 2;
+  x |= !fork() << 3;
+  x |= !fork() << 4;
+  x |= !fork() << 5;
+  x |= !fork() << 6;
+  if(1 <= x && x <= 100) std::cout << x << std::endl;
+  return 0;
+}
+
+
+Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+#!/usr/bin/env python
+
+count_3 = 0
+count_5 = 0
+for i in range(100):
+    if (count_3 == 3) and (count_5 == 5):
+        print i,"FizzBuzz"
+	count_3 = 0
+	count_5 = 0
+    elif (count_3 == 3):
+        print i,"Fizz"
+	count_3 = 0
+    elif (count_5 == 5):
+        print i,"Buzz"
+	count_5 = 0
+    else:
+        print i
+    count_3 = count_3 + 1
+    count_5 = count_5 + 1
+
+
+Explain how shared memory works. A good candidate will know details like why pointers are stored as offsets and how to protect memory regions using semaphores. They should also know some of the common applications, e.g. in implementing databases.
+What happens on a system call? A good answer will include a description of processor interrupts and how the hardware handles them, scheduling decisions, marshaling parameters, etc. (For embedded programmers a question dealing with concurrent operations can be substituted.)
+How do you reverse the bits in an int? A good solution to this problem will take fewer operations than the number of bits being flipped.
+Where can data be stored? E.g. stack, heap, data segment, embedded in an opcode, etc.
+
+
+
+Assuming following test.cpp file
+int main()
+{
+  int *a = 0;
+  *a = 5;
+  return 0; 
+}
+what will produce the following command and why
+g++ test.cpp -o test -std=c++11 -Wall ;./test 
+If the code fails (segfault?) is there anyway to fix the code and avoid the failure?
+
+https://en.wikibooks.org/wiki/More_C++_Idioms More C++ Idioms
+
+
+
+What are the important high level features of C++ that distinguish it from other high level languages?
+Why could the C standard library function qsort() be slower than the C++ STL std::sort() even if they used the exact same algorithm?
+Explain when and why parameters to a function should be passed as const reference.
+RAII/Deterministic destruction.
+Type safe genericity.
+Compile time meta-programming.
+Because the compare function is indirectly called via a pointer.
+When they are not primitive types, and are larger than the size of a pointer. Why? Because it avoids copying of data.
+
+
+In the 1950's von Neumann was employed as a consultant to review proposed and ongoing advanced technology projects. One day a week, von Neumann "held court" at 590 Madison Avenue, New York. On one of these occasions in 1954 he was confronted with the FORTRAN concept; John Backus remembered von Neumann being unimpressed and that he asked "why would you want more than machine language?" Frank Beckman, who was also present, recalled that von Neumann dismissed the whole development as "but an application of the idea of Turing's `short code'." Donald Gilles, one of von Neumann's students at Princeton, and later a faculty member at the University of Illinois, recalled in the mid-1970's that the graduates students were being "used" to hand assemble programs into binary for their early machine (probably the IAS machine). He took time out to build an assembler, but when von Neumann found out about he was very angry, saying (paraphrased), "It is a waste of a valuable scientific computing instrument to use it to do clerical work." 
+
+
+
+http://stackoverflow.com/questions/75538/hidden-features-of-c
+#define locked(mutex) if(MutexLocker const& lock = MutexLocker(mutex)) {lock is visible} else {lock is visible}
+
+
+struct A {
+protected:
+    int a;
+};
+
+struct B : A {
+    static int get(A &x) { return x.*(&B::a); }
+};
+
+struct C : A { };
+
+
+int main()
+{
+        struct B b;
+        struct C c;
+        B::get(c);
+        return 1;
+}
+
+
+
+Sent
+
+unsigne char sz = 150;
+for (unsigned char i = 0;i < 2*sz;i++)
+{
+  // how may time the loop will run
+} 
+
+
+
+What is wrong with the following code
+class A 
+{
+public:
+  A()
+ ~A()
+  virtual void print() = 0
+
+}
+
+
+class B : public A
+{
+public:
+  B() {p = new char[10];}
+  virtual ~B() {delete [] p;}
+  void print() {cout << p};
+  char *p;
+}
+
+void main()
+{
+  A *a = new B();
+  delete a;
+}
+
+
+How GCC implements multiple inheritance?
+
+Design pattern facade?
+
+Three STL basic principles?
+
+What allows a generic algorithm to be used for an STL container? 
+
+Why shmat for 2GB can fail on 32 bits CPU?  (Tip EXTSHM=ON, https://linux.die.net/man/2/setrlimit)
+
+What pmap does?
+WHat is ppoll/epoll ?  
+
+
+
+struct dodgy {~dodgy() {throw "Don't do this!";}};
+
+try {
+    dodgy d;
+    throw 1;
+} catch (...) {
+    // Never reached: destroying `d` killed the program.
+}
+ in C++11, destructors are implicitly declared noexcept unless you provide an explicit exception specifier. 
+
+
+How to access a private field in the object of precompiled class
+class A
+{
+public:
+  A() {}
+private:
+  int private_field;
+}
+
+Expected answer:
+class B
+{
+  B() {}
+  int get_field() {return private_field;}
+private:
+  int private_field;
+}
+
+void main()
+{
+  A *a = new A()
+  B *b = (B*)a;
+  b->get_field();
+}a
+
+# Use isinstance(test_list,list) here 
+def is_list(o):
+    try:
+        if len(o) >= 0:
+            return True
+        return False
+    except:
+        return False
+    
+def flat_list(lgr, o, nesting=0):
+    '''
+    The function flattens nested lists
+    @param lgr: debug info
+    @param o: an integer or a list  of integers
+    @param nesting: debug information  
+    '''
+    l = []
+    if is_list(o):
+        for element in o: 
+            l_temp = flat_list(element, nesting+1)
+            l.extend(l_temp)
+            lgr.debug("extend list={orig}, delta={result}".format(l, l_temp)) 
+        return l;
+    else:
+        l.append(o)
+        lgr.debug("append list={orig}, o={obj}".format(l, o)) 
+        return l
+
+Or just (assuming the same nestng level) y
+`
+my_nested_list = [['a', 'b'], ['c', 'd']]
+sum(my_nested_list, [])
+Produces  ['a', 'b', 'c', 'd']
+
+
+See also http://stackoverflow.com/questions/12472338/flattening-a-list-recursively
+def flatten(items, seqtypes=(list, tuple)):
+    for i, x in enumerate(items):
+        while i < len(items) and isinstance(items[i], seqtypes):
+            items[i:i+1] = items[i]
+    return items
+
+
+
+Tip: http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+
+
+
+def mark2(arr):
+    max_diff = arr[1] - arr[0];
+    entry_p = exit_p = 0
+    i = 0
+    j = 0
+    for i in range(len(arr)):
+        for j in range (i+1, len(arr)):
+            if(arr[j] - arr[i] > max_diff):   
+                max_diff = arr[j] - arr[i];
+                entry_p = i
+                exit_p = j
+    return (entry_p, exit_p)
+ 
+test_arrays = [("Linear", [0,1,2,3,4], (0, 4) ),
+               #("empty", [] , (0,0)),
+               ("single wave", [0, 1, 2, 1, 0], (0, 2) ),
+               ("double wave", [0, 1, 2, 1, 2, 1, 0], (0, 2) ),
+               ("double wave higher high", [0, 1, 2, 0, 1, 2, 3, 1, 0] , (0, 6)),
+               ("double wave lower low", [1, 2, 1, 0, 2] , (3, 4)),
+               ("double wave hh ll", [1, 2, 3, 0, 1, 4, 0] , (3, 5)),
+               ]
+               
+for name, data, expected_result in test_arrays:
+    entry_p, exit_p = mark2(data)
+    if (entry_p, exit_p) != expected_result:
+        print "Error", "name", name, "entry=", entry_p, "exit", exit_p
+    else:
+        print "Good!", "name", name, "entry=", entry_p, "exit", exit_p
+
+
+
+def mark(quotes):
+    entry_p = exit_p = 0
+    for i in range(len(quotes)):
+        min = entry_p
+        max = exit_p
+        quote = quotes[i]
+        if quote > quotes[max]:
+            max = i
+        if (quote < quotes[min]):
+            min = i
+        
+        print "max", max, "min", min, "i", i 
+        if max > min:
+            entry_p = min
+            exit_p = max
+    
+    return (entry_p, exit_p)
+
+test_arrays = [("Linear", [0,1,2,3,4], (0, 4) ),
+               ("empty", [] , (0,0)),
+               ("single wave", [0, 1, 2, 1, 0], (0, 2) ),
+               ("double wave", [0, 1, 2, 1, 2, 1, 0], (0, 2) ),
+               ("double wave higher high", [0, 1, 2, 0, 1, 2, 3, 1, 0] , (0, 6)),
+               ("double wave lower low", [1, 2, 1, 0, 2] , (3, 4)),
+               ("double wave hh ll", [1, 2, 3, 0, 1, 4, 0] , (3, 5)),
+               ]
+               
+for name, data, expected_result in test_arrays:
+    entry_p, exit_p = mark(data)
+    if (entry_p, exit_p) != expected_result:
+        print "Error", "name", name, "entry=", entry_p, "exit", exit_p
+
+
+Joke
+int x = 0; //initialize x to 0
+if(x == 1) {
+  x = 1; 
+} 
+
+
+Comment in the code: And further into the darkness we go
+
+
+IF TIMEDIFF >=5
+  SAY "THE SYSTEM IS FUCKED, PLEASE BEAR WITH US"
+  SLEEP(10)
+ENDIF
+
+JEHOV - it creates the world
+
+
+found in the patch for alarm in Android 5.0.2 :
+
+"The man bent over his hourglass, 
+A programmer of sorts. The day was green.
+They said, "You have a blue hourglass,
+You do not fire alarms when they're asked."
+The man replied, "Alarms as they're asked
+are changed within the blue hourglass."
+And they said then, "But fire, you must
+Alarms beyond us, yet themselves,
+Alarms within the blue hourglass
+That trigger exactly when they're asked."
+
+Source: 0ac9664 - platform/frameworks/base - Git at Google
+
+“Fork is rather simple, once you get the hang of it, but the memory management can be a bitch.”
+
+ IN NO EVENT SHALL Bill Paul OR THE VOICES IN HIS HEAD BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+
+ /* You are not expected to understand this. */
+
+//When I wrote this, only God and I understood what I was doing 
+//Now, God only knows
+
+
+// 
+// Dear maintainer:
+// 
+// Once you are done trying to 'optimize' this routine, 
+// and have realized what a terrible mistake that was,
+// please increment the following counter as a warning 
+// to the next guy: 
+// 
+// total_hours_wasted_here = 42 
+//
+
+
+Catch (Exception e) {
+ //who cares?
+}
+
+// I dedicate all this code, all my work, to my wife, Darlene, who will 
+// have to support me and our three children and the dog once it gets 
+// released into the public.
+
+
+long long ago; /* in a galaxy far far away */
+
+/* If it was hard to write, it should be hard to read - good luck */
+
+; THIS CODE IS CURSED.
+
+Exception up = new Exception("Something is really wrong.");
+throw up;  //ha ha
+
+options.BatchSize = 300; //Madness? THIS IS SPARTA!
+
+
+// In about 26 years, at 05:45:35 GMT on Fri, December 24th, 2038, this function will break by adding another digit to it's return value.
+ 
+// To fix it, change the "36,1295" on this line to "0,35".
+ 
+// That will buy you a couple thousand years until 15:21:35 GMT on Sat, 05 Apr 4453.
+// By then, we may need to seriously consider upgrading this program software to avoid having it become obsolete.
+
+
+void foo(char *s) {
+  ...
+  s[strlen(s)] = 0;
+  ...
+}
+
+
+What is wrong with the C code 
+#include <stdio.h>
+int main(char *argc, int argv) (
+    print("Hello World");
+)
+
+Tip: argumenst of main(), brackets, print()
+
+
+Find integer which occurs odd number of times on the list 
+
+# 1 1 2 3 3 4 4 
+
+
+
+def collect(list_numbers):
+    hash_table = {}
+    for number in  list_numbers:
+        if number in hash_table:
+            if (hash_table[number] == 0):
+                hash_table[number] = hash_table[number] + 1 # TBD can be XOR
+             else:
+                hash_table[number] = hash_table[number] - 1 
+              
+        else:
+            hash_table[number] = 0
+            
+      return hash_table
+      
+      
+
+def lookup(hash_table):
+    list_of_odd_nuymbers = []
+    for key, value in hash_table:
+        if (value > 0):
+            list_of_odd_numbers.append(number)
+            break
+            
+     return list_of_odd_numbers
+            
+hash_table = collect([1,1,2,3,3,4])
+list_of_odd_numbers = lookup(hashtable)
+
+
+def collect(list_numbers):
+    odd_number = list_numbers[0] # start from zero and xor all numbers
+    for number in  list_numbers[1:]:
+        odd_number = odd_number ^ number;
+    return odd_number
+
+print  collect([1,1,2,2,0,3,3,4,4])
+
+
+
+How function strcpy() can be made faster
+
+Given an array of character find first occurence of any of the charactes in a string
+
+
+What is the output of the following program?
+using namespace std;
+char f1(char c) {
+ return c == 'z' ? 'a' : c + 1;
+}
+char f2(char &c) {
+ c = f1(c);
+ return c;
+}
+int main(void) {
+ char x = 'x';
+ cout << f2(x);
+ cout << f2(x);
+ cout << f2(x) << endl;
+ return 0;
+}
+
+1. XYZ
+2. yza  <---
+3. xyz
+4. YZA
+
+The following code will print 6
+#include <iostream>
+namespace alpha {int var = 0;}
+namespace beta
+{
+        int var = alpha::var += 2;
+}
+
+
+int main()
+{
+        beta::var += alpha::var;
+        {
+                using namespace beta;
+                std::cout << alpha::var + var;
+        }
+}
+
+
+#include <iostream>
+
+int main()
+{
+        for (int i=0;i<3;i++)
+        for (int j=0;j<=3;j++)
+                std::cout << i;
+        return 0;
+}
+
+
+will ouput 000011112222
+
+
+
+#include <iostream>
+
+int main()
+{
+        for (int i=0;i<3;i++)
+        for (int j=0;j<=i;j++)
+                std::cout << i;
+        return 0;
+}
+
+
+will ouput 011222
+
+
+#include <iostream>
+
+
+int main()
+{
+        int N = 235;
+        int sum = 0;
+        while (N > 0)
+        {
+                sum = sum * 10 + N%10;
+                N /= 10;
+        }
+        std::cout << sum;
+}
+will ouput 532
+
+
+#include <iostream>
+
+template<class T> void f(T &t){ std::cout << 1;}
+template<> void f(const int &t){std::cout << 2;}
+
+int main()
+{
+        int i = 8;
+        f(i);
+}
+Will print 1
+
+
+#include <iostream>
+
+class A 
+{
+public:
+        A() {std::cout << 1;}
+        ~A() {std::cout << 2;}
+};
+
+class B: public A 
+{
+        public:
+        B() {std::cout << 3;} 
+        ~B() {std::cout << 4;}
+};
+
+int main() 
+{
+        A a;
+        B b;
+}
+
+Prints 113422
+
+
+        std::string s = "Abc", t="A";
+        s =s  + t;
+        std::cout << s << std::endl;
+        t = t + s;
+        std::cout << t << std::endl;
+        int i = s.compare(t) > 0;
+        std::cout << s.compare(t);
+        int j = s.length() < t.length();
+        std::cout << i+j;
+prints 2
+
+
+int t[4] = {8, 4, 2, 1};
+int *p1 = t+2, *p2=p1-1;
+p1++; 
+std::cout << *p1 - t[p1-p2]; 
+
+prints -1
+
+
+
+#include <iostream>
+
+class A{
+public:
+        int a;
+};
+
+class B:public A{
+public:
+        int b;
+        int c;
+};
+
+int main() 
+{
+
+        A o1;
+        B o2;
+        o1.a = 1;
+        o2.b = 2;
+        o2.c = 3;
+        o2.a = 4;
+        o1 = o2;
+        std::cout << o1.a;
+} 
+Prints 4
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main() 
+{
+        int a[5] = {5,10,15,20,25};
+        int i, j, k =1, m;
+        i = ++a[1];
+        j = a[2]++;
+        m = a[k];
+        cout << i << j << m;
+} 
+
+Print 111511
+
+
+int i=2,j=3;
+for(i;i=10;i++){break;}
+cout << "i+j=" << i+j;
+Prints "i+j"=13
+
+int a=10;
+for (a=1;a <=10;a++);
+cout <<a;
+Prints 11
+
+
+
+class A{
+public:
+    static int a;
+    A() {
+        ++a;
+    }
+};
+
+int A::a=1;
+
+void f(void){
+    A a;
+    throw string("");
+};
+
+int main() {
+    A a;
+    try {
+        f();
+    }
+    catch (string &s){
+        cout << A::a;
+    }
+	return 0;
+}
+
+Prints 3
+
+
+int *fun(void) {
+    return new int[2];
+}
+
+int fun(int *p) {
+    delete [] p;
+    return 0;
+}
+
+void fun(int *p, int q) {
+    p[q] *= 2;
+}
+
+void fun(int *p, int q, int r){
+    p[q] = r;
+}
+
+int main() {
+    int *v=fun();
+    fun(v,0,1);
+    fun(v,1,2);
+    fun(v,0);
+    cout << v[1]+v[0];
+    fun(v);
+    return 0;
+}
+Prints 4
+
+
+// Example program
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class A
+{
+    public:
+    virtual void f(){cout << 1;}
+};
+class B :public A
+{
+    public:
+    void f(){cout << 2;}
+};
+class C :public B
+{
+    public:
+    void f(){cout << 3;}
+};
+
+int main()
+{
+    B *p=new C;
+    p->f();
+}
+Prints 3
+http://cpp.sh/65uc4
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+class A{
+    public:
+    A() {cout << "A(),";foo();}
+    virtual ~A() {cout<< "~A(),";foo();}
+    virtual void foo(){
+        cout<<"A::foo,";
+    }
+    void bar() {cout <<"A::bar(),";foo();}
+};
+class B:public A{
+    virtual void foo(){cout<<"B::foo(),";}
+};
+int main(){
+    B b;
+    b.bar();
+}
+Prints A(),A::foo,A::bar(),B::foo(),~A(),A::foo, 
+
+
+int main() {
+    int i,j;
+    int mat[3][3] = {
+        1,2,3,
+        4,5,6,
+        7,8,9
+    };
+    for(i=0;i<3;i++)
+    for(j=0;j<3;j++)
+        cout<<*(*(mat+j)+i);
+}
+147258369
+
+
+
+int x=0;
+class A{
+    public:
+    A(){
+        if (x++==0){
+            throw exception();
+        }
+        cout<<"a";
+    }
+    ~A(){cout<<"b";}
+};
+
+
+int main() {
+    try{
+        A a;
+    }
+    catch (exception e)
+    {  
+        cout<<"c";
+    }
+}
+Prints "c"
+
+
+void play(int &a, int&b){
+    if(&a!=&b){
+        a^=b;
+        b^=a;
+        a^=b;
+        cout<<a<<":"<<b;
+    }
+}
+int main(){
+    int a=5;
+    int b=12;
+    play(a,b);
+}
+Prints 12:5
+
+
+class Sample{
+    public:
+    Sample(){cout<<2;}
+    ~Sample(){cout<<4;}
+};
+
+int main(){
+    try{
+        Sample obj;
+        throw 10;
+    }
+    catch (int n){
+        cout<<3;
+    }
+}
+Prints 243
+
+
+class A{
+    public:
+    A(){
+        cout<<"1";
+    }
+    ~A(){
+        cout<<"4";
+    }
+};
+
+class B{
+    public:
+    B(){
+        cout<<"2";
+    }
+    ~B(){
+        cout<<"3";
+    }
+    A a;
+};
+
+int main(){
+    B b;
+}
+Prints 1,2,3,4
+
+
+class A{
+    public:
+    A(){
+        cout<<"1";
+    }
+    ~A(){cout<<"6";}
+};
+
+class B{
+    public:
+    B(){
+        cout<<"2";
+    }
+    ~B(){cout<<"5";}
+};
+
+class C:public A,public B{
+    public:
+    C(){
+        cout<<"3";
+    }
+    ~C(){cout<<"4";}
+};
+
+int main(){
+    C c;
+}
+Prints 123456
+
+
+int main()
+{
+    int m1[2][2]={{1,2},{3,4}};
+    for (int i=1;i>-1;i--)
+    for (int j=1;j>-1;j--)
+        cout<<m1[i][j]*m1[i][j];
+        
+        
+    return 0;
+}
+Prints 16941
+
+
+Fill blanks to swapp the values of x and y
+    int x=5;
+    int y=6;
+    x= ? + y;
+    y= x - y;
+    x= x ? y;
+
+
+There is an array of numbers. Find maximum consequtive range in the array. 
+For example in array [0, 1, 2, 1] the maxim range is 2 - between 0 and 2
+
+
+Implement two console applications A and B, where A gets a list of numbers, sends the list to B, B orders the list,
+B sends the ordered list to A, A prints the ordered list
+Assume C++11 and Unix or Linux
+
+
+
+Q3: Suppose that you have an N-story building and plenty of eggs. An egg breaks if it is dropped from floor T or higher and does not break otherwise. Your goal is to devise a strategy to determine the value of T given the following limitations on the number of eggs and tosses:
+
+Version 0: 1 egg, ≤T tosses.
+Version 1: ∼1lgN eggs and ∼1lgN tosses.
+Version 2: ∼lgT eggs and ∼2lgT tosses.
+Version 3: 2 eggs and ∼2N−−√ tosses.
+Version 4: 2 eggs and ≤cT−−√ tosses for some fixed constant c.
+A:
+
+Version 0: sequential search.
+Version 1: binary search.
+Version 2: find an interval containing T of size ≤2T, then do binary search.
+Version 3: find an interval of size N−−√, then do sequential search. Note: can be improved to ∼2N−−−√ tosses.
+Version 4: 1+2+3+…+t∼12t2. Aim for c=22√.
+
+
+Version 0 : try from floor 1 until it's broken
+Version 1: binary search
+Version 2 : try from 1 , 2, 4, ... the first number that is bigger than T , totally ~lgT tosses , then do binary search another ~lgT tosses
+Version 3 :  try from n^0.5 , 2*n^0.5 , 3*n^0.5 , ... the first number that is bigger than T, used 1 egg and at most ~n^0.5 tosses. then we know T is between k*n^0.5 and (k+1)*n^0.5  , then we try from lower bound to upper bound , at most n^0.5 tosses and use another egg
+Version 4: try from 1, 1+2 , 1+2+3 , ..., 1+2+3 + ... +k the first number that is bigger than T, used 1 egg and  k tosses , then try in last k floor, so totally 2k tosses, 0.5 *k * (k + 1) = T , so k = 2^0.5 T^0.5 
+
+If two threads are incrementing a variable 100 times each without synchronization, what would be the possible min and maximum value.
+Between 2 and 200 - the minimum value does not depend on the number of threads the maximum is 100 x number of threads
+https://www.careercup.com/question?id=18315663
+https://stackoverflow.com/questions/16056462/minimum-and-maximum-value-of-a-global-variable-with-2-thread
+https://stackoverflow.com/questions/4236209/minimum-and-maximum-possible-value-of-a-shared-variable-when-incremented-by-mult
+For 5 threads: name the 5 threads A, B, C, D and E.
+A loads 0
+C, D, E run to completion
+B runs through 4 of its 5 iterations.
+A increments 0 to 1 and stores the result (1).
+B loads 1
+A runs to completion
+B increments 1 to 2 and stores 2.
+
+We have 512CPUs and 1M I/O ports. Every CPU can access any port. A CPU can access only one port any given moment
+CPUs call functions start_access(int port) and stop_access(int port) before and after access to an I/O port.
+Implement function int is_port_accessed(int port) which returns True if the port is access by a CPU
+Ignore race conditions
+
+Add to the system nn array Ports[1000*1000] one byte each and one global variable.
+static char Ports[1000*1000];
+static const int ILLEGAL = -1;
+static int PortWrap = ILLEGAL;
+void start_access(int port)
+{
+	int val = Ports[port]++;
+	if (!val)  // wrap around happened - can happen only for one port
+		PortWrap = port;
+}
+
+void end_access(port)
+{
+	int val = Ports[port];
+	Ports[port]--;
+	if (!val)    // the original value is zero, there is a wrap around in this port      
+		PortWrap = ILLEGAL;
+}
+
+int is_accessed(int port)
+{
+	return (PortWrap == port) || Ports[port];
+}
+
+Mimimum space add array CPUS[512], set port number in the array in the start_access,
+reset entry in the end_access(). Function is_accessed() shall check all CPUS if any 
+of the CPUS accessing the specified port.
+
+
+
+Write a function which replaces a null terminated sequence of chars by a single char. For example,
+given a sequence "aabcc" it will write "abc"
+void foo(char *s)
+{
+	char prev = 0;
+	char last;
+	char *pos = s;
+	while (last = *s)
+	{
+		if (prev !- last)
+		{
+			prev = last;
+			*pos = last;
+			pos++;
+		}
+		s++;
+	}
+	*pos = 0;
+}
+
+
+How to implement two functions:
+void in_use(int value);
+int get_least_recent_unit();
+Complexity is O(1)
+Assume numbers 0-N, where N fits in RAM
+
+For example, for the squence 1,2,3 return 1
+for the sequence 1,2,3,1 return 2
+1,2,3,1,3  return 2
+1,2,3,1,3,2 return 1
+
+Add linked lits of incoming numbers. Index table where for every numbe in the range 0-N I keep a reference to the node in the list
+WHen a number arrives I get the node from the index table. I swap the node with the last node. If the node is not in the list add the new node to 
+the end of the list
+LRU - the oldest entry - will always in the first node of the list
+
+
+There is a file on the disk with up to 10^7 different numbers. Sort the numbers in O(n) if you have 2MB of RAM
+Allocate 10^7 bits. Read the numbers. For every number set the corresponding bit. Read the collected data, write the numbers in order.
+10^7 ~ 2^21, 2MB RAM ~ 2^21
+
+
+int main()
+{
+    char *p;
+    printf("%d %d ", sizeof(*p), sizeof(p));
+}
+
+
+What the following code will output?
+Where the variables are stored?
+int main()
+{
+    char *p1 = "String";
+    char *p2;
+    p2 = p1;
+    p1 = "Test";
+    printf("%s %s\n", p1, p2);
+    return 0;
+}
+
+
+What the following code will output
+
+int main()
+{
+    char c=48;
+    int i, mask=01;
+    for(i=1; i<=5; i++)
+    {
+        printf("%c", c|mask);
+        mask = mask<<1;
+    }
+    return 0;
+}
+
+Answer 12480 
+
+
+
+What is the output of the following code
+class B
+{
+public:
+    virtual int shift(int n = 2) const { return n << 2; }
+};
+
+class D
+    : public B
+{
+public:
+    int shift(int n = 3) const { return n << 3; }
+};
+
+int main()
+{
+    const D d;
+    const B *b = &d;
+
+    std::cout << b->shift() << std::endl;
+
+    return 0;
+}
+
+Answer 16 
+Explanation: virtual function shift() in the class D will be called with default argumen 2
+
+
+ 
+The smallest possible way to store a position on the board of chess.
+One possible answer is to keep only occupied slots 3 bits for row, 3 bits for column, 3 bits, 32 pieces x 4 bits type.
+It can be improved, by keeping separate arrays for checks, bishops, kings, queens. I will give 6 bits for column and row, 32 bits in 12 separate  bit arrays    
+
+
+More jokes https://www.schneierfacts.com/
+
+
+how does a debugger watch point works (e.g., catch when a variable gets a value or gets updated)
+Hint - harwdare breakpoints on the write access to a memory location
+
+
+Calculate points on the circle for a given radius R on a screen.
+https://en.wikipedia.org/wiki/Midpoint_circle_algorithm
+
+
+
+From https://isocpp.org/wiki/faq/proper-inheritance#derivedptrptr-to-baseptrptr
+
+    class Vehicle {
+    public:
+      virtual ~Vehicle() { }
+      virtual void startEngine() = 0;
+    };
+    class Car : public Vehicle {
+    public:
+      virtual void startEngine();
+      virtual void openGasCap();
+    };
+    class NuclearSubmarine : public Vehicle {
+    public:
+      virtual void startEngine();
+      virtual void fireNuclearMissile();
+    };
+    int main()
+    {
+      Car   car;
+      Car*  carPtr = &car;
+      Car** carPtrPtr = &carPtr;
+      Vehicle** vehiclePtrPtr = carPtrPtr;  // This is an error in C++
+      NuclearSubmarine  sub;
+      NuclearSubmarine* subPtr = &sub;
+      *vehiclePtrPtr = subPtr;
+      // This last line would have caused carPtr to point to sub !
+      carPtr->openGasCap();  // This might call fireNuclearMissile()!
+      // ...
+    }
+
+
+http://blog.gainlo.co/index.php/2017/02/02/uber-interview-questions-longest-increasing-subarray/
+https://www.quora.com/What-is-the-hardest-programming-interview-question-that-you-have-been-asked
+
+
+
+name a couple of reasons that (a==1&&a==2&&a==3) evaluates to true.
+
+
+Which one is faster between if (n / 10 == 0) and if (n >= 0 && n<=9) in C++
+
+
+This is a bug 
+    decltype(auto) get()
+    {
+            std::string a="hello world";
+            return (a); // !!!!! BUG
+    }
+    int main()
+    {
+            std::cout << get() << "\n";
+    }
+and this is not
+    decltype(auto) get()
+    {
+            std::string a="hello world";
+            return a;
+    }
+    int main()
+    {
+            std::cout << get() << "\n";
+    }
+
+
+
+Reference outlives the object
+    std::string get()
+    {
+        return "hello world";
+    }
+    int main()
+    {
+      std::string_view view(get());
+      // Refers to junk, but no crash
+      std::cout << view << "\n";
+    }
+
+
+
+
+
+    #include <stdio.h>
+     
+    struct mystruct {
+    	int enabled:1;// Tip: signed integer
+    };
+     
+    int main()
+    {
+    	struct mystruct s;
+    	s.enabled = 1;
+    	if (s.enabled == 1) {
+    		printf("Is enabled\n");
+    	} else {
+    		printf("Is disabled\n"); // This is the output 
+    	}
+    }
+
+
+https://qr.ae/TUn6yD
+
+Consider a “cartesian” graph with t columns and p rows of vertexes. There exists a directed edge from vi,j to vi+1,j+1, vi,j+1, and vi−1,j+1. Handle the edge conditions however you like. The weight of each edge is drawn from some random distribution. What is the expected value of the critical path, given a particular distribution and some arbitrary p and t
+
+?
+
+(The question has to do with message-passing parallel applications, where t
+is the number of simulation timesteps and p is the number of “processors”. The problem represents a one-dimensional halo exchange. Two- and three-dimensional exchanges are the norm.)
+
+My very rough intuition on the second question is that the length of the critical path pretty quickly tends towards the worst possible length as t and p
+
+grow.
+
+Consider a much simplified problem: I send out 1000 RPCs to 1000 parallel servers, and they send back 1000 parallel replies. I’m done when I receive all 1000 parallel replies.
+
+The performance of this simple example is dominated by the 99.9 percentile tail latency for the RPC. The rest of the shape of the distribution doesn’t matter. Just the weight at a particular percentile and the degree of in-cast.
+
+The halo network you describe has an in-cast of 3. So, whatever the 66.7 percentile weight in your distribution is tells me the expected latency for each node in v1,j
+(assuming the we started at v0,j
+
+).
+
+I think you can then apply this iteratively to each subsequent rank in the trellis, ultimately converging on a 66.7 percentile of the weight distribution times the number of ranks.
+
+This is all off the top of my head, and I probably made too many logical leaps.
+
+—-
+
+Edit:
+
+At the bottom, though, which of the outputs is the output on the critical path? You’ve got p
+
+outputs. You need to apply the in-cast reasoning I applied in the second paragraph to all of these, and that’s where things blow up.
+
+Let’s say p=1000
+
+: Now you need to consider the 99.9 percentile of the outputs.
+
+I don’t think you can skate on 66.7 percentile time multiplied by t
+
+, as that’s just an expected value. You need the cumulative distribution so you can apply the in-cast reasoning to all the nodes in the final rank.
+
+Yuck.
+
+
+Athena: describe the backend of the URL shortener service
+* Amount of data in the store if we keep the data for 5 years, get 10M queries/hour, 1M queries/hour are "create"
+* What is the size of the short URL
+* Consider single point of failure, what can be done about it?
+* Generate URLs which are hard to predict?
+* Latency constraints?
+* Time of propagation of the newly added URL in the system
+*
+
+
+
+
+
+Twistlock
+
+A small web service for printing similar words in the English language.
+Two words w_1 and w_2 are considered similar if w_1 is a letter permutation of w_2 (e.g., "stressed" and "desserts"). 
+We provide a DB of the English dictionary you should work with. Please find it in the attached archive. The service can expect the DB (the txt file) to be in the local directory with the same name. 
+The web service should listen on port 8000 and support the following two HTTP endpoints:
+GET /api/v1/similar?word=stressed
+Returns all words in the dictionary that has the same permutation as the word "stressed". The word in the query should not be returned. 
+The result format is a JSON object as follows:
+{
+    similar:[list,of,words,that,are,similar,to,provided,word]
+}
+For example: 
+http://localhost:8000/api/v1/similar?word=apple
+{"similar":["appel","pepla"]}
+GET /api/v1/stats
+Return general statistics about the program:
+Total number of words in the dictionary
+Total number of requests (not including "stats" requests)
+Average time for request handling in nano seconds (not including "stats" requests)
+The output is a JSON object structured as follows:
+{
+    totalWords:int
+    totalRequests:int
+    avgProcessingTimeNs:int
+}
+For example:
+http://localhost:8000/api/v1/stats
+{"totalWords":351075,"totalRequests":9,"avgProcessingTimeNs":45239}
+Misc / hints:
+Please shortly describe the algorithm you use to solve the problem as part of the submission.
+Use any popular programming language you like, but please do think about CPU and memory optimization or the possible trade-offs.
+Please write the task under Linux dev environment.
+Please do expect high rate of requests and requests arriving in parallel.
+Please write all errors/logs to stdout/stderr.
+Program should be submitted as a complete runnable unit with instructions how to build and run it (including the source code). You can use Github but please make the repo private in this case.  
+
+    Build a map where a key is a sorted English word and a value is a list of all valid permutations - complexity O(N*lnN), size is O(i*N) where 0 < i < 1
+    Using the first map build the second map where a key is an English word and a value is a list of valid permutations - complexity O(N*lnN),  memory is O(k*N) where k is a constant 1< k < 3 (estimated)
+    Drop the first map. The second map will fit in the RAM. 
+    Lookup is O(1)
+    If we want to fit the map in the CPU data cache we need sharding and multiple machines.
+
+
+
+Two objects get a reference to each other, move data from the other to itself. How a deadlock can be avoided?
+Answer: add ID to the mutex, lock mutexes in the order of IDs
+
+
+
+Given a series of share prices, for example 1,2,3,1,3,4, find number of buy&sell deals maximizing the profit
+In the example above the answer will be 2 deals: buy for 1, sell for 3 (profit is 2) and buy for 1, sell for 4 (profit is 3) for 
+total profit 5
+Complexit O(n). Buy when the price is at local minimum, sell when the price just before a directional change from going up to 
+going down.
+
+
+Coffee machine Coffee, Tea, Random. All labels are wrong. Put labels correcrtly. Tip: press the button labeled Random - should be Tea or Coffee.
+
+A human cell http://www.digizyme.com/cst_landscapes.html?fbclid=IwAR0m0Md7juU0NSg8Lc1JBglCNo3mdmQIzLL0MvLW296dHK-R_3ngZWgWtmY
+Draw a straight line on a display void draw(x1,y1,x2,y2). Tip: three check possibiliies (x+1,y),(x,y+1),(x+1,y+1) calculate minimum distance from the (x2,y2)
+
+
+Print all floating numbers 
+for (i = 0;i < (1 << 31)-1;i++) {
+   // Shortcut:I do not avoid NaN values 
+   auto val = *(float*)(&i);
+   printf("%f", val)
+}
+
+
+Clairlabs:
+
+Find number of areas filled with ones in a mattix. 
+Breadth first search 
+func visitNeighbour(neighbour,color int) bool {
+   if map[neighbour] == 0 {
+       return False
+   }
+   map[neighbour] = color
+   return True
+}
+
+func visitNeighbours(neighbour, color int) {
+   for _, neighbour := getAllNeighbours(neighbour) {
+   	belongs := visitNeighbour(neighbour,color)
+	if belongs {
+		visitNeighbours(neighbour,color)
+	}
+   }
+}
+
+color := 2
+for row := 0;row <rows;row ++ {
+	for col := 0;col <cols;col ++ {
+		neighbour := Neighbour{row, col}
+		if map[neighbour] != 0 {
+			continue
+		}
+		visitNeighbours(neighbour, color)
+		color++
+	}
+}
+fmt.print("%d", color-2)
+
+
+
+Gett
+
+// brutes force : genetrate all posible tuples sum of which is 24 compleixty O(n^3)
+// If the data is sortedis can be done in O(n^2) by checking pairs against the third number
+type tuple struct {
+    a int 
+    b int
+    c int
+}
+
+func isValid(i, j, k int, data []int) bool {
+  return (data[i]+data[j]+data[k]) == 24
+}
+
+ func checkTuple(data []int) {
+  result := []tuple{}
+  l := len(data)
+ 	for i := 0;i < l;i++ {
+    for j := 0;j < l;j++ {
+      if j == i {
+         continue
+      }
+    	if !thereIsChance(i, j) {
+      	continue
+      }
+      for k := 0;k < l;k++ {
+          if j == i || k == i {
+             continue
+          }
+          if isValid(i, j, k, data) {
+          	result = append(result, tuple{data[i], data[j], data[k]})
+          }
+      }
+    }
+  }
+  fmt.Print("%v", result)
+ }
+
+Codillity
+Write a function:
+    class Solution { public int solution(int[] A); }
+that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
+Given A = [1, 2, 3], the function should return 4.
+Given A = [−1, −3], the function should return 1.
+Write an efficient algorithm for the following assumptions:
+        N is an integer within the range [1..100,000];
+        each element of array A is an integer within the range [−1,000,000..1,000,000].
+
+
+What files from the list A,B should be compiled if 
+Filename Changed dependcies
+A         1        C,D
+B         0        E
+C         0        E
+D         1        C
+E         1        None
+
+O(N^2), can be reduced to roughly O(N) by collecting pathes in the traverese, use bits
+
+Implement midpoint calculaiton
+func midpoint(a, b int) int {
+    if a > b {
+       a, b = b, a
+    }
+    return a + (b - a)/2
+}
+
+
+ClearCo
+
+A social network keeping scores of people. Calculate the average score of second degree neighbours of a given person.
+How to scale?
+
+Devalore  https://godbolt.org/z/Td1GTx5Pe
+
+	#include <stdio.h>
+	int print_array(int num) {
+    	int array[] = {[3]=5};
+    	for (int i=0;i < sizeof(array);i++)
+    		{
+		        print("%d", array[i]);  // what will happen here? 
+	    	}
+	}
+
+
+https://stackoverflow.com/questions/22775500/is-there-any-raii-file-handle-already-implemented
+RAII file handle
+std::unique_ptr<FILE, int (*)(FILE *)> f(fopen("myfile.txt", "a"), fclose);
